@@ -1,0 +1,13 @@
+{
+    "name": "ShoppingCart",
+    "alias": "shoppingcart",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\ShoppingCart\\Providers\\ShoppingCartServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
