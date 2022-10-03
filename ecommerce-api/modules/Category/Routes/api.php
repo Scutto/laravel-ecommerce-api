@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/category', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:api')->name('category.')->prefix('category')->group(function () {
+    Route::get('get/all', 'CategoryController@getCategoryList')->name('get.all');
 });

@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/shoppingcart', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:api')->name('shopping_cart.')->prefix('shopping_cart')->group(function () {
+    Route::get('get/shopping_cart', 'ShoppingCartController@getAuthUserShoppingCart')->name('get.shopping_cart');
+
+    Route::post('post/add_product', 'ShoppingCartController@postAddProductToShoppingCart')->name('post.add_product');
+    Route::post('post/remove_product', 'ShoppingCartController@postRemoveProductToShoppingCart')->name('post.remove_product');
 });

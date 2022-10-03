@@ -2,78 +2,70 @@
 
 namespace Modules\ShoppingCart\Http\Controllers;
 
-use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
+use Modules\ShoppingCart\Entities\ShoppingCart;
+use Symfony\Component\Console\Input\Input;
+use Throwable;
 
 class ShoppingCartController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     * @return Renderable
-     */
-    public function index()
+    public function getAuthUserShoppingCart()
     {
-        return view('shoppingcart::index');
+        try {
+            $user = Auth::user();
+            $shoppingCarts = ShoppingCart::where('user_id', $user->id)->get();
+
+            return response()->json([
+                'shoppingCart' => $shoppingCarts,
+            ]);
+        } catch (Throwable $e) {
+            return response([
+                'message' => [
+                    'title' => 'general.api.error.title',
+                    'text' => 'general.api.error.text',
+                ],
+            ], 400);
+        }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     * @return Renderable
-     */
-    public function create()
+    public function postAddProductToShoppingCart()
     {
-        return view('shoppingcart::create');
+        try {
+            $user = Auth::user();
+            $shoppingCart = new ShoppingCart();
+            $shoppingCart->user_id = $user->id;
+            $shoppingCart->product_id = Input::get('product_id');
+            $shoppingCart->save();
+
+            return response()->json(['successuful']);
+        } catch (Throwable $e) {
+            return response([
+                'message' => [
+                    'title' => 'general.api.error.title',
+                    'text' => 'general.api.error.text',
+                ],
+            ], 400);
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     * @param Request $request
-     * @return Renderable
-     */
-    public function store(Request $request)
+    public function postRemoveProductToShoppingCart()
     {
-        //
-    }
+        try {
+            $user = Auth::user();
+            $productId = Input::get('product_id');
+            ShoppingCart::where('user_id', $user->id)
+                ->where('product_id', $productId)
+                ->delete();
 
-    /**
-     * Show the specified resource.
-     * @param int $id
-     * @return Renderable
-     */
-    public function show($id)
-    {
-        return view('shoppingcart::show');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     * @param int $id
-     * @return Renderable
-     */
-    public function edit($id)
-    {
-        return view('shoppingcart::edit');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     * @param Request $request
-     * @param int $id
-     * @return Renderable
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     * @param int $id
-     * @return Renderable
-     */
-    public function destroy($id)
-    {
-        //
+            return response()->json(['successuful']);
+        } catch (Throwable $e) {
+            return response([
+                'message' => [
+                    'title' => 'general.api.error.title',
+                    'text' => 'general.api.error.text',
+                ],
+            ], 400);
+        }
     }
 }
