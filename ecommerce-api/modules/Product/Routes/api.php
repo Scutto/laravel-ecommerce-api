@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->name('products.')->prefix('products')->group(function () {
+Route::name('products.')->prefix('products')->group(function () {
     Route::get('get/all', 'ProductController@getProductsList')->name('get.all');
     Route::get('get/{productId}', 'ProductController@getProductDetails')->name('get.single');
 });

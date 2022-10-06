@@ -1,5 +1,16 @@
 <?php
 
 return [
-    'name' => 'Category'
+    'name' => 'Category',
+
+    'migrations' => [
+        'categories' => [
+            'hoddies',
+            'sweatshirts',
+            't-shirts',
+            'pants',
+            'gloves',
+            'accessories',
+        ],
+    ],
 ];

@@ -10,11 +10,10 @@ use Throwable;
 
 class ShoppingCartController extends Controller
 {
-    public function getAuthUserShoppingCart()
+    public function getAuthUserShoppingCart($sessionId)
     {
         try {
-            $user = Auth::user();
-            $shoppingCarts = ShoppingCart::where('user_id', $user->id)->get();
+            $shoppingCarts = ShoppingCart::where('session_id', $sessionId)->get();
 
             return response()->json([
                 'shoppingCart' => $shoppingCarts,
@@ -35,7 +34,7 @@ class ShoppingCartController extends Controller
             $user = Auth::user();
             $shoppingCart = new ShoppingCart();
             $shoppingCart->user_id = $user->id;
-            $shoppingCart->product_id = Input::get('product_id');
+            // $shoppingCart->product_id = Input::get('product_id');
             $shoppingCart->save();
 
             return response()->json(['successuful']);

@@ -15,14 +15,10 @@ class CreateShoppingCartsTable extends Migration
     {
         Schema::create('shopping_carts', function (Blueprint $table) {
             $table->id();
-
-            $table->unsignedInteger('user_id');
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
-
-            $table->unsignedInteger('product_id');
+        
+            $table->integer('session_id');
+            $table->unsignedInteger('user_id')->nullable();
+            $table->bigInteger('product_id')->unsigned();
             $table->foreign('product_id')
                 ->references('id')
                 ->on('products')

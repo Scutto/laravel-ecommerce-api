@@ -3,7 +3,7 @@
 namespace Modules\Category\Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Eloquent\Model;
+use Modules\Category\Entities\Category;
 
 class CategoryDatabaseSeeder extends Seeder
 {
@@ -14,8 +14,14 @@ class CategoryDatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Model::unguard();
+        Category::unguard();
 
-        // $this->call("OthersTableSeeder");
+        foreach(config('category.migrations.categories', []) as $category) {
+            $newCategory = new Category();
+            $newCategory->name = $category;
+            $newCategory->save();
+        }
+
+        Category::reguard();
     }
 }
