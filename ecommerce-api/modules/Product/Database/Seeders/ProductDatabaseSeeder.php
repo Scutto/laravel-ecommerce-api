@@ -3,9 +3,9 @@
 namespace Modules\Product\Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Eloquent\Model;
 use Modules\Category\Entities\Category;
 use Modules\Product\Entities\Product;
+use Modules\Product\Entities\ProductImage;
 
 class ProductDatabaseSeeder extends Seeder
 {
@@ -23,11 +23,28 @@ class ProductDatabaseSeeder extends Seeder
             $newProduct->title = 'Product' . $product;
             $newProduct->description = 'Description product ' . $product;
             $newProduct->category_id = Category::inRandomOrder()->first()->id;
-            $newProduct->available_sizes = 'm,l,xl';
+            $newProduct->available_sizes = 's,m,l,xl';
             $newProduct->price = 15.55;
-            $newProduct->image_url = 'product' . $product;
             $newProduct->save();
         }
+
+        Product::all()->each(
+            function(Product $product) {
+                $newImage = new ProductImage();
+                $newImage->product_id = $product->id;
+                $newImage->file = $product->id . '.jpg';
+                $newImage->type = 'thumbnail';
+                $newImage->save();
+
+                foreach(range(1, 3) as $index) {
+                    $newImage = new ProductImage();
+                    $newImage->product_id = $product->id;
+                    $newImage->file = $index . '.jpg';
+                    $newImage->type = 'details';
+                    $newImage->save();
+                }
+            }
+        );
 
         Product::reguard();
     }

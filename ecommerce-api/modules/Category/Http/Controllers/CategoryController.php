@@ -3,12 +3,18 @@
 namespace Modules\Category\Http\Controllers;
 
 use Illuminate\Routing\Controller;
+use Illuminate\Http\JsonResponse;
 use Modules\Category\Entities\Category;
 use Throwable;
 
 class CategoryController extends Controller
 {
-    public function getCategoryList()
+    /**
+     * Returns the list of all the categories
+     * 
+     * @return JsonResponse
+     */
+    public function getCategoryList(): JsonResponse
     {
         try {
             return response()->json([

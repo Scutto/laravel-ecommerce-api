@@ -13,6 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->name('category.')->prefix('category')->group(function () {
+Route::name('category.')->prefix('category')->group(function () {
     Route::get('get/all', 'CategoryController@getCategoryList')->name('get.all');
 });

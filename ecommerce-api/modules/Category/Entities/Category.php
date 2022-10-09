@@ -5,6 +5,15 @@ namespace Modules\Category\Entities;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
+/**
+ * Class Category
+ * 
+ * @property integer $id
+ * @property string $name
+ * @property integer $parent_id
+ * 
+ * @package Modules\Category\Entities
+ */
 class Category extends Model
 {
     use HasFactory;

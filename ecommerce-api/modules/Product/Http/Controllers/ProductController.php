@@ -3,16 +3,22 @@
 namespace Modules\Product\Http\Controllers;
 
 use Illuminate\Routing\Controller;
+use Illuminate\Http\JsonResponse;
 use Modules\Product\Entities\Product;
 use Throwable;
 
 class ProductController extends Controller
 {
-    public function getProductsList()
+    /**
+     * Returns the list of all the products
+     * 
+     * @return JsonResponse
+     */
+    public function getProductsList(): JsonResponse
     {
         try {
             return response()->json([
-                'products' => Product::all(),
+                'products' => Product::with(['category', 'thumbnail', 'details'])->get(),
             ]);
         } catch (Throwable $e) {
             return response([
@@ -24,7 +30,12 @@ class ProductController extends Controller
         }
     }
 
-    public function getProductDetails(string $productId)
+    /**
+     * Returns the details for one product
+     * 
+     * @return JsonResponse
+     */
+    public function getProductDetails(string $productId): JsonResponse
     {
         try {
             return response()->json([

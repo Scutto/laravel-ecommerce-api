@@ -24,7 +24,6 @@ class CreateProductsTable extends Migration
             ->onDelete('cascade');
             $table->float('price');
             $table->string('available_sizes');
-            $table->string('image_url');
             $table->timestamps();
         });
     }

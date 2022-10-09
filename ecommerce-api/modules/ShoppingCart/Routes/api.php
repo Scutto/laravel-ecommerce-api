@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->name('shopping_cart.')->prefix('shopping_cart')->group(function () {
-    Route::get('get/shopping_cart/{sessionId}', 'ShoppingCartController@getAuthUserShoppingCart')->name('get.shopping_cart');
+Route::name('shopping_cart.')->prefix('shopping_cart')->group(function () {
+    Route::get('get/{sessionId}', 'ShoppingCartController@getShoppingCartBySessionId')->name('get.shopping_cart');
 
     Route::post('post/add_product', 'ShoppingCartController@postAddProductToShoppingCart')->name('post.add_product');
     Route::post('post/remove_product', 'ShoppingCartController@postRemoveProductToShoppingCart')->name('post.remove_product');
+    Route::post('post/update_products', 'ShoppingCartController@postUpdateProductsToShoppingCart')->name('post.update_product');
 });
