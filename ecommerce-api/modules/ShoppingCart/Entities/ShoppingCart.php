@@ -23,7 +23,7 @@ class ShoppingCart extends Model
 {
     use HasFactory;
 
-    protected $fillable = [];
+    protected $hidden = ['product_id'];
     
     /**
      * Defines the relation with User

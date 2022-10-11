@@ -22,7 +22,7 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = [];
+    protected $hidden = ['category_id'];
 
     /**
      * Defines the relation with Category

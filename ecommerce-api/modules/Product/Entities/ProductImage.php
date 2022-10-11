@@ -19,7 +19,7 @@ class ProductImage extends Model
 {
     use HasFactory;
 
-    protected $fillable = [];
+    protected $hidden = ['product_id'];
 
     protected $appends = ['imageUrl'];
 
@@ -38,6 +38,6 @@ class ProductImage extends Model
      */
     public function getImageUrlAttribute()
     {
-        return url('storage/products/images/'. $this->type . '/' . $this->file);
+        return asset('storage/products/images/'. $this->type . '/' . $this->file);
     }
 }

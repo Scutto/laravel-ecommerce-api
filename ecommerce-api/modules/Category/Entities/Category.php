@@ -18,7 +18,7 @@ class Category extends Model
 {
     use HasFactory;
 
-    protected $fillable = [];
+    protected $hidden = ['parent_id'];
 
     /**
      * Defines the relation with the parent Category
