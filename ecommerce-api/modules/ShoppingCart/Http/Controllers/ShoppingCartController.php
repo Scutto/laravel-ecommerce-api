@@ -42,14 +42,23 @@ class ShoppingCartController extends Controller
     {
         try {
             $inputs = $request->all();
+            $checkCartUpdate = ShoppingCart::where('sessionId', $inputs['sessionId'])
+                ->where('product_id', $inputs['productId'])
+                ->where('size', $inputs['size'])
+                ->first();
 
-            $shoppingCart = new ShoppingCart();
-            $shoppingCart->session_id = $inputs['sessionId'];
-            $shoppingCart->size = $inputs['size'];
-            $shoppingCart->quantity = $inputs['quantity'];
-            $shoppingCart->product_id = $inputs['productId'];
-            $shoppingCart->save();
-
+            if($checkCartUpdate != null) {
+                $checkCartUpdate->quantity = $checkCartUpdate->quantity + $inputs['quantity'];
+                $checkCartUpdate->save();
+            } else {
+                $shoppingCart = new ShoppingCart();
+                $shoppingCart->session_id = $inputs['sessionId'];
+                $shoppingCart->size = $inputs['size'];
+                $shoppingCart->quantity = $inputs['quantity'];
+                $shoppingCart->product_id = $inputs['productId'];
+                $shoppingCart->save();
+            }
+            
             $shoppingCarts = ShoppingCart::with(['product'])->where('session_id', $inputs['sessionId'])->get();
 
             return response()->json([
