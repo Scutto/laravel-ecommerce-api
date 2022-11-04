@@ -24,6 +24,7 @@ class ProductDatabaseSeeder extends Seeder
             $newProduct->description = 'Description product ' . $product;
             $newProduct->category_id = Category::inRandomOrder()->first()->id;
             $newProduct->available_sizes = 's,m,l,xl';
+            $newProduct->available_quantity = 10;
             $newProduct->price = 15.55;
             $newProduct->save();
         }

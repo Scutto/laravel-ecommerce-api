@@ -5,6 +5,7 @@ namespace Modules\Product\Entities;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Modules\Category\Entities\Category;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 /**
  * Class Product
@@ -12,6 +13,8 @@ use Modules\Category\Entities\Category;
  * @property integer $id
  * @property string $title
  * @property string $description
+ * @property string $stripe_product_id
+ * @property string $stripe_product_price_id
  * @property integer $category_id
  * @property integer $price
  * @property string $available_sizes
@@ -52,5 +55,21 @@ class Product extends Model
     public function details()
     {
         return $this->hasMany(ProductImage::class)->where('product_images.type', 'details');
+    }
+
+    /**
+     * Get the user's first name.
+     *
+     * @return \Illuminate\Database\Eloquent\Casts\Attribute
+     */
+    protected function price(): Attribute
+    {
+        return Attribute::make(
+            get: function ($value) {
+                $decimal = substr($value, -2);
+                
+                return substr($value, 0, strlen($value) - 2) . '.' . $decimal;
+            },
+        );
     }
 }

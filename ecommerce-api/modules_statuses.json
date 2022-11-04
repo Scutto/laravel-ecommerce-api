@@ -1,5 +1,6 @@
 {
     "Category": true,
     "Product": true,
-    "ShoppingCart": true
+    "ShoppingCart": true,
+    "Stripe": true
 }

@@ -17,8 +17,13 @@ class ProductController extends Controller
     public function getProductsList(): JsonResponse
     {
         try {
+            $products = Product::with(['category', 'thumbnail', 'details'])
+                ->whereNotNull('stripe_product_id')
+                ->whereNotNull('stripe_product_price_id')
+                ->get();
+
             return response()->json([
-                'products' => Product::with(['category', 'thumbnail', 'details'])->get(),
+                'products' => $products,
             ]);
         } catch (Throwable $e) {
             return response([

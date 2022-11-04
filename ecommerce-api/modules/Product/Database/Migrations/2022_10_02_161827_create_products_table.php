@@ -17,6 +17,8 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('description');
+            $table->string('stripe_product_id');
+            $table->string('stripe_product_price_id')->nullable();
             $table->bigInteger('category_id')->unsigned();
             $table->foreign('category_id')
             ->references('id')
@@ -24,6 +26,7 @@ class CreateProductsTable extends Migration
             ->onDelete('cascade');
             $table->float('price');
             $table->string('available_sizes');
+            $table->unsignedInteger('available_quantity');
             $table->timestamps();
         });
     }

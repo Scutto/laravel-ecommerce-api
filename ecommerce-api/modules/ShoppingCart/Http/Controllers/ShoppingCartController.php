@@ -7,6 +7,7 @@ use Illuminate\Http\JsonResponse;
 use Modules\ShoppingCart\Entities\ShoppingCart;
 use Illuminate\Http\Request;
 use Throwable;
+use Laravel\Cashier\Checkout;
 
 class ShoppingCartController extends Controller
 {
@@ -35,14 +36,12 @@ class ShoppingCartController extends Controller
 
     /**
      * Adds a new product to a shopping cart
-     * 
-     * @return JsonResponse
      */
-    public function postAddProductToShoppingCart(Request $request): JsonResponse
+    public function postAddProductToShoppingCart(Request $request)
     {
         try {
             $inputs = $request->all();
-            $checkCartUpdate = ShoppingCart::where('sessionId', $inputs['sessionId'])
+            $checkCartUpdate = ShoppingCart::where('session_id', $inputs['sessionId'])
                 ->where('product_id', $inputs['productId'])
                 ->where('size', $inputs['size'])
                 ->first();
@@ -59,7 +58,9 @@ class ShoppingCartController extends Controller
                 $shoppingCart->save();
             }
             
-            $shoppingCarts = ShoppingCart::with(['product'])->where('session_id', $inputs['sessionId'])->get();
+            $shoppingCarts = ShoppingCart::with(['product'])
+                ->where('session_id', $inputs['sessionId'])
+                ->get();
 
             return response()->json([
                 'shoppingCart' => $shoppingCarts,
@@ -136,4 +137,36 @@ class ShoppingCartController extends Controller
             ], 400);
         }
     }
+
+    public function checkout(Request $request)
+    {
+        try {
+            $sessionId = $request->get('sessionId');
+            $shoppingCarts = ShoppingCart::with(['product'])->where('session_id', $sessionId)->get();
+            $domain = config('app.frontend_url');
+            $stripeCheckoutData = [];
+
+            foreach($shoppingCarts as $shoppingCart) {
+                $stripeCheckoutData = array_merge([$shoppingCart->product->stripe_product_price_id => $shoppingCart->quantity], $stripeCheckoutData);
+            }
+
+            $checkoutSession = Checkout::guest()->create($stripeCheckoutData, [
+                'success_url' => $domain . '?state=test_success',
+                'cancel_url' => $domain . '?state=test_cancel',
+            ])->toArray();
+
+            return response()->json([
+                'url' => $checkoutSession['url'],
+            ]);
+        } catch (Throwable $e) {
+            return response([
+                'message' => [
+                    'debug' => [$e->getMessage()],
+                    'title' => 'general.api.error.title',
+                    'text' => 'general.api.error.text',
+                ],
+            ], 400);
+        }
+    }
+    
 }
