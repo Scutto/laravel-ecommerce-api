@@ -43,8 +43,14 @@ class ProductController extends Controller
     public function getProductDetails(string $productId): JsonResponse
     {
         try {
+            $product = Product::with(['category', 'thumbnail', 'details'])
+                ->where('id', $productId)
+                ->whereNotNull('stripe_product_id')
+                ->whereNotNull('stripe_product_price_id')
+                ->firstOrFail();
+
             return response()->json([
-                'product' => Product::where('id', $productId)->firstOrFail(),
+                'product' => $product,
             ]);
         } catch (Throwable $e) {
             return response([

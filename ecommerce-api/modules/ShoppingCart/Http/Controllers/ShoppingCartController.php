@@ -8,6 +8,7 @@ use Modules\ShoppingCart\Entities\ShoppingCart;
 use Illuminate\Http\Request;
 use Throwable;
 use Laravel\Cashier\Checkout;
+use Laravel\Cashier\Cashier;
 
 class ShoppingCartController extends Controller
 {
@@ -138,21 +139,71 @@ class ShoppingCartController extends Controller
         }
     }
 
+    public function postDeleteShoppingCarts(Request $request) {
+        try {
+            $sessionId = $request->get('sessionId');
+            ShoppingCart::where('session_id', $sessionId)->delete();
+
+            return response()->json([
+                'successful'
+            ]);
+        } catch (Throwable $e) {
+            return response([
+                'message' => [
+                    'debug' => [$e->getMessage()],
+                    'title' => 'general.api.error.title',
+                    'text' => 'general.api.error.text',
+                ],
+            ], 400);
+        }
+    }
+
     public function checkout(Request $request)
     {
         try {
             $sessionId = $request->get('sessionId');
             $shoppingCarts = ShoppingCart::with(['product'])->where('session_id', $sessionId)->get();
             $domain = config('app.frontend_url');
-            $stripeCheckoutData = [];
+            $lineItems = [];
 
             foreach($shoppingCarts as $shoppingCart) {
-                $stripeCheckoutData = array_merge([$shoppingCart->product->stripe_product_price_id => $shoppingCart->quantity], $stripeCheckoutData);
+                $lineItems[] = [
+                    'price' => $shoppingCart->product->stripe_product_price_id,
+                    'quantity' => $shoppingCart->quantity,
+                ];
             }
 
+            $stripeCheckoutData = [
+                'payment_method_types' => ['card'],
+                'shipping_address_collection' => ['allowed_countries' => ['IT', 'NL']],
+                'shipping_options' => [
+                  [
+                    'shipping_rate_data' => [
+                        'type' => 'fixed_amount',
+                        'fixed_amount' => ['amount' => 100, 'currency' => 'eur'],
+                        'display_name' => 'Shipping Cost',
+                        'delivery_estimate' => [
+                            'minimum' => ['unit' => 'business_day', 'value' => 5],
+                            'maximum' => ['unit' => 'business_day', 'value' => 7],
+                        ],
+                    ],
+                  ],
+                ],
+                'line_items' => $lineItems,
+                'mode' => 'payment',
+                'success_url' => $domain . '?stripeSuccessful=true',
+                'cancel_url' => $domain . '?stripeCanceled=true',
+              ];
+
+            $session = Cashier::stripe()->checkout->sessions->create($stripeCheckoutData);
+
+            return response()->json([
+                'url' => $session->url,
+            ]);
+
             $checkoutSession = Checkout::guest()->create($stripeCheckoutData, [
-                'success_url' => $domain . '?state=test_success',
-                'cancel_url' => $domain . '?state=test_cancel',
+                'success_url' => $domain . '?stripeSuccessful=true',
+                'cancel_url' => $domain . '?stripeCanceled=true',
             ])->toArray();
 
             return response()->json([
@@ -161,7 +212,7 @@ class ShoppingCartController extends Controller
         } catch (Throwable $e) {
             return response([
                 'message' => [
-                    'debug' => [$e->getMessage()],
+                    'debug' => [$e->getMessage(), $e->getFile(), $e->getLine()],
                     'title' => 'general.api.error.title',
                     'text' => 'general.api.error.text',
                 ],

@@ -5,6 +5,7 @@ namespace Modules\Stripe\Listeners;
 use Illuminate\Support\Facades\Log;
 use Laravel\Cashier\Events\WebhookReceived;
 use Modules\Product\Entities\Product;
+use Modules\Order\Entities\Order;
 
 class StripeEventListener
 {
@@ -18,6 +19,7 @@ class StripeEventListener
     {
         Log::error($event->payload['type']);
         Log::error(json_encode($event));
+
         $webHookType = $event->payload['type'];
         if ($webHookType === 'product.created') {
             $newProduct = new Product();
@@ -38,6 +40,25 @@ class StripeEventListener
             $product->stripe_product_price_id = $event->payload['data']['object']['id'];
             $product->price = $event->payload['data']['object']['unit_amount'];
             $product->save();
+        }
+
+        if($webHookType === 'checkout.session.completed') {
+            $lastOrderNumber = Order::orderBy('order_number')->first();
+            
+            if($lastOrderNumber === null) {
+                $orderNumber = 1;
+            } else {
+                $orderNumber = $lastOrderNumber->order_number + 1;
+            }
+
+            $newOrder = new Order();
+            $newOrder->order_number = $orderNumber;
+            $newOrder->stripe_session_id = $event->payload['data']['object']['id'];
+            $newOrder->amount_total = $event->payload['data']['object']['amount_total'];
+            $newOrder->customer_email = $event->payload['data']['object']['customer_details']['email'];
+            $newOrder->customer_name = $event->payload['data']['object']['customer_details']['name'];
+            $newOrder->stripe_payload = json_encode($event->payload);
+            $newOrder->save();
         }
     }
 }
