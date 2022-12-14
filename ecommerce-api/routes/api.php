@@ -14,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::name('newsletter.')->prefix('newsletter')->group(function () {
+    Route::post('post/add_new_address', 'App\Http\Controllers\Controller@addNewContactToNewsletter')->name('post.add_new');
 });

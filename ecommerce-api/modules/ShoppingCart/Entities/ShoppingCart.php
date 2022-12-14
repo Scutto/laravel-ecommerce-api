@@ -13,17 +13,12 @@ use Modules\Product\Entities\Product;
  * @property integer $id
  * @property integer $session_id
  * @property integer $user_id
- * @property integer $product_id
- * @property string $size
- * @property integer $quantity
  * 
  * @package Modules\ShoppingCart\Entities
  */
 class ShoppingCart extends Model
 {
     use HasFactory;
-
-    protected $hidden = ['product_id'];
     
     /**
      * Defines the relation with User
@@ -40,8 +35,18 @@ class ShoppingCart extends Model
      *
      * @return HasMany
      */
-    public function product()
+    public function products()
     {
-        return $this->hasOne(Product::class, 'id', 'product_id');
+        return $this->hasMany(ShoppingCartProduct::class);
+    }
+
+    /**
+     * Defines the relation with Product
+     *
+     * @return HasMany
+     */
+    public function appliedCoupon()
+    {
+        return $this->hasOne(ShoppingCartCoupon::class);
     }
 }

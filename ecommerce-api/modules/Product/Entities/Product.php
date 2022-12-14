@@ -38,6 +38,16 @@ class Product extends Model
     }
 
     /**
+     * Defines the relation with details images
+     *
+     * @return HasMany
+     */
+    public function sizes()
+    {
+        return $this->hasMany(ProductSizeQuantity::class);
+    }
+
+    /**
      * Defines the relation with thumbnail image
      *
      * @return HasOne

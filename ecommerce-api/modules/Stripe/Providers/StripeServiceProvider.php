@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
 use Modules\Stripe\Console\UpdateProducts;
 use Modules\Stripe\Console\UpdatePrices;
+use Modules\Stripe\Console\UpdateCoupons;
 
 class StripeServiceProvider extends ServiceProvider
 {
@@ -41,7 +42,8 @@ class StripeServiceProvider extends ServiceProvider
     {
         $this->commands([
             UpdateProducts::class,
-            UpdatePrices::class
+            UpdatePrices::class,
+            UpdateCoupons::class,
         ]);
         $this->app->register(RouteServiceProvider::class);
     }

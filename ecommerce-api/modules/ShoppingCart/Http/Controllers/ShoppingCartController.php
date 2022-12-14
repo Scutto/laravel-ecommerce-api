@@ -7,8 +7,10 @@ use Illuminate\Http\JsonResponse;
 use Modules\ShoppingCart\Entities\ShoppingCart;
 use Illuminate\Http\Request;
 use Throwable;
-use Laravel\Cashier\Checkout;
 use Laravel\Cashier\Cashier;
+use Modules\ShoppingCart\Entities\ShoppingCartProduct;
+use Modules\ShoppingCart\Entities\Coupon;
+use Modules\ShoppingCart\Entities\ShoppingCartCoupon;
 
 class ShoppingCartController extends Controller
 {
@@ -20,13 +22,13 @@ class ShoppingCartController extends Controller
     public function getShoppingCartBySessionId(string $sessionId): JsonResponse
     {
         try {
-            $shoppingCarts = ShoppingCart::with(['product'])->where('session_id', $sessionId)->get();
+            $shoppingCart = ShoppingCart::with(['products', 'appliedCoupon'])->where('session_id', $sessionId)->first();
 
             return response()->json([
-                'shoppingCart' => $shoppingCarts,
+                'shoppingCart' => $shoppingCart,
             ]);
         } catch (Throwable $e) {
-            return response([
+            return response()->json([
                 'message' => [
                     'title' => 'general.api.error.title',
                     'text' => 'general.api.error.text',
@@ -42,32 +44,41 @@ class ShoppingCartController extends Controller
     {
         try {
             $inputs = $request->all();
-            $checkCartUpdate = ShoppingCart::where('session_id', $inputs['sessionId'])
+            $shoppingCart = ShoppingCart::where('session_id', $inputs['sessionId'])->first();
+
+            if($shoppingCart == null) {
+                $shoppingCart = new ShoppingCart();
+                $shoppingCart->session_id = $inputs['sessionId'];
+                $shoppingCart->save();
+            }
+
+            $checkProduct = ShoppingCartProduct::where('shopping_cart_id', $shoppingCart->id)
                 ->where('product_id', $inputs['productId'])
                 ->where('size', $inputs['size'])
                 ->first();
 
-            if($checkCartUpdate != null) {
-                $checkCartUpdate->quantity = $checkCartUpdate->quantity + $inputs['quantity'];
-                $checkCartUpdate->save();
+            if($checkProduct != null) {
+                $checkProduct->quantity = $checkProduct->quantity + $inputs['quantity'];
+                $checkProduct->save();
             } else {
-                $shoppingCart = new ShoppingCart();
-                $shoppingCart->session_id = $inputs['sessionId'];
-                $shoppingCart->size = $inputs['size'];
-                $shoppingCart->quantity = $inputs['quantity'];
-                $shoppingCart->product_id = $inputs['productId'];
-                $shoppingCart->save();
+                $shoppingCartProduct = new ShoppingCartProduct();
+                $shoppingCartProduct->shopping_cart_id = $shoppingCart->id;
+                $shoppingCartProduct->product_id = $inputs['productId'];
+                $shoppingCartProduct->size = $inputs['size'];
+                $shoppingCartProduct->quantity = $inputs['quantity'];
+                $shoppingCartProduct->save();
             }
             
-            $shoppingCarts = ShoppingCart::with(['product'])
+            $shoppingCart = ShoppingCart::with(['products', 'appliedCoupon'])
                 ->where('session_id', $inputs['sessionId'])
-                ->get();
+                ->first();
 
             return response()->json([
-                'shoppingCart' => $shoppingCarts,
+                'shoppingCart' => $shoppingCart,
             ]);
         } catch (Throwable $e) {
             return response([
+                'debug' => [$e->getMessage(), $e->getFile(), $e->getLine()],
                 'message' => [
                     'title' => 'general.api.error.title',
                     'text' => 'general.api.error.text',
@@ -85,14 +96,23 @@ class ShoppingCartController extends Controller
     {
         try {
             $sessionId = $request->get('sessionId');
-            $cartId = $request->get('cartId');
+            $productId = $request->get('productId');
+            $size = $request->get('size');
             
-            ShoppingCart::where('id', $cartId)->delete();
+            $shoppingCart = ShoppingCart::where('session_id', $sessionId)->first();
+            if($shoppingCart != null) {
+                ShoppingCartProduct::where('shopping_cart_id', $shoppingCart->id)
+                    ->where('product_id', $productId)
+                    ->where('size', $size)
+                    ->delete();
+            }
 
-            $shoppingCarts = ShoppingCart::with(['product'])->where('session_id', $sessionId)->get();
+            $shoppingCart = ShoppingCart::with(['products', 'appliedCoupon'])
+            ->where('session_id', $sessionId)
+            ->first();
 
             return response()->json([
-                'shoppingCart' => $shoppingCarts,
+                'shoppingCart' => $shoppingCart,
             ]);
         } catch (Throwable $e) {
             return response([
@@ -124,14 +144,57 @@ class ShoppingCartController extends Controller
                 $cartProductToEdit->save();
             }
 
-            $shoppingCarts = ShoppingCart::with(['product'])->where('session_id', $sessionId)->get();
+            $shoppingCart = ShoppingCart::with(['products', 'appliedCoupon'])
+            ->where('session_id', $sessionId)
+            ->first();
 
             return response()->json([
-                'shoppingCart' => $shoppingCarts,
+                'shoppingCart' => $shoppingCart,
             ]);
         } catch (Throwable $e) {
             return response([
                 'message' => [
+                    'title' => 'general.api.error.title',
+                    'text' => 'general.api.error.text',
+                ],
+            ], 400);
+        }
+    }
+
+    public function postApplyCoupon(Request $request) {
+        try {
+            $couponCode = $request->get('couponCode');
+            $sessionId = $request->get('sessionId');
+
+            $shoppingCart = ShoppingCart::where('session_id', $sessionId)->first();
+
+            $couponCheck = Coupon::where('stripe_id', $couponCode)->first();
+            if($couponCheck == null) {
+                return response()->json([
+                    'valid' => false,
+                ]);
+            } else {
+                ShoppingCartCoupon::updateOrCreate(
+                    [
+                        'shopping_cart_id' => $shoppingCart->id,
+                        'coupon_stripe_id' => $couponCheck->id
+                    ],
+                    []
+                );
+
+                $shoppingCart = ShoppingCart::with(['products', 'appliedCoupon'])
+                    ->where('session_id', $sessionId)
+                    ->first();
+
+                return response()->json([
+                    'valid' => true,
+                    'shoppingCart' => $shoppingCart,
+                ]);
+            }
+        } catch (Throwable $e) {
+            return response([
+                'message' => [
+                    'debug' => [$e->getMessage()],
                     'title' => 'general.api.error.title',
                     'text' => 'general.api.error.text',
                 ],
@@ -162,18 +225,26 @@ class ShoppingCartController extends Controller
     {
         try {
             $sessionId = $request->get('sessionId');
-            $shoppingCarts = ShoppingCart::with(['product'])->where('session_id', $sessionId)->get();
+            $shoppingCart = ShoppingCart::with(['products', 'appliedCoupon'])->where('session_id', $sessionId)->first();
             $domain = config('app.frontend_url');
             $lineItems = [];
+            $appliedCouponsArray = [];
 
-            foreach($shoppingCarts as $shoppingCart) {
+            foreach($shoppingCart->products as $shoppingCartProduct) {
                 $lineItems[] = [
-                    'price' => $shoppingCart->product->stripe_product_price_id,
-                    'quantity' => $shoppingCart->quantity,
+                    'price' => $shoppingCartProduct->product->stripe_product_price_id,
+                    'quantity' => $shoppingCartProduct->quantity,
+                ];
+            }
+
+            if($shoppingCart->appliedCoupon != null) {
+                $appliedCouponsArray[] = [
+                    'coupon' => $shoppingCart->appliedCoupon->coupon->stripe_id,
                 ];
             }
 
             $stripeCheckoutData = [
+                'discounts' => $appliedCouponsArray,
                 'payment_method_types' => ['card'],
                 'shipping_address_collection' => ['allowed_countries' => ['IT', 'NL']],
                 'shipping_options' => [
@@ -199,15 +270,6 @@ class ShoppingCartController extends Controller
 
             return response()->json([
                 'url' => $session->url,
-            ]);
-
-            $checkoutSession = Checkout::guest()->create($stripeCheckoutData, [
-                'success_url' => $domain . '?stripeSuccessful=true',
-                'cancel_url' => $domain . '?stripeCanceled=true',
-            ])->toArray();
-
-            return response()->json([
-                'url' => $checkoutSession['url'],
             ]);
         } catch (Throwable $e) {
             return response([

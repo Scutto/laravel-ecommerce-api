@@ -5,6 +5,7 @@ namespace Modules\Product\Database\Seeders;
 use Illuminate\Database\Seeder;
 use Modules\Category\Entities\Category;
 use Modules\Product\Entities\Product;
+use Modules\Product\Entities\ProductSizeQuantity;
 use Modules\Product\Entities\ProductImage;
 
 class ProductDatabaseSeeder extends Seeder
@@ -23,14 +24,22 @@ class ProductDatabaseSeeder extends Seeder
             $newProduct->title = 'Product' . $product;
             $newProduct->description = 'Description product ' . $product;
             $newProduct->category_id = Category::inRandomOrder()->first()->id;
-            $newProduct->available_sizes = 's,m,l,xl';
-            $newProduct->available_quantity = 10;
-            $newProduct->price = 15.55;
+            $newProduct->price = 1555;
             $newProduct->save();
         }
 
         Product::all()->each(
             function(Product $product) {
+                //set test size quantities
+                foreach(['xs', 's', 'm', 'l', 'xl', 'xxl'] as $size) {
+                    $newProductSizeQuantity = new ProductSizeQuantity();
+                    $newProductSizeQuantity->product_id = $product->id;
+                    $newProductSizeQuantity->size = $size;
+                    $newProductSizeQuantity->quantity = 5;
+                    $newProductSizeQuantity->save();
+                }
+                
+                //set test images
                 $newImage = new ProductImage();
                 $newImage->product_id = $product->id;
                 $newImage->file = $product->id . '.jpg';

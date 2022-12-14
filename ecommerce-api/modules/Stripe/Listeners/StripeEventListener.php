@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Log;
 use Laravel\Cashier\Events\WebhookReceived;
 use Modules\Product\Entities\Product;
 use Modules\Order\Entities\Order;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NewOrderAlert;
 
 class StripeEventListener
 {
@@ -59,6 +61,9 @@ class StripeEventListener
             $newOrder->customer_name = $event->payload['data']['object']['customer_details']['name'];
             $newOrder->stripe_payload = json_encode($event->payload);
             $newOrder->save();
+
+
+            Mail::to('gabriele.francescutto@gmail.com')->send(new NewOrderAlert());
         }
     }
 }

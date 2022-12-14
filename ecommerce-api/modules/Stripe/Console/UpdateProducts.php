@@ -5,6 +5,7 @@ namespace Modules\Stripe\Console;
 use Illuminate\Console\Command;
 use Laravel\Cashier\Cashier;
 use Modules\Product\Entities\Product;
+use Modules\Product\Entities\ProductSizeQuantity;
 use Modules\Product\Entities\ProductImage;
 
 class UpdateProducts extends Command
@@ -55,10 +56,16 @@ class UpdateProducts extends Command
                 $newProduct->stripe_product_price_id = null;
                 $newProduct->category_id = 1;
                 $newProduct->price = 0;
-                $newProduct->available_sizes = 's';
-                $newProduct->available_quantity = 0;
                 $newProduct->save();
                 $newProduct->refresh();
+
+                foreach(['xs', 's', 'm', 'l', 'xl', 'xxl'] as $size) {
+                    $newProductSizeQuantity = new ProductSizeQuantity();
+                    $newProductSizeQuantity->product_id = $newProduct->id;
+                    $newProductSizeQuantity->size = $size;
+                    $newProductSizeQuantity->quantity = 5;
+                    $newProductSizeQuantity->save();
+                }
 
                 $newImage = new ProductImage();
                 $newImage->product_id = $newProduct->id;

@@ -58,6 +58,8 @@ return [
 
     'asset_url' => env('ASSET_URL', null),
 
+    'sendinblue_api_key' => env('SENDINBLUE_API_KEY', ''),
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
