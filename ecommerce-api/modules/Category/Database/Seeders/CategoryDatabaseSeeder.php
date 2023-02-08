@@ -16,9 +16,17 @@ class CategoryDatabaseSeeder extends Seeder
     {
         Category::unguard();
 
-        foreach(config('category.migrations.categories', []) as $category) {
+        foreach(config('category.migrations.mtb', []) as $category) {
             $newCategory = new Category();
             $newCategory->name = $category;
+            $newCategory->type = 'mtb';
+            $newCategory->save();
+        }
+
+        foreach(config('category.migrations.streetwear', []) as $category) {
+            $newCategory = new Category();
+            $newCategory->name = $category;
+            $newCategory->type = 'streetwear';
             $newCategory->save();
         }
 

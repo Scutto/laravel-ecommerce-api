@@ -23,6 +23,8 @@ class Controller extends BaseController
                 $credentials
             );
 
+            //todo: check if contact already exists
+
             $createContact = new \SendinBlue\Client\Model\CreateContact([
                 'email' => $newEmailAddress,
             ]);

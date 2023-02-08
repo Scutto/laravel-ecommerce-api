@@ -54,31 +54,18 @@ class UpdateProducts extends Command
                 $newProduct->description = $stripeProduct['description'];
                 $newProduct->stripe_product_id = $stripeProduct['id'];
                 $newProduct->stripe_product_price_id = null;
-                $newProduct->category_id = 1;
+                $newProduct->category_id = 7;
                 $newProduct->price = 0;
+                $newProduct->type = 'mtb';
                 $newProduct->save();
                 $newProduct->refresh();
 
-                foreach(['xs', 's', 'm', 'l', 'xl', 'xxl'] as $size) {
+                foreach(['xs', 's', 'm', 'l', 'xl', '2xl'] as $size) {
                     $newProductSizeQuantity = new ProductSizeQuantity();
                     $newProductSizeQuantity->product_id = $newProduct->id;
                     $newProductSizeQuantity->size = $size;
                     $newProductSizeQuantity->quantity = 5;
                     $newProductSizeQuantity->save();
-                }
-
-                $newImage = new ProductImage();
-                $newImage->product_id = $newProduct->id;
-                $newImage->file = '1.jpg';
-                $newImage->type = 'thumbnail';
-                $newImage->save();
-
-                foreach(range(1, 3) as $index) {
-                    $newImage = new ProductImage();
-                    $newImage->product_id = $newProduct->id;
-                    $newImage->file = $index . '.jpg';
-                    $newImage->type = 'details';
-                    $newImage->save();
                 }
             }
         }

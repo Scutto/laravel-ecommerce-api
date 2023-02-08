@@ -17,45 +17,45 @@ class ProductDatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Product::unguard();
+        // Product::unguard();
 
-        foreach(range(1,5) as $product) {
-            $newProduct = new Product();
-            $newProduct->title = 'Product' . $product;
-            $newProduct->description = 'Description product ' . $product;
-            $newProduct->category_id = Category::inRandomOrder()->first()->id;
-            $newProduct->price = 1555;
-            $newProduct->save();
-        }
+        // foreach(range(1,5) as $product) {
+        //     $newProduct = new Product();
+        //     $newProduct->title = 'Product' . $product;
+        //     $newProduct->description = 'Description product ' . $product;
+        //     $newProduct->category_id = Category::inRandomOrder()->first()->id;
+        //     $newProduct->price = 1555;
+        //     $newProduct->save();
+        // }
 
-        Product::all()->each(
-            function(Product $product) {
-                //set test size quantities
-                foreach(['xs', 's', 'm', 'l', 'xl', 'xxl'] as $size) {
-                    $newProductSizeQuantity = new ProductSizeQuantity();
-                    $newProductSizeQuantity->product_id = $product->id;
-                    $newProductSizeQuantity->size = $size;
-                    $newProductSizeQuantity->quantity = 5;
-                    $newProductSizeQuantity->save();
-                }
+        // Product::all()->each(
+        //     function(Product $product) {
+        //         //set test size quantities
+        //         foreach(['xs', 's', 'm', 'l', 'xl', 'xxl'] as $size) {
+        //             $newProductSizeQuantity = new ProductSizeQuantity();
+        //             $newProductSizeQuantity->product_id = $product->id;
+        //             $newProductSizeQuantity->size = $size;
+        //             $newProductSizeQuantity->quantity = 5;
+        //             $newProductSizeQuantity->save();
+        //         }
                 
-                //set test images
-                $newImage = new ProductImage();
-                $newImage->product_id = $product->id;
-                $newImage->file = $product->id . '.jpg';
-                $newImage->type = 'thumbnail';
-                $newImage->save();
+        //         //set test images
+        //         $newImage = new ProductImage();
+        //         $newImage->product_id = $product->id;
+        //         $newImage->file = $product->id . '.jpg';
+        //         $newImage->type = 'thumbnail';
+        //         $newImage->save();
 
-                foreach(range(1, 3) as $index) {
-                    $newImage = new ProductImage();
-                    $newImage->product_id = $product->id;
-                    $newImage->file = $index . '.jpg';
-                    $newImage->type = 'details';
-                    $newImage->save();
-                }
-            }
-        );
+        //         foreach(range(1, 3) as $index) {
+        //             $newImage = new ProductImage();
+        //             $newImage->product_id = $product->id;
+        //             $newImage->file = $index . '.jpg';
+        //             $newImage->type = 'details';
+        //             $newImage->save();
+        //         }
+        //     }
+        // );
 
-        Product::reguard();
+        // Product::reguard();
     }
 }

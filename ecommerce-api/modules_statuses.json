@@ -3,5 +3,6 @@
     "Product": true,
     "ShoppingCart": true,
     "Stripe": true,
-    "Order": true
+    "Order": true,
+    "PayPal": true
 }

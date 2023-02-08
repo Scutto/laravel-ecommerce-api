@@ -10,6 +10,9 @@ use Throwable;
 use Laravel\Cashier\Cashier;
 use Modules\ShoppingCart\Entities\ShoppingCartProduct;
 use Modules\ShoppingCart\Entities\Coupon;
+use Modules\Product\Entities\Product;
+use Modules\Order\Entities\Order;
+use Modules\Order\Entities\OrderProduct;
 use Modules\ShoppingCart\Entities\ShoppingCartCoupon;
 
 class ShoppingCartController extends Controller
@@ -135,9 +138,12 @@ class ShoppingCartController extends Controller
             $cartData = $request->get('cartData');
             $sessionId = $request->get('sessionId');
 
-            foreach($cartData as $cartProductData) {
-                $cartProductToEdit = ShoppingCart::where('id', $cartProductData['id'])
+            $cartToEdit = ShoppingCart::where('id', $cartData['id'])
                     ->where('session_id', $sessionId)
+                    ->firstOrFail();
+
+            foreach($cartData['products'] as $cartProductData) {
+                $cartProductToEdit = ShoppingCartProduct::where('id', $cartProductData['id'])
                     ->firstOrFail();
 
                 $cartProductToEdit->quantity = $cartProductData['quantity'];
@@ -152,7 +158,8 @@ class ShoppingCartController extends Controller
                 'shoppingCart' => $shoppingCart,
             ]);
         } catch (Throwable $e) {
-            return response([
+            return response()->json([
+                'debug' => [$e->getMessage()],
                 'message' => [
                     'title' => 'general.api.error.title',
                     'text' => 'general.api.error.text',
@@ -177,7 +184,7 @@ class ShoppingCartController extends Controller
                 ShoppingCartCoupon::updateOrCreate(
                     [
                         'shopping_cart_id' => $shoppingCart->id,
-                        'coupon_stripe_id' => $couponCheck->id
+                        'coupon_stripe_id' => $couponCheck->stripe_id
                     ],
                     []
                 );
@@ -202,6 +209,80 @@ class ShoppingCartController extends Controller
         }
     }
 
+    public function postRemoveCoupon(Request $request) {
+        try {
+            $sessionId = $request->get('sessionId');
+            $shoppingCart = ShoppingCart::with(['products', 'appliedCoupon'])->where('session_id', $sessionId)->firstOrFail();
+            $shoppingCart->appliedCoupon->delete();
+            $shoppingCart->refresh();
+            
+            return response()->json([
+                'shoppingCart' => $shoppingCart,
+            ]);
+        } catch (Throwable $e) {
+            return response([
+                'message' => [
+                    'debug' => [$e->getMessage()],
+                    'title' => 'general.api.error.title',
+                    'text' => 'general.api.error.text',
+                ],
+            ], 400);
+        }
+    }
+
+    public function postOrderData(Request $request) {
+        try {
+            $sessionId = $request->get('sessionId');
+            $formData = $request->get('formData');            
+            $lastOrderNumber = Order::orderBy('order_number')->first();
+            
+            if($lastOrderNumber === null) {
+                $orderNumber = 1;
+            } else {
+                $orderNumber = $lastOrderNumber->order_number + 1;
+            }
+
+            if(Order::where('session_id', $sessionId)->exists()) {
+                $order = Order::where('session_id', $sessionId)->firstOrFail();
+            } else {
+                $order = new Order();
+                $order->order_number = $orderNumber;
+            }
+
+            $order->gateway = null;
+            $order->session_id = $sessionId;
+            $order->status = 'to_be_payed';
+            $order->gateway_id = null;
+            $order->amount_total = null;
+            $order->shipping_cost = null;
+            $order->customer_email = $formData['email'];
+            $order->customer_firstname = $formData['firstname'];
+            $order->customer_phone = $formData['phone'];
+            $order->customer_lastname = $formData['lastname'];
+            $order->address_street = $formData['address'];
+            $order->address_city = $formData['town'];
+            $order->address_zipcode = $formData['postalcode'];
+            $order->address_region = $formData['state'];
+            $order->address_country = $formData['country'];
+            $order->gateway_payload = null;
+
+            $order->save();
+            $order->refresh();
+
+            return response()->json([
+                'order' => $order
+            ]);
+        } catch (Throwable $e) {
+            return response([
+                'message' => [
+                    'debug' => [$e->getMessage()],
+                    'title' => 'general.api.error.title',
+                    'text' => 'general.api.error.text',
+                ],
+            ], 400);
+        }
+    }
+    
     public function postDeleteShoppingCarts(Request $request) {
         try {
             $sessionId = $request->get('sessionId');
@@ -230,6 +311,8 @@ class ShoppingCartController extends Controller
             $lineItems = [];
             $appliedCouponsArray = [];
 
+            $order = Order::where('session_id', $sessionId)->firstOrFail();
+
             foreach($shoppingCart->products as $shoppingCartProduct) {
                 $lineItems[] = [
                     'price' => $shoppingCartProduct->product->stripe_product_price_id,
@@ -246,12 +329,12 @@ class ShoppingCartController extends Controller
             $stripeCheckoutData = [
                 'discounts' => $appliedCouponsArray,
                 'payment_method_types' => ['card'],
-                'shipping_address_collection' => ['allowed_countries' => ['IT', 'NL']],
+                // 'shipping_address_collection' => ['allowed_countries' => ['IT', 'NL']],
                 'shipping_options' => [
                   [
                     'shipping_rate_data' => [
                         'type' => 'fixed_amount',
-                        'fixed_amount' => ['amount' => 100, 'currency' => 'eur'],
+                        'fixed_amount' => ['amount' => 1000, 'currency' => 'eur'],
                         'display_name' => 'Shipping Cost',
                         'delivery_estimate' => [
                             'minimum' => ['unit' => 'business_day', 'value' => 5],
@@ -262,11 +345,15 @@ class ShoppingCartController extends Controller
                 ],
                 'line_items' => $lineItems,
                 'mode' => 'payment',
-                'success_url' => $domain . '?stripeSuccessful=true',
-                'cancel_url' => $domain . '?stripeCanceled=true',
+                'success_url' => $domain . '/shop/checkout/success/' . $order->id,
+                'cancel_url' => $domain . '/shop/checkout',
               ];
 
             $session = Cashier::stripe()->checkout->sessions->create($stripeCheckoutData);
+
+            $order->gateway = 'stripe';
+            $order->gateway_id = $session['id'];
+            $order->save();
 
             return response()->json([
                 'url' => $session->url,

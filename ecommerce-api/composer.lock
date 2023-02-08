@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "021a2e1d96a4849ee6c301d59b52c1ce",
+    "content-hash": "0b2c20675f587ef6e7cb7b9ef08d198a",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -488,6 +488,65 @@
                 }
             ],
             "time": "2022-06-18T20:57:19+00:00"
+        },
+        {
+            "name": "fattureincloud/fattureincloud-php-sdk",
+            "version": "v2.0.18",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fattureincloud/fattureincloud-php-sdk.git",
+                "reference": "e8cfce2f8f48a33843609f5f7296c5fc6295ec65"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fattureincloud/fattureincloud-php-sdk/zipball/e8cfce2f8f48a33843609f5f7296c5fc6295ec65",
+                "reference": "e8cfce2f8f48a33843609f5f7296c5fc6295ec65",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "guzzlehttp/guzzle": "^6.5.6 || ^7.4.3",
+                "guzzlehttp/psr7": "^1.8.4 || ^2.1.1",
+                "php": "^7.1 || ^8.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.19.3 || ^3.5",
+                "phpunit/phpunit": "^7.0 || ^8.0 || ^9.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "FattureInCloud\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fatture in Cloud API Team",
+                    "homepage": "https://www.fattureincloud.it"
+                }
+            ],
+            "description": "Connect your software with Fatture in Cloud, the invoicing platform chosen by more than 500.000 businesses in Italy.   The Fatture in Cloud API is based on REST, and makes possible to interact with the user related data prior authorization via OAuth2 protocol.",
+            "homepage": "https://www.fattureincloud.it",
+            "keywords": [
+                "api",
+                "openapi",
+                "openapi-generator",
+                "openapitools",
+                "php",
+                "rest",
+                "sdk"
+            ],
+            "support": {
+                "issues": "https://github.com/fattureincloud/fattureincloud-php-sdk/issues",
+                "source": "https://github.com/fattureincloud/fattureincloud-php-sdk/tree/v2.0.18"
+            },
+            "time": "2022-12-13T15:51:52+00:00"
         },
         {
             "name": "fruitcake/laravel-cors",

@@ -64,11 +64,13 @@ class Product extends Model
      */
     public function details()
     {
-        return $this->hasMany(ProductImage::class)->where('product_images.type', 'details');
+        return $this
+            ->hasMany(ProductImage::class)->where('product_images.type', 'details');
+            // ->orderBy('product_images.file');
     }
 
     /**
-     * Get the user's first name.
+     * Get price in decimal
      *
      * @return \Illuminate\Database\Eloquent\Casts\Attribute
      */

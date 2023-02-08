@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('description');
             $table->string('stripe_product_id')->nullable();
             $table->string('stripe_product_price_id')->nullable();
+            $table->string('type')->default('tecnico');
             $table->bigInteger('category_id')->unsigned();
             $table->foreign('category_id')
             ->references('id')

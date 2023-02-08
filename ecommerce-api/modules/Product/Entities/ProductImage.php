@@ -38,6 +38,6 @@ class ProductImage extends Model
      */
     public function getImageUrlAttribute()
     {
-        return asset('storage/products/images/'. $this->type . '/' . $this->file);
+        return asset('storage/products/images/'. strtolower($this->product->title) . '/' . $this->file);
     }
 }

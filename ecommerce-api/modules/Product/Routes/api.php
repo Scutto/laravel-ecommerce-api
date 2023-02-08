@@ -15,5 +15,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::name('products.')->prefix('products')->group(function () {
     Route::get('get/all', 'ProductController@getProductsList')->name('get.all');
+    Route::get('get/new', 'ProductController@getNewProductsList')->name('get.new');
     Route::get('get/{productId}', 'ProductController@getProductDetails')->name('get.single');
 });

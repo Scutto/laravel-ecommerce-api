@@ -16,7 +16,7 @@ class CreateCategoryTable extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->unsignedInteger('parent_id')->nullable();
+            $table->string('type')->default('mtb');
             $table->timestamps();
         });
     }
