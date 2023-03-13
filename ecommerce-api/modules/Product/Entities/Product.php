@@ -52,6 +52,16 @@ class Product extends Model
      *
      * @return HasOne
      */
+    public function sizeChart()
+    {
+        return $this->hasOne(ProductImage::class)->where('product_images.type', 'size_chart');
+    }
+
+    /**
+     * Defines the relation with thumbnail image
+     *
+     * @return HasOne
+     */
     public function thumbnail()
     {
         return $this->hasOne(ProductImage::class)->where('product_images.type', 'thumbnail');
@@ -67,6 +77,23 @@ class Product extends Model
         return $this
             ->hasMany(ProductImage::class)->where('product_images.type', 'details');
             // ->orderBy('product_images.file');
+    }
+
+    /**
+     * Get price in decimal
+     *
+     * @return \Illuminate\Database\Eloquent\Casts\Attribute
+     */
+    protected function description(): Attribute
+    {
+        return Attribute::make(
+            get: function ($value) {
+                if($value === null) {
+                    return null;
+                }
+                return view('descriptions.' . $value)->render();
+            },
+        );
     }
 
     /**

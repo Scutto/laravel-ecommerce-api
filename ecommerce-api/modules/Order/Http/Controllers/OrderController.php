@@ -2,8 +2,6 @@
 
 namespace Modules\Order\Http\Controllers;
 
-use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Order\Entities\Order;
 use Throwable;
@@ -16,7 +14,9 @@ class OrderController extends Controller
     public function getOrderFromSessionId($sessionId)
     {
         try {
-            $order = Order::where('session_id', $sessionId)->first();
+            $order = Order::with(['products', 'products.product.thumbnail'])
+                ->where('session_id', $sessionId)
+                ->first();
 
             return response()->json([
                 'order' => $order,

@@ -17,9 +17,10 @@ class ProductController extends Controller
     public function getProductsList(): JsonResponse
     {
         try {
-            $products = Product::with(['category', 'thumbnail', 'details', 'sizes'])
+            $products = Product::with(['category', 'thumbnail', 'details', 'sizes', 'sizeChart'])
                 ->whereNotNull('stripe_product_id')
                 ->whereNotNull('stripe_product_price_id')
+                ->orderByDesc('order_by')
                 ->get();
 
             return response()->json([
@@ -43,7 +44,7 @@ class ProductController extends Controller
     public function getNewProductsList(): JsonResponse
     {
         try {
-            $products = Product::with(['category', 'thumbnail', 'details', 'sizes'])
+            $products = Product::with(['category', 'thumbnail', 'details', 'sizes', 'sizeChart'])
                 ->whereNotNull('stripe_product_id')
                 ->whereNotNull('stripe_product_price_id')
                 ->orderByDesc('created_at')
@@ -71,13 +72,13 @@ class ProductController extends Controller
     public function getProductDetails(string $productId): JsonResponse
     {
         try {
-            $product = Product::with(['category', 'thumbnail', 'details', 'sizes'])
+            $product = Product::with(['category', 'thumbnail', 'details', 'sizes', 'sizeChart'])
                 ->where('id', $productId)
                 ->whereNotNull('stripe_product_id')
                 ->whereNotNull('stripe_product_price_id')
                 ->firstOrFail();
 
-            $relatedProducts = Product::with(['category', 'thumbnail', 'details', 'sizes'])
+            $relatedProducts = Product::with(['category', 'thumbnail', 'details', 'sizes', 'sizeChart'])
                 ->where('category_id', $product->category_id)
                 ->where('id', '!=', $product->id)
                 ->whereNotNull('stripe_product_id')

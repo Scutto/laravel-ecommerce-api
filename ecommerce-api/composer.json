@@ -14,6 +14,7 @@
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "nwidart/laravel-modules": "^8.3",
+        "pragmarx/firewall": "^2.3",
         "sendinblue/api-v3-sdk": "8.x.x",
         "symfony/http-client": "^6.2",
         "symfony/mailgun-mailer": "^6.2"

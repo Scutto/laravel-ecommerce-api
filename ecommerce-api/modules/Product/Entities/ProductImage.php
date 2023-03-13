@@ -38,6 +38,10 @@ class ProductImage extends Model
      */
     public function getImageUrlAttribute()
     {
+        if($this->type == 'size_chart') {
+            return asset('storage/products/size_charts/'. $this->file);
+        }
+
         return asset('storage/products/images/'. strtolower($this->product->title) . '/' . $this->file);
     }
 }

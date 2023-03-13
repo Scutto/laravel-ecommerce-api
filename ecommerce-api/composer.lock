@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0b2c20675f587ef6e7cb7b9ef08d198a",
+    "content-hash": "b6a190d286dfdf89cb097af7078c11c2",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2625,6 +2625,137 @@
                 }
             ],
             "time": "2022-07-30T15:51:26+00:00"
+        },
+        {
+            "name": "pragmarx/firewall",
+            "version": "v2.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/antonioribeiro/firewall.git",
+                "reference": "1f5263a219273594fa683f2a986bf0b6abf8972d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/antonioribeiro/firewall/zipball/1f5263a219273594fa683f2a986bf0b6abf8972d",
+                "reference": "1f5263a219273594fa683f2a986bf0b6abf8972d",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": ">=5.3",
+                "php": ">=5.6",
+                "pragmarx/support": ">=0.8.0"
+            },
+            "require-dev": {
+                "geoip2/geoip2": "~2.0",
+                "orchestra/testbench": "3.4.*|3.5.*|3.6.*|3.7.*|3.8.*|4.*",
+                "phpunit/phpunit": "~7|~8"
+            },
+            "suggest": {
+                "geoip/geoip": "~1.14",
+                "geoip2/geoip2": "~2.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.5.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "PragmaRX\\Firewall\\Vendor\\Laravel\\ServiceProvider"
+                    ],
+                    "aliases": {
+                        "Firewall": "PragmaRX\\Firewall\\Vendor\\Laravel\\Facade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PragmaRX\\Firewall\\": "src/",
+                    "PragmaRX\\Firewall\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Antonio Carlos Ribeiro",
+                    "email": "acr@antoniocarlosribeiro.com",
+                    "role": "Creator"
+                }
+            ],
+            "description": "A Laravel IP whitelisting and blacklisting",
+            "keywords": [
+                "blacklist",
+                "firewall",
+                "laravel",
+                "whitelist"
+            ],
+            "support": {
+                "issues": "https://github.com/antonioribeiro/firewall/issues",
+                "source": "https://github.com/antonioribeiro/firewall/tree/v2.3.1"
+            },
+            "time": "2022-03-09T08:14:55+00:00"
+        },
+        {
+            "name": "pragmarx/support",
+            "version": "v0.9.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/antonioribeiro/support.git",
+                "reference": "df3714de795d06e6b68c66f9a8b80bab50f9b6ef"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/antonioribeiro/support/zipball/df3714de795d06e6b68c66f9a8b80bab50f9b6ef",
+                "reference": "df3714de795d06e6b68c66f9a8b80bab50f9b6ef",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/filesystem": "~4.0|~5.0|~6.0|~7.0|~8.0|~9.0",
+                "php": ">=5.4.0",
+                "symfony/var-dumper": "~2.6|~3.0|~4.0|~5.0|~6.0"
+            },
+            "suggest": {
+                "laravel/framework": "Laravel framework.",
+                "symfony/yaml": "The Yaml class needs it"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.7.x-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "PragmaRX\\Support\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Antonio Carlos Ribeiro",
+                    "email": "acr@antoniocarlosribeiro.com",
+                    "role": "Creator"
+                }
+            ],
+            "description": "PragmaRX components support package",
+            "keywords": [
+                "laravel",
+                "pragmarx"
+            ],
+            "support": {
+                "issues": "https://github.com/antonioribeiro/support/issues",
+                "source": "https://github.com/antonioribeiro/support/tree/v0.9.4"
+            },
+            "time": "2022-03-08T18:08:43+00:00"
         },
         {
             "name": "psr/container",

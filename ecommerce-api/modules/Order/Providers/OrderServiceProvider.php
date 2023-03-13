@@ -3,6 +3,7 @@
 namespace Modules\Order\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Modules\Order\Console\TestFattureCommand;
 use Illuminate\Database\Eloquent\Factory;
 
 class OrderServiceProvider extends ServiceProvider
@@ -38,6 +39,9 @@ class OrderServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
+        $this->commands([
+            TestFattureCommand::class,
+        ]);
     }
 
     /**

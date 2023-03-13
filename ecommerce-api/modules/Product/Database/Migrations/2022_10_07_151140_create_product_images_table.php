@@ -22,7 +22,7 @@ class CreateProductImagesTable extends Migration
             ->onDelete('cascade');
 
             $table->string('file');
-            $table->enum('type', ['thumbnail', 'details']);
+            $table->enum('type', ['thumbnail', 'details', 'size_chart']);
 
             $table->timestamps();
         });

@@ -2,7 +2,9 @@
 
 namespace Modules\Order\Processors;
 
+use Carbon\Carbon;
 use Modules\Order\Entities\Order;
+use Modules\Order\Entities\OrderProduct;
 
 use FattureInCloud\Model\Currency;
 use FattureInCloud\Model\DocumentTemplate;
@@ -15,29 +17,84 @@ use FattureInCloud\Model\IssuedDocumentType;
 use FattureInCloud\Model\CreateIssuedDocumentRequest;
 use FattureInCloud\Model\Language;
 use FattureInCloud\Model\PaymentAccount;
-use FattureInCloud\Model\PaymentMethod;
 use FattureInCloud\Model\VatType;
-use FattureInCloud\OAuth2\OAuth2AuthorizationCodeManager;
-use FattureInCloud\OAuth2\Scope;
 
 class CreateInvoiceForOrderProcessor {
+
+    const COMPANY_ID = 1;
+
+    protected $config;
+
+    public function __construct()
+    {
+        $this->config = \FattureInCloud\Configuration::getDefaultConfiguration()->setAccessToken(config('app.fatture_in_cloud_key'));
+    }
+
+    public function getVatListType() {
+        $apiInstance = new \FattureInCloud\Api\InfoApi(
+            // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+            // This is optional, `GuzzleHttp\Client` will be used as default.
+            new \GuzzleHttp\Client(),
+            $this->config
+        );
+
+        try {
+            $result = $apiInstance->listVatTypes(self::COMPANY_ID);
+            var_dump($result);
+        } catch (\Exception $e) {
+            echo 'Exception when calling InfoApi->listVatTypes: ', $e->getMessage(), PHP_EOL;
+        }
+    }
+
+    public function testGetCompany() {
+        $userApi = new \FattureInCloud\Api\UserApi(
+            new \GuzzleHttp\Client(),
+            $this->config
+        );
+
+        try {
+            // Retrieve the first company id
+            $companies = $userApi->listUserCompanies();
+            $firstCompanyId = $companies->getData()->getCompanies()[0]->getId();
+            var_dump($firstCompanyId);
+        
+        } catch (\Exception $e) {
+            echo 'Exception when calling the API: ', $e->getMessage(), PHP_EOL;
+        }
+    }
+
+
+    public function getPaymentAccount() {
+        $apiInstance = new \FattureInCloud\Api\InfoApi(
+            new \GuzzleHttp\Client(),
+            $this->config
+        );
+        
+        try {
+            $result = $apiInstance->listPaymentAccounts(self::COMPANY_ID);
+            print_r($result);
+        } catch (\Exception $e) {
+            echo 'Exception when calling InfoApi->listPaymentAccounts: ', $e->getMessage(), PHP_EOL;
+        }
+        
+    }
+
     public function create(Order $order) {
-    //set your access token
-    $config = \FattureInCloud\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+        $today = Carbon::now()->toDateString();
 
-    $apiInstance = new \FattureInCloud\Api\IssuedDocumentsApi(
-        new \GuzzleHttp\Client(),
-        $config
-    );
+        $apiInstance = new \FattureInCloud\Api\IssuedDocumentsApi(
+            new \GuzzleHttp\Client(),
+            $this->config
+        );
 
-        $entity = $this->createUserData();
+        $entity = $this->createUserData($order);
         $invoice = new IssuedDocument;
         $invoice->setType(IssuedDocumentType::INVOICE);
         $invoice->setEntity($entity);
 
         // Below you can find this section fields:
-        $invoice->setDate(new \DateTime("2022-01-20"));
-        $invoice->setNumber(1);
+        $invoice->setDate(new \DateTime($today));
+        $invoice->setNumber(6);
         $invoice->setNumeration("/fatt");
         $invoice->setSubject("internal subject");
         $invoice->setVisibleSubject("visible subject");
@@ -61,50 +118,55 @@ class CreateInvoiceForOrderProcessor {
         );
 
         // Here we set e_invoice and ei_data
-        // //$invoice->setEInvoice(false); //QUESTO LO FA SPEDIRE IN AUTOMATICO ALL AGENZIA DELLE ENTRATE ON USARE !!!
+        $invoice->setEInvoice(false);
         // $invoice->setEiData(
         //     new IssuedDocumentEiData(
-        //         array(
-        //             "payment_method" => "MP05"
-        //         )
+        //         [
+        //             "payment_method" => "MP05",
+        //             'vat_kind' => 'I',
+        //             'ei_code' => '0000000' //XXXXXXX -> per l'estero
+        //         ]
         //     )
         // );
 
-        //adds the products
-        $invoice->setItemsList(
-            array(
-                new IssuedDocumentItemsListItem(
-                    array(
+        $itemList = [];
+        $order->products->each(
+            function(OrderProduct $orderProduct) use(&$itemList) {
+                $itemList[] = new IssuedDocumentItemsListItem(
+                    [
                         "product_id" => 4,
-                        "code" => "TV3",
-                        "name" => "Tavolo in legno",
-                        "net_price" => 100,
-                        "category" => "cucina",
+                        "code" => $orderProduct->product->sku,
+                        "name" => $orderProduct->product->title,
+                        "net_price" => $orderProduct->product->price,
+                        "category" => "vestiario",
                         "discount" => 0,
-                        "qty" => 1,
+                        "qty" => $orderProduct->quantity,
                         "vat" => new VatType(
                             array(
-                                "id" => 0
+                                "id" => 37
                             )
                         )
-                    )
-                )
-            )
+                    ]
+                );
+            }
         );
+
+        //adds the products
+        $invoice->setItemsList($itemList);
 
         // Here we set the payments list assuming our invoice has already been paid
         $invoice->setPaymentsList(
             array(
                 new IssuedDocumentPaymentsListItem(
                     array(
-                        "amount" => 122,
-                        "due_date" => new \DateTime("2022-01-23"),
-                        "paid_date" => new \DateTime("2022-01-22"),
+                        "amount" => $order->amount_total,
+                        "due_date" => new \DateTime($today),
+                        "paid_date" => new \DateTime($today),
                         "status" => IssuedDocumentStatus::PAID,
                         // List your payment accounts: https://github.com/fattureincloud/fattureincloud-php-sdk/blob/master/docs/Api/InfoApi.md#listpaymentaccounts
                         "payment_account" => new PaymentAccount(
                             array(
-                                "id" => 110
+                                "id" => 1049939
                             )
                         )
                     )
@@ -127,44 +189,57 @@ class CreateInvoiceForOrderProcessor {
         // Now we are all set for the final call
         // Create the invoice: https://github.com/fattureincloud/fattureincloud-php-sdk/blob/master/docs/Api/IssuedDocumentsApi.md#createissueddocument
         try {
-            $result = $apiInstance->createIssuedDocument($company_id, $create_issued_document_request);
+            $result = $apiInstance->createIssuedDocument(self::COMPANY_ID, $create_issued_document_request);
             print_r($result);
         } catch (\Exception $e) {
             echo 'Exception when calling IssuedDocumentsApi->createIssuedDocument: ', $e->getMessage(), PHP_EOL;
         }
+
+
     }
 
-    private function authenticate() {
-        $oauth = new OAuth2AuthorizationCodeManager("CLIENT_ID", "CLIENT_SECRET", "http://localhost:8000/oauth.php");
+    public function verifyInvoiceXML(string $document_id) {
+        try {
+            $apiEInvoiceInstance = new \FattureInCloud\Api\IssuedEInvoicesApi(
+                // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+                // This is optional, `GuzzleHttp\Client` will be used as default.
+                new \GuzzleHttp\Client(),
+                $this->config
+            );
 
-        if(isset($_SESSION['token'])) die('You already have an access token');
-
-        if(!isset($_GET['code'])) {
-        $url = $oauth->getAuthorizationUrl([Scope::ENTITY_SUPPLIERS_READ], "EXAMPLE_STATE");
-        header('location: '.$url);
-        } else {
-                $code = $_GET['code'];
-                $obj = $oauth->fetchToken($code);
-            if(!isset($obj['error'])) {
-                $_SESSION['token'] = $obj->getAccessToken(); //saving the oAuth access token in a session variable
-                $_SESSION['refresh'] = $obj->getRefreshToken();
-            }
-
-            echo 'Token saved correctly in the session variable';
+            $result = $apiEInvoiceInstance->verifyEInvoiceXml(self::COMPANY_ID, $document_id);
+            print_r($result);
+        } catch (\Exception $e) {
+            echo 'Exception when calling IssuedEInvoicesApi->verifyEInvoiceXml: ', $e->getMessage(), PHP_EOL;
         }
     }
 
-    private function createUserData() {
+    public function sendEInvoice($document_id) {
+        $apiInstance = new \FattureInCloud\Api\IssuedEInvoicesApi(
+            // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+            // This is optional, `GuzzleHttp\Client` will be used as default.
+            new \GuzzleHttp\Client(),
+            $this->config
+        );
+        $send_e_invoice_request = new \FattureInCloud\Model\SendEInvoiceRequest; // \FattureInCloud\Model\SendEInvoiceRequest | 
+        
+        try {
+            // $result = $apiInstance->sendEInvoice(self::COMPANY_ID, $document_id, $send_e_invoice_request);
+            // print_r($result);
+        } catch (\Exception $e) {
+            echo 'Exception when calling IssuedEInvoicesApi->sendEInvoice: ', $e->getMessage(), PHP_EOL;
+        }
+    }
+
+    private function createUserData(Order $order) {
         $entity = new Entity;
-        $entity
-            ->setId(1) // Only if the client already exists
-            ->setName("Mario Rossi")
-            ->setVatNumber("47803200154")
-            ->setTaxCode("RSSMRA91M20B967Q")
-            ->setAddressStreet("Via Italia, 66")
-            ->setAddressPostalCode("20900")
-            ->setAddressCity("Milano")
-            ->setAddressProvince("MI")
-            ->setCountry("Italia");
+        $fullname = $order->customer_firstname . ' ' . $order->customer_lastname;
+
+        return $entity
+            ->setName($fullname)
+            ->setAddressStreet($order->address_street)
+            ->setAddressPostalCode($order->address_zipcode)
+            ->setAddressCity($order->address_city)
+            ->setCountry($order->address_country);
     }
 }

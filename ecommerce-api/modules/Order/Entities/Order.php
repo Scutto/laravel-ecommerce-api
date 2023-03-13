@@ -5,6 +5,7 @@ namespace Modules\Order\Entities;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Modules\ShoppingCart\Entities\ShoppingCart;
+use App\Traits\Encryptable;
 
 /**
  * Class Order
@@ -16,9 +17,23 @@ use Modules\ShoppingCart\Entities\ShoppingCart;
  */
 class Order extends Model
 {
-    use HasFactory;
+    use HasFactory, Encryptable;
 
     protected $hidden = [];
+
+    protected $encryptable = [
+        'customer_email',
+        'customer_firstname',
+        'customer_lastname',
+        'customer_phone',
+        'address_street',
+        'address_street_2',
+        'address_city',
+        'address_zipcode',
+        'address_region',
+        'address_country',
+        'gateway_payload',
+    ];
 
     /**
      * Defines the relation with Product

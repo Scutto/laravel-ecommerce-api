@@ -302,6 +302,26 @@ class ShoppingCartController extends Controller
         }
     }
 
+    public function postCheckSessionId(Request $request) {
+        try {
+            $sessionId = $request->get('sessionId');
+            $checkCarts = ShoppingCart::where('session_id', $sessionId)->exists();
+            $checkOrders = Order::where('session_id', $sessionId)->exists();
+
+            return response()->json([
+                'valid' => !$checkOrders && !$checkCarts,
+            ]);
+        } catch (Throwable $e) {
+            return response([
+                'message' => [
+                    'debug' => [$e->getMessage()],
+                    'title' => 'general.api.error.title',
+                    'text' => 'general.api.error.text',
+                ],
+            ], 400);
+        }
+    }
+
     public function checkout(Request $request)
     {
         try {

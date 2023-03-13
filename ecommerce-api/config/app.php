@@ -60,6 +60,8 @@ return [
 
     'sendinblue_api_key' => env('SENDINBLUE_API_KEY', ''),
 
+    'fatture_in_cloud_key' => env('FATTURE_ACCESS_TOKEN', ''),
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
