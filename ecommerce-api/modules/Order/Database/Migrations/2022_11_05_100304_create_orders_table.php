@@ -24,14 +24,14 @@ class CreateOrdersTable extends Migration
             $table->float('amount_total');
             $table->float('shipping_cost');
             $table->string('coupon_stripe_id')->nullable();
-            $table->string('customer_email');
-            $table->string('customer_firstname');
-            $table->string('customer_lastname');
-            $table->string('address_street_1');
-            $table->string('address_street_2')->nullable();
-            $table->string('address_city');
-            $table->string('address_zipcode');
-            $table->string('address_region')->nullable();
+            $table->text('customer_email');
+            $table->text('customer_firstname');
+            $table->text('customer_lastname');
+            $table->text('address_street_1');
+            $table->text('address_street_2')->nullable();
+            $table->text('address_city');
+            $table->text('address_zipcode');
+            $table->text('address_region')->nullable();
 
             $table->text('gateway_payload');
             $table->timestamps();

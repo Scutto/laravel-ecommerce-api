@@ -7,6 +7,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Modules\Order\Entities\Order;
 
 class NewOrderAlert extends Mailable
 {
@@ -17,10 +18,10 @@ class NewOrderAlert extends Mailable
      *
      * @return void
      */
-    public function __construct()
-    {
-        //
-    }
+    public function __construct(
+        public Order $order,
+    )
+    { }
 
     /**
      * Get the message envelope.
@@ -43,7 +44,7 @@ class NewOrderAlert extends Mailable
     public function content()
     {
         return new Content(
-            view: 'mails.orders.alert',
+            view: 'mails.orders.order_confirmation',
         );
     }
 

@@ -50,7 +50,7 @@ class PayPalController extends Controller
             $shoppingCart->delete();
 
             //mail to owner
-            Mail::to('gabriele.francescutto@gmail.com')->send(new NewOrderAlert());
+            Mail::to('gabriele.francescutto@gmail.com')->send(new NewOrderAlert($order));
 
             return response()->json([
                 'order' => $order,

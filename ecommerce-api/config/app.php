@@ -62,6 +62,12 @@ return [
 
     'fatture_in_cloud_key' => env('FATTURE_ACCESS_TOKEN', ''),
 
+    'fatture_app_id' => env('FATTURE_APP_ID', ''),
+
+    'fatture_client_id' => env('FATTURE_CLIENT_ID', ''),
+    
+    'fatture_client_secret' => env('FATTURE_CLIENT_SECRET', ''),
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone

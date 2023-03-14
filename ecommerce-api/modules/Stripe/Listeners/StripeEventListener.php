@@ -78,7 +78,7 @@ class StripeEventListener
                 $order->shoppingCart->delete();    
     
                 //mail to owner
-                // Mail::to('gabriele.francescutto@gmail.com')->send(new NewOrderAlert());
+                Mail::to('gabriele.francescutto@gmail.com')->send(new NewOrderAlert($order));
             } catch(Throwable $t) {
                 Log::info($t->getMessage());
                 Log::info($event->payload);

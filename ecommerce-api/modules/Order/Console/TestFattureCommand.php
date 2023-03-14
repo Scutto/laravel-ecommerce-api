@@ -6,6 +6,7 @@ use Illuminate\Console\Command;
 use Modules\Order\Processors\CreateInvoiceForOrderProcessor;
 use Modules\Order\Entities\Order;
 
+
 class TestFattureCommand extends Command
 {
     /**
@@ -42,10 +43,10 @@ class TestFattureCommand extends Command
      */
     public function handle()
     {
-        $order = Order::first();
+        // $order = Order::first();
         // $this->createInvoiceForOrderProcessor->getVatListType();
         // $this->createInvoiceForOrderProcessor->testGetCompany();
         // $this->createInvoiceForOrderProcessor->getPaymentAccount();
-        $this->createInvoiceForOrderProcessor->create($order);
+        // $this->createInvoiceForOrderProcessor->create($order);
     }
 }
