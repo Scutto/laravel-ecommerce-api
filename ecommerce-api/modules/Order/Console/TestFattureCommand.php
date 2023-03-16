@@ -43,10 +43,10 @@ class TestFattureCommand extends Command
      */
     public function handle()
     {
-        // $order = Order::first();
+        $order = Order::where('id', 3)->first();
         // $this->createInvoiceForOrderProcessor->getVatListType();
         // $this->createInvoiceForOrderProcessor->testGetCompany();
         // $this->createInvoiceForOrderProcessor->getPaymentAccount();
-        // $this->createInvoiceForOrderProcessor->create($order);
+        $this->createInvoiceForOrderProcessor->create($order);
     }
 }

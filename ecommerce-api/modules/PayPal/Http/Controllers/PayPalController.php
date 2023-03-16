@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\NewOrderAlert;
 use Illuminate\Support\Facades\Log;
 use Modules\ShoppingCart\Entities\ShoppingCart;
+use Modules\Order\Processors\GetShippingCostProcessor;
+use Modules\Order\Processors\GetSubAndTotalAmountForOrderProcessor;
 use Throwable;
 
 class PayPalController extends Controller
@@ -25,12 +27,13 @@ class PayPalController extends Controller
             $sessionId = $request->get('sessionId');
             $shoppingCart = ShoppingCart::with(['appliedCoupon'])->where('session_id', $sessionId)->firstOrFail();
 
-            $order = Order::where('session_id', $sessionId)->firstOrFail();
+            $processorShipping = resolve(GetShippingCostProcessor::class);
+            $processorAmount = resolve(GetSubAndTotalAmountForOrderProcessor::class);
+
+            $order = Order::with(['coupon', 'products'])->where('session_id', $sessionId)->firstOrFail();
             $order->gateway = 'paypal';
             $order->gateway_id = $data['id'];
             $order->status = 'payed';
-            $order->amount_total = 1000; //get from shopping cart
-            $order->shipping_cost = 10;
             $order->coupon_stripe_id = $shoppingCart->applied_coupon != null ? $shoppingCart->applied_coupon->coupon_stripe_id : null;
             $order->gateway_payload = json_encode($data);
             $order->save();
@@ -46,6 +49,12 @@ class PayPalController extends Controller
                     $orderProduct->save();
                 }
             );
+            $order->refresh();
+
+            $order->shipping_cost = $processorShipping->getShippingCost($order->address_country);
+            $order->amount_total = $processorAmount->getOrderTotalAmount($order);
+            $order->save();
+            $order->refresh();
 
             $shoppingCart->delete();
 

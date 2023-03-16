@@ -10,6 +10,8 @@ use Modules\Product\Entities\Product;
 use Modules\Order\Entities\Order;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\NewOrderAlert;
+use Modules\Order\Processors\GetShippingCostProcessor;
+use Modules\Order\Processors\GetSubAndTotalAmountForOrderProcessor;
 use Throwable;
 
 class StripeEventListener
@@ -51,14 +53,15 @@ class StripeEventListener
             //todo: use try&catch and in case of error log the $event->payload object so not to lose it
             Log::info($event->payload);
             try{
-                $order = Order::with(['shoppingCart'])->where('gateway', 'stripe')
+                $order = Order::with(['shoppingCart', 'products'])->where('gateway', 'stripe')
                     ->where('gateway_id', $event->payload['data']['object']['id'])
                     ->firstOrFail();
+
+                $processorShipping = resolve(GetShippingCostProcessor::class);
+                $processorAmount = resolve(GetSubAndTotalAmountForOrderProcessor::class);
                 
                 $order->amount_total = $event->payload['data']['object']['amount_total'];
                 $order->status = 'payed';
-                $order->amount_total = 1000; //get from shopping cart
-                $order->shipping_cost = 10;
                 $order->coupon_stripe_id = $order->shoppingCart->applied_coupon != null ? $order->shoppingCart->applied_coupon->coupon_stripe_id : null;
                 $order->gateway_payload = json_encode($event->payload);
                 $order->save();
@@ -74,8 +77,14 @@ class StripeEventListener
                         $orderProduct->save();
                     }
                 );
+                $order->refresh();
 
-                $order->shoppingCart->delete();    
+                $order->shipping_cost = $processorShipping->getShippingCost($order->address_country);
+                $order->amount_total = $processorAmount->getOrderTotalAmount($order);
+                $order->save();
+                $order->refresh();
+
+                $order->shoppingCart->delete();
     
                 //mail to owner
                 Mail::to('gabriele.francescutto@gmail.com')->send(new NewOrderAlert($order));

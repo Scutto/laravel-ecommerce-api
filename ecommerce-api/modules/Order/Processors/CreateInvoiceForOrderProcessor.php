@@ -18,10 +18,12 @@ use FattureInCloud\Model\CreateIssuedDocumentRequest;
 use FattureInCloud\Model\Language;
 use FattureInCloud\Model\PaymentAccount;
 use FattureInCloud\Model\VatType;
+use Illuminate\Support\Facades\Log;
 
 class CreateInvoiceForOrderProcessor {
 
-    const COMPANY_ID = 1;
+    const COMPANY_ID = 1092128;
+    const PAYMENT_ACCOUNT_ID = 1064192;
 
     protected $config;
 
@@ -94,7 +96,7 @@ class CreateInvoiceForOrderProcessor {
 
         // Below you can find this section fields:
         $invoice->setDate(new \DateTime($today));
-        $invoice->setNumber(6);
+        $invoice->setNumber(1);
         $invoice->setNumeration("/fatt");
         $invoice->setSubject("internal subject");
         $invoice->setVisibleSubject("visible subject");
@@ -118,7 +120,7 @@ class CreateInvoiceForOrderProcessor {
         );
 
         // Here we set e_invoice and ei_data
-        $invoice->setEInvoice(false);
+        // $invoice->setEInvoice(false);
         // $invoice->setEiData(
         //     new IssuedDocumentEiData(
         //         [
@@ -166,7 +168,7 @@ class CreateInvoiceForOrderProcessor {
                         // List your payment accounts: https://github.com/fattureincloud/fattureincloud-php-sdk/blob/master/docs/Api/InfoApi.md#listpaymentaccounts
                         "payment_account" => new PaymentAccount(
                             array(
-                                "id" => 1049939
+                                "id" => self::PAYMENT_ACCOUNT_ID,
                             )
                         )
                     )
@@ -192,7 +194,8 @@ class CreateInvoiceForOrderProcessor {
             $result = $apiInstance->createIssuedDocument(self::COMPANY_ID, $create_issued_document_request);
             print_r($result);
         } catch (\Exception $e) {
-            echo 'Exception when calling IssuedDocumentsApi->createIssuedDocument: ', $e->getMessage(), PHP_EOL;
+            Log::error(json_encode($e->getMessage()));
+            var_dump($e->getMessage());
         }
 
 
@@ -235,11 +238,13 @@ class CreateInvoiceForOrderProcessor {
         $entity = new Entity;
         $fullname = $order->customer_firstname . ' ' . $order->customer_lastname;
 
+        var_dump($order->address_country);
+
         return $entity
             ->setName($fullname)
             ->setAddressStreet($order->address_street)
             ->setAddressPostalCode($order->address_zipcode)
             ->setAddressCity($order->address_city)
-            ->setCountry($order->address_country);
+            ->setCountry('Italia');
     }
 }

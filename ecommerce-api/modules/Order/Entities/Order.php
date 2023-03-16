@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Modules\ShoppingCart\Entities\ShoppingCart;
 use App\Traits\Encryptable;
+use Modules\ShoppingCart\Entities\Coupon;
 
 /**
  * Class Order
