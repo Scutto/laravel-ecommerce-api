@@ -24,6 +24,26 @@ class CreateInvoiceForOrderProcessor {
 
     const COMPANY_ID = 1092128;
     const PAYMENT_ACCOUNT_ID = 1064192;
+    const VAT_TYPE_ID = 66;
+
+    const EN_COUNTRY_TO_IT = [
+        'italy' => 'Italia',
+        'austria' => 'Austria',
+        'belgium' => 'Belgio',
+        'bulgaria' => 'Bulgaria',
+        'denmark' => 'Danimarca',
+        'france' => 'Francia',
+        'germany' => 'Germania',
+        'liechtenstein' => 'Liechtenstein',
+        'luxembourg' => 'Lussemburgo',
+        'the netherlands' => 'Olanda',
+        'poland' => 'Polonia',
+        'czech republic' => 'Repubblica Ceca',
+        'slovenia' => 'Slovenia',
+        'spain' => 'Spagna',
+        'switzerland' => 'Svizzera',
+        'hungary' => 'Ungheria'
+    ];
 
     protected $config;
 
@@ -41,8 +61,7 @@ class CreateInvoiceForOrderProcessor {
         );
 
         try {
-            $result = $apiInstance->listVatTypes(self::COMPANY_ID);
-            var_dump($result);
+            $result = $apiInstance->listVatTypes(self::COMPANY_ID)->getData();
         } catch (\Exception $e) {
             echo 'Exception when calling InfoApi->listVatTypes: ', $e->getMessage(), PHP_EOL;
         }
@@ -145,13 +164,31 @@ class CreateInvoiceForOrderProcessor {
                         "qty" => $orderProduct->quantity,
                         "vat" => new VatType(
                             array(
-                                "id" => 37
+                                "id" => self::VAT_TYPE_ID
                             )
                         )
                     ]
                 );
             }
         );
+
+        if($order->shipping_cost != null && $order->shipping_cost > 0) {
+            $itemList[] = new IssuedDocumentItemsListItem(
+                [
+                    "code" => 'SHIPPING_COST',
+                    "name" => 'Shipping cost',
+                    "net_price" => $order->shipping_cost,
+                    "category" => "shipping",
+                    "discount" => 0,
+                    "qty" => 1,
+                    "vat" => new VatType(
+                        array(
+                            "id" => self::VAT_TYPE_ID
+                        )
+                    )
+                ]
+            );
+        }
 
         //adds the products
         $invoice->setItemsList($itemList);
@@ -238,13 +275,11 @@ class CreateInvoiceForOrderProcessor {
         $entity = new Entity;
         $fullname = $order->customer_firstname . ' ' . $order->customer_lastname;
 
-        var_dump($order->address_country);
-
         return $entity
             ->setName($fullname)
             ->setAddressStreet($order->address_street)
             ->setAddressPostalCode($order->address_zipcode)
             ->setAddressCity($order->address_city)
-            ->setCountry('Italia');
+            ->setCountry(self::EN_COUNTRY_TO_IT[$order->address_country]);
     }
 }

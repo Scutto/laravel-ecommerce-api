@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Log;
 use Modules\ShoppingCart\Entities\ShoppingCart;
 use Modules\Order\Processors\GetShippingCostProcessor;
 use Modules\Order\Processors\GetSubAndTotalAmountForOrderProcessor;
+use Modules\Order\Processors\ReduceProductQuantityFromOrderProcessor;
 use Throwable;
 
 class PayPalController extends Controller
@@ -58,8 +59,11 @@ class PayPalController extends Controller
 
             $shoppingCart->delete();
 
+            $classProcessor = resolve(ReduceProductQuantityFromOrderProcessor::class);
+            $classProcessor->reduceProductQuantity($order);
+
             //mail to owner
-            Mail::to('gabriele.francescutto@gmail.com')->send(new NewOrderAlert($order));
+            Mail::to(config('app.mail_owner'))->send(new NewOrderAlert($order));
 
             return response()->json([
                 'order' => $order,

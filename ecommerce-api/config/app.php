@@ -68,6 +68,8 @@ return [
     
     'fatture_client_secret' => env('FATTURE_CLIENT_SECRET', ''),
 
+    'mail_owner' => env('MAIL_OWNER', ''),
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone

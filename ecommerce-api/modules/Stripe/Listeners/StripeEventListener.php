@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\NewOrderAlert;
 use Modules\Order\Processors\GetShippingCostProcessor;
 use Modules\Order\Processors\GetSubAndTotalAmountForOrderProcessor;
+use Modules\Order\Processors\ReduceProductQuantityFromOrderProcessor;
 use Throwable;
 
 class StripeEventListener
@@ -85,9 +86,12 @@ class StripeEventListener
                 $order->refresh();
 
                 $order->shoppingCart->delete();
+
+                $classProcessor = resolve(ReduceProductQuantityFromOrderProcessor::class);
+                $classProcessor->reduceProductQuantity($order);
     
                 //mail to owner
-                Mail::to('gabriele.francescutto@gmail.com')->send(new NewOrderAlert($order));
+                Mail::to(config('app.mail_owner'))->send(new NewOrderAlert($order));
             } catch(Throwable $t) {
                 Log::info($t->getMessage());
                 Log::info($event->payload);
