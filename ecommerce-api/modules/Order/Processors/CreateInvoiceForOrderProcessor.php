@@ -62,6 +62,7 @@ class CreateInvoiceForOrderProcessor {
 
         try {
             $result = $apiInstance->listVatTypes(self::COMPANY_ID)->getData();
+            var_dump($result);
         } catch (\Exception $e) {
             echo 'Exception when calling InfoApi->listVatTypes: ', $e->getMessage(), PHP_EOL;
         }
@@ -115,7 +116,7 @@ class CreateInvoiceForOrderProcessor {
 
         // Below you can find this section fields:
         $invoice->setDate(new \DateTime($today));
-        $invoice->setNumber(1);
+        $invoice->setNumber($order->order_number);
         $invoice->setNumeration("/fatt");
         $invoice->setSubject("internal subject");
         $invoice->setVisibleSubject("visible subject");
@@ -139,13 +140,13 @@ class CreateInvoiceForOrderProcessor {
         );
 
         // Here we set e_invoice and ei_data
-        // $invoice->setEInvoice(false);
+        // $invoice->setEInvoice(true);
         // $invoice->setEiData(
         //     new IssuedDocumentEiData(
         //         [
-        //             "payment_method" => "MP05",
+        //             "payment_method" => "MP08",
         //             'vat_kind' => 'I',
-        //             'ei_code' => '0000000' //XXXXXXX -> per l'estero
+        //             'ei_code' => $order->address_country === 'italy' ? '0000000' : 'XXXXXXX',
         //         ]
         //     )
         // );
@@ -230,6 +231,7 @@ class CreateInvoiceForOrderProcessor {
         try {
             $result = $apiInstance->createIssuedDocument(self::COMPANY_ID, $create_issued_document_request);
             print_r($result);
+            //TODO: prendere il document id e ritornarlo
         } catch (\Exception $e) {
             Log::error(json_encode($e->getMessage()));
             var_dump($e->getMessage());
