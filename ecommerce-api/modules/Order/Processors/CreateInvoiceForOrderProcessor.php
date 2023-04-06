@@ -15,6 +15,7 @@ use FattureInCloud\Model\IssuedDocumentPaymentsListItem;
 use FattureInCloud\Model\IssuedDocumentStatus;
 use FattureInCloud\Model\IssuedDocumentType;
 use FattureInCloud\Model\CreateIssuedDocumentRequest;
+use FattureInCloud\Model\IssuedDocumentEiData;
 use FattureInCloud\Model\Language;
 use FattureInCloud\Model\PaymentAccount;
 use FattureInCloud\Model\VatType;
@@ -61,7 +62,8 @@ class CreateInvoiceForOrderProcessor {
         );
 
         try {
-            $result = $apiInstance->listVatTypes(self::COMPANY_ID)->getData();
+            $result = $apiInstance->listTemplates('all', false);
+            // $result = $apiInstance->listVatTypes(self::COMPANY_ID)->getData();
             var_dump($result);
         } catch (\Exception $e) {
             echo 'Exception when calling InfoApi->listVatTypes: ', $e->getMessage(), PHP_EOL;
@@ -140,16 +142,16 @@ class CreateInvoiceForOrderProcessor {
         );
 
         // Here we set e_invoice and ei_data
-        // $invoice->setEInvoice(true);
-        // $invoice->setEiData(
-        //     new IssuedDocumentEiData(
-        //         [
-        //             "payment_method" => "MP08",
-        //             'vat_kind' => 'I',
-        //             'ei_code' => $order->address_country === 'italy' ? '0000000' : 'XXXXXXX',
-        //         ]
-        //     )
-        // );
+        $invoice->setEInvoice(true);
+        $invoice->setEiData(
+            new IssuedDocumentEiData(
+                [
+                    "payment_method" => "MP08",
+                    'vat_kind' => 'I',
+                    'ei_code' => $order->address_country === 'italy' ? '0000000' : 'XXXXXXX',
+                ]
+            )
+        );
 
         $itemList = [];
         $order->products->each(
@@ -217,7 +219,7 @@ class CreateInvoiceForOrderProcessor {
         $invoice->setTemplate(
             new DocumentTemplate(
                 array(
-                    "id" => 150
+                    "id" => 108
                 )
             )
         );
@@ -230,8 +232,7 @@ class CreateInvoiceForOrderProcessor {
         // Create the invoice: https://github.com/fattureincloud/fattureincloud-php-sdk/blob/master/docs/Api/IssuedDocumentsApi.md#createissueddocument
         try {
             $result = $apiInstance->createIssuedDocument(self::COMPANY_ID, $create_issued_document_request);
-            print_r($result);
-            //TODO: prendere il document id e ritornarlo
+            return $result->getData()['id'];
         } catch (\Exception $e) {
             Log::error(json_encode($e->getMessage()));
             var_dump($e->getMessage());
@@ -250,7 +251,7 @@ class CreateInvoiceForOrderProcessor {
             );
 
             $result = $apiEInvoiceInstance->verifyEInvoiceXml(self::COMPANY_ID, $document_id);
-            print_r($result);
+            return $result->getData()['success'];
         } catch (\Exception $e) {
             echo 'Exception when calling IssuedEInvoicesApi->verifyEInvoiceXml: ', $e->getMessage(), PHP_EOL;
         }
