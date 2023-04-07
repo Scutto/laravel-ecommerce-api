@@ -1,0 +1,52 @@
+// Animation css
+@import '~animate.css/animate.min.css';
+
+// Bootstrap Layout scss
+@import 'node_modules/bootstrap/scss/bootstrap.scss';
+
+// Owl Carousel
+@import 'node_modules/ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import 'node_modules/ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+
+// Themify icon scss
+@import 'themify';
+
+// Theme Scss
+@import 'theme/variables';
+:root {
+  --theme-deafult: #0fb3db;
+  // This gradient color only for gym and marijuana layout
+  --theme-gradient1: #01effc;
+  --theme-gradient2: #485ff2;
+}
+@import 'theme/style';
+@import 'theme/theme-dark';
+@import 'theme/menu';
+@import 'theme/responsive';
+
+// Toastr Css
+@import '../../../node_modules/ngx-toastr/toastr.css';
+
+// Rating Scss
+@import 'node_modules/ngx-bar-rating/themes/br-default-theme';
+
+input {
+  color: white;
+}
+
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.carousel-image {
+  // width: 75%;
+  height: 75%;
+}
+
+div.product-description > ul { 
+  li {
+    display: block;
+    color: white;
+    list-style-type: circle;
+  }
+}
