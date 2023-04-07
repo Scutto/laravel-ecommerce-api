@@ -178,7 +178,6 @@ class CreateInvoiceForOrderProcessor {
         if($order->shipping_cost != null && $order->shipping_cost > 0) {
             $itemList[] = new IssuedDocumentItemsListItem(
                 [
-                    "code" => 'SHIPPING_COST',
                     "name" => 'Shipping cost',
                     "net_price" => $order->shipping_cost,
                     "category" => "shipping",
