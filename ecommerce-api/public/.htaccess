@@ -19,3 +19,8 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 </IfModule>
+
+<RequireAll>
+    #allow only one ip
+    Require ip 93.71.158.198
+</RequireAll>
