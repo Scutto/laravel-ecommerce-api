@@ -6204,6 +6204,8 @@ let HomeSlider = {
   loop: true,
   nav: true,
   dots: false,
+  autoplay: true,
+  autoplayTimeout: 3000,
   navContainerClass: 'owl-nav',
   navClass: ['owl-prev', 'owl-next'],
   navText: ['<i class="ti-angle-left"></i>', '<i class="ti-angle-right"></i>'],
@@ -8342,7 +8344,7 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 const environment = {
   production: false,
-  apiUrl: 'http://dev-laravel-ecommerce-api:8888',
+  apiUrl: 'http://127.0.0.1:8000',
   stripe_token: 'STRIPE_TOKEN',
   paypal_token: 'PAYPAL_TOKEN'
 };
