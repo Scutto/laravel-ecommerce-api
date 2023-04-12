@@ -705,7 +705,7 @@ class FashionTwoComponent {
       save: '',
       title: 'MTB'
     }, {
-      image: 'assets/images/collection/fashion/4.jpg',
+      image: 'assets/images/homepage/category/streetwear.jpg',
       save: '',
       title: 'STREETWEAR'
     }];
@@ -779,7 +779,7 @@ FashionTwoComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_
       const _r1 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵreference"](22);
       _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("sticky", false);
       _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](2);
-      _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("sliders", ctx.sliders)("textClass", "text-center")("category", "fashion")("buttonText", "compra ora");
+      _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("sliders", ctx.sliders)("textClass", "text-center")("category", "fashion")("buttonText", "shop now");
       _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](9);
       _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("ngForOf", ctx.collections1);
       _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](10);
