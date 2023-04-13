@@ -150,61 +150,61 @@ class FashionOneComponent {
     this.sliders = [{
       title: 'welcome to fashion',
       subTitle: 'Men fashion',
-      image: 'assets/images/slider/1.jpg'
+      image: 'web/assets/images/slider/1.jpg'
     }, {
       title: 'welcome to fashion',
       subTitle: 'Women fashion',
-      image: 'assets/images/slider/2.jpg'
+      image: 'web/assets/images/slider/2.jpg'
     }];
     // Collection banner
     this.collections = [{
-      image: 'assets/images/collection/fashion/1.jpg',
+      image: 'web/assets/images/collection/fashion/1.jpg',
       save: 'save 50%',
       title: 'men'
     }, {
-      image: 'assets/images/collection/fashion/2.jpg',
+      image: 'web/assets/images/collection/fashion/2.jpg',
       save: 'save 50%',
       title: 'women'
     }];
     // Blog
     this.blog = [{
-      image: 'assets/images/blog/1.jpg',
+      image: 'web/assets/images/blog/1.jpg',
       date: '25 January 2018',
       title: 'Lorem ipsum dolor sit consectetur adipiscing elit,',
       by: 'John Dio'
     }, {
-      image: 'assets/images/blog/2.jpg',
+      image: 'web/assets/images/blog/2.jpg',
       date: '26 January 2018',
       title: 'Lorem ipsum dolor sit consectetur adipiscing elit,',
       by: 'John Dio'
     }, {
-      image: 'assets/images/blog/3.jpg',
+      image: 'web/assets/images/blog/3.jpg',
       date: '27 January 2018',
       title: 'Lorem ipsum dolor sit consectetur adipiscing elit,',
       by: 'John Dio'
     }, {
-      image: 'assets/images/blog/4.jpg',
+      image: 'web/assets/images/blog/4.jpg',
       date: '28 January 2018',
       title: 'Lorem ipsum dolor sit consectetur adipiscing elit,',
       by: 'John Dio'
     }];
     // Logo
     this.logo = [{
-      image: 'assets/images/logos/1.png'
+      image: 'web/assets/images/logos/1.png'
     }, {
-      image: 'assets/images/logos/2.png'
+      image: 'web/assets/images/logos/2.png'
     }, {
-      image: 'assets/images/logos/3.png'
+      image: 'web/assets/images/logos/3.png'
     }, {
-      image: 'assets/images/logos/4.png'
+      image: 'web/assets/images/logos/4.png'
     }, {
-      image: 'assets/images/logos/5.png'
+      image: 'web/assets/images/logos/5.png'
     }, {
-      image: 'assets/images/logos/6.png'
+      image: 'web/assets/images/logos/6.png'
     }, {
-      image: 'assets/images/logos/7.png'
+      image: 'web/assets/images/logos/7.png'
     }, {
-      image: 'assets/images/logos/8.png'
+      image: 'web/assets/images/logos/8.png'
     }];
     this.productService.getProducts.subscribe(response => {
       this.products = response.filter(item => item.type == 'fashion');
@@ -444,11 +444,11 @@ class FashionThreeComponent {
     this.sliders = [{
       title: 'welcome to fashion',
       subTitle: 'Men fashion',
-      image: 'assets/images/slider/5.jpg'
+      image: 'web/assets/images/slider/5.jpg'
     }, {
       title: 'welcome to fashion',
       subTitle: 'Women fashion',
-      image: 'assets/images/slider/6.jpg'
+      image: 'web/assets/images/slider/6.jpg'
     }];
     this.productService.getProducts.subscribe(response => {
       this.products = response.filter(item => item.type == 'fashion');
@@ -672,29 +672,29 @@ class FashionTwoComponent {
   constructor(productService, apiProductService) {
     this.productService = productService;
     this.apiProductService = apiProductService;
-    this.themeLogo = 'assets/images/icon/logo.png'; // Change Logo
+    this.themeLogo = 'web/assets/images/icon/logo.png'; // Change Logo
     this.products = [];
     this.productCollections = ['new products'];
     this.newProductCollection = [];
     this.HomeSliderConfig = _shared_data_slider__WEBPACK_IMPORTED_MODULE_0__.HomeSlider;
     this.sliders = [{
-      image: 'assets/images/homepage/slider-1.jpg'
+      image: 'web/assets/images/homepage/slider-1.jpg'
     }, {
-      image: 'assets/images/homepage/slider-2.jpg'
+      image: 'web/assets/images/homepage/slider-2.jpg'
     }, {
-      image: 'assets/images/homepage/slider-3.jpg'
+      image: 'web/assets/images/homepage/slider-3.jpg'
     }, {
-      image: 'assets/images/homepage/slider-4.jpg'
+      image: 'web/assets/images/homepage/slider-4.jpg'
     }, {
-      image: 'assets/images/homepage/slider-5.jpg'
+      image: 'web/assets/images/homepage/slider-5.jpg'
     }];
     // Collection banner
     this.collections1 = [{
-      image: 'assets/images/homepage/category/mtb.jpg',
+      image: 'web/assets/images/homepage/category/mtb.jpg',
       save: '',
       title: 'MTB'
     }, {
-      image: 'assets/images/homepage/category/streetwear.jpg',
+      image: 'web/assets/images/homepage/category/streetwear.jpg',
       save: '',
       title: 'STREETWEAR'
     }];
@@ -1086,7 +1086,7 @@ class ToolsComponent {
   constructor(_sanitizer, productService) {
     this._sanitizer = _sanitizer;
     this.productService = productService;
-    this.themeLogo = 'assets/images/icon/logo-5.png';
+    this.themeLogo = 'web/assets/images/icon/logo-5.png';
     this.products = [];
     this.productCollections = [];
     this.tabs = [1, 2, 3, 4, 5];
@@ -1094,43 +1094,43 @@ class ToolsComponent {
     this.ProductSliderConfig = _shared_data_slider__WEBPACK_IMPORTED_MODULE_0__.ProductSlider;
     // services
     this.categories = [{
-      image: 'assets/images/categories/6.jpg',
+      image: 'web/assets/images/categories/6.jpg',
       title: 'auto parts',
       text: this._sanitizer.bypassSecurityTrustHtml('<li><a href="#">Shock-resistant parts</a></li><li><a href="#">Skeleton parts</a></li><li><a href="#">Slow parts</a></li><li><a href="#">Solar-powered parts</a></li>')
     }, {
-      image: 'assets/images/categories/7.jpg',
+      image: 'web/assets/images/categories/7.jpg',
       title: 'brakes & steering',
       text: this._sanitizer.bypassSecurityTrustHtml('<li><a href="#">Shock-resistant parts</a></li><li><a href="#">Skeleton parts</a></li><li><a href="#">Slow parts</a></li><li><a href="#">Solar-powered parts</a></li>')
     }, {
-      image: 'assets/images/categories/8.jpg',
+      image: 'web/assets/images/categories/8.jpg',
       title: 'engine & drivetrain',
       text: this._sanitizer.bypassSecurityTrustHtml('<li><a href="#">Shock-resistant parts</a></li><li><a href="#">Skeleton parts</a></li><li><a href="#">Slow parts</a></li><li><a href="#">Solar-powered parts</a></li>')
     }, {
-      image: 'assets/images/categories/9.jpg',
+      image: 'web/assets/images/categories/9.jpg',
       title: 'exterior accesories',
       text: this._sanitizer.bypassSecurityTrustHtml('<li><a href="#">Shock-resistant parts</a></li><li><a href="#">Skeleton parts</a></li><li><a href="#">Slow parts</a></li><li><a href="#">Solar-powered parts</a></li>')
     }, {
-      image: 'assets/images/categories/10.jpg',
+      image: 'web/assets/images/categories/10.jpg',
       title: 'other parts',
       text: this._sanitizer.bypassSecurityTrustHtml('<li><a href="#">Shock-resistant parts</a></li><li><a href="#">Skeleton parts</a></li><li><a href="#">Slow parts</a></li><li><a href="#">Solar-powered parts</a></li>')
     }];
     // Logo
     this.logos = [{
-      image: 'assets/images/logos/1.png'
+      image: 'web/assets/images/logos/1.png'
     }, {
-      image: 'assets/images/logos/2.png'
+      image: 'web/assets/images/logos/2.png'
     }, {
-      image: 'assets/images/logos/3.png'
+      image: 'web/assets/images/logos/3.png'
     }, {
-      image: 'assets/images/logos/4.png'
+      image: 'web/assets/images/logos/4.png'
     }, {
-      image: 'assets/images/logos/5.png'
+      image: 'web/assets/images/logos/5.png'
     }, {
-      image: 'assets/images/logos/6.png'
+      image: 'web/assets/images/logos/6.png'
     }, {
-      image: 'assets/images/logos/7.png'
+      image: 'web/assets/images/logos/7.png'
     }, {
-      image: 'assets/images/logos/8.png'
+      image: 'web/assets/images/logos/8.png'
     }];
     this.productService.getProducts.subscribe(response => {
       this.products = response.filter(item => item.type == 'tools');
@@ -1169,7 +1169,7 @@ ToolsComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_10__[
   selectors: [["app-tools"]],
   decls: 96,
   vars: 28,
-  consts: [[1, "p-0", "height-85", "tools_slider"], [1, "home-slider", 3, "options"], ["carouselSlide", ""], [1, "banner-padding", "absolute-banner", "pb-0", "tools-service"], [1, "container", "absolute-bg"], [1, "service", "p-0"], [1, "container"], [1, "row"], [1, "col-lg-8", "offset-lg-2"], [1, "title3"], [1, "title-inner3"], [1, "line"], [1, "about-text"], [1, "pt-0", "category-tools"], [1, "col"], [3, "categories", "category"], [1, "section-b-space", "tools-grey"], [1, "product-5", "product-m", "no-arrow", 3, "options"], [4, "ngFor", "ngForOf"], [1, "full-banner", "parallax-banner21", "parallax", "small-slider", "tools-parallax-product", 3, "ngStyle"], [1, "col-lg-4", "col-12"], [1, "tools-description"], [1, "tools-form"], [1, "search-box"], [1, "form-control"], ["value", ""], ["value", "1"], ["value", "2"], ["value", "3"], ["value", "4"], ["value", "5"], ["name", "model", 1, "form-control"], ["name", "engine", 1, "form-control"], ["name", "year", 1, "form-control"], [1, "search-button"], [1, "btn", "btn-solid", "btn-find", 3, "routerLink", "queryParams"], [1, "col-lg-8", "col-12", "tools-grey"], [1, "tools-product-4", "product-m", 3, "options"], [1, "tools_product"], [1, "row", "multiple-slider"], [1, "col-xl-3", "col-lg-4", "col-md-12"], [3, "title", "type"], [1, "col-xl-9", "col-lg-8", "col-md-12", "tools-grey"], [1, "theme-tab"], ["ngbNav", "", 1, "tabs", "tab-title", "justify-content-center", "nav", "nav-pills", 3, "activeId", "activeIdChange"], ["nav", "ngbNav"], [3, "ngbNavItem", 4, "ngFor", "ngForOf"], [1, "mt-2", 3, "ngbNavOutlet"], [1, "banner-tools"], ["src", "assets/images/offer-banner-4.jpg", "alt", "banner", 1, "img-fluid"], [1, "section-b-space", "tools-brand"], [1, "col-md-12"], [3, "logos"], [3, "direction"], [3, "newsletter", "themeLogo"], [1, "home", "text-center", 3, "ngStyle"], [1, "slider-contain"], [1, "btn", "btn-solid", 3, "routerLink", "queryParams"], ["id", "tools-move", 1, "tools-parts"], ["src", "assets/images/tools-2.png", "alt", "", 1, "img-fluid"], ["id", "tools-move1", 1, "tools-parts1"], ["src", "assets/images/tools-3.png", "alt", "", 1, "img-fluid"], ["id", "tools-move2", 1, "tools-parts"], ["src", "assets/images/tools-1.png", "alt", "", 1, "img-fluid"], [1, "product-box", "product-wrap"], [3, "product", "currency"], [3, "ngbNavItem"], ["ngbNavLink", ""], ["ngbNavContent", ""], [1, "no-slider", "row"], [1, "product-box"]],
+  consts: [[1, "p-0", "height-85", "tools_slider"], [1, "home-slider", 3, "options"], ["carouselSlide", ""], [1, "banner-padding", "absolute-banner", "pb-0", "tools-service"], [1, "container", "absolute-bg"], [1, "service", "p-0"], [1, "container"], [1, "row"], [1, "col-lg-8", "offset-lg-2"], [1, "title3"], [1, "title-inner3"], [1, "line"], [1, "about-text"], [1, "pt-0", "category-tools"], [1, "col"], [3, "categories", "category"], [1, "section-b-space", "tools-grey"], [1, "product-5", "product-m", "no-arrow", 3, "options"], [4, "ngFor", "ngForOf"], [1, "full-banner", "parallax-banner21", "parallax", "small-slider", "tools-parallax-product", 3, "ngStyle"], [1, "col-lg-4", "col-12"], [1, "tools-description"], [1, "tools-form"], [1, "search-box"], [1, "form-control"], ["value", ""], ["value", "1"], ["value", "2"], ["value", "3"], ["value", "4"], ["value", "5"], ["name", "model", 1, "form-control"], ["name", "engine", 1, "form-control"], ["name", "year", 1, "form-control"], [1, "search-button"], [1, "btn", "btn-solid", "btn-find", 3, "routerLink", "queryParams"], [1, "col-lg-8", "col-12", "tools-grey"], [1, "tools-product-4", "product-m", 3, "options"], [1, "tools_product"], [1, "row", "multiple-slider"], [1, "col-xl-3", "col-lg-4", "col-md-12"], [3, "title", "type"], [1, "col-xl-9", "col-lg-8", "col-md-12", "tools-grey"], [1, "theme-tab"], ["ngbNav", "", 1, "tabs", "tab-title", "justify-content-center", "nav", "nav-pills", 3, "activeId", "activeIdChange"], ["nav", "ngbNav"], [3, "ngbNavItem", 4, "ngFor", "ngForOf"], [1, "mt-2", 3, "ngbNavOutlet"], [1, "banner-tools"], ["src", "web/assets/images/offer-banner-4.jpg", "alt", "banner", 1, "img-fluid"], [1, "section-b-space", "tools-brand"], [1, "col-md-12"], [3, "logos"], [3, "direction"], [3, "newsletter", "themeLogo"], [1, "home", "text-center", 3, "ngStyle"], [1, "slider-contain"], [1, "btn", "btn-solid", 3, "routerLink", "queryParams"], ["id", "tools-move", 1, "tools-parts"], ["src", "web/assets/images/tools-2.png", "alt", "", 1, "img-fluid"], ["id", "tools-move1", 1, "tools-parts1"], ["src", "web/assets/images/tools-3.png", "alt", "", 1, "img-fluid"], ["id", "tools-move2", 1, "tools-parts"], ["src", "web/assets/images/tools-1.png", "alt", "", 1, "img-fluid"], [1, "product-box", "product-wrap"], [3, "product", "currency"], [3, "ngbNavItem"], ["ngbNavLink", ""], ["ngbNavContent", ""], [1, "no-slider", "row"], [1, "product-box"]],
   template: function ToolsComponent_Template(rf, ctx) {
     if (rf & 1) {
       _angular_core__WEBPACK_IMPORTED_MODULE_10__["ɵɵelement"](0, "app-header-one");

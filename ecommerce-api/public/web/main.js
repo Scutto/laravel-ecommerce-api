@@ -1043,7 +1043,7 @@ LayoutBoxComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_0
   selectors: [["app-layout-box"]],
   decls: 298,
   vars: 62,
-  consts: [["href", "javascript:void(0)"], ["id", "setting-icon", 1, "setting-sidebar", 3, "click"], ["aria-hidden", "true", 1, "fa", "fa-cog"], ["id", "setting_box", 1, "setting-box"], ["href", "javascript:void(0)", 1, "overlay", 3, "click"], [1, "setting_box_body"], [1, "sidebar-back", "text-start", 3, "click"], ["aria-hidden", "true", 1, "fa", "fa-angle-left", "pe-2"], [1, "setting-body"], [1, "setting-title", 3, "click"], [1, "according-menu"], [1, "setting-contant"], [1, "row", "demo-section"], [1, "col-sm-6", "col-12", "text-center", "demo-effects"], [1, "set-position"], [1, "layout-container", "demo1"], [1, "demo-text"], ["role", "group", "aria-label", "Basic example", 1, "btn-group", "demo-btn"], [1, "btn", "new-tab-btn", 3, "routerLink"], [1, "layout-container", "demo2"], [1, "layout-container", "demo3"], [1, "layout-container", "demo4"], [1, "layout-container", "demo5"], [1, "layout-container", "demo6"], [1, "layout-container", "demo7"], [1, "layout-container", "demo8"], [1, "layout-container", "demo9"], [1, "layout-container", "demo10"], [1, "layout-container", "demo11"], [1, "layout-container", "demo12"], [1, "layout-container", "demo13"], [1, "layout-container", "demo14"], [1, "col-sm-6", "col-12", "text-center", "demo-effects", "mb-0"], [1, "layout-container", "demo15"], [1, "layout-container", "shop1"], [1, "layout-container", "shop2"], [1, "layout-container", "shop3"], [1, "layout-container", "product1"], [1, "layout-container", "product2"], [1, "layout-container", "product3"], [1, "layout-container", "product4"], [1, "layout-container", "product5"], [1, "layout-container", "product6"], [1, "layout-container", "product7"], [1, "color-box"], ["id", "colorPicker1", "type", "color", "value", "#ff4c3b", "name", "Background", 3, "change"], [1, "setting_buttons"], ["id", "ltr_btn"], ["href", "javascript:void(0)", 1, "btn", "setting_btn", 3, "click"], ["id", "rtl_btn"], [1, "buy_btn"], ["href", "https://themeforest.net/item/multikart-responsive-angular-ecommerce-template/22905358?s_rank=3", "target", "_blank", 1, "btn", "btn-block", "purchase_btn"], ["aria-hidden", "true", 1, "fa", "fa-shopping-cart"], ["href", "https://themeforest.net/item/multikart-responsive-ecommerce-html-template/22809967", "target", "_blank", 1, "btn", "btn-block", "purchase_btn"], ["src", "assets/images/icon/html.png", "alt", "", 1, "img-fluid"], ["href", "https://themeforest.net/item/multikart-responsive-vuejs-ecommerce-template/25174665", "target", "_blank", 1, "btn", "btn-block", "purchase_btn"], ["src", "assets/images/icon/vue.png", "alt", "", 1, "img-fluid"], ["href", "https://themeforest.net/item/multikart-responsive-react-ecommerce-template/23067773?s_rank=2", "target", "_blank", 1, "btn", "btn-block", "purchase_btn"], ["src", "assets/images/icon/react.png", "alt", "", 1, "img-fluid"], ["href", "https://themeforest.net/item/multikart-multipurpose-shopify-sections-theme/23093831?s_rank=1", "target", "_blank", 1, "btn", "btn-block", "purchase_btn"], ["src", "assets/images/icon/shopify.png", "alt", "", 1, "img-fluid"], [1, "sidebar-btn", "dark-light-btn"], [1, "dark-light"], [1, "theme-layout-version", 3, "click"]],
+  consts: [["href", "javascript:void(0)"], ["id", "setting-icon", 1, "setting-sidebar", 3, "click"], ["aria-hidden", "true", 1, "fa", "fa-cog"], ["id", "setting_box", 1, "setting-box"], ["href", "javascript:void(0)", 1, "overlay", 3, "click"], [1, "setting_box_body"], [1, "sidebar-back", "text-start", 3, "click"], ["aria-hidden", "true", 1, "fa", "fa-angle-left", "pe-2"], [1, "setting-body"], [1, "setting-title", 3, "click"], [1, "according-menu"], [1, "setting-contant"], [1, "row", "demo-section"], [1, "col-sm-6", "col-12", "text-center", "demo-effects"], [1, "set-position"], [1, "layout-container", "demo1"], [1, "demo-text"], ["role", "group", "aria-label", "Basic example", 1, "btn-group", "demo-btn"], [1, "btn", "new-tab-btn", 3, "routerLink"], [1, "layout-container", "demo2"], [1, "layout-container", "demo3"], [1, "layout-container", "demo4"], [1, "layout-container", "demo5"], [1, "layout-container", "demo6"], [1, "layout-container", "demo7"], [1, "layout-container", "demo8"], [1, "layout-container", "demo9"], [1, "layout-container", "demo10"], [1, "layout-container", "demo11"], [1, "layout-container", "demo12"], [1, "layout-container", "demo13"], [1, "layout-container", "demo14"], [1, "col-sm-6", "col-12", "text-center", "demo-effects", "mb-0"], [1, "layout-container", "demo15"], [1, "layout-container", "shop1"], [1, "layout-container", "shop2"], [1, "layout-container", "shop3"], [1, "layout-container", "product1"], [1, "layout-container", "product2"], [1, "layout-container", "product3"], [1, "layout-container", "product4"], [1, "layout-container", "product5"], [1, "layout-container", "product6"], [1, "layout-container", "product7"], [1, "color-box"], ["id", "colorPicker1", "type", "color", "value", "#ff4c3b", "name", "Background", 3, "change"], [1, "setting_buttons"], ["id", "ltr_btn"], ["href", "javascript:void(0)", 1, "btn", "setting_btn", 3, "click"], ["id", "rtl_btn"], [1, "buy_btn"], ["href", "https://themeforest.net/item/multikart-responsive-angular-ecommerce-template/22905358?s_rank=3", "target", "_blank", 1, "btn", "btn-block", "purchase_btn"], ["aria-hidden", "true", 1, "fa", "fa-shopping-cart"], ["href", "https://themeforest.net/item/multikart-responsive-ecommerce-html-template/22809967", "target", "_blank", 1, "btn", "btn-block", "purchase_btn"], ["src", "web/assets/images/icon/html.png", "alt", "", 1, "img-fluid"], ["href", "https://themeforest.net/item/multikart-responsive-vuejs-ecommerce-template/25174665", "target", "_blank", 1, "btn", "btn-block", "purchase_btn"], ["src", "web/assets/images/icon/vue.png", "alt", "", 1, "img-fluid"], ["href", "https://themeforest.net/item/multikart-responsive-react-ecommerce-template/23067773?s_rank=2", "target", "_blank", 1, "btn", "btn-block", "purchase_btn"], ["src", "web/assets/images/icon/react.png", "alt", "", 1, "img-fluid"], ["href", "https://themeforest.net/item/multikart-multipurpose-shopify-sections-theme/23093831?s_rank=1", "target", "_blank", 1, "btn", "btn-block", "purchase_btn"], ["src", "web/assets/images/icon/shopify.png", "alt", "", 1, "img-fluid"], [1, "sidebar-btn", "dark-light-btn"], [1, "dark-light"], [1, "theme-layout-version", 3, "click"]],
   template: function LayoutBoxComponent_Template(rf, ctx) {
     if (rf & 1) {
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div")(1, "a", 0)(2, "div", 1);
@@ -3214,7 +3214,7 @@ CartModalComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_3
   },
   decls: 2,
   vars: 0,
-  consts: [["cartModal", ""], [1, "modal-body"], [1, "container-fluid", "p-0"], [1, "row"], [1, "col-12"], [1, "modal-bg", "addtocart"], ["type", "button", "id", "close-cart-modal", 1, "close", 3, "click"], ["aria-hidden", "true"], [1, "media"], [3, "routerLink"], [1, "img-fluid", "pro-img", 3, "src", "alt"], [1, "media-body", "align-self-center", "text-center"], [1, "fa", "fa-check"], [1, "buttons"], [1, "view-cart", "btn", "btn-solid", 3, "routerLink"], [1, "checkout", "btn", "btn-solid", 3, "routerLink"], [1, "continue", "btn", "btn-solid", 3, "routerLink"], [1, "upsell_payment"], ["src", "assets/images/payment_cart.png", "alt", "", 1, "img-fluid"], [1, "product-section"], [1, "col-12", "product-upsell", "text-center"], ["id", "upsell_product", 1, "row"], [4, "ngFor", "ngForOf"], [1, "product-box", "col-sm-3", "col-6"], [1, "img-wrapper"], [1, "front"], ["alt", "", 1, "img-fluid", "mb-1", 3, "src"], [1, "product-detail"], [1, "mt-0"]],
+  consts: [["cartModal", ""], [1, "modal-body"], [1, "container-fluid", "p-0"], [1, "row"], [1, "col-12"], [1, "modal-bg", "addtocart"], ["type", "button", "id", "close-cart-modal", 1, "close", 3, "click"], ["aria-hidden", "true"], [1, "media"], [3, "routerLink"], [1, "img-fluid", "pro-img", 3, "src", "alt"], [1, "media-body", "align-self-center", "text-center"], [1, "fa", "fa-check"], [1, "buttons"], [1, "view-cart", "btn", "btn-solid", 3, "routerLink"], [1, "checkout", "btn", "btn-solid", 3, "routerLink"], [1, "continue", "btn", "btn-solid", 3, "routerLink"], [1, "upsell_payment"], ["src", "web/assets/images/payment_cart.png", "alt", "", 1, "img-fluid"], [1, "product-section"], [1, "col-12", "product-upsell", "text-center"], ["id", "upsell_product", 1, "row"], [4, "ngFor", "ngForOf"], [1, "product-box", "col-sm-3", "col-6"], [1, "img-wrapper"], [1, "front"], ["alt", "", 1, "img-fluid", "mb-1", 3, "src"], [1, "product-detail"], [1, "mt-0"]],
   template: function CartModalComponent_Template(rf, ctx) {
     if (rf & 1) {
       _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](0, CartModalComponent_ng_template_0_Template, 36, 20, "ng-template", null, 0, _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplateRefExtractor"]);
@@ -3518,7 +3518,7 @@ NewsletterComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_
   },
   decls: 2,
   vars: 0,
-  consts: [["class", "theme-modal"], ["newsletter", ""], [1, "modal-content"], [1, "modal-body", "modal7"], [1, "container-fluid", "p-0"], [1, "row"], [1, "col-12"], [1, "modal-bg"], ["type", "button", "aria-label", "Close", 1, "close", 3, "click"], ["aria-hidden", "true"], [1, "offer-content"], ["src", "assets/images/offer-banner-1.png", "alt", "", 1, "img-fluid"], ["action", "https://pixelstrap.us19.list-manage.com/subscribe/post?u=5a128856334b598b395f1fc9b&id=082f74cbda", "method", "post", "id", "mc-embedded-subscribe-form", "name", "mc-embedded-subscribe-form", "target", "_blank", 1, "auth-form", "needs-validation"], [1, "form-group", "mx-sm-3"], ["type", "text", "name", "EMAIL", "id", "mce-EMAIL", "placeholder", "Enter your email", "required", "required", 1, "form-control"], ["type", "submit", "id", "mc-submit", 1, "btn", "btn-solid"]],
+  consts: [["class", "theme-modal"], ["newsletter", ""], [1, "modal-content"], [1, "modal-body", "modal7"], [1, "container-fluid", "p-0"], [1, "row"], [1, "col-12"], [1, "modal-bg"], ["type", "button", "aria-label", "Close", 1, "close", 3, "click"], ["aria-hidden", "true"], [1, "offer-content"], ["src", "web/assets/images/offer-banner-1.png", "alt", "", 1, "img-fluid"], ["action", "https://pixelstrap.us19.list-manage.com/subscribe/post?u=5a128856334b598b395f1fc9b&id=082f74cbda", "method", "post", "id", "mc-embedded-subscribe-form", "name", "mc-embedded-subscribe-form", "target", "_blank", 1, "auth-form", "needs-validation"], [1, "form-group", "mx-sm-3"], ["type", "text", "name", "EMAIL", "id", "mce-EMAIL", "placeholder", "Enter your email", "required", "required", 1, "form-control"], ["type", "submit", "id", "mc-submit", 1, "btn", "btn-solid"]],
   template: function NewsletterComponent_Template(rf, ctx) {
     if (rf & 1) {
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, NewsletterComponent_ng_template_0_Template, 18, 0, "ng-template", 0, 1, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplateRefExtractor"]);
@@ -4375,7 +4375,7 @@ ProductBoxFiveComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MOD
       _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵpureFunction1"](28, _c2, ctx.product.title.replace(" ", "-")));
       _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
       _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵpropertyInterpolate"]("alt", ctx.product == null ? null : ctx.product.images[0].alt);
-      _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("defaultImage", ctx.ImageSrc ? ctx.ImageSrc : "assets/images/product/placeholder.jpg")("lazyLoad", ctx.ImageSrc ? ctx.ImageSrc : ctx.product.images[0].src);
+      _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("defaultImage", ctx.ImageSrc ? ctx.ImageSrc : "web/assets/images/product/placeholder.jpg")("lazyLoad", ctx.ImageSrc ? ctx.ImageSrc : ctx.product.images[0].src);
       _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
       _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("ngIf", ctx.onHowerChangeImage && ctx.product.images.length > 1);
       _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
@@ -4686,7 +4686,7 @@ ProductBoxFourComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MOD
       _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵpureFunction1"](28, _c2, ctx.product.title.replace(" ", "-")));
       _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
       _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵpropertyInterpolate"]("alt", ctx.product.images[0].alt);
-      _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("defaultImage", ctx.ImageSrc ? ctx.ImageSrc : "assets/images/product/placeholder.jpg")("lazyLoad", ctx.ImageSrc ? ctx.ImageSrc : ctx.product.images[0].src);
+      _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("defaultImage", ctx.ImageSrc ? ctx.ImageSrc : "web/assets/images/product/placeholder.jpg")("lazyLoad", ctx.ImageSrc ? ctx.ImageSrc : ctx.product.images[0].src);
       _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
       _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("ngIf", ctx.onHowerChangeImage);
       _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](2);
@@ -4859,7 +4859,7 @@ function ProductBoxOneComponent_div_0_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵpureFunction1"](11, _c2, ctx_r0.product == null ? null : ctx_r0.product.id));
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵpropertyInterpolate"]("alt", "alt");
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("defaultImage", ctx_r0.ImageSrc ? ctx_r0.ImageSrc : "assets/images/product/placeholder.jpg")("lazyLoad", ctx_r0.ImageSrc ? ctx_r0.ImageSrc : ctx_r0.product.thumbnail == null ? null : ctx_r0.product.thumbnail.imageUrl);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("defaultImage", ctx_r0.ImageSrc ? ctx_r0.ImageSrc : "web/assets/images/product/placeholder.jpg")("lazyLoad", ctx_r0.ImageSrc ? ctx_r0.ImageSrc : ctx_r0.product.thumbnail == null ? null : ctx_r0.product.thumbnail.imageUrl);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("ngIf", ctx_r0.onHowerChangeImage);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
@@ -5155,7 +5155,7 @@ ProductBoxThreeComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MO
       _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵpureFunction1"](24, _c2, ctx.product.title.replace(" ", "-")));
       _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
       _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵpropertyInterpolate"]("alt", ctx.product.images[0].alt);
-      _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("defaultImage", "assets/images/product/placeholder.jpg")("lazyLoad", ctx.product.images[0].src);
+      _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("defaultImage", "web/assets/images/product/placeholder.jpg")("lazyLoad", ctx.product.images[0].src);
       _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](2);
       _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("ngIf", ctx.cartModal);
       _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
@@ -5434,7 +5434,7 @@ ProductBoxTwoComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODU
       _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](2);
       _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵpureFunction1"](26, _c3, ctx.product.title.replace(" ", "-")));
       _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
-      _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("defaultImage", ctx.ImageSrc ? ctx.ImageSrc : "assets/images/product/placeholder.jpg")("lazyLoad", ctx.ImageSrc ? ctx.ImageSrc : ctx.product.images[0].src);
+      _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("defaultImage", ctx.ImageSrc ? ctx.ImageSrc : "web/assets/images/product/placeholder.jpg")("lazyLoad", ctx.ImageSrc ? ctx.ImageSrc : ctx.product.images[0].src);
       _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](2);
       _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("ngIf", ctx.cartModal);
       _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
@@ -5528,7 +5528,7 @@ function ProductBoxVerticalSliderComponent_ng_container_4_ng_template_1_div_1_Te
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵpureFunction1"](16, _c0, product_r5.title.replace(" ", "-")));
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("defaultImage", "assets/images/product/placeholder.jpg")("lazyLoad", product_r5.images[0].src);
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("defaultImage", "web/assets/images/product/placeholder.jpg")("lazyLoad", product_r5.images[0].src);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵpureFunction1"](18, _c0, product_r5.title.replace(" ", "-")));
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](2);
@@ -5588,7 +5588,7 @@ function ProductBoxVerticalSliderComponent_ng_container_4_ng_template_2_div_1_Te
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵpureFunction1"](16, _c0, product_r9.title.replace(" ", "-")));
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("defaultImage", "assets/images/product/placeholder.jpg")("lazyLoad", product_r9.images[0].src);
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("defaultImage", "web/assets/images/product/placeholder.jpg")("lazyLoad", product_r9.images[0].src);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵpureFunction1"](18, _c0, product_r9.title.replace(" ", "-")));
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](2);
@@ -5782,7 +5782,7 @@ ProductBoxVerticalComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](19, _c1, ctx.product.title.replace(" ", "-")));
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpropertyInterpolate"]("alt", ctx.product.images[0].alt);
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("defaultImage", ctx.ImageSrc ? ctx.ImageSrc : "assets/images/product/placeholder.jpg")("lazyLoad", ctx.ImageSrc ? ctx.ImageSrc : ctx.product.images[0].src);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("defaultImage", ctx.ImageSrc ? ctx.ImageSrc : "web/assets/images/product/placeholder.jpg")("lazyLoad", ctx.ImageSrc ? ctx.ImageSrc : ctx.product.images[0].src);
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("rate", 5)("readOnly", true);
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
@@ -6455,7 +6455,7 @@ __webpack_require__.r(__webpack_exports__);
 class FooterFourComponent {
   constructor() {
     this.class = 'footer-light'; // Default class 
-    this.themeLogo = 'assets/images/icon/logo.png'; // Default Logo
+    this.themeLogo = 'web/assets/images/icon/logo.png'; // Default Logo
     this.today = Date.now();
   }
   ngOnInit() {}
@@ -6472,7 +6472,7 @@ FooterFourComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_
   },
   decls: 92,
   vars: 6,
-  consts: [[3, "ngClass"], [1, "white-layout"], [1, "container"], [1, "small-section"], [1, "row", "footer-theme2"], [1, "col"], [1, "footer-link", "link-white"], [1, "footer-brand-logo"], ["href", "javascript:void(0)"], ["alt", "", 1, "img-fluid", 3, "src"], [1, "social-white"], ["aria-hidden", "true", 1, "fa", "fa-facebook"], ["aria-hidden", "true", 1, "fa", "fa-google-plus"], ["aria-hidden", "true", 1, "fa", "fa-twitter"], ["aria-hidden", "true", 1, "fa", "fa-instagram"], ["aria-hidden", "true", 1, "fa", "fa-rss"], [1, "footer-title", "footer-mobile-title"], [1, "footer-contant"], [1, "sub-footer", "black-subfooter"], [1, "row"], [1, "col-xl-6", "col-md-6", "col-sm-12"], [1, "footer-end"], ["aria-hidden", "true", 1, "fa", "fa-copyright"], [1, "payment-card-bottom"], ["src", "assets/images/icon/visa.png", "alt", ""], ["src", "assets/images/icon/mastercard.png", "alt", ""], ["src", "assets/images/icon/paypal.png", "alt", ""], ["src", "assets/images/icon/american-express.png", "alt", ""], ["src", "assets/images/icon/discover.png", "alt", ""]],
+  consts: [[3, "ngClass"], [1, "white-layout"], [1, "container"], [1, "small-section"], [1, "row", "footer-theme2"], [1, "col"], [1, "footer-link", "link-white"], [1, "footer-brand-logo"], ["href", "javascript:void(0)"], ["alt", "", 1, "img-fluid", 3, "src"], [1, "social-white"], ["aria-hidden", "true", 1, "fa", "fa-facebook"], ["aria-hidden", "true", 1, "fa", "fa-google-plus"], ["aria-hidden", "true", 1, "fa", "fa-twitter"], ["aria-hidden", "true", 1, "fa", "fa-instagram"], ["aria-hidden", "true", 1, "fa", "fa-rss"], [1, "footer-title", "footer-mobile-title"], [1, "footer-contant"], [1, "sub-footer", "black-subfooter"], [1, "row"], [1, "col-xl-6", "col-md-6", "col-sm-12"], [1, "footer-end"], ["aria-hidden", "true", 1, "fa", "fa-copyright"], [1, "payment-card-bottom"], ["src", "web/assets/images/icon/visa.png", "alt", ""], ["src", "web/assets/images/icon/mastercard.png", "alt", ""], ["src", "web/assets/images/icon/paypal.png", "alt", ""], ["src", "web/assets/images/icon/american-express.png", "alt", ""], ["src", "web/assets/images/icon/discover.png", "alt", ""]],
   template: function FooterFourComponent_Template(rf, ctx) {
     if (rf & 1) {
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "footer", 0)(1, "div", 1)(2, "div", 2)(3, "section", 3)(4, "div", 4)(5, "div", 5)(6, "div", 6)(7, "div", 7)(8, "a", 8);
@@ -6604,7 +6604,7 @@ const _c0 = function () {
 class FooterOneComponent {
   constructor() {
     this.class = 'footer-light'; // Default class 
-    this.themeLogo = 'assets/images/icon/logo.png'; // Default Logo
+    this.themeLogo = 'web/assets/images/icon/logo.png'; // Default Logo
     this.newsletter = true; // Default True
     this.today = Date.now();
   }
@@ -6623,7 +6623,7 @@ FooterOneComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_0
   },
   decls: 74,
   vars: 10,
-  consts: [["class", "light-layout", 4, "ngIf"], [1, "section-b-space", "light-layout"], [1, "container"], [1, "row", "footer-theme", "partition-f"], [1, "col-lg-4", "col-md-6"], [1, "footer-title", "footer-mobile-title"], [1, "footer-contant"], [1, "footer-logo"], ["alt", "logo", 3, "src"], [1, "footer-social"], ["href", "javascript:void(0)"], ["aria-hidden", "true", 1, "fa", "fa-facebook"], ["aria-hidden", "true", 1, "fa", "fa-instagram"], [1, "col"], [1, "sub-title"], [1, "footer-title"], ["fragment", "spedizioni", 3, "routerLink"], ["fragment", "resi", 3, "routerLink"], ["fragment", "reso", 3, "routerLink"], [1, "contact-list"], ["href", "mailto: info@out-wear.com"], [1, "sub-footer"], [1, "row"], [1, "col", "text-center", 2, "margin-top", "1%"], [1, "col-xl-6", "col-md-6", "col-sm-12"], [1, "footer-end"], [1, "payment-card-bottom"], ["src", "assets/images/icon/visa.png", "alt", ""], ["src", "assets/images/icon/mastercard.png", "alt", ""], ["src", "assets/images/icon/paypal.png", "alt", ""], [1, "light-layout"], [1, "small-section", "border-section", "border-top-0"], [1, "col-lg-6"], [1, "subscribe"], ["action", "https://pixelstrap.us19.list-manage.com/subscribe/post?u=5a128856334b598b395f1fc9b&id=082f74cbda", "target", "_blank", "method", "post", 1, "form-inline", "subscribe-form"], [1, "form-group", "mx-sm-3"], ["type", "email", "name", "EMAIL", "id", "mce-EMAIL", "placeholder", "Inserisci la tua mail", 1, "form-control"], ["name", ""], ["type", "submit", 1, "btn", "btn-solid"]],
+  consts: [["class", "light-layout", 4, "ngIf"], [1, "section-b-space", "light-layout"], [1, "container"], [1, "row", "footer-theme", "partition-f"], [1, "col-lg-4", "col-md-6"], [1, "footer-title", "footer-mobile-title"], [1, "footer-contant"], [1, "footer-logo"], ["alt", "logo", 3, "src"], [1, "footer-social"], ["href", "javascript:void(0)"], ["aria-hidden", "true", 1, "fa", "fa-facebook"], ["aria-hidden", "true", 1, "fa", "fa-instagram"], [1, "col"], [1, "sub-title"], [1, "footer-title"], ["fragment", "spedizioni", 3, "routerLink"], ["fragment", "resi", 3, "routerLink"], ["fragment", "reso", 3, "routerLink"], [1, "contact-list"], ["href", "mailto: info@out-wear.com"], [1, "sub-footer"], [1, "row"], [1, "col", "text-center", 2, "margin-top", "1%"], [1, "col-xl-6", "col-md-6", "col-sm-12"], [1, "footer-end"], [1, "payment-card-bottom"], ["src", "web/assets/images/icon/visa.png", "alt", ""], ["src", "web/assets/images/icon/mastercard.png", "alt", ""], ["src", "web/assets/images/icon/paypal.png", "alt", ""], [1, "light-layout"], [1, "small-section", "border-section", "border-top-0"], [1, "col-lg-6"], [1, "subscribe"], ["action", "https://pixelstrap.us19.list-manage.com/subscribe/post?u=5a128856334b598b395f1fc9b&id=082f74cbda", "target", "_blank", "method", "post", 1, "form-inline", "subscribe-form"], [1, "form-group", "mx-sm-3"], ["type", "email", "name", "EMAIL", "id", "mce-EMAIL", "placeholder", "Inserisci la tua mail", 1, "form-control"], ["name", ""], ["type", "submit", 1, "btn", "btn-solid"]],
   template: function FooterOneComponent_Template(rf, ctx) {
     if (rf & 1) {
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "footer");
@@ -6815,7 +6815,7 @@ class FooterThreeComponent {
   constructor() {
     this.mainFooter = true; // Default true 
     this.subFooter = false; // Default false 
-    this.themeLogo = 'assets/images/icon/logo.png'; // Default Logo
+    this.themeLogo = 'web/assets/images/icon/logo.png'; // Default Logo
     this.today = Date.now();
   }
   ngOnInit() {}
@@ -6834,7 +6834,7 @@ FooterThreeComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE
   },
   decls: 31,
   vars: 3,
-  consts: [[3, "ngClass"], ["class", "white-layout", 4, "ngIf"], ["class", "white-layout box-layout", 4, "ngIf"], [1, "sub-footer", "black-subfooter"], [1, "container"], [1, "row"], [1, "col", "text-center", 2, "margin-top", "1%"], [1, "col-xl-6", "col-md-6", "col-sm-12"], [1, "footer-end"], [1, "payment-card-bottom"], ["href", "javascript:void(0)"], ["src", "assets/images/icon/visa.png", "alt", ""], ["src", "assets/images/icon/mastercard.png", "alt", ""], ["src", "assets/images/icon/paypal.png", "alt", ""], ["src", "assets/images/icon/american-express.png", "alt", ""], ["src", "assets/images/icon/discover.png", "alt", ""], [1, "white-layout"], [1, "p-0"], [1, "container-fluid"], [1, "row", "footer-theme2", "section-light", "footer-border"], [1, "col"], [1, "footer-block"], [1, "footer-container"], [1, "footer-title", "footer-mobile-title"], [1, "footer-contant"], [1, "footer-logo"], ["alt", "", 3, "src"], [1, "social-white"], ["aria-hidden", "true", 1, "fa", "fa-facebook"], ["aria-hidden", "true", 1, "fa", "fa-google-plus"], ["aria-hidden", "true", 1, "fa", "fa-twitter"], ["aria-hidden", "true", 1, "fa", "fa-instagram"], ["aria-hidden", "true", 1, "fa", "fa-rss"], [1, "col", "form-p", "p-0"], [1, "subscribe-white"], [1, "form-group"], ["type", "text", "id", "exampleFormControlInput", "placeholder", "Enter your email", 1, "form-control"], ["type", "submit", 1, "btn", "btn-solid", "black-btn"], [1, "footer-title"], [1, "contact-details"], [1, "white-layout", "box-layout"], [1, "small-section"], [1, "row", "footer-theme2"], [1, "footer-link", "link-white"]],
+  consts: [[3, "ngClass"], ["class", "white-layout", 4, "ngIf"], ["class", "white-layout box-layout", 4, "ngIf"], [1, "sub-footer", "black-subfooter"], [1, "container"], [1, "row"], [1, "col", "text-center", 2, "margin-top", "1%"], [1, "col-xl-6", "col-md-6", "col-sm-12"], [1, "footer-end"], [1, "payment-card-bottom"], ["href", "javascript:void(0)"], ["src", "web/assets/images/icon/visa.png", "alt", ""], ["src", "web/assets/images/icon/mastercard.png", "alt", ""], ["src", "web/assets/images/icon/paypal.png", "alt", ""], ["src", "web/assets/images/icon/american-express.png", "alt", ""], ["src", "web/assets/images/icon/discover.png", "alt", ""], [1, "white-layout"], [1, "p-0"], [1, "container-fluid"], [1, "row", "footer-theme2", "section-light", "footer-border"], [1, "col"], [1, "footer-block"], [1, "footer-container"], [1, "footer-title", "footer-mobile-title"], [1, "footer-contant"], [1, "footer-logo"], ["alt", "", 3, "src"], [1, "social-white"], ["aria-hidden", "true", 1, "fa", "fa-facebook"], ["aria-hidden", "true", 1, "fa", "fa-google-plus"], ["aria-hidden", "true", 1, "fa", "fa-twitter"], ["aria-hidden", "true", 1, "fa", "fa-instagram"], ["aria-hidden", "true", 1, "fa", "fa-rss"], [1, "col", "form-p", "p-0"], [1, "subscribe-white"], [1, "form-group"], ["type", "text", "id", "exampleFormControlInput", "placeholder", "Enter your email", 1, "form-control"], ["type", "submit", 1, "btn", "btn-solid", "black-btn"], [1, "footer-title"], [1, "contact-details"], [1, "white-layout", "box-layout"], [1, "small-section"], [1, "row", "footer-theme2"], [1, "footer-link", "link-white"]],
   template: function FooterThreeComponent_Template(rf, ctx) {
     if (rf & 1) {
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "footer", 0);
@@ -6999,7 +6999,7 @@ function FooterTwoComponent_div_2_Template(rf, ctx) {
 class FooterTwoComponent {
   constructor(apiNewsletterService) {
     this.apiNewsletterService = apiNewsletterService;
-    this.themeLogo = 'assets/images/icon/logo.png'; // default Logo
+    this.themeLogo = 'web/assets/images/icon/logo.png'; // default Logo
     this.mainFooter = true; // Default true 
     this.subFooter = false; // Default false 
     this.today = Date.now();
@@ -7027,7 +7027,7 @@ FooterTwoComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1
   },
   decls: 25,
   vars: 3,
-  consts: [[3, "ngClass"], ["class", "dark-layout", 4, "ngIf"], [1, "sub-footer", "darker-subfooter"], [1, "container"], [1, "row"], [1, "col", "text-center", 2, "margin-top", "1%"], [1, "col-xl-6", "col-md-6", "col-sm-12"], [1, "footer-end"], [1, "payment-card-bottom"], ["href", "javascript:void(0)"], ["src", "assets/images/icon/visa.png", "alt", ""], ["src", "assets/images/icon/mastercard.png", "alt", ""], ["src", "assets/images/icon/paypal.png", "alt", ""], [1, "dark-layout"], [1, "section-b-space", "border-b"], [1, "row", "footer-theme2"], [1, "col-lg-3"], [1, "footer-title", "footer-mobile-title"], [1, "footer-contant"], ["id", "footerlogo", 1, "footer-logo"], ["alt", "logo", 3, "src"], [1, "col-lg-6", "subscribe-wrapper"], [1, "subscribe-block"], [1, "form-group"], ["type", "text", "name", "emailAddress", "id", "exampleFormControlInput3", "placeholder", "Inserisci la tua mail", 1, "form-control", 3, "ngModel", "ngModelChange"], ["type", "submit", 1, "btn", "btn-solid", 3, "click"], [1, "footer-title"], [1, "contact-details"], ["fragment", "spedizioni", 3, "routerLink"], ["fragment", "resi", 3, "routerLink"], ["fragment", "reso", 3, "routerLink"], [1, "small-section"], [1, "col", "p-set"], [1, "footer-link"], [1, "sub-title"], [1, "footer-link-b"]],
+  consts: [[3, "ngClass"], ["class", "dark-layout", 4, "ngIf"], [1, "sub-footer", "darker-subfooter"], [1, "container"], [1, "row"], [1, "col", "text-center", 2, "margin-top", "1%"], [1, "col-xl-6", "col-md-6", "col-sm-12"], [1, "footer-end"], [1, "payment-card-bottom"], ["href", "javascript:void(0)"], ["src", "web/assets/images/icon/visa.png", "alt", ""], ["src", "web/assets/images/icon/mastercard.png", "alt", ""], ["src", "web/assets/images/icon/paypal.png", "alt", ""], [1, "dark-layout"], [1, "section-b-space", "border-b"], [1, "row", "footer-theme2"], [1, "col-lg-3"], [1, "footer-title", "footer-mobile-title"], [1, "footer-contant"], ["id", "footerlogo", 1, "footer-logo"], ["alt", "logo", 3, "src"], [1, "col-lg-6", "subscribe-wrapper"], [1, "subscribe-block"], [1, "form-group"], ["type", "text", "name", "emailAddress", "id", "exampleFormControlInput3", "placeholder", "Inserisci la tua mail", 1, "form-control", 3, "ngModel", "ngModelChange"], ["type", "submit", 1, "btn", "btn-solid", 3, "click"], [1, "footer-title"], [1, "contact-details"], ["fragment", "spedizioni", 3, "routerLink"], ["fragment", "resi", 3, "routerLink"], ["fragment", "reso", 3, "routerLink"], [1, "small-section"], [1, "col", "p-set"], [1, "footer-link"], [1, "sub-title"], [1, "footer-link-b"]],
   template: function FooterTwoComponent_Template(rf, ctx) {
     if (rf & 1) {
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "footer", 0);
@@ -7091,7 +7091,7 @@ const _c0 = function () {
 class HeaderFourComponent {
   constructor() {
     this.class = 'header-2 header-6';
-    this.themeLogo = 'assets/images/icon/logo.png'; // Default Logo
+    this.themeLogo = 'web/assets/images/icon/logo.png'; // Default Logo
     this.topbar = true; // Default True
     this.sticky = false; // Default false
     this.stick = false;
@@ -7184,7 +7184,7 @@ __webpack_require__.r(__webpack_exports__);
 
 class HeaderOneComponent {
   constructor() {
-    this.themeLogo = 'assets/images/icon/logo.png'; // Default Logo
+    this.themeLogo = 'web/assets/images/icon/logo.png'; // Default Logo
     this.topbar = true; // Default True
     this.sticky = false; // Default false
     this.stick = false;
@@ -7277,7 +7277,7 @@ const _c0 = function () {
 class HeaderThreeComponent {
   constructor() {
     this.class = 'header-2';
-    this.themeLogo = 'assets/images/icon/logo.png'; // Default Logo
+    this.themeLogo = 'web/assets/images/icon/logo.png'; // Default Logo
     this.topbar = true; // Default True
     this.sticky = false; // Default false
     this.stick = false;
@@ -7372,7 +7372,7 @@ const _c0 = function () {
 };
 class HeaderTwoComponent {
   constructor() {
-    this.themeLogo = 'assets/images/icon/logo.png'; // Default Logo
+    this.themeLogo = 'web/assets/images/icon/logo.png'; // Default Logo
     this.topbar = true; // Default True
     this.sticky = false; // Default false
     this.stick = false;
@@ -7881,7 +7881,7 @@ class ProductService {
   */
   // Product
   get products() {
-    this.Products = this.http.get('assets/data/products.json').pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_0__.map)(data => data));
+    this.Products = this.http.get('web/assets/data/products.json').pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_0__.map)(data => data));
     this.Products.subscribe(next => {
       localStorage['products'] = JSON.stringify(next);
     });
@@ -8344,6 +8344,7 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 const environment = {
   production: false,
+  // apiUrl: 'http://127.0.0.1:8000',
   apiUrl: 'https://www.out-wear.com',
   stripe_token: 'STRIPE_TOKEN',
   paypal_token: 'PAYPAL_TOKEN'
