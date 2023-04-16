@@ -30499,7 +30499,7 @@ header .layout3-menu .main-navbar .nav-menu > li.mega-menu {
     bottom: 0;
     left: 0;
     height: 60px;
-    background-color: #333333;
+    background-color: black;
     width: 100vw;
     z-index: 9;
     box-shadow: 0 2px 5px 0 rgb(168, 168, 168);
@@ -30625,14 +30625,6 @@ header .layout3-menu .main-navbar .nav-menu > li.mega-menu {
   .main-menu .menu-right .icon-nav .mobile-search .show-div .form-inline button i {
     font-size: 14px;
   }
-  .brand-logo {
-    position: absolute;
-    left: 50%;
-    margin-right: -50%;
-    transform: translateX(-50%);
-    padding-top: 30px !important;
-    padding-bottom: 30px !important;
-  }
   .toggle-nav {
     padding-top: 30px;
     padding-bottom: 30px;
@@ -30688,11 +30680,6 @@ header .layout3-menu .main-navbar .nav-menu > li.mega-menu {
   }
   .rtl .layout3-menu .brand-logo {
     left: unset;
-  }
-}
-@media (max-width: 480px) {
-  .brand-logo img {
-    height: 25px;
   }
 }
 /*=====================

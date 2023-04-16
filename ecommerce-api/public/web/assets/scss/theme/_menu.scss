@@ -1344,7 +1344,7 @@ header {
         bottom: 0;
         left: 0;
         height: 60px;
-        background-color: $font-color;
+        background-color: black;
         width: 100vw;
         z-index: 9;
         box-shadow: 0 2px 5px 0 rgba(168, 168, 168, 1);
@@ -1502,14 +1502,6 @@ header {
             }
         }
     }
-    .brand-logo {
-        position: absolute;
-        left: 50%;
-        margin-right: -50%;
-        transform: translateX(-50%);
-        padding-top: 30px !important;
-        padding-bottom: 30px !important;
-    }
     .toggle-nav {
         padding-top: 30px;
         padding-bottom: 30px;
@@ -1579,14 +1571,6 @@ header {
             .brand-logo {
                 left: unset;
             }
-        }
-    }
-}
-
-@media (max-width: 480px) {
-    .brand-logo {
-        img {
-            height: 25px;
         }
     }
 }

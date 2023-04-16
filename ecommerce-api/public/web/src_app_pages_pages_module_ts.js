@@ -11,121 +11,77 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AboutUsComponent": () => (/* binding */ AboutUsComponent)
 /* harmony export */ });
-/* harmony import */ var _shared_data_slider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../shared/data/slider */ 53225);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 22560);
-
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 22560);
 
 class AboutUsComponent {
-  constructor() {
-    this.TeamSliderConfig = _shared_data_slider__WEBPACK_IMPORTED_MODULE_0__.TeamSlider;
-    this.TestimonialSliderConfig = _shared_data_slider__WEBPACK_IMPORTED_MODULE_0__.TestimonialSlider;
-    // Testimonial Carousel
-    this.testimonial = [{
-      image: 'web/assets/images/testimonial/1.jpg',
-      name: 'Mark jkcno',
-      designation: 'Designer',
-      description: 'you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings.'
-    }, {
-      image: 'web/assets/images/testimonial/2.jpg',
-      name: 'Adegoke Yusuff',
-      designation: 'Content Writer',
-      description: 'you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings.'
-    }, {
-      image: 'web/assets/images/testimonial/1.jpg',
-      name: 'John Shipmen',
-      designation: 'Lead Developer',
-      description: 'you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings.'
-    }];
-    // Team 
-    this.team = [{
-      image: 'web/assets/images/team/1.jpg',
-      name: 'Mark jkcno',
-      designation: 'Designer'
-    }, {
-      image: 'web/assets/images/team/2.jpg',
-      name: 'Adegoke Yusuff',
-      designation: 'Content Writer'
-    }, {
-      image: 'web/assets/images/team/3.jpg',
-      name: 'John Shipmen',
-      designation: 'Lead Developer'
-    }, {
-      image: 'web/assets/images/team/4.jpg',
-      name: 'Hileri Keol',
-      designation: 'CEO & Founder at Company'
-    }, {
-      image: 'web/assets/images/team/3.jpg',
-      name: 'John Shipmen',
-      designation: 'Lead Developer'
-    }];
-  }
+  constructor() {}
   ngOnInit() {}
 }
 AboutUsComponent.ɵfac = function AboutUsComponent_Factory(t) {
   return new (t || AboutUsComponent)();
 };
-AboutUsComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({
+AboutUsComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
   type: AboutUsComponent,
   selectors: [["app-about-us"]],
   decls: 49,
   vars: 0,
-  consts: [[1, "about-page", "section-b-space"], [1, "container"], [1, "row"], [1, "col-6"], [1, "banner-section"], ["src", "web/assets/images/chi-siamo/riccardo.jpg", "alt", "about-us", 1, "img-fluid", 2, "max-width", "75%", "margin-left", "10%"], [1, "col-6", 2, "text-align", "justify"], [1, "container", "about-cls", "section-b-space"], [1, "service", "border-section", "small-section"], [1, "col-md-6", "service-block"], [1, "media"], ["xmlns", "http://www.w3.org/2000/svg", "viewBox", "0 -117 679.99892 679"], ["d", "m12.347656 378.382812h37.390625c4.371094 37.714844 36.316407 66.164063 74.277344 66.164063 37.96875 0 69.90625-28.449219 74.28125-66.164063h241.789063c4.382812 37.714844 36.316406 66.164063 74.277343 66.164063 37.96875 0 69.902344-28.449219 74.285157-66.164063h78.890624c6.882813 0 12.460938-5.578124 12.460938-12.460937v-352.957031c0-6.882813-5.578125-12.464844-12.460938-12.464844h-432.476562c-6.875 0-12.457031 5.582031-12.457031 12.464844v69.914062h-105.570313c-4.074218.011719-7.890625 2.007813-10.21875 5.363282l-68.171875 97.582031-26.667969 37.390625-9.722656 13.835937c-1.457031 2.082031-2.2421872 4.558594-2.24999975 7.101563v121.398437c-.09765625 3.34375 1.15624975 6.589844 3.47656275 9.003907 2.320312 2.417968 5.519531 3.796874 8.867187 3.828124zm111.417969 37.386719c-27.527344 0-49.851563-22.320312-49.851563-49.847656 0-27.535156 22.324219-49.855469 49.851563-49.855469 27.535156 0 49.855469 22.320313 49.855469 49.855469 0 27.632813-22.21875 50.132813-49.855469 50.472656zm390.347656 0c-27.53125 0-49.855469-22.320312-49.855469-49.847656 0-27.535156 22.324219-49.855469 49.855469-49.855469 27.539063 0 49.855469 22.320313 49.855469 49.855469.003906 27.632813-22.21875 50.132813-49.855469 50.472656zm140.710938-390.34375v223.34375h-338.375c-6.882813 0-12.464844 5.578125-12.464844 12.460938 0 6.882812 5.582031 12.464843 12.464844 12.464843h338.375v79.761719h-66.421875c-4.382813-37.710937-36.320313-66.15625-74.289063-66.15625-37.960937 0-69.898437 28.445313-74.277343 66.15625h-192.308594v-271.324219h89.980468c6.882813 0 12.464844-5.582031 12.464844-12.464843 0-6.882813-5.582031-12.464844-12.464844-12.464844h-89.980468v-31.777344zm-531.304688 82.382813h99.703125v245.648437h-24.925781c-4.375-37.710937-36.3125-66.15625-74.28125-66.15625-37.960937 0-69.90625 28.445313-74.277344 66.15625h-24.929687v-105.316406l3.738281-5.359375h152.054687c6.882813 0 12.460938-5.574219 12.460938-12.457031v-92.226563c0-6.882812-5.578125-12.464844-12.460938-12.464844h-69.796874zm-30.160156 43h74.777344v67.296875h-122.265625zm0 0", "fill", "#ff4c3b"], [1, "media-body"], ["xmlns", "http://www.w3.org/2000/svg", "viewBox", "0 -14 512.00001 512"], ["d", "m136.964844 308.234375c4.78125-2.757813 6.417968-8.878906 3.660156-13.660156-2.761719-4.777344-8.878906-6.417969-13.660156-3.660157-4.78125 2.761719-6.421875 8.882813-3.660156 13.660157 2.757812 4.78125 8.878906 6.421875 13.660156 3.660156zm0 0", "fill", "#ff4c3b"], ["d", "m95.984375 377.253906 50.359375 87.230469c10.867188 18.84375 35.3125 25.820313 54.644531 14.644531 19.128907-11.054687 25.703125-35.496094 14.636719-54.640625l-30-51.96875 25.980469-15c4.78125-2.765625 6.421875-8.878906 3.660156-13.660156l-13.003906-22.523437c1.550781-.300782 11.746093-2.300782 191.539062-37.570313 22.226563-1.207031 35.542969-25.515625 24.316407-44.949219l-33.234376-57.5625 21.238282-32.167968c2.085937-3.164063 2.210937-7.230469.316406-10.511719l-20-34.640625c-1.894531-3.28125-5.492188-5.203125-9.261719-4.980469l-38.472656 2.308594-36.894531-63.90625c-5.34375-9.257813-14.917969-14.863281-25.605469-14.996094-.128906-.003906-.253906-.003906-.382813-.003906-10.328124 0-19.703124 5.140625-25.257812 13.832031l-130.632812 166.414062-84.925782 49.03125c-33.402344 19.277344-44.972656 62.128907-25.621094 95.621094 17.679688 30.625 54.953126 42.671875 86.601563 30zm102.324219 57.238282c5.523437 9.554687 2.253906 21.78125-7.328125 27.316406-9.613281 5.558594-21.855469 2.144531-27.316407-7.320313l-50-86.613281 34.640626-20c57.867187 100.242188 49.074218 85.011719 50.003906 86.617188zm-22.683594-79.296876-10-17.320312 17.320312-10 10 17.320312zm196.582031-235.910156 13.820313 23.9375-12.324219 18.664063-23.820313-41.261719zm-104.917969-72.132812c2.683594-4.390625 6.941407-4.84375 8.667969-4.796875 1.707031.019531 5.960938.550781 8.527344 4.996093l116.3125 201.464844c3.789063 6.558594-.816406 14.804688-8.414063 14.992188-1.363281.03125-1.992187.277344-5.484374.929687l-123.035157-213.105469c2.582031-3.320312 2.914063-3.640624 3.425781-4.480468zm-16.734374 21.433594 115.597656 200.222656-174.460938 34.21875-53.046875-91.878906zm-223.851563 268.667968c-4.390625-7.597656-6.710937-16.222656-6.710937-24.949218 0-17.835938 9.585937-34.445313 25.011718-43.351563l77.941406-45 50 86.601563-77.941406 45.003906c-23.878906 13.78125-54.515625 5.570312-68.300781-18.304688zm0 0", "fill", "#ff4c3b"], ["d", "m105.984375 314.574219c-2.761719-4.78125-8.878906-6.421875-13.660156-3.660157l-17.320313 10c-4.773437 2.757813-10.902344 1.113282-13.660156-3.660156-2.761719-4.78125-8.878906-6.421875-13.660156-3.660156s-6.421875 8.878906-3.660156 13.660156c8.230468 14.257813 26.589843 19.285156 40.980468 10.980469l17.320313-10c4.78125-2.761719 6.421875-8.875 3.660156-13.660156zm0 0", "fill", "#ff4c3b"], ["d", "m497.136719 43.746094-55.722657 31.007812c-4.824218 2.6875-6.5625 8.777344-3.875 13.601563 2.679688 4.820312 8.765626 6.566406 13.601563 3.875l55.71875-31.007813c4.828125-2.6875 6.5625-8.777344 3.875-13.601562-2.683594-4.828125-8.773437-6.5625-13.597656-3.875zm0 0", "fill", "#ff4c3b"], ["d", "m491.292969 147.316406-38.636719-10.351562c-5.335938-1.429688-10.820312 1.734375-12.25 7.070312-1.429688 5.335938 1.738281 10.816406 7.074219 12.246094l38.640625 10.351562c5.367187 1.441407 10.824218-1.773437 12.246094-7.070312 1.429687-5.335938-1.738282-10.820312-7.074219-12.246094zm0 0", "fill", "#ff4c3b"], ["d", "m394.199219 7.414062-10.363281 38.640626c-1.429688 5.335937 1.734374 10.816406 7.070312 12.25 5.332031 1.425781 10.816406-1.730469 12.25-7.070313l10.359375-38.640625c1.429687-5.335938-1.734375-10.820312-7.070313-12.25-5.332031-1.429688-10.816406 1.734375-12.246093 7.070312zm0 0", "fill", "#ff4c3b"]],
+  consts: [[1, "about-page", "section-b-space"], [1, "container"], [1, "row"], [1, "col-xs-12", "col-lg-6"], [1, "banner-section"], ["src", "web/assets/images/chi-siamo/riccardo.jpg", "alt", "about-us", 1, "img-fluid", "image", 2, "max-width", "75%"], [1, "col-xs-12", "col-lg-6", 2, "text-align", "justify"], [1, "container", "about-cls", "section-b-space"], [1, "service", "border-section", "small-section"], [1, "col-md-6", "service-block"], [1, "media"], ["xmlns", "http://www.w3.org/2000/svg", "viewBox", "0 -117 679.99892 679"], ["d", "m12.347656 378.382812h37.390625c4.371094 37.714844 36.316407 66.164063 74.277344 66.164063 37.96875 0 69.90625-28.449219 74.28125-66.164063h241.789063c4.382812 37.714844 36.316406 66.164063 74.277343 66.164063 37.96875 0 69.902344-28.449219 74.285157-66.164063h78.890624c6.882813 0 12.460938-5.578124 12.460938-12.460937v-352.957031c0-6.882813-5.578125-12.464844-12.460938-12.464844h-432.476562c-6.875 0-12.457031 5.582031-12.457031 12.464844v69.914062h-105.570313c-4.074218.011719-7.890625 2.007813-10.21875 5.363282l-68.171875 97.582031-26.667969 37.390625-9.722656 13.835937c-1.457031 2.082031-2.2421872 4.558594-2.24999975 7.101563v121.398437c-.09765625 3.34375 1.15624975 6.589844 3.47656275 9.003907 2.320312 2.417968 5.519531 3.796874 8.867187 3.828124zm111.417969 37.386719c-27.527344 0-49.851563-22.320312-49.851563-49.847656 0-27.535156 22.324219-49.855469 49.851563-49.855469 27.535156 0 49.855469 22.320313 49.855469 49.855469 0 27.632813-22.21875 50.132813-49.855469 50.472656zm390.347656 0c-27.53125 0-49.855469-22.320312-49.855469-49.847656 0-27.535156 22.324219-49.855469 49.855469-49.855469 27.539063 0 49.855469 22.320313 49.855469 49.855469.003906 27.632813-22.21875 50.132813-49.855469 50.472656zm140.710938-390.34375v223.34375h-338.375c-6.882813 0-12.464844 5.578125-12.464844 12.460938 0 6.882812 5.582031 12.464843 12.464844 12.464843h338.375v79.761719h-66.421875c-4.382813-37.710937-36.320313-66.15625-74.289063-66.15625-37.960937 0-69.898437 28.445313-74.277343 66.15625h-192.308594v-271.324219h89.980468c6.882813 0 12.464844-5.582031 12.464844-12.464843 0-6.882813-5.582031-12.464844-12.464844-12.464844h-89.980468v-31.777344zm-531.304688 82.382813h99.703125v245.648437h-24.925781c-4.375-37.710937-36.3125-66.15625-74.28125-66.15625-37.960937 0-69.90625 28.445313-74.277344 66.15625h-24.929687v-105.316406l3.738281-5.359375h152.054687c6.882813 0 12.460938-5.574219 12.460938-12.457031v-92.226563c0-6.882812-5.578125-12.464844-12.460938-12.464844h-69.796874zm-30.160156 43h74.777344v67.296875h-122.265625zm0 0", "fill", "#ff4c3b"], [1, "media-body"], ["xmlns", "http://www.w3.org/2000/svg", "viewBox", "0 -14 512.00001 512"], ["d", "m136.964844 308.234375c4.78125-2.757813 6.417968-8.878906 3.660156-13.660156-2.761719-4.777344-8.878906-6.417969-13.660156-3.660157-4.78125 2.761719-6.421875 8.882813-3.660156 13.660157 2.757812 4.78125 8.878906 6.421875 13.660156 3.660156zm0 0", "fill", "#ff4c3b"], ["d", "m95.984375 377.253906 50.359375 87.230469c10.867188 18.84375 35.3125 25.820313 54.644531 14.644531 19.128907-11.054687 25.703125-35.496094 14.636719-54.640625l-30-51.96875 25.980469-15c4.78125-2.765625 6.421875-8.878906 3.660156-13.660156l-13.003906-22.523437c1.550781-.300782 11.746093-2.300782 191.539062-37.570313 22.226563-1.207031 35.542969-25.515625 24.316407-44.949219l-33.234376-57.5625 21.238282-32.167968c2.085937-3.164063 2.210937-7.230469.316406-10.511719l-20-34.640625c-1.894531-3.28125-5.492188-5.203125-9.261719-4.980469l-38.472656 2.308594-36.894531-63.90625c-5.34375-9.257813-14.917969-14.863281-25.605469-14.996094-.128906-.003906-.253906-.003906-.382813-.003906-10.328124 0-19.703124 5.140625-25.257812 13.832031l-130.632812 166.414062-84.925782 49.03125c-33.402344 19.277344-44.972656 62.128907-25.621094 95.621094 17.679688 30.625 54.953126 42.671875 86.601563 30zm102.324219 57.238282c5.523437 9.554687 2.253906 21.78125-7.328125 27.316406-9.613281 5.558594-21.855469 2.144531-27.316407-7.320313l-50-86.613281 34.640626-20c57.867187 100.242188 49.074218 85.011719 50.003906 86.617188zm-22.683594-79.296876-10-17.320312 17.320312-10 10 17.320312zm196.582031-235.910156 13.820313 23.9375-12.324219 18.664063-23.820313-41.261719zm-104.917969-72.132812c2.683594-4.390625 6.941407-4.84375 8.667969-4.796875 1.707031.019531 5.960938.550781 8.527344 4.996093l116.3125 201.464844c3.789063 6.558594-.816406 14.804688-8.414063 14.992188-1.363281.03125-1.992187.277344-5.484374.929687l-123.035157-213.105469c2.582031-3.320312 2.914063-3.640624 3.425781-4.480468zm-16.734374 21.433594 115.597656 200.222656-174.460938 34.21875-53.046875-91.878906zm-223.851563 268.667968c-4.390625-7.597656-6.710937-16.222656-6.710937-24.949218 0-17.835938 9.585937-34.445313 25.011718-43.351563l77.941406-45 50 86.601563-77.941406 45.003906c-23.878906 13.78125-54.515625 5.570312-68.300781-18.304688zm0 0", "fill", "#ff4c3b"], ["d", "m105.984375 314.574219c-2.761719-4.78125-8.878906-6.421875-13.660156-3.660157l-17.320313 10c-4.773437 2.757813-10.902344 1.113282-13.660156-3.660156-2.761719-4.78125-8.878906-6.421875-13.660156-3.660156s-6.421875 8.878906-3.660156 13.660156c8.230468 14.257813 26.589843 19.285156 40.980468 10.980469l17.320313-10c4.78125-2.761719 6.421875-8.875 3.660156-13.660156zm0 0", "fill", "#ff4c3b"], ["d", "m497.136719 43.746094-55.722657 31.007812c-4.824218 2.6875-6.5625 8.777344-3.875 13.601563 2.679688 4.820312 8.765626 6.566406 13.601563 3.875l55.71875-31.007813c4.828125-2.6875 6.5625-8.777344 3.875-13.601562-2.683594-4.828125-8.773437-6.5625-13.597656-3.875zm0 0", "fill", "#ff4c3b"], ["d", "m491.292969 147.316406-38.636719-10.351562c-5.335938-1.429688-10.820312 1.734375-12.25 7.070312-1.429688 5.335938 1.738281 10.816406 7.074219 12.246094l38.640625 10.351562c5.367187 1.441407 10.824218-1.773437 12.246094-7.070312 1.429687-5.335938-1.738282-10.820312-7.074219-12.246094zm0 0", "fill", "#ff4c3b"], ["d", "m394.199219 7.414062-10.363281 38.640626c-1.429688 5.335937 1.734374 10.816406 7.070312 12.25 5.332031 1.425781 10.816406-1.730469 12.25-7.070313l10.359375-38.640625c1.429687-5.335938-1.734375-10.820312-7.070313-12.25-5.332031-1.429688-10.816406 1.734375-12.246093 7.070312zm0 0", "fill", "#ff4c3b"]],
   template: function AboutUsComponent_Template(rf, ctx) {
     if (rf & 1) {
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "section", 0)(1, "div", 1)(2, "div", 2)(3, "div", 3)(4, "div", 4);
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](5, "img", 5);
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](6, "div", 6)(7, "h4");
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](8, "Chi Siamo");
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](9, "p");
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](10, "Ciao, mi presento, sono Riccardo l\u2019ideatore e il fondatore di \"OUT\", il nuovo brand di abbigliamento tecnico-sportivo che nasce dalla volont\u00E0 di unire qualit\u00E0 dei materiali e stile all\u2019avanguardia. In tutto ci\u00F2 sono anche uno sportivo, da sempre appassionato di downhill e sempre pi\u00F9 affascinato da tutto ci\u00F2 che riguarda le attivit\u00E0 outdoor, specialmente in montagna.");
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](11, "p");
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](12, "\u00C8 stato nel 2022 che per me \u00E8 arrivata la svolta perch\u00E9 \u00E8 proprio l\u00EC che mi sono reso conto che ci\u00F2 che facevo non era pi\u00F9 abbastanza. Volevo qualcosa di diverso, la vita che avevo non mi soddisfava pi\u00F9, ma sentivo che nella mia testa qualcosa stava iniziando a prendere forma. Finalmente, dopo alcuni eventi avversi, ho deciso di lasciare il lavoro da dipendente per dedicarmi totalmente a ci\u00F2 che davvero mi ha sempre appassionato: lo stile di vita outdoor.");
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](13, "p");
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](14, "\u00C8d \u00E8 proprio da quel momento che l'idea che avevo si \u00E8 trasformata in OUT, un nuovo brand in cui ho investito tutto il mio tempo e risorse. Ho cercato ovunque per trovare i collaboratori pi\u00F9 adatti e, dopo averli individuati, sono riuscito a concretizzare davvero i miei desideri: unire la qualit\u00E0 e il comfort alla praticit\u00E0 dell\u2019abbigliamento outdoor. Una volta trovate le persone giuste le danze erano iniziate, la mia linea di abbigliamento ha cominciato a prendere forma e l\u2019obiettivo di creare qualcosa di originale \u00E8 stato raggiunto.");
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](15, "p");
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](16, "Quello che voglio farti capire \u00E8 che OUT non \u00E8 solo un brand di abbigliamento, OUT sono sogni, sacrifici, speranze e tanto lavoro che oggi mi ha portato ad essere fiero di essere sempre stato descritto come un sognatore, uno sportivo e forse anche uno un po\u2019 matto\u2026");
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](17, "p");
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](18, "Ed \u00E8 vero, potrei essere un po\u2019 folle ma sono solo un ragazzo che cerca di rendere la sua vita interessante e che detesta tutto ci\u00F2 che \u00E8 ordinario.");
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](19, "p");
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](20, "Questa \u00E8 una sfida e vedremo chi scappa e chi resta e ci prova.");
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](21, "p");
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](22, "Io sono pronto a montare in sella, e tu?");
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()()()()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](23, "div", 7)(24, "section", 8)(25, "div", 2)(26, "div", 9)(27, "div", 10);
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnamespaceSVG"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](28, "svg", 11);
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](29, "path", 12);
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnamespaceHTML"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](30, "div", 13)(31, "h4");
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](32, "SPEDIZIONE GRATUITA");
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](33, "p");
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](34, "In Italia per ordini pari o superiori a 99 euro");
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()()()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](35, "div", 9)(36, "div", 10);
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnamespaceSVG"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](37, "svg", 14);
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](38, "path", 15)(39, "path", 16)(40, "path", 17)(41, "path", 18)(42, "path", 19)(43, "path", 20);
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnamespaceHTML"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](44, "div", 13)(45, "h4");
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](46, "OFFERTE SPECIALI");
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](47, "p");
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](48, "per gli iscritti alla newsletter");
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()()()()()()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "section", 0)(1, "div", 1)(2, "div", 2)(3, "div", 3)(4, "div", 4);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](5, "img", 5);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "div", 6)(7, "h4");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8, "Chi Siamo");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "p");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](10, "Ciao, mi presento, sono Riccardo l\u2019ideatore e il fondatore di \"OUT\", il nuovo brand di abbigliamento tecnico-sportivo che nasce dalla volont\u00E0 di unire qualit\u00E0 dei materiali e stile all\u2019avanguardia. In tutto ci\u00F2 sono anche uno sportivo, da sempre appassionato di downhill e sempre pi\u00F9 affascinato da tutto ci\u00F2 che riguarda le attivit\u00E0 outdoor, specialmente in montagna.");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "p");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12, "\u00C8 stato nel 2022 che per me \u00E8 arrivata la svolta perch\u00E9 \u00E8 proprio l\u00EC che mi sono reso conto che ci\u00F2 che facevo non era pi\u00F9 abbastanza. Volevo qualcosa di diverso, la vita che avevo non mi soddisfava pi\u00F9, ma sentivo che nella mia testa qualcosa stava iniziando a prendere forma. Finalmente, dopo alcuni eventi avversi, ho deciso di lasciare il lavoro da dipendente per dedicarmi totalmente a ci\u00F2 che davvero mi ha sempre appassionato: lo stile di vita outdoor.");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "p");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](14, "\u00C8d \u00E8 proprio da quel momento che l'idea che avevo si \u00E8 trasformata in OUT, un nuovo brand in cui ho investito tutto il mio tempo e risorse. Ho cercato ovunque per trovare i collaboratori pi\u00F9 adatti e, dopo averli individuati, sono riuscito a concretizzare davvero i miei desideri: unire la qualit\u00E0 e il comfort alla praticit\u00E0 dell\u2019abbigliamento outdoor. Una volta trovate le persone giuste le danze erano iniziate, la mia linea di abbigliamento ha cominciato a prendere forma e l\u2019obiettivo di creare qualcosa di originale \u00E8 stato raggiunto.");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "p");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](16, "Quello che voglio farti capire \u00E8 che OUT non \u00E8 solo un brand di abbigliamento, OUT sono sogni, sacrifici, speranze e tanto lavoro che oggi mi ha portato ad essere fiero di essere sempre stato descritto come un sognatore, uno sportivo e forse anche uno un po\u2019 matto\u2026");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "p");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](18, "Ed \u00E8 vero, potrei essere un po\u2019 folle ma sono solo un ragazzo che cerca di rendere la sua vita interessante e che detesta tutto ci\u00F2 che \u00E8 ordinario.");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](19, "p");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](20, "Questa \u00E8 una sfida e vedremo chi scappa e chi resta e ci prova.");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](21, "p");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](22, "Io sono pronto a montare in sella, e tu?");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()()()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](23, "div", 7)(24, "section", 8)(25, "div", 2)(26, "div", 9)(27, "div", 10);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnamespaceSVG"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](28, "svg", 11);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](29, "path", 12);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnamespaceHTML"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](30, "div", 13)(31, "h4");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](32, "SPEDIZIONE GRATUITA");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](33, "p");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](34, "In Italia per ordini pari o superiori a 99 euro");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](35, "div", 9)(36, "div", 10);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnamespaceSVG"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](37, "svg", 14);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](38, "path", 15)(39, "path", 16)(40, "path", 17)(41, "path", 18)(42, "path", 19)(43, "path", 20);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnamespaceHTML"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](44, "div", 13)(45, "h4");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](46, "OFFERTE SPECIALI");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](47, "p");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](48, "per gli iscritti alla newsletter");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()()()()()();
     }
   },
-  styles: ["\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsInNvdXJjZVJvb3QiOiIifQ== */"]
+  styles: ["@media only screen and (min-width: 992px) {\n  .image[_ngcontent-%COMP%] {\n    margin-left: 10%;\n  }\n}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9hcHAvcGFnZXMvYWJvdXQtdXMvYWJvdXQtdXMuY29tcG9uZW50LnNjc3MiLCJ3ZWJwYWNrOi8vLi8uLi8uLi8uLi9QZXJzb25hbCUyMFByb2plY3RzL291dHdlYXItZnJvbnRlbmQtMy9vdXR3ZWFyLWZyb250ZW5kLTMvc3JjL2FwcC9wYWdlcy9hYm91dC11cy9hYm91dC11cy5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJO0lBQ0ksZ0JBQUE7RUNDTjtBQUNGIiwic291cmNlc0NvbnRlbnQiOlsiQG1lZGlhIG9ubHkgc2NyZWVuIGFuZCAobWluLXdpZHRoOiA5OTJweCkge1xuICAgIC5pbWFnZXtcbiAgICAgICAgbWFyZ2luLWxlZnQ6IDEwJTtcbiAgICB9XG59XG4iLCJAbWVkaWEgb25seSBzY3JlZW4gYW5kIChtaW4td2lkdGg6IDk5MnB4KSB7XG4gIC5pbWFnZSB7XG4gICAgbWFyZ2luLWxlZnQ6IDEwJTtcbiAgfVxufSJdLCJzb3VyY2VSb290IjoiIn0= */"]
 });
 
 /***/ }),
@@ -1639,35 +1595,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "PagesRoutingModule": () => (/* binding */ PagesRoutingModule)
 /* harmony export */ });
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/router */ 60124);
-/* harmony import */ var _account_wishlist_wishlist_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./account/wishlist/wishlist.component */ 60877);
-/* harmony import */ var _account_cart_cart_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./account/cart/cart.component */ 73945);
-/* harmony import */ var _account_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./account/dashboard/dashboard.component */ 97126);
-/* harmony import */ var _account_login_login_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./account/login/login.component */ 83180);
-/* harmony import */ var _account_register_register_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./account/register/register.component */ 8264);
-/* harmony import */ var _account_forget_password_forget_password_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./account/forget-password/forget-password.component */ 11115);
-/* harmony import */ var _account_profile_profile_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./account/profile/profile.component */ 97427);
-/* harmony import */ var _account_contact_contact_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./account/contact/contact.component */ 63360);
-/* harmony import */ var _account_checkout_checkout_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./account/checkout/checkout.component */ 54761);
-/* harmony import */ var _about_us_about_us_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./about-us/about-us.component */ 81534);
-/* harmony import */ var _order_success_order_success_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./order-success/order-success.component */ 62346);
-/* harmony import */ var _collection_collection_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./collection/collection.component */ 55549);
-/* harmony import */ var _error_error_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./error/error.component */ 58449);
-/* harmony import */ var _faq_faq_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./faq/faq.component */ 16459);
-/* harmony import */ var _resi_spedizione_resi_spedizione_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./resi-spedizione/resi-spedizione.component */ 58657);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/core */ 22560);
-
-
-
-
-
-
-
-
-
-
-
-
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ 60124);
+/* harmony import */ var _about_us_about_us_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./about-us/about-us.component */ 81534);
+/* harmony import */ var _order_success_order_success_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./order-success/order-success.component */ 62346);
+/* harmony import */ var _resi_spedizione_resi_spedizione_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./resi-spedizione/resi-spedizione.component */ 58657);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 22560);
 
 
 
@@ -1675,65 +1607,29 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const routes = [{
-  path: 'wishlist',
-  component: _account_wishlist_wishlist_component__WEBPACK_IMPORTED_MODULE_0__.WishlistComponent
-}, {
-  path: 'cart',
-  component: _account_cart_cart_component__WEBPACK_IMPORTED_MODULE_1__.CartComponent
-}, {
-  path: 'dashboard',
-  component: _account_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_2__.DashboardComponent
-}, {
-  path: 'login',
-  component: _account_login_login_component__WEBPACK_IMPORTED_MODULE_3__.LoginComponent
-}, {
-  path: 'register',
-  component: _account_register_register_component__WEBPACK_IMPORTED_MODULE_4__.RegisterComponent
-}, {
-  path: 'forget/password',
-  component: _account_forget_password_forget_password_component__WEBPACK_IMPORTED_MODULE_5__.ForgetPasswordComponent
-}, {
-  path: 'profile',
-  component: _account_profile_profile_component__WEBPACK_IMPORTED_MODULE_6__.ProfileComponent
-}, {
-  path: 'contact',
-  component: _account_contact_contact_component__WEBPACK_IMPORTED_MODULE_7__.ContactComponent
-}, {
-  path: 'checkout',
-  component: _account_checkout_checkout_component__WEBPACK_IMPORTED_MODULE_8__.CheckoutComponent
-}, {
   path: 'aboutus',
-  component: _about_us_about_us_component__WEBPACK_IMPORTED_MODULE_9__.AboutUsComponent
+  component: _about_us_about_us_component__WEBPACK_IMPORTED_MODULE_0__.AboutUsComponent
 }, {
   path: 'order/success',
-  component: _order_success_order_success_component__WEBPACK_IMPORTED_MODULE_10__.OrderSuccessComponent
-}, {
-  path: 'collection',
-  component: _collection_collection_component__WEBPACK_IMPORTED_MODULE_11__.CollectionComponent
-}, {
-  path: '404',
-  component: _error_error_component__WEBPACK_IMPORTED_MODULE_12__.ErrorComponent
-}, {
-  path: 'faq',
-  component: _faq_faq_component__WEBPACK_IMPORTED_MODULE_13__.FaqComponent
+  component: _order_success_order_success_component__WEBPACK_IMPORTED_MODULE_1__.OrderSuccessComponent
 }, {
   path: 'resi-spedizione',
-  component: _resi_spedizione_resi_spedizione_component__WEBPACK_IMPORTED_MODULE_14__.ResiSpedizioneComponent
+  component: _resi_spedizione_resi_spedizione_component__WEBPACK_IMPORTED_MODULE_2__.ResiSpedizioneComponent
 }];
 class PagesRoutingModule {}
 PagesRoutingModule.ɵfac = function PagesRoutingModule_Factory(t) {
   return new (t || PagesRoutingModule)();
 };
-PagesRoutingModule.ɵmod = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_15__["ɵɵdefineNgModule"]({
+PagesRoutingModule.ɵmod = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineNgModule"]({
   type: PagesRoutingModule
 });
-PagesRoutingModule.ɵinj = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_15__["ɵɵdefineInjector"]({
-  imports: [_angular_router__WEBPACK_IMPORTED_MODULE_16__.RouterModule.forChild(routes), _angular_router__WEBPACK_IMPORTED_MODULE_16__.RouterModule]
+PagesRoutingModule.ɵinj = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineInjector"]({
+  imports: [_angular_router__WEBPACK_IMPORTED_MODULE_4__.RouterModule.forChild(routes), _angular_router__WEBPACK_IMPORTED_MODULE_4__.RouterModule]
 });
 (function () {
-  (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_15__["ɵɵsetNgModuleScope"](PagesRoutingModule, {
-    imports: [_angular_router__WEBPACK_IMPORTED_MODULE_16__.RouterModule],
-    exports: [_angular_router__WEBPACK_IMPORTED_MODULE_16__.RouterModule]
+  (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵsetNgModuleScope"](PagesRoutingModule, {
+    imports: [_angular_router__WEBPACK_IMPORTED_MODULE_4__.RouterModule],
+    exports: [_angular_router__WEBPACK_IMPORTED_MODULE_4__.RouterModule]
   });
 })();
 
