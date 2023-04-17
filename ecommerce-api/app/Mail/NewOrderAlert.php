@@ -31,8 +31,8 @@ class NewOrderAlert extends Mailable
     public function envelope()
     {
         return new Envelope(
-            from: 'gabriele.francescutto@gmail.com',
-            subject: 'New Order Alert',
+            from: 'noreply@out-wear.com',
+            subject: 'Ordine Confermato',
         );
     }
 

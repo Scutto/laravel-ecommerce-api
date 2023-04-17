@@ -90,7 +90,7 @@ class StripeEventListener
                 $classProcessor = resolve(ReduceProductQuantityFromOrderProcessor::class);
                 $classProcessor->reduceProductQuantity($order);
     
-                //mail to owner
+                Mail::to($order->customer_email)->send(new NewOrderAlert($order));
                 Mail::to(config('app.mail_owner'))->send(new NewOrderAlert($order));
             } catch(Throwable $t) {
                 Log::info($t->getMessage());
