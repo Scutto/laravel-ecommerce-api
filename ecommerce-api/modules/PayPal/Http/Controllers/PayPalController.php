@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Log;
 use Modules\ShoppingCart\Entities\ShoppingCart;
 use Modules\Order\Processors\GetShippingCostProcessor;
 use Modules\Order\Processors\GetSubAndTotalAmountForOrderProcessor;
+use Modules\Order\Processors\ManageInvoiceForOrderProcessor;
 use Modules\Order\Processors\ReduceProductQuantityFromOrderProcessor;
 use Throwable;
 
@@ -61,6 +62,10 @@ class PayPalController extends Controller
 
             $classProcessor = resolve(ReduceProductQuantityFromOrderProcessor::class);
             $classProcessor->reduceProductQuantity($order);
+
+            $classProcessorInvoice = resolve(ManageInvoiceForOrderProcessor::class);
+            $invoiceId = $classProcessorInvoice->create($order);
+            $resultVerification = $classProcessor->verifyInvoiceXML($invoiceId);
 
             Mail::to($order->customer_email)->send(new NewOrderAlert($order));
             Mail::to(config('app.mail_owner'))->send(new NewOrderAlert($order));

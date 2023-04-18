@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\NewOrderAlert;
 use Modules\Order\Processors\GetShippingCostProcessor;
 use Modules\Order\Processors\GetSubAndTotalAmountForOrderProcessor;
+use Modules\Order\Processors\ManageInvoiceForOrderProcessor;
 use Modules\Order\Processors\ReduceProductQuantityFromOrderProcessor;
 use Throwable;
 
@@ -89,6 +90,10 @@ class StripeEventListener
 
                 $classProcessor = resolve(ReduceProductQuantityFromOrderProcessor::class);
                 $classProcessor->reduceProductQuantity($order);
+
+                $classProcessorInvoice = resolve(ManageInvoiceForOrderProcessor::class);
+                $invoiceId = $classProcessorInvoice->create($order);
+                $resultVerification = $classProcessor->verifyInvoiceXML($invoiceId);
     
                 Mail::to($order->customer_email)->send(new NewOrderAlert($order));
                 Mail::to(config('app.mail_owner'))->send(new NewOrderAlert($order));

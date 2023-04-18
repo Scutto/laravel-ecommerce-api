@@ -7,6 +7,8 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
+use PhpParser\ErrorHandler\Throwing;
+use Throwable;
 
 class Controller extends BaseController
 {
@@ -14,7 +16,7 @@ class Controller extends BaseController
 
     public function addNewContactToNewsletter(Request $request) {
        try {
-            $newEmailAddress = $request->get('newEmailAddress');
+            $newEmailAddress = $request->get('email');
 
             $credentials = \SendinBlue\Client\Configuration::getDefaultConfiguration()->setApiKey('api-key', config('app.sendinblue_api_key'));
 
@@ -23,17 +25,20 @@ class Controller extends BaseController
                 $credentials
             );
 
-            //todo: check if contact already exists
-
-            $createContact = new \SendinBlue\Client\Model\CreateContact([
-                'email' => $newEmailAddress,
-            ]);
-
-            $result = $apiInstance->createContact($createContact);
+            try{
+                $result = $apiInstance->getContactInfo($newEmailAddress);
+            } catch(Throwable $t) {
+                $createContact = new \SendinBlue\Client\Model\CreateContact([
+                    'email' => $newEmailAddress,
+                ]);
+    
+                $result = $apiInstance->createContact($createContact);
+            }
 
             return response()->json('successful');
         } catch (\Exception $e) {
             return response()->json([
+                'debug' => [$e->getMessage(), $e->getFile(), $e->getLine()],
                 'message' => [
                     'title' => 'general.api.error.title',
                     'text' => 'general.api.error.text',

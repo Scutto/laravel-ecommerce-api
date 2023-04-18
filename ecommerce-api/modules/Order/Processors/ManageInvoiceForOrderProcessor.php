@@ -21,7 +21,7 @@ use FattureInCloud\Model\PaymentAccount;
 use FattureInCloud\Model\VatType;
 use Illuminate\Support\Facades\Log;
 
-class CreateInvoiceForOrderProcessor {
+class ManageInvoiceForOrderProcessor {
 
     const COMPANY_ID = 1092128;
     const PAYMENT_ACCOUNT_ID = 1064192;

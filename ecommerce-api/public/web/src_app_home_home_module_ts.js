@@ -587,14 +587,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const _c0 = function () {
-  return ["/shop/collection/left/sidebar"];
-};
-const _c1 = function () {
-  return {
-    category: "fashion"
-  };
-};
 function FashionTwoComponent_div_11_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](0, "div", 23)(1, "a", 24)(2, "div", 25);
@@ -609,7 +601,7 @@ function FashionTwoComponent_div_11_Template(rf, ctx) {
   if (rf & 2) {
     const collection_r3 = ctx.$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵpureFunction0"](5, _c0))("queryParams", _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵpureFunction0"](6, _c1));
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("routerLink", collection_r3.url)("queryParams", collection_r3.queryParams);
     _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("src", collection_r3.image, _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵsanitizeUrl"]);
     _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"](4);
@@ -661,7 +653,7 @@ function FashionTwoComponent_li_23_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtextInterpolate1"](" ", collection_r4, " ");
   }
 }
-const _c2 = function () {
+const _c0 = function () {
   return {
     "background-image": "url(web/assets/images/homepage/lower.jpg)"
   };
@@ -690,11 +682,21 @@ class FashionTwoComponent {
     this.collections1 = [{
       image: 'web/assets/images/homepage/category/mtb.jpg',
       save: '',
-      title: 'MTB'
+      title: 'MTB',
+      url: '/shop',
+      queryParams: {
+        main: 'mtb',
+        sub: 'all'
+      }
     }, {
       image: 'web/assets/images/homepage/category/streetwear.jpg',
       save: '',
-      title: 'STREETWEAR'
+      title: 'STREETWEAR',
+      url: '/shop',
+      queryParams: {
+        main: 'streetwear',
+        sub: 'all'
+      }
     }];
     this.apiProductService.getNewProducts().subscribe(products => {
       this.newProductCollection = products;
@@ -735,7 +737,7 @@ FashionTwoComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]()();
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnamespaceHTML"]();
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](8, "section", 7)(9, "div", 8)(10, "div", 9);
-      _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](11, FashionTwoComponent_div_11_Template, 10, 7, "div", 10);
+      _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](11, FashionTwoComponent_div_11_Template, 10, 5, "div", 10);
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]()()();
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](12, "div", 11)(13, "h4");
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtext"](14, "exclusive products");
@@ -770,7 +772,7 @@ FashionTwoComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"](1);
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("ngbNavOutlet", _r1);
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"](2);
-      _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵpureFunction0"](11, _c2));
+      _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵpureFunction0"](11, _c0));
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"](4);
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("themeLogo", ctx.themeLogo);
     }

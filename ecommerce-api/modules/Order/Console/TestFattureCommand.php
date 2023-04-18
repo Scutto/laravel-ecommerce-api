@@ -2,8 +2,10 @@
 
 namespace Modules\Order\Console;
 
+use App\Mail\NewOrderAlert;
 use Illuminate\Console\Command;
-use Modules\Order\Processors\CreateInvoiceForOrderProcessor;
+use Illuminate\Support\Facades\Mail;
+use Modules\Order\Processors\ManageInvoiceForOrderProcessor;
 use Modules\Order\Entities\Order;
 
 
@@ -30,7 +32,7 @@ class TestFattureCommand extends Command
      *
      * @return void
      */
-    public function __construct(CreateInvoiceForOrderProcessor $createInvoiceForOrderProcessor)
+    public function __construct(ManageInvoiceForOrderProcessor $createInvoiceForOrderProcessor)
     {
         parent::__construct();
         $this->createInvoiceForOrderProcessor = $createInvoiceForOrderProcessor;
@@ -43,13 +45,12 @@ class TestFattureCommand extends Command
      */
     public function handle()
     {
-        $order = Order::where('id', 1)->first();
+        $order = Order::where('id', 2)->first();
+        Mail::to($order->customer_email)->send(new NewOrderAlert($order));
         // $this->createInvoiceForOrderProcessor->getVatListType();
         // $this->createInvoiceForOrderProcessor->testGetCompany();
         // $this->createInvoiceForOrderProcessor->getPaymentAccount();
-        $documentId = $this->createInvoiceForOrderProcessor->create($order);
-        // var_dump($documentId);
-        $successCheck = $this->createInvoiceForOrderProcessor->verifyInvoiceXML($documentId);
-        var_dump($successCheck);
+        // $documentId = $this->createInvoiceForOrderProcessor->create($order);
+        // $successCheck = $this->createInvoiceForOrderProcessor->verifyInvoiceXML($documentId);
     }
 }
