@@ -34575,8 +34575,6 @@ header .layout3-menu .main-navbar .nav-menu > li.mega-menu {
     margin-bottom: 0;
   }
   .no-slider .product-box {
-    flex: 0 0 100%;
-    max-width: calc(100% - 30px);
     margin: 0 15px 30px !important;
   }
   .no-slider .product-box:nth-last-child(1) {
