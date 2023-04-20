@@ -336,7 +336,7 @@ CartComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_2__["�
   selectors: [["app-cart"]],
   decls: 11,
   vars: 4,
-  consts: [[1, "cart-section", "section-b-space"], [1, "container"], ["class", "col-sm-12 empty-cart-cls text-center", 4, "ngIf"], ["class", "row", 4, "ngIf"], [1, "row", "cart-buttons"], [1, "col-6"], [1, "btn", "btn-solid", 3, "routerLink"], [1, "btn", "btn-solid", 3, "click"], [1, "col-sm-12", "empty-cart-cls", "text-center"], ["src", "web/assets/images/icon-empty-cart.png", 1, "img-fluid", "mb-4"], [1, "row"], [1, "col-sm-12"], [1, "table", "cart-table", "table-responsive-xs"], [1, "table-head"], ["scope", "col"], [4, "ngFor", "ngForOf"], [1, "col"], [2, "width", "100%", "text-align", "right"], [1, "total", 2, "font-size", "205%", "color", "white"], [3, "routerLink"], [3, "src", "alt"], [2, "display", "block", 3, "routerLink"], [1, "mobile-cart-content", "row"], [1, "qty-box"], [1, "input-group"], [1, "form-control"], [1, "td-color"], [1, "icon", 3, "click"], [3, "icon"], [1, "input-group-prepend"], ["type", "button", "data-type", "minus", 1, "btn", "quantity-left-minus", 3, "click"], [1, "ti-angle-left"], ["type", "text", "name", "quantity", "disabled", "", 1, "form-control", "input-number", 3, "ngModel", "ngModelChange"], ["type", "button", "data-type", "plus", 1, "btn", "quantity-right-plus", 3, "click"], [1, "ti-angle-right"], ["href", "javascript:void(0)", 1, "icon", 3, "click"]],
+  consts: [[1, "cart-section", "section-b-space"], [1, "container"], ["class", "col-sm-12 empty-cart-cls text-center", 4, "ngIf"], ["class", "row", 4, "ngIf"], [1, "row", "cart-buttons"], [1, "col-6"], [1, "btn", "btn-solid", "font-size-mobile", 3, "routerLink"], [1, "btn", "btn-solid", 3, "click"], [1, "col-sm-12", "empty-cart-cls", "text-center"], ["src", "web/assets/images/icon-empty-cart.png", 1, "img-fluid", "mb-4"], [1, "row"], [1, "col-sm-12"], [1, "table", "cart-table", "table-responsive-xs"], [1, "table-head"], ["scope", "col"], [4, "ngFor", "ngForOf"], [1, "col"], [2, "width", "100%", "text-align", "right"], [1, "total", 2, "font-size", "205%", "color", "white"], [3, "routerLink"], [3, "src", "alt"], [2, "display", "block", 3, "routerLink"], [1, "mobile-cart-content", "row"], [1, "qty-box"], [1, "input-group"], [1, "form-control"], [1, "td-color"], [1, "icon", 3, "click"], [3, "icon"], [1, "input-group-prepend"], ["type", "button", "data-type", "minus", 1, "btn", "quantity-left-minus", 3, "click"], [1, "ti-angle-left"], ["type", "text", "name", "quantity", "disabled", "", 1, "form-control", "input-number", 3, "ngModel", "ngModelChange"], ["type", "button", "data-type", "plus", 1, "btn", "quantity-right-plus", 3, "click"], [1, "ti-angle-right"], ["href", "javascript:void(0)", 1, "icon", 3, "click"]],
   template: function CartComponent_Template(rf, ctx) {
     if (rf & 1) {
       _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "section", 0)(1, "div", 1);
@@ -362,7 +362,7 @@ CartComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_2__["�
     }
   },
   dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_5__.NgForOf, _angular_common__WEBPACK_IMPORTED_MODULE_5__.NgIf, _angular_forms__WEBPACK_IMPORTED_MODULE_6__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_6__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_6__.NgModel, _angular_router__WEBPACK_IMPORTED_MODULE_4__.RouterLink, _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_7__.FaIconComponent],
-  styles: [".total[_ngcontent-%COMP%] {\n  padding-right: 59px;\n}\n\n@media only screen and (max-width: 600px) {\n  .total[_ngcontent-%COMP%] {\n    padding-right: 13px;\n  }\n}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9hcHAvc2hvcC9jYXJ0L2NhcnQuY29tcG9uZW50LnNjc3MiLCJ3ZWJwYWNrOi8vLi8uLi8uLi8uLi9QZXJzb25hbCUyMFByb2plY3RzL291dHdlYXItZnJvbnRlbmQtMy9vdXR3ZWFyLWZyb250ZW5kLTMvc3JjL2FwcC9zaG9wL2NhcnQvY2FydC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLG1CQUFBO0FDQ0o7O0FERUE7RUFDSTtJQUNJLG1CQUFBO0VDQ047QUFDRiIsInNvdXJjZXNDb250ZW50IjpbIi50b3RhbCB7XG4gICAgcGFkZGluZy1yaWdodDogNTlweDtcbn1cblxuQG1lZGlhIG9ubHkgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA2MDBweCkge1xuICAgIC50b3RhbCB7XG4gICAgICAgIHBhZGRpbmctcmlnaHQ6IDEzcHg7XG4gICAgfVxufSIsIi50b3RhbCB7XG4gIHBhZGRpbmctcmlnaHQ6IDU5cHg7XG59XG5cbkBtZWRpYSBvbmx5IHNjcmVlbiBhbmQgKG1heC13aWR0aDogNjAwcHgpIHtcbiAgLnRvdGFsIHtcbiAgICBwYWRkaW5nLXJpZ2h0OiAxM3B4O1xuICB9XG59Il0sInNvdXJjZVJvb3QiOiIifQ== */"]
+  styles: [".total[_ngcontent-%COMP%] {\n  padding-right: 59px;\n}\n\n@media only screen and (max-width: 600px) {\n  .total[_ngcontent-%COMP%] {\n    padding-right: 13px;\n  }\n  .font-size-mobile[_ngcontent-%COMP%] {\n    font-size: 75%;\n  }\n}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9hcHAvc2hvcC9jYXJ0L2NhcnQuY29tcG9uZW50LnNjc3MiLCJ3ZWJwYWNrOi8vLi8uLi8uLi8uLi9QZXJzb25hbCUyMFByb2plY3RzL291dHdlYXItZnJvbnRlbmQtMy9vdXR3ZWFyLWZyb250ZW5kLTMvc3JjL2FwcC9zaG9wL2NhcnQvY2FydC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLG1CQUFBO0FDQ0o7O0FERUE7RUFDSTtJQUNJLG1CQUFBO0VDQ047RURFRTtJQUNJLGNBQUE7RUNBTjtBQUNGIiwic291cmNlc0NvbnRlbnQiOlsiLnRvdGFsIHtcbiAgICBwYWRkaW5nLXJpZ2h0OiA1OXB4O1xufVxuXG5AbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDYwMHB4KSB7XG4gICAgLnRvdGFsIHtcbiAgICAgICAgcGFkZGluZy1yaWdodDogMTNweDtcbiAgICB9XG5cbiAgICAuZm9udC1zaXplLW1vYmlsZSB7XG4gICAgICAgIGZvbnQtc2l6ZTogNzUlO1xuICAgIH1cbn0iLCIudG90YWwge1xuICBwYWRkaW5nLXJpZ2h0OiA1OXB4O1xufVxuXG5AbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDYwMHB4KSB7XG4gIC50b3RhbCB7XG4gICAgcGFkZGluZy1yaWdodDogMTNweDtcbiAgfVxuICAuZm9udC1zaXplLW1vYmlsZSB7XG4gICAgZm9udC1zaXplOiA3NSU7XG4gIH1cbn0iXSwic291cmNlUm9vdCI6IiJ9 */"]
 });
 
 /***/ }),
@@ -840,12 +840,12 @@ function CheckoutComponent_form_4_ng_container_53_Template(rf, ctx) {
 }
 function CheckoutComponent_form_4_ul_63_li_1_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "li")(1, "div", 5)(2, "div", 16);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "li")(1, "div", 5)(2, "div", 41);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](4, "small");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](5);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](6, "div", 17);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](6, "div", 42);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](7);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()()();
   }
@@ -856,7 +856,7 @@ function CheckoutComponent_form_4_ul_63_li_1_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate1"]("Taglia: ", product_r51.size.toUpperCase(), "");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate1"](" \u20AC ", product_r51.product.price * product_r51.quantity, " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate1"](" \u20AC ", (product_r51.product.price * product_r51.quantity).toFixed(2), " ");
   }
 }
 function CheckoutComponent_form_4_ul_63_Template(rf, ctx) {
@@ -873,14 +873,14 @@ function CheckoutComponent_form_4_ul_63_Template(rf, ctx) {
 }
 function CheckoutComponent_form_4_ul_64_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "ul", 40)(1, "li", 41);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "ul", 40)(1, "li", 43);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](2, " Non ci sono prodotti nel carrello ");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()();
   }
 }
 function CheckoutComponent_form_4_ul_65_small_7_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "small", 49);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "small", 51);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](1, "Il codice inserito non e' valido");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
   }
@@ -888,14 +888,14 @@ function CheckoutComponent_form_4_ul_65_small_7_Template(rf, ctx) {
 function CheckoutComponent_form_4_ul_65_Template(rf, ctx) {
   if (rf & 1) {
     const _r54 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "ul", 42)(1, "div", 43)(2, "div", 44)(3, "input", 45);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "ul", 44)(1, "div", 45)(2, "div", 46)(3, "input", 47);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("ngModelChange", function CheckoutComponent_form_4_ul_65_Template_input_ngModelChange_3_listener($event) {
       _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵrestoreView"](_r54);
       const ctx_r53 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵnextContext"](2);
       return _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵresetView"](ctx_r53.couponCode = $event);
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](4, "div", 46)(5, "button", 47);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](4, "div", 48)(5, "button", 49);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function CheckoutComponent_form_4_ul_65_Template_button_click_5_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵrestoreView"](_r54);
       const ctx_r55 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵnextContext"](2);
@@ -903,7 +903,7 @@ function CheckoutComponent_form_4_ul_65_Template(rf, ctx) {
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](6, " Aggiungi ");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](7, CheckoutComponent_form_4_ul_65_small_7_Template, 2, 0, "small", 48);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](7, CheckoutComponent_form_4_ul_65_small_7_Template, 2, 0, "small", 50);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()();
   }
   if (rf & 2) {
@@ -922,7 +922,7 @@ function CheckoutComponent_form_4_li_71_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](2, "span", 21);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](4, "fa-icon", 50);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](4, "fa-icon", 52);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function CheckoutComponent_form_4_li_71_Template_fa_icon_click_4_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵrestoreView"](_r57);
       const ctx_r56 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵnextContext"](2);
@@ -948,7 +948,7 @@ function CheckoutComponent_form_4_li_72_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](2, "span", 21);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](4, "fa-icon", 50);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](4, "fa-icon", 52);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function CheckoutComponent_form_4_li_72_Template_fa_icon_click_4_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵrestoreView"](_r59);
       const ctx_r58 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵnextContext"](2);
@@ -977,16 +977,16 @@ function CheckoutComponent_form_4_li_73_Template(rf, ctx) {
   if (rf & 2) {
     const ctx_r26 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵnextContext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate1"]("\u20AC ", ctx_r26.shippingCost, "");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate1"]("\u20AC ", ctx_r26.shippingCost.toFixed(2), "");
   }
 }
 function CheckoutComponent_form_4_div_79_Template(rf, ctx) {
   if (rf & 1) {
     const _r61 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 51)(1, "div", 17);
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](2, "ngx-paypal", 52);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 53)(1, "div", 42);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](2, "ngx-paypal", 54);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](3, "div", 17)(4, "button", 53);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](3, "div", 42)(4, "button", 55);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function CheckoutComponent_form_4_div_79_Template_button_click_4_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵrestoreView"](_r61);
       const ctx_r60 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵnextContext"](2);
@@ -1138,7 +1138,7 @@ function CheckoutComponent_form_4_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngIf", ctx_r0.cart.applied_coupon == null);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](5);
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate1"]("\u20AC ", ctx_r0.getSubTotal(), "");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate1"]("\u20AC ", ctx_r0.getSubTotal().toFixed(2), "");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngIf", ctx_r0.cart.applied_coupon != null && ctx_r0.cart.applied_coupon.coupon.type === "fixed");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
@@ -1146,7 +1146,7 @@ function CheckoutComponent_form_4_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngIf", ctx_r0.shippingCost != null);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](5);
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate1"]("\u20AC ", ctx_r0.getTotal(), "");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate1"]("\u20AC ", ctx_r0.getTotal().toFixed(2), "");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngIf", ctx_r0.showPayButtons);
   }
@@ -1277,6 +1277,7 @@ class CheckoutComponent {
     this.apiCartService.saveOrderShippingData('paypal', this.checkoutForm.value).subscribe(response => {
       this.order = response;
       this.updateOrderData();
+      this.updateShippingCost();
       this.showPayButtons = true;
     });
   }
@@ -1379,7 +1380,7 @@ CheckoutComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_2_
   selectors: [["app-checkout"]],
   decls: 5,
   vars: 1,
-  consts: [[1, "section-b-space"], [1, "container"], [1, "checkout-page"], [1, "checkout-form"], [4, "ngIf"], [1, "row"], [1, "col-lg-6", "col-sm-12", "col-xs-12"], [1, "checkout-title"], [1, "row", "check-out"], [1, "form-group", "col-md-6", "col-sm-6", "col-xs-12"], [1, "field-label"], [1, "form-group", "col-md-12", "col-sm-12", "col-xs-12"], [1, "form-group", "col-md-12", "col-sm-6", "col-xs-12"], [1, "checkout-details"], [1, "order-box"], [1, "title-box"], [1, "col-9"], [1, "col"], ["class", "qty", 4, "ngIf"], ["style", "border-bottom: 1px solid #404040;", 4, "ngIf"], [1, "sub-total", 2, "margin-top", "3%"], [1, "count"], [1, "total"], ["class", "payment-box row", 4, "ngIf"], ["type", "text", "name", "firstname", "value", "", "placeholder", "", "autocomplete", "off", 3, "formControl"], ["class", "text text-danger", 4, "ngIf"], [1, "text", "text-danger"], ["type", "text", "name", "lastname", "value", "", "placeholder", "", "autocomplete", "off", 3, "formControl"], ["type", "text", "name", "phone", "value", "", "placeholder", "", "autocomplete", "off", 3, "formControl"], ["type", "text", "name", "email", "value", "", "placeholder", "", "autocomplete", "off", 3, "formControl"], ["name", "country", 3, "formControl", "change"], ["value", "", "selected", ""], [4, "ngFor", "ngForOf"], [3, "value"], ["type", "text", "name", "address", "value", "", "placeholder", "", "autocomplete", "off", 3, "formControl"], ["type", "text", "name", "town", "value", "", "placeholder", "", "autocomplete", "off", 3, "formControl"], ["type", "text", "name", "state", "value", "", "placeholder", "", "autocomplete", "off", 3, "formControl"], ["type", "text", "name", "postalcode", "value", "", "placeholder", "", "autocomplete", "off", 3, "formControl"], ["type", "submit", 1, "btn-solid", "btn", 2, "float", "right", "margin-bottom", "10%", 3, "click"], ["type", "submit", 1, "btn-solid", "btn", 2, "float", "right", "margin-bottom", "10%", 3, "disabled", "click"], [1, "qty"], [1, "empty-checkout"], [2, "border-bottom", "1px solid #404040"], [1, "row", 2, "margin", "5% 0"], [1, "col-sm-12", "col-lg-8"], ["type", "text", "name", "couponCode", "placeholder", "Inserisci codice sconto", 3, "ngModel", "ngModelChange"], [1, "col-sm-12", "col-lg-4", 2, "text-align", "right"], [1, "btn", "btn-solid", 3, "click"], ["style", "color: red;", 4, "ngIf"], [2, "color", "red"], [2, "padding-left", "1%", "cursor", "pointer", 3, "icon", "click"], [1, "payment-box", "row"], [3, "config"], ["type", "submit", 1, "btn-solid", "btn", 2, "float", "right", 3, "click"]],
+  consts: [[1, "section-b-space"], [1, "container"], [1, "checkout-page"], [1, "checkout-form"], [4, "ngIf"], [1, "row"], [1, "col-lg-6", "col-sm-12", "col-xs-12"], [1, "checkout-title"], [1, "row", "check-out"], [1, "form-group", "col-md-6", "col-sm-6", "col-xs-12"], [1, "field-label"], [1, "form-group", "col-md-12", "col-sm-12", "col-xs-12"], [1, "form-group", "col-md-12", "col-sm-6", "col-xs-12"], [1, "checkout-details"], [1, "order-box"], [1, "title-box"], [1, "col-8"], [1, "col", 2, "padding-left", "9%"], ["class", "qty", 4, "ngIf"], ["style", "border-bottom: 1px solid #404040;", 4, "ngIf"], [1, "sub-total", 2, "margin-top", "3%"], [1, "count"], [1, "total"], ["class", "payment-box row", 4, "ngIf"], ["type", "text", "name", "firstname", "value", "", "placeholder", "", "autocomplete", "off", 3, "formControl"], ["class", "text text-danger", 4, "ngIf"], [1, "text", "text-danger"], ["type", "text", "name", "lastname", "value", "", "placeholder", "", "autocomplete", "off", 3, "formControl"], ["type", "text", "name", "phone", "value", "", "placeholder", "", "autocomplete", "off", 3, "formControl"], ["type", "text", "name", "email", "value", "", "placeholder", "", "autocomplete", "off", 3, "formControl"], ["name", "country", 3, "formControl", "change"], ["value", "", "selected", ""], [4, "ngFor", "ngForOf"], [3, "value"], ["type", "text", "name", "address", "value", "", "placeholder", "", "autocomplete", "off", 3, "formControl"], ["type", "text", "name", "town", "value", "", "placeholder", "", "autocomplete", "off", 3, "formControl"], ["type", "text", "name", "state", "value", "", "placeholder", "", "autocomplete", "off", 3, "formControl"], ["type", "text", "name", "postalcode", "value", "", "placeholder", "", "autocomplete", "off", 3, "formControl"], ["type", "submit", 1, "btn-solid", "btn", 2, "float", "right", "margin-bottom", "10%", 3, "click"], ["type", "submit", 1, "btn-solid", "btn", 2, "float", "right", "margin-bottom", "10%", 3, "disabled", "click"], [1, "qty"], [1, "col-9"], [1, "col"], [1, "empty-checkout"], [2, "border-bottom", "1px solid #404040"], [1, "row", 2, "margin", "5% 0"], [1, "col-sm-12", "col-lg-8"], ["type", "text", "name", "couponCode", "placeholder", "Inserisci codice sconto", 3, "ngModel", "ngModelChange"], [1, "col-sm-12", "col-lg-4", 2, "text-align", "right"], [1, "btn", "btn-solid", 2, "margin-top", "2%", 3, "click"], ["style", "color: red;", 4, "ngIf"], [2, "color", "red"], [2, "padding-left", "1%", "cursor", "pointer", 3, "icon", "click"], [1, "payment-box", "row"], [3, "config"], ["type", "submit", 1, "btn-solid", "btn", 2, "float", "right", 3, "click"]],
   template: function CheckoutComponent_Template(rf, ctx) {
     if (rf & 1) {
       _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "section", 0)(1, "div", 1)(2, "div", 2)(3, "div", 3);
@@ -2886,9 +2887,9 @@ function ProductNoSidebarComponent_section_0_ng_container_17_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("ngIf", ctx_r5.product.gender_fit === "unisex");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("ngIf", ctx_r5.product.gender_fit === "male");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("ngIf", ctx_r5.product.gender_fit === "man");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("ngIf", ctx_r5.product.gender_fit === "female");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("ngIf", ctx_r5.product.gender_fit === "woman");
   }
 }
 function ProductNoSidebarComponent_section_0_h6_22_span_2_Template(rf, ctx) {

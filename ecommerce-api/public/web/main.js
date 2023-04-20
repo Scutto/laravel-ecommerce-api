@@ -4848,9 +4848,9 @@ function ProductBoxOneComponent_div_0_ng_container_13_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("ngIf", ctx_r6.product.gender_fit === "unisex");
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("ngIf", ctx_r6.product.gender_fit === "male");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("ngIf", ctx_r6.product.gender_fit === "man");
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("ngIf", ctx_r6.product.gender_fit === "female");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("ngIf", ctx_r6.product.gender_fit === "woman");
   }
 }
 function ProductBoxOneComponent_div_0_Template(rf, ctx) {
