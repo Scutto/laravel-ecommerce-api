@@ -32,9 +32,18 @@ class PayPalController extends Controller
             $processorShipping = resolve(GetShippingCostProcessor::class);
             $processorAmount = resolve(GetSubAndTotalAmountForOrderProcessor::class);
 
+            $lastOrderNumber = Order::orderBy('order_number')->first();
+            
+            if($lastOrderNumber === null) {
+                $orderNumber = 1;
+            } else {
+                $orderNumber = $lastOrderNumber->order_number + 1;
+            }
+
             $order = Order::with(['coupon', 'products'])->where('session_id', $sessionId)->firstOrFail();
             $order->gateway = 'paypal';
             $order->gateway_id = $data['id'];
+            $order->order_number = $orderNumber;
             $order->status = 'payed';
             $order->coupon_stripe_id = $shoppingCart->applied_coupon != null ? $shoppingCart->applied_coupon->coupon_stripe_id : null;
             $order->gateway_payload = json_encode($data);

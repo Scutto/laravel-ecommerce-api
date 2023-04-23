@@ -61,9 +61,17 @@ class StripeEventListener
 
                 $processorShipping = resolve(GetShippingCostProcessor::class);
                 $processorAmount = resolve(GetSubAndTotalAmountForOrderProcessor::class);
+
+                $lastOrderNumber = Order::orderBy('order_number')->first();    
+                if($lastOrderNumber === null) {
+                    $orderNumber = 1;
+                } else {
+                    $orderNumber = $lastOrderNumber->order_number + 1;
+                }
                 
                 $order->amount_total = $event->payload['data']['object']['amount_total'];
                 $order->status = 'payed';
+                $order->order_number = $orderNumber;
                 $order->coupon_stripe_id = $order->shoppingCart->applied_coupon != null ? $order->shoppingCart->applied_coupon->coupon_stripe_id : null;
                 $order->gateway_payload = json_encode($event->payload);
                 $order->save();
