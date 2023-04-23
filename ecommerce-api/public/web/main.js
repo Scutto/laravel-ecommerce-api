@@ -35,11 +35,17 @@ const routes = [{
 }, {
   path: 'shop',
   component: _shop_shop_component__WEBPACK_IMPORTED_MODULE_0__.ShopComponent,
-  loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_shop_shop_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./shop/shop.module */ 7838)).then(m => m.ShopModule)
+  loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_shop_shop_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./shop/shop.module */ 7838)).then(m => m.ShopModule),
+  resolve: {
+    categories: _categories_resolver__WEBPACK_IMPORTED_MODULE_2__.CategoriesResolver
+  }
 }, {
   path: 'pages',
   component: _pages_pages_component__WEBPACK_IMPORTED_MODULE_1__.PagesComponent,
-  loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_pages_pages_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./pages/pages.module */ 18950)).then(m => m.PagesModule)
+  loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_pages_pages_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./pages/pages.module */ 18950)).then(m => m.PagesModule),
+  resolve: {
+    categories: _categories_resolver__WEBPACK_IMPORTED_MODULE_2__.CategoriesResolver
+  }
 }, {
   path: '**',
   redirectTo: 'home'
