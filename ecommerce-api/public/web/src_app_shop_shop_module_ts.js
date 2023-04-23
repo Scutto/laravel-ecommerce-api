@@ -1614,7 +1614,7 @@ function CollectionNoSidebarComponent_div_25_Template(rf, ctx) {
     const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngClass", ctx_r1.grid);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("product", product_r5)("currency", ctx_r1.productService == null ? null : ctx_r1.productService.Currency)("thumbnail", false)("cartModal", true)("loader", true);
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("product", product_r5)("currency", ctx_r1.productService == null ? null : ctx_r1.productService.Currency)("thumbnail", false)("cartModal", true)("loader", false);
   }
 }
 class CollectionNoSidebarComponent {
