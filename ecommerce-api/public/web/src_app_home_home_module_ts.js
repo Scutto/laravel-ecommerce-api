@@ -645,15 +645,20 @@ class FashionTwoComponent {
     this.newProductCollection = [];
     this.HomeSliderConfig = _shared_data_slider__WEBPACK_IMPORTED_MODULE_0__.HomeSlider;
     this.sliders = [{
-      image: 'web/assets/images/homepage/slider-1.jpg'
+      image: 'web/assets/images/homepage/slider-1.jpg',
+      url: '/shop/product/7'
     }, {
-      image: 'web/assets/images/homepage/slider-2.jpg'
+      image: 'web/assets/images/homepage/slider-2.jpg',
+      url: '/shop/product/6'
     }, {
-      image: 'web/assets/images/homepage/slider-3.jpg'
+      image: 'web/assets/images/homepage/slider-3.jpg',
+      url: '/shop/product/4'
     }, {
-      image: 'web/assets/images/homepage/slider-4.jpg'
+      image: 'web/assets/images/homepage/slider-4.jpg',
+      url: '/shop/product/14'
     }, {
-      image: 'web/assets/images/homepage/slider-5.jpg'
+      image: 'web/assets/images/homepage/slider-5.jpg',
+      url: '/shop/product/15'
     }];
     this.grid = 'col-6';
     this.layoutView = 'grid-view';
@@ -1643,11 +1648,6 @@ const _c0 = function (a0) {
 const _c1 = function (a0) {
   return [a0];
 };
-const _c2 = function (a0) {
-  return {
-    category: a0
-  };
-};
 function SliderComponent_ng_container_1_ng_template_1_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 3)(1, "div", 4)(2, "div", 5)(3, "div", 6)(4, "div", 7)(5, "div")(6, "h4");
@@ -1663,13 +1663,13 @@ function SliderComponent_ng_container_1_ng_template_1_Template(rf, ctx) {
   if (rf & 2) {
     const slider_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]().$implicit;
     const ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", ctx_r2.textClass)("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](8, _c0, "url(" + slider_r1.image + ")"));
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", ctx_r2.textClass)("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](7, _c0, "url(" + slider_r1.image + ")"));
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](7);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate"](slider_r1.title);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate"](slider_r1.subTitle);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](10, _c1, slider_r1.url))("queryParams", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](12, _c2, ctx_r2.category))("ngClass", ctx_r2.buttonClass);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](9, _c1, slider_r1.url))("ngClass", ctx_r2.buttonClass);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" ", ctx_r2.buttonText, " ");
   }
@@ -1677,7 +1677,7 @@ function SliderComponent_ng_container_1_ng_template_1_Template(rf, ctx) {
 function SliderComponent_ng_container_1_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementContainerStart"](0);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](1, SliderComponent_ng_container_1_ng_template_1_Template, 12, 14, "ng-template", 2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](1, SliderComponent_ng_container_1_ng_template_1_Template, 12, 11, "ng-template", 2);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementContainerEnd"]();
   }
 }
@@ -1703,7 +1703,7 @@ SliderComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1__[
   },
   decls: 2,
   vars: 3,
-  consts: [[1, "home-slider", 3, "options", "ngClass"], [4, "ngFor", "ngForOf"], ["carouselSlide", ""], [1, "home", 3, "ngClass", "ngStyle"], [1, "container"], [1, "row"], [1, "col"], [1, "slider-contain"], [1, "btn", "btn-solid", 2, "margin-top", "250%", 3, "routerLink", "queryParams", "ngClass"]],
+  consts: [[1, "home-slider", 3, "options", "ngClass"], [4, "ngFor", "ngForOf"], ["carouselSlide", ""], [1, "home", 3, "ngClass", "ngStyle"], [1, "container"], [1, "row"], [1, "col"], [1, "slider-contain"], [1, "btn", "btn-solid", 2, "margin-top", "250%", 3, "routerLink", "ngClass"]],
   template: function SliderComponent_Template(rf, ctx) {
     if (rf & 1) {
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "owl-carousel-o", 0);

@@ -350,6 +350,14 @@ class ShoppingCartController extends Controller
                 ];
             }
 
+            if($order->address_country === 'italy') {
+                $min = 1;
+                $max = 2;
+            } else {
+                $min = 3;
+                $max = 5;
+            }
+
             $stripeCheckoutData = [
                 'discounts' => $appliedCouponsArray,
                 'payment_method_types' => ['card'],
@@ -361,8 +369,8 @@ class ShoppingCartController extends Controller
                         'fixed_amount' => ['amount' => $shippingCost, 'currency' => 'eur'],
                         'display_name' => 'Shipping Cost',
                         'delivery_estimate' => [
-                            'minimum' => ['unit' => 'business_day', 'value' => 1],
-                            'maximum' => ['unit' => 'business_day', 'value' => 2],
+                            'minimum' => ['unit' => 'business_day', 'value' => $min],
+                            'maximum' => ['unit' => 'business_day', 'value' => $max],
                         ],
                     ],
                   ],

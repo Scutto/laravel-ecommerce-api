@@ -1127,6 +1127,7 @@ class CheckoutComponent {
     this.order = this.route.snapshot.data['order'];
     if (this.order != null) {
       this.updateOrderData();
+      this.updateShippingCost();
       this.showPayButtons = true;
     }
     this.apiCartService.cart.subscribe(cart => {
@@ -1506,7 +1507,13 @@ class SuccessComponent {
     this.orderDetails = this.route.snapshot.data['order'];
   }
   getDateExpected() {
-    return this.addBusinessDays(moment__WEBPACK_IMPORTED_MODULE_0__(this.orderDetails.created_at), 2).format('DD/MM/YYYY');
+    let businessDay;
+    if (this.orderDetails.address_country == 'italy') {
+      businessDay = 2;
+    } else {
+      businessDay = 5;
+    }
+    return this.addBusinessDays(moment__WEBPACK_IMPORTED_MODULE_0__(this.orderDetails.created_at), businessDay).format('DD/MM/YYYY');
   }
   getOrderCreatedAt() {
     return moment__WEBPACK_IMPORTED_MODULE_0__(this.orderDetails.created_at).format('DD/MM/YYYY');
