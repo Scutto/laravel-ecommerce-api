@@ -81,7 +81,7 @@ class StripeEventListener
                 );
                 $order->refresh();
 
-                $order->shipping_cost = $processorShipping->getShippingCost($order->address_country);
+                $order->shipping_cost = $processorShipping->getShippingCost($order->address_country, $processorAmount->getOrderTotalAmount($order, false));
                 $order->amount_total = $processorAmount->getOrderTotalAmount($order);
                 $order->save();
                 $order->refresh();

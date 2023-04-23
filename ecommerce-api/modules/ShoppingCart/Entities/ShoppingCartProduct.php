@@ -20,7 +20,7 @@ use Modules\Product\Entities\Product;
  */
 class ShoppingCartProduct extends Model
 {
-    protected $hidden = ['product_id'];
+    protected $hidden = ['product_id', 'created_at', 'updated_at', 'shopping_cart_id'];
 
     protected $with = ['product'];
 

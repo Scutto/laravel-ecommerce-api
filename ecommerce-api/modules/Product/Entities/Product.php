@@ -25,7 +25,7 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $hidden = ['category_id'];
+    protected $hidden = ['category_id', 'created_at', 'updated_at', 'stripe_product_id', 'stripe_product_price_id'];
 
     /**
      * Defines the relation with Category

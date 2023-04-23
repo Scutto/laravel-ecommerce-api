@@ -13,6 +13,8 @@ use Modules\ShoppingCart\Entities\Coupon;
 use Modules\Product\Entities\Product;
 use Modules\Order\Entities\Order;
 use Modules\Order\Entities\OrderProduct;
+use Modules\Order\Processors\GetShippingCostProcessor;
+use Modules\Order\Processors\GetSubAndTotalAmountForOrderProcessor;
 use Modules\ShoppingCart\Entities\ShoppingCartCoupon;
 
 class ShoppingCartController extends Controller
@@ -330,8 +332,10 @@ class ShoppingCartController extends Controller
             $domain = config('app.frontend_url');
             $lineItems = [];
             $appliedCouponsArray = [];
-
             $order = Order::where('session_id', $sessionId)->firstOrFail();
+            $processorShipping = resolve(GetShippingCostProcessor::class);
+            $processorAmount = resolve(GetSubAndTotalAmountForOrderProcessor::class);
+            $shippingCost = $processorShipping->getShippingCost($order->address_country, $processorAmount->getOrderTotalAmount($order, false));
 
             foreach($shoppingCart->products as $shoppingCartProduct) {
                 $lineItems[] = [
@@ -354,18 +358,18 @@ class ShoppingCartController extends Controller
                   [
                     'shipping_rate_data' => [
                         'type' => 'fixed_amount',
-                        'fixed_amount' => ['amount' => 1000, 'currency' => 'eur'],
+                        'fixed_amount' => ['amount' => $shippingCost, 'currency' => 'eur'],
                         'display_name' => 'Shipping Cost',
                         'delivery_estimate' => [
-                            'minimum' => ['unit' => 'business_day', 'value' => 5],
-                            'maximum' => ['unit' => 'business_day', 'value' => 7],
+                            'minimum' => ['unit' => 'business_day', 'value' => 1],
+                            'maximum' => ['unit' => 'business_day', 'value' => 2],
                         ],
                     ],
                   ],
                 ],
                 'line_items' => $lineItems,
                 'mode' => 'payment',
-                'success_url' => $domain . '/shop/checkout/success/' . $order->id,
+                'success_url' => $domain . '/shop/checkout/success/' . $order->session_id,
                 'cancel_url' => $domain . '/shop/checkout',
               ];
 

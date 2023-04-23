@@ -11,10 +11,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AppRoutingModule": () => (/* binding */ AppRoutingModule)
 /* harmony export */ });
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ 60124);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ 60124);
 /* harmony import */ var _shop_shop_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./shop/shop.component */ 3006);
 /* harmony import */ var _pages_pages_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pages/pages.component */ 37664);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 22560);
+/* harmony import */ var _categories_resolver__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./categories.resolver */ 78701);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 22560);
+
 
 
 
@@ -26,7 +28,10 @@ const routes = [{
   pathMatch: 'full'
 }, {
   path: 'home',
-  loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_home_home_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./home/home.module */ 3467)).then(m => m.HomeModule)
+  loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_home_home_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./home/home.module */ 3467)).then(m => m.HomeModule),
+  resolve: {
+    categories: _categories_resolver__WEBPACK_IMPORTED_MODULE_2__.CategoriesResolver
+  }
 }, {
   path: 'shop',
   component: _shop_shop_component__WEBPACK_IMPORTED_MODULE_0__.ShopComponent,
@@ -43,20 +48,20 @@ class AppRoutingModule {}
 AppRoutingModule.ɵfac = function AppRoutingModule_Factory(t) {
   return new (t || AppRoutingModule)();
 };
-AppRoutingModule.ɵmod = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineNgModule"]({
+AppRoutingModule.ɵmod = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineNgModule"]({
   type: AppRoutingModule
 });
-AppRoutingModule.ɵinj = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineInjector"]({
-  imports: [_angular_router__WEBPACK_IMPORTED_MODULE_3__.RouterModule.forRoot(routes, {
+AppRoutingModule.ɵinj = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineInjector"]({
+  imports: [_angular_router__WEBPACK_IMPORTED_MODULE_4__.RouterModule.forRoot(routes, {
     useHash: true,
     anchorScrolling: 'enabled',
     scrollPositionRestoration: 'enabled'
-  }), _angular_router__WEBPACK_IMPORTED_MODULE_3__.RouterModule]
+  }), _angular_router__WEBPACK_IMPORTED_MODULE_4__.RouterModule]
 });
 (function () {
-  (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵsetNgModuleScope"](AppRoutingModule, {
-    imports: [_angular_router__WEBPACK_IMPORTED_MODULE_3__.RouterModule],
-    exports: [_angular_router__WEBPACK_IMPORTED_MODULE_3__.RouterModule]
+  (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵsetNgModuleScope"](AppRoutingModule, {
+    imports: [_angular_router__WEBPACK_IMPORTED_MODULE_4__.RouterModule],
+    exports: [_angular_router__WEBPACK_IMPORTED_MODULE_4__.RouterModule]
   });
 })();
 
@@ -107,7 +112,6 @@ class AppComponent {
     }
     document.documentElement.style.setProperty('--theme-deafult', '#0fb3db');
     this.apiCartService.getCart().subscribe(() => {});
-    this.apiProductService.getCategories().subscribe(() => {});
     this.apiProductService.getProducts().subscribe(() => {});
   }
 }
@@ -221,6 +225,59 @@ AppModule.ɵinj = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵd
     imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_11__.BrowserModule, _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_12__.BrowserAnimationsModule, _angular_common_http__WEBPACK_IMPORTED_MODULE_10__.HttpClientModule, _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_13__.NgbModule, _ngx_loading_bar_http_client__WEBPACK_IMPORTED_MODULE_14__.LoadingBarHttpClientModule, _ngx_loading_bar_router__WEBPACK_IMPORTED_MODULE_15__.LoadingBarRouterModule, ngx_toastr__WEBPACK_IMPORTED_MODULE_16__.ToastrModule, _ngx_translate_core__WEBPACK_IMPORTED_MODULE_17__.TranslateModule, _shared_shared_module__WEBPACK_IMPORTED_MODULE_0__.SharedModule, _app_routing_module__WEBPACK_IMPORTED_MODULE_1__.AppRoutingModule]
   });
 })();
+
+/***/ }),
+
+/***/ 78701:
+/*!****************************************!*\
+  !*** ./src/app/categories.resolver.ts ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "CategoriesResolver": () => (/* binding */ CategoriesResolver)
+/* harmony export */ });
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs/operators */ 50635);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 22560);
+/* harmony import */ var _shared_api_services_product_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./shared/api-services/product.service */ 92189);
+
+
+
+class CategoriesResolver {
+  /**
+   * Constructor
+   *
+   * @param {ApiProductService} apiProductService
+   */
+  constructor(apiProductService) {
+    this.apiProductService = apiProductService;
+  }
+  /**
+   * Resolver for the game periods
+   *
+   * @param {ActivatedRouteSnapshot} route
+   * @param {RouterStateSnapshot} state
+   *
+   * @return {Observable<any>}
+   */
+  resolve(route, state) {
+    if (this.apiProductService.categories.value != undefined && this.apiProductService.categories.value.length > 0) {
+      return [];
+    }
+    return this.apiProductService.getCategories().pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_1__.map)(categoriesData => {
+      return categoriesData;
+    }));
+  }
+}
+CategoriesResolver.ɵfac = function CategoriesResolver_Factory(t) {
+  return new (t || CategoriesResolver)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵinject"](_shared_api_services_product_service__WEBPACK_IMPORTED_MODULE_0__.ApiProductService));
+};
+CategoriesResolver.ɵprov = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineInjectable"]({
+  token: CategoriesResolver,
+  factory: CategoriesResolver.ɵfac,
+  providedIn: 'root'
+});
 
 /***/ }),
 
@@ -1019,8 +1076,6 @@ class LayoutBoxComponent {
   }
   // Set Theme color
   customizeThemeColor(event) {
-    console.log('event.target.value');
-    console.log(event.target.value);
     document.documentElement.style.setProperty('--theme-deafult', event.target.value);
   }
   customizeLayoutDark() {
@@ -4777,7 +4832,7 @@ function ProductBoxOneComponent_div_0_div_6_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵpureFunction1"](3, _c2, ctx_r4.product == null ? null : ctx_r4.product.id));
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵpropertyInterpolate"]("alt", "ciao");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵpropertyInterpolate"]("alt", "product image");
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("src", ctx_r4.ImageSrc ? ctx_r4.ImageSrc : ctx_r4.product.details[1].imageUrl, _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵsanitizeUrl"]);
   }
 }
@@ -5909,7 +5964,7 @@ function SettingsComponent_ng_container_9_ul_2_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "ul", 8);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](1, SettingsComponent_ng_container_9_ul_2_li_1_Template, 17, 13, "li", 9);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](2, "li")(3, "div", 10)(4, "h5");
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](5, "subtotal : ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](5, "Sub totale : ");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](6, "span");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](7);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()()()();
@@ -8204,8 +8259,8 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 const environment = {
   production: false,
-  // apiUrl: 'http://127.0.0.1:8000',
-  apiUrl: 'https://www.out-wear.com',
+  apiUrl: 'http://127.0.0.1:8000',
+  // apiUrl: 'https://www.out-wear.com',
   stripe_token: 'STRIPE_TOKEN',
   paypal_token: 'PAYPAL_TOKEN'
 };

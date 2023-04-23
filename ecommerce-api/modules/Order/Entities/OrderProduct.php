@@ -18,7 +18,7 @@ use Modules\Product\Entities\Product;
  */
 class OrderProduct extends Model
 {
-    protected $hidden = ['product_id'];
+    protected $hidden = ['product_id', 'created_at', 'updated_at'];
 
     protected $with = ['product'];
 

@@ -53,7 +53,7 @@ class PayPalController extends Controller
             );
             $order->refresh();
 
-            $order->shipping_cost = $processorShipping->getShippingCost($order->address_country);
+            $order->shipping_cost = $processorShipping->getShippingCost($order, $processorAmount->getOrderTotalAmount($order, false));
             $order->amount_total = $processorAmount->getOrderTotalAmount($order);
             $order->save();
             $order->refresh();

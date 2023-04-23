@@ -18,8 +18,9 @@ class GetSubAndTotalAmountForOrderProcessor {
         return $subTotal;
     }
 
-    public function getOrderTotalAmount(Order $order): float {
+    public function getOrderTotalAmount(Order $order, $withShippingCost = true): float {
         $total = 0;
+        $shippingCost = 0;
         $subTotal = $this->getOrderSubTotalAmount($order);
         $total = $subTotal;
         if($order->coupon != null) {
@@ -31,7 +32,11 @@ class GetSubAndTotalAmountForOrderProcessor {
             }
         }
 
-        return $total + $order->shipping_cost;
+        if($withShippingCost) {
+            $shippingCost = $order->shipping_cost;
+        }
+
+        return $total + $shippingCost;
     }
 
 }

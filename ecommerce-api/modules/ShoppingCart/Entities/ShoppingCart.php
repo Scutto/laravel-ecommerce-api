@@ -18,6 +18,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class ShoppingCart extends Model
 {
     use HasFactory;
+
+    protected $hidden = ['session_id', 'created_at', 'updated_at', 'user_id'];
     
     /**
      * Defines the relation with User

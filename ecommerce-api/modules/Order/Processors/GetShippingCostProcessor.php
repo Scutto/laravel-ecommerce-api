@@ -23,12 +23,15 @@ class GetShippingCostProcessor {
         'hungary' => 17
     ];
 
-    public function getShippingCost($country) {
-        if(!isset(self::SHIPPING_COST_PER_COUNTRY[$country])) {
+    public function getShippingCost($order, $orderTotal) {
+        if($order->address_country === 'italy' && $orderTotal >= 89) {
+            return 0;
+        }
+        if(!isset(self::SHIPPING_COST_PER_COUNTRY[$order->address_country])) {
             return null;
         }
 
-        return self::SHIPPING_COST_PER_COUNTRY[$country];
+        return self::SHIPPING_COST_PER_COUNTRY[$order->address_country];
     }
 
 }

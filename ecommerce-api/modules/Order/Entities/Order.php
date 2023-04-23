@@ -20,7 +20,7 @@ class Order extends Model
 {
     use HasFactory, Encryptable;
 
-    protected $hidden = [];
+    protected $hidden = ['created_at', 'updated_at'];
 
     protected $encryptable = [
         'customer_email',
