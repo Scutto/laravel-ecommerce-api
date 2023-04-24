@@ -1093,6 +1093,7 @@ class CheckoutComponent {
     this.couponCodeError = false;
     this.showPayButtons = false;
     this.order = '';
+    this.cartSubscription = null;
     this.SHIPPING_COST_PER_COUNTRY = {
       italy: 7,
       austria: 11,
@@ -1123,6 +1124,9 @@ class CheckoutComponent {
       postalcode: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_4__.Validators.required]
     });
   }
+  ngOnDestroy() {
+    this.cartSubscription.unsubscribe();
+  }
   ngOnInit() {
     this.order = this.route.snapshot.data['order'];
     if (this.order != null) {
@@ -1130,11 +1134,12 @@ class CheckoutComponent {
       this.updateShippingCost();
       this.showPayButtons = true;
     }
-    this.apiCartService.cart.subscribe(cart => {
+    this.cartSubscription = this.apiCartService.cart.subscribe(cart => {
       if (cart != null) {
         this.cart = cart;
         this.initPayPalConfig();
       } else {
+        console.log('prima di redirect');
         this.router.navigate(['/']);
       }
     });
@@ -1258,11 +1263,15 @@ class CheckoutComponent {
         purchase_units: [{
           amount: {
             currency_code: 'EUR',
-            value: this.getTotal(false, true).toFixed(2),
+            value: this.getTotal(true, true).toFixed(2),
             breakdown: {
               item_total: {
                 currency_code: 'EUR',
                 value: this.getTotal(false, false).toFixed(2)
+              },
+              shipping: {
+                currency_code: 'EUR',
+                value: this.shippingCost.toFixed(2)
               },
               discount: discount
             }
@@ -1285,7 +1294,11 @@ class CheckoutComponent {
       // },
       onClientAuthorization: data => {
         this.apiCartService.savePayPalOrderData(data).subscribe(order => {
-          this.router.navigate(['/shop/checkout/success', order.session_id]).then();
+          this.router.navigate(['/shop/checkout/success', order.session_id]).then(() => {
+            this.apiCartService.reloadSessionId();
+          });
+        }, error => {
+          this.apiCartService.reloadSessionId();
         });
       },
       // onCancel: (data, actions) => {
@@ -1294,6 +1307,7 @@ class CheckoutComponent {
       // },
       onError: err => {
         console.log('OnError', err);
+        this.apiCartService.reloadSessionId();
         // this.showError = true;
       }
       // onClick: (data, actions) => {

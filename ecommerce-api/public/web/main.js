@@ -486,7 +486,13 @@ class ApiCartService {
   }
   getNewSessionId() {
     this.sessionId = (0,uuid__WEBPACK_IMPORTED_MODULE_0__.v4)();
-    this.postCheckSessionId().pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.tap)(_ => localStorage.setItem('sessionId', this.sessionId)), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_3__.expand)(data => {
+    this.postCheckSessionId().pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.tap)(_ => {
+      console.log('qua prima di heree');
+      console.log(this.sessionId);
+      localStorage.setItem('sessionId', this.sessionId);
+      console.log('hereeee');
+      this.getCart().subscribe();
+    }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_3__.expand)(data => {
       if (!data) {
         this.sessionId = (0,uuid__WEBPACK_IMPORTED_MODULE_0__.v4)();
         return this.postCheckSessionId();
@@ -494,6 +500,9 @@ class ApiCartService {
         return rxjs__WEBPACK_IMPORTED_MODULE_4__.EMPTY;
       }
     })).subscribe();
+  }
+  reloadSessionId() {
+    this.getNewSessionId();
   }
   /**
    * Returns the session id
@@ -509,7 +518,11 @@ class ApiCartService {
    * @return {Observable<any>}
    */
   getCart() {
+    console.log('in get cart');
+    console.log(this.sessionId);
     return this.http.get(API_ENDPOINT + 'shopping_cart/get/' + this.sessionId).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_5__.map)(response => {
+      console.log('result di get cart');
+      console.log(response.shoppingCart);
       this.cart.next(response.shoppingCart);
     }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.catchError)(error => {
       return (0,rxjs__WEBPACK_IMPORTED_MODULE_7__.throwError)(error);
@@ -6022,6 +6035,9 @@ class SettingsComponent {
       if (cart != null) {
         this.cart = cart;
         this.products = cart.products;
+      } else {
+        this.cart = null;
+        this.products = [];
       }
     });
   }
@@ -8265,8 +8281,8 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 const environment = {
   production: false,
-  // apiUrl: 'http://127.0.0.1:8000',
-  apiUrl: 'https://www.out-wear.com',
+  apiUrl: 'http://127.0.0.1:8000',
+  // apiUrl: 'https://www.out-wear.com',
   stripe_token: 'STRIPE_TOKEN',
   paypal_token: 'PAYPAL_TOKEN'
 };
