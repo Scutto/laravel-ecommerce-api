@@ -32,7 +32,7 @@ class PayPalController extends Controller
             $processorShipping = resolve(GetShippingCostProcessor::class);
             $processorAmount = resolve(GetSubAndTotalAmountForOrderProcessor::class);
 
-            $lastOrderNumber = Order::orderBy('order_number')->first();
+            $lastOrderNumber = Order::whereNotNull('order_number')->orderBy('order_number')->first();
             
             if($lastOrderNumber === null) {
                 $orderNumber = 1;
