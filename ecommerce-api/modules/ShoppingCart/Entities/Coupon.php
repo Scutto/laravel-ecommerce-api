@@ -14,9 +14,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
  */
 class Coupon extends Model
 {
-
     protected $hidden = ['created_at', 'updated_at'];
-
 
     /**
      * Get the user's first name.

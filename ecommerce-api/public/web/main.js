@@ -8265,8 +8265,8 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 const environment = {
   production: false,
-  // apiUrl: 'http://127.0.0.1:8000',
-  apiUrl: 'https://www.out-wear.com',
+  apiUrl: 'http://127.0.0.1:8000',
+  // apiUrl: 'https://www.out-wear.com',
   stripe_token: 'STRIPE_TOKEN',
   paypal_token: 'PAYPAL_TOKEN'
 };

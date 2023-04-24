@@ -74,9 +74,7 @@ class Product extends Model
      */
     public function details()
     {
-        return $this
-            ->hasMany(ProductImage::class)->where('product_images.type', 'details');
-            // ->orderBy('product_images.file');
+        return $this->hasMany(ProductImage::class)->where('product_images.type', 'details');
     }
 
     /**

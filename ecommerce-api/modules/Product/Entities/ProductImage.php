@@ -42,6 +42,6 @@ class ProductImage extends Model
             return asset('storage/products/size_charts/'. $this->file);
         }
 
-        return asset('storage/products/images/'. strtolower($this->product->title) . '/' . $this->file);
+        return asset('storage/products/images/' . $this->file);
     }
 }
