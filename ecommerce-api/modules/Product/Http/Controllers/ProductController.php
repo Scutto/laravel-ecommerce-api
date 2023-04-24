@@ -14,7 +14,7 @@ class ProductController extends Controller
      * 
      * @return JsonResponse
      */
-    public function getProductsList(): JsonResponse
+    public function getProductsList()
     {
         try {
             $products = Product::with(['category', 'thumbnail', 'details', 'sizes', 'sizeChart'])
@@ -28,6 +28,7 @@ class ProductController extends Controller
             ]);
         } catch (Throwable $e) {
             return response([
+                'debug' => [$e->getMessage(), $e->getFile(), $e->getLine(), $e->getTrace()],
                 'message' => [
                     'title' => 'general.api.error.title',
                     'text' => 'general.api.error.text',

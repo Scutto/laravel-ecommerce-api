@@ -113,7 +113,7 @@ class ManageInvoiceForOrderProcessor {
 
         $entity = $this->createUserData($order);
         $invoice = new IssuedDocument;
-        $invoice->setType(IssuedDocumentType::INVOICE);
+        $invoice->setType(IssuedDocumentType::PROFORMA);
         $invoice->setEntity($entity);
 
         // Below you can find this section fields:
@@ -142,16 +142,16 @@ class ManageInvoiceForOrderProcessor {
         );
 
         // Here we set e_invoice and ei_data
-        $invoice->setEInvoice(true);
-        $invoice->setEiData(
-            new IssuedDocumentEiData(
-                [
-                    "payment_method" => "MP08",
-                    'vat_kind' => 'I',
-                    'ei_code' => $order->address_country === 'italy' ? '0000000' : 'XXXXXXX',
-                ]
-            )
-        );
+        // $invoice->setEInvoice(true);
+        // $invoice->setEiData(
+        //     new IssuedDocumentEiData(
+        //         [
+        //             "payment_method" => "MP08",
+        //             'vat_kind' => 'I',
+        //             'ei_code' => $order->address_country === 'italy' ? '0000000' : 'XXXXXXX',
+        //         ]
+        //     )
+        // );
 
         $itemList = [];
         $order->products->each(

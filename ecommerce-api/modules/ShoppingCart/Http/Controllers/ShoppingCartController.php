@@ -10,9 +10,7 @@ use Throwable;
 use Laravel\Cashier\Cashier;
 use Modules\ShoppingCart\Entities\ShoppingCartProduct;
 use Modules\ShoppingCart\Entities\Coupon;
-use Modules\Product\Entities\Product;
 use Modules\Order\Entities\Order;
-use Modules\Order\Entities\OrderProduct;
 use Modules\Order\Processors\GetShippingCostProcessor;
 use Modules\Order\Processors\GetSubAndTotalAmountForOrderProcessor;
 use Modules\ShoppingCart\Entities\ShoppingCartCoupon;
@@ -235,20 +233,12 @@ class ShoppingCartController extends Controller
     public function postOrderData(Request $request) {
         try {
             $sessionId = $request->get('sessionId');
-            $formData = $request->get('formData');            
-            $lastOrderNumber = Order::orderBy('order_number')->first();
-            
-            if($lastOrderNumber === null) {
-                $orderNumber = 1;
-            } else {
-                $orderNumber = $lastOrderNumber->order_number + 1;
-            }
+            $formData = $request->get('formData');
 
             if(Order::where('session_id', $sessionId)->exists()) {
                 $order = Order::where('session_id', $sessionId)->firstOrFail();
             } else {
                 $order = new Order();
-                $order->order_number = $orderNumber;
             }
 
             $order->gateway = null;

@@ -1134,6 +1134,8 @@ class CheckoutComponent {
       if (cart != null) {
         this.cart = cart;
         this.initPayPalConfig();
+      } else {
+        this.router.navigate(['/']);
       }
     });
   }
