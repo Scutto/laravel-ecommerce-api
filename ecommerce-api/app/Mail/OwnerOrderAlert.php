@@ -9,7 +9,7 @@ use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 use Modules\Order\Entities\Order;
 
-class NewOrderAlert extends Mailable
+class OwnerOrderAlert extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -18,12 +18,10 @@ class NewOrderAlert extends Mailable
      *
      * @return void
      */
-    public function __construct(
-        public Order $order,
-        public $toSubtract,
-        public $subTotale
-    )
-    { }
+    public function __construct(public Order $order)
+    {
+        //
+    }
 
     /**
      * Get the message envelope.
@@ -34,7 +32,7 @@ class NewOrderAlert extends Mailable
     {
         return new Envelope(
             from: 'noreply@out-wear.com',
-            subject: 'Ordine Confermato',
+            subject: 'Nuovo Ordine Confermato',
         );
     }
 
@@ -46,7 +44,7 @@ class NewOrderAlert extends Mailable
     public function content()
     {
         return new Content(
-            view: 'mails.orders.order_confirmation',
+            view: 'mails.orders.owner_order_confirmation',
         );
     }
 

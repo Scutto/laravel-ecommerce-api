@@ -1378,15 +1378,7 @@ function SuccessComponent_section_0_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](8, "p");
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](9, "Il pagamento \u00E9 andato a buon fine");
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](10, "p");
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](11);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()()()()()();
-  }
-  if (rf & 2) {
-    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](11);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtextInterpolate1"]("Transazione #:", ctx_r0.orderDetails.order_number, "");
   }
 }
 function SuccessComponent_section_1_div_7_Template(rf, ctx) {
@@ -1450,14 +1442,14 @@ function SuccessComponent_section_1_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](27, "li");
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](28);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](29, "li");
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](30);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](31, "div", 15)(32, "h4");
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](33, "DETTAGLI INDIRIZZO");
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](29, "div", 15)(30, "h4");
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](31, "DETTAGLI INDIRIZZO");
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](34, "ul", 16)(35, "li");
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](32, "ul", 16)(33, "li");
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](34);
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](35, "li");
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](36);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](37, "li");
@@ -1468,20 +1460,17 @@ function SuccessComponent_section_1_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](41, "li");
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](42);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](43, "li");
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](44);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](45, "div", 17)(46, "h4");
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](47);
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](43, "div", 17)(44, "h4");
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](45);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](48, "p");
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](46, "p");
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](49, "div", 5)(50, "div", 18)(51, "h3");
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](52, "Data prevista di consegna");
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](47, "div", 5)(48, "div", 18)(49, "h3");
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](50, "Data prevista di consegna");
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](53, "h2");
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](54);
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](51, "h2");
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](52);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()()()()()()()();
   }
   if (rf & 2) {
@@ -1493,11 +1482,9 @@ function SuccessComponent_section_1_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](5);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtextInterpolate"](ctx_r1.orderDetails.amount_total.toFixed(2));
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](8);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtextInterpolate1"]("Ordine #: ", ctx_r1.orderDetails.order_number, "");
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtextInterpolate1"]("Data: ", ctx_r1.getOrderCreatedAt(), "");
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtextInterpolate1"]("Totale ordine: ", ctx_r1.orderDetails.amount_total, "");
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtextInterpolate1"]("Totale ordine: ", ctx_r1.orderDetails.amount_total.toFixed(2), "");
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](6);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtextInterpolate"](ctx_r1.orderDetails.address_street);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](2);
@@ -1564,8 +1551,8 @@ SuccessComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_3__
   consts: [["class", "section-b-space light-layout", 4, "ngIf"], ["class", "section-b-space", 4, "ngIf"], [1, "section-b-space", "light-layout"], [1, "container"], [1, "row"], [1, "col-md-12"], [1, "success-text"], ["aria-hidden", "true", 1, "fa", "fa-check-circle"], [1, "section-b-space"], [1, "col-lg-6"], [1, "product-order"], ["class", "row product-order-detail text-center", 4, "ngFor", "ngForOf"], [1, "total-sec"], [1, "final-total"], [1, "row", "order-success-sec"], [1, "col-sm-6"], [1, "order-detail"], [1, "col-sm-12", "payment-mode"], [1, "delivery-sec"], [1, "row", "product-order-detail", "text-center"], [1, "col-3"], ["alt", "", 1, "img-fluid", 3, "src"], [1, "col-3", "order_detail"]],
   template: function SuccessComponent_Template(rf, ctx) {
     if (rf & 1) {
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](0, SuccessComponent_section_0_Template, 12, 1, "section", 0);
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](1, SuccessComponent_section_1_Template, 55, 14, "section", 1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](0, SuccessComponent_section_0_Template, 10, 0, "section", 0);
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](1, SuccessComponent_section_1_Template, 53, 13, "section", 1);
     }
     if (rf & 2) {
       _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngIf", ctx.orderDetails);

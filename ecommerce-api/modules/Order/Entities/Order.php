@@ -43,7 +43,7 @@ class Order extends Model
      */
     public function coupon()
     {
-        return $this->hasOne(Coupon::class, 'id', 'coupon_stripe_id');
+        return $this->hasOne(Coupon::class, 'stripe_id', 'coupon_stripe_id');
     }
 
     /**

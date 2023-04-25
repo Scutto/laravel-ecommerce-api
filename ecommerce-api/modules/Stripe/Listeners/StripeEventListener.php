@@ -9,6 +9,7 @@ use Modules\ShoppingCart\Entities\ShoppingCartProduct;
 use Modules\Order\Entities\Order;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\NewOrderAlert;
+use App\Mail\OwnerOrderAlert;
 use Modules\Order\Processors\GetShippingCostProcessor;
 use Modules\Order\Processors\GetSubAndTotalAmountForOrderProcessor;
 use Modules\Order\Processors\ManageInvoiceForOrderProcessor;
@@ -101,9 +102,16 @@ class StripeEventListener
                 $classProcessorInvoice = resolve(ManageInvoiceForOrderProcessor::class);
                 $invoiceId = $classProcessorInvoice->create($order);
                 // $resultVerification = $classProcessorInvoice->verifyInvoiceXML($invoiceId);
+                $subTotale = $processorAmount->getOrderSubTotalAmount($order);
+                $toSubtract = null;
+                if($order->coupon->type === 'fixed') {
+                    $toSubtract = $order->coupon->amount_off;
+                } else if($order->coupon->type === 'percentage') {
+                    $$toSubtract = $subTotale * $order->coupon->amount_off;
+                }   
     
-                Mail::to($order->customer_email)->send(new NewOrderAlert($order));
-                Mail::to(config('app.mail_owner'))->send(new NewOrderAlert($order));
+                Mail::to($order->customer_email)->send(new NewOrderAlert($order, $toSubtract, $subTotale));
+                Mail::to(config('app.mail_owner'))->send(new OwnerOrderAlert($order, $toSubtract));
             } catch(Throwable $t) {
                 Log::info($t->getMessage());
                 Log::info($event->payload);

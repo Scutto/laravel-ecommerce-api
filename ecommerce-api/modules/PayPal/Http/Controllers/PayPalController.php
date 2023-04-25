@@ -9,6 +9,7 @@ use Modules\Order\Entities\OrderProduct;
 use Modules\ShoppingCart\Entities\ShoppingCartProduct;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\NewOrderAlert;
+use App\Mail\OwnerOrderAlert;
 use Illuminate\Support\Facades\Log;
 use Modules\ShoppingCart\Entities\ShoppingCart;
 use Modules\Order\Processors\GetShippingCostProcessor;
@@ -45,7 +46,7 @@ class PayPalController extends Controller
             $order->gateway_id = $data['id'];
             $order->order_number = $orderNumber;
             $order->status = 'payed';
-            $order->coupon_stripe_id = $shoppingCart->applied_coupon != null ? $shoppingCart->applied_coupon->coupon_stripe_id : null;
+            $order->coupon_stripe_id = $shoppingCart->appliedCoupon != null ? $shoppingCart->appliedCoupon->coupon_stripe_id : null;
             $order->gateway_payload = json_encode($data);
             $order->save();
             $order->refresh();
@@ -67,6 +68,8 @@ class PayPalController extends Controller
             $order->save();
             $order->refresh();
 
+            Log::info(json_encode($order->coupon));
+
             $shoppingCart->delete();
 
             $classProcessor = resolve(ReduceProductQuantityFromOrderProcessor::class);
@@ -76,8 +79,18 @@ class PayPalController extends Controller
             $invoiceId = $classProcessorInvoice->create($order);
             // $resultVerification = $classProcessorInvoice->verifyInvoiceXML($invoiceId);
 
-            Mail::to($order->customer_email)->send(new NewOrderAlert($order));
-            Mail::to(config('app.mail_owner'))->send(new NewOrderAlert($order));
+            $subTotale = $processorAmount->getOrderSubTotalAmount($order);
+            $toSubtract = null;
+            if($order->coupon != null) {
+                if($order->coupon->type === 'fixed') {
+                    $toSubtract = $order->coupon->amount_off;
+                } else if($order->coupon->type === 'percentage') {
+                    $toSubtract = $subTotale * $order->coupon->amount_off;
+                }
+            }
+
+            Mail::to($order->customer_email)->send(new NewOrderAlert($order, $toSubtract, $subTotale));
+            Mail::to('gabriele.francescutto@gmail.com')->send(new OwnerOrderAlert($order));
 
             return response()->json([
                 'order' => $order,

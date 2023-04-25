@@ -46,7 +46,7 @@ class TestFattureCommand extends Command
     public function handle()
     {
         $order = Order::where('id', 2)->first();
-        Mail::to($order->customer_email)->send(new NewOrderAlert($order));
+        // Mail::to($order->customer_email)->send(new NewOrderAlert($order));
         // $this->createInvoiceForOrderProcessor->getVatListType();
         // $this->createInvoiceForOrderProcessor->testGetCompany();
         // $this->createInvoiceForOrderProcessor->getPaymentAccount();

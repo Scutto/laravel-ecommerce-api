@@ -158,7 +158,6 @@ class ManageInvoiceForOrderProcessor {
             function(OrderProduct $orderProduct) use(&$itemList) {
                 $itemList[] = new IssuedDocumentItemsListItem(
                     [
-                        "product_id" => 4,
                         "code" => $orderProduct->product->sku,
                         "name" => $orderProduct->product->title,
                         "net_price" => $orderProduct->product->price,
@@ -178,7 +177,7 @@ class ManageInvoiceForOrderProcessor {
         if($order->shipping_cost != null && $order->shipping_cost > 0) {
             $itemList[] = new IssuedDocumentItemsListItem(
                 [
-                    "name" => 'Shipping cost',
+                    "name" => 'Costo spedizione',
                     "net_price" => $order->shipping_cost,
                     "category" => "shipping",
                     "discount" => 0,
@@ -192,8 +191,44 @@ class ManageInvoiceForOrderProcessor {
             );
         }
 
+        $toSubtract = 0;
+        if($order->coupon != null) {
+            $processorAmount = resolve(GetSubAndTotalAmountForOrderProcessor::class);
+            if($order->coupon != null) {
+                if($order->coupon->type === 'fixed') {
+                    $toSubtract = $order->coupon->amount_off;
+                } else if($order->coupon->type === 'percentage') {
+                    $toSubtract = $processorAmount->getOrderSubTotalAmount($order) * $order->coupon->amount_off;
+                }
+            }
+
+            $itemList[] = new IssuedDocumentItemsListItem(
+                [
+                    "name" => 'Sconto',
+                    "net_price" => $toSubtract * -1,
+                    "category" => "",
+                    "discount" => 0,
+                    "qty" => 1,
+                    "vat" => new VatType(
+                        array(
+                            "id" => self::VAT_TYPE_ID
+                        )
+                    )
+                ]
+            );
+        }
+
+        Log::info(json_encode($itemList));
+        Log::info('amount total');
+        Log::info($order->amount_total);
+        Log::info('shipping cost');
+        Log::info($order->shipping_cost);
+
         //adds the products
         $invoice->setItemsList($itemList);
+
+        Log::info('subtract');
+        Log::info($toSubtract);
 
         // Here we set the payments list assuming our invoice has already been paid
         $invoice->setPaymentsList(

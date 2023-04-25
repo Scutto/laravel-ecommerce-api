@@ -180,19 +180,25 @@ a[x-apple-data-detectors] {
                       <td align="center" style="padding:0;Margin:0;padding-bottom:15px">
                        <table class="cke_show_border" height="101" cellspacing="1" cellpadding="1" border="0" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;width:240px">
                          <tr style="border-collapse:collapse">
-                          <td style="padding:0;Margin:0"><strong><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit">Subtotale: {{ $order->amount_total }}</font></font></font></font></font></font></font></font></strong></td>
+                          <td style="padding:0;Margin:0"><strong><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit">Subtotale: {{ number_format($subTotale, 2) }}</font></font></font></font></font></font></font></font></strong></td>
                           <td style="padding:0;Margin:0;text-align:right"><br></td>
                          </tr>
                          <tr style="border-collapse:collapse">
-                          <td style="padding:0;Margin:0"><strong><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit">Spedizione: {{ $order->shipping_cost }}</font></font></font></font></font></font></font></font></strong></td>
+                          <td style="padding:0;Margin:0"><strong><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit">Spedizione: {{ number_format($order->shipping_cost, 2) }}</font></font></font></font></font></font></font></font></strong></td>
                           <td style="padding:0;Margin:0;text-align:right"><br></td>
                          </tr>
+                         @if($toSubtract != null)
+                          <tr style="border-collapse:collapse">
+                            <td style="padding:0;Margin:0"><strong><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit">Coupon: - {{ number_format($toSubtract, 2) }}</font></font></font></font></font></font></font></font></strong></td>
+                            <td style="padding:0;Margin:0;text-align:right"><br></td>
+                          </tr>
+                         @endif
                          <tr style="border-collapse:collapse">
                           <td style="padding:0;Margin:0"><br></td>
                           <td style="padding:0;Margin:0;text-align:right"><br></td>
                          </tr>
                          <tr style="border-collapse:collapse">
-                          <td style="padding:0;Margin:0;font-size:18px;line-height:36px"><b><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit">Totale: {{ $order->amount_total - $order->shipping_cost }}</font></font></font></font></b></td>
+                          <td style="padding:0;Margin:0;font-size:18px;line-height:36px"><b><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit">Totale: {{ number_format($order->amount_total, 2) }}</font></font></font></font></b></td>
                           <td style="padding:0;Margin:0;text-align:right;font-size:18px;line-height:36px"><br></td>
                          </tr>
                        </table></td>

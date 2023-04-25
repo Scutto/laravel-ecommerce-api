@@ -186,7 +186,9 @@ class ShoppingCartController extends Controller
                         'shopping_cart_id' => $shoppingCart->id,
                         'coupon_stripe_id' => $couponCheck->stripe_id
                     ],
-                    []
+                    [
+                        'created_at' => now(),
+                    ]
                 );
 
                 $shoppingCart = ShoppingCart::with(['products', 'appliedCoupon'])
