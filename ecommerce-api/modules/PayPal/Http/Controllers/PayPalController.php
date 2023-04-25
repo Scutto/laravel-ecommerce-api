@@ -73,7 +73,7 @@ class PayPalController extends Controller
             $classProcessor->reduceProductQuantity($order);
 
             $classProcessorInvoice = resolve(ManageInvoiceForOrderProcessor::class);
-            // $invoiceId = $classProcessorInvoice->create($order);
+            $invoiceId = $classProcessorInvoice->create($order);
             // $resultVerification = $classProcessorInvoice->verifyInvoiceXML($invoiceId);
 
             Mail::to($order->customer_email)->send(new NewOrderAlert($order));
