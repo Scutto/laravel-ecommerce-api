@@ -195,6 +195,9 @@ class CartComponent {
       if (cart != null) {
         this.cart = cart;
         this.products = cart.products;
+      } else {
+        this.cart = null;
+        this.products = [];
       }
     });
   }
@@ -1139,7 +1142,6 @@ class CheckoutComponent {
         this.cart = cart;
         this.initPayPalConfig();
       } else {
-        console.log('prima di redirect');
         this.router.navigate(['/']);
       }
     });
@@ -3033,9 +3035,7 @@ class ProductNoSidebarComponent {
     this.ProductDetailsMainSliderConfig = _shared_data_slider__WEBPACK_IMPORTED_MODULE_1__.ProductDetailsMainSlider;
     this.ProductDetailsThumbConfig = _shared_data_slider__WEBPACK_IMPORTED_MODULE_1__.ProductDetailsThumbSlider;
     this.apiCartService.cart.subscribe(cart => {
-      if (cart != null) {
-        this.cart = cart;
-      }
+      this.cart = cart;
     });
   }
   ngOnInit() {

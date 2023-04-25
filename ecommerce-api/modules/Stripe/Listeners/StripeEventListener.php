@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Log;
 use Laravel\Cashier\Events\WebhookReceived;
 use Modules\Order\Entities\OrderProduct;
 use Modules\ShoppingCart\Entities\ShoppingCartProduct;
-use Modules\Product\Entities\Product;
 use Modules\Order\Entities\Order;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\NewOrderAlert;
@@ -89,7 +88,7 @@ class StripeEventListener
                 );
                 $order->refresh();
 
-                $order->shipping_cost = $processorShipping->getShippingCost($order->address_country, $processorAmount->getOrderTotalAmount($order, false));
+                $order->shipping_cost = $processorShipping->getShippingCost($order, $processorAmount->getOrderTotalAmount($order, false));
                 $order->amount_total = $processorAmount->getOrderTotalAmount($order);
                 $order->save();
                 $order->refresh();

@@ -325,7 +325,7 @@ class ShoppingCartController extends Controller
             $order = Order::where('session_id', $sessionId)->firstOrFail();
             $processorShipping = resolve(GetShippingCostProcessor::class);
             $processorAmount = resolve(GetSubAndTotalAmountForOrderProcessor::class);
-            $shippingCost = $processorShipping->getShippingCost($order->address_country, $processorAmount->getOrderTotalAmount($order, false));
+            $shippingCost = $processorShipping->getShippingCost($order, $processorAmount->getOrderTotalAmount($order, false));
 
             foreach($shoppingCart->products as $shoppingCartProduct) {
                 $lineItems[] = [
@@ -356,7 +356,7 @@ class ShoppingCartController extends Controller
                   [
                     'shipping_rate_data' => [
                         'type' => 'fixed_amount',
-                        'fixed_amount' => ['amount' => $shippingCost, 'currency' => 'eur'],
+                        'fixed_amount' => ['amount' => $shippingCost * 100, 'currency' => 'eur'],
                         'display_name' => 'Shipping Cost',
                         'delivery_estimate' => [
                             'minimum' => ['unit' => 'business_day', 'value' => $min],
