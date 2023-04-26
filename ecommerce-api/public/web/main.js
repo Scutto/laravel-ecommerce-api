@@ -487,10 +487,7 @@ class ApiCartService {
   getNewSessionId() {
     this.sessionId = (0,uuid__WEBPACK_IMPORTED_MODULE_0__.v4)();
     this.postCheckSessionId().pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.tap)(_ => {
-      console.log('qua prima di heree');
-      console.log(this.sessionId);
       localStorage.setItem('sessionId', this.sessionId);
-      console.log('hereeee');
       this.getCart().subscribe();
     }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_3__.expand)(data => {
       if (!data) {
@@ -518,11 +515,7 @@ class ApiCartService {
    * @return {Observable<any>}
    */
   getCart() {
-    console.log('in get cart');
-    console.log(this.sessionId);
     return this.http.get(API_ENDPOINT + 'shopping_cart/get/' + this.sessionId).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_5__.map)(response => {
-      console.log('result di get cart');
-      console.log(response.shoppingCart);
       this.cart.next(response.shoppingCart);
     }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.catchError)(error => {
       return (0,rxjs__WEBPACK_IMPORTED_MODULE_7__.throwError)(error);
@@ -3424,7 +3417,7 @@ const _c3 = function () {
 function CartVariationComponent_div_10_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 24)(1, "h4", 25)(2, "strong");
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](3, "Your Cart is Empty");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](3, "Il tuo carrello e' vuoto");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](4, "a", 26);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](5, "continue shopping");
@@ -5919,7 +5912,7 @@ __webpack_require__.r(__webpack_exports__);
 function SettingsComponent_ng_container_9_ul_1_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "ul", 8)(1, "h5");
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](2, "Your cart is currently empty.");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](2, "Il tuo carrello e' vuoto");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()();
   }
 }
@@ -6621,7 +6614,7 @@ FooterOneComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_0
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](32, "Politica Resi");
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](33, "li")(34, "a", 19);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](35, "Effetua un reso");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](35, "Effettua un reso");
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](36, "li")(37, "a", 20);
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](38, "Termini e condizioni");
@@ -6915,7 +6908,7 @@ function FooterTwoComponent_div_1_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](39, "Politica Resi");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](40, "li")(41, "a", 36);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](42, "Effetua un reso");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](42, "Effettua un reso");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](43, "li")(44, "a", 10);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](45, "Termini e condizioni");

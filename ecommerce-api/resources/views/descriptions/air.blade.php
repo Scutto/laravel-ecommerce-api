@@ -1,8 +1,11 @@
 <ul>
-    <li>Tessuto innovativo leggero che permette di mantenere il corpo fresco e asciutto.</li>
-    <li>Tessuto elasticizzato dinamico sul collo</li>
-    <li>Maggiore traspirabilità</li>
-    <li>Taglio innovativo per una maggiore libertà di movimento e una migliore vestibilità in sella</li>
-    <li>Grafiche stampate con tecnica di sublimazione, anti-sbiadimento</li>
+    <li>Tessuto tecnico leggero, resistente ed elasticizzato - Assorbimento dell’umidità e asciugatura rapida</li>
+    <li>Fori di ventilazione fatti al laser</li>
+    <li>Doppia tasca laterale</li>
+    <li>Strap elastico con velcro per una regolazione ottimale</li>
+    <li>Ottima vestibilità per una maggiore libertà di movimento</li>
 </ul>
-<p>120g - 10% Spandex - 90% Poliestere</p>
+
+Unisex Fit
+
+<p>80% Poliammide - 20% Elastan</p>

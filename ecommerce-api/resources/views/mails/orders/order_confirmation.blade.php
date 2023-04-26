@@ -77,7 +77,7 @@ a[x-apple-data-detectors] {
                   <td valign="top" align="center" style="padding:0;Margin:0;width:580px">
                    <table width="100%" cellspacing="0" cellpadding="0" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                      <tr style="border-collapse:collapse">
-                      <td align="center" style="padding:0;Margin:0;font-size:0px"><a target="_blank" href="{{'https://www.out-wear.com/shop/checkout/success/' . $order->session_id}}" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:none;color:#3CA7F1;font-size:14px"><img class="adapt-img" src="https://mihfet.stripocdn.email/content/guids/CABINET_36235816ef6467a38cca45a3bc6f73810c9ebfc43bab1fafb43f79834e0b1cf1/images/out_nero_NWr.png" alt width="105" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" height="105"></a></td>
+                      <td align="center" style="padding:0;Margin:0;font-size:0px"><a target="_blank" href="{{'https://www.out-wear.com/#/shop/checkout/success/' . $order->session_id}}" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:none;color:#3CA7F1;font-size:14px"><img class="adapt-img" src="https://mihfet.stripocdn.email/content/guids/CABINET_36235816ef6467a38cca45a3bc6f73810c9ebfc43bab1fafb43f79834e0b1cf1/images/out_nero_NWr.png" alt width="105" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" height="105"></a></td>
                      </tr>
                    </table></td>
                  </tr>
@@ -105,7 +105,7 @@ a[x-apple-data-detectors] {
 		<w:anchorlock></w:anchorlock>
 		<center style='color:#ffffff; font-family:"lucida sans unicode", "lucida grande", sans-serif; font-size:15px; font-weight:400; line-height:15px;  mso-text-raise:1px'>Rivedi i dettagli del tuo ordine</center>
 	</v:roundrect></a>
-<![endif]--><!--[if !mso]><!-- --><span class="msohide es-button-border" style="border-style:solid;border-color:#2cb543;background:#191919;border-width:0px;display:inline-block;border-radius:20px;width:auto;mso-hide:all"><a href="{{'https://www.out-wear.com/shop/checkout/success/' . $order->session_id}}" class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;color:#ffffff;font-size:18px;display:inline-block;background:#191919;border-radius:20px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;font-weight:normal;font-style:normal;line-height:22px;width:auto;text-align:center;padding:10px 35px;border-color:#191919">Rivedi i dettagli del tuo ordine</a></span><!--<![endif]--></td>
+<![endif]--><!--[if !mso]><!-- --><span class="msohide es-button-border" style="border-style:solid;border-color:#2cb543;background:#191919;border-width:0px;display:inline-block;border-radius:20px;width:auto;mso-hide:all"><a href="{{'https://www.out-wear.com/#/shop/checkout/success/' . $order->session_id}}" class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;color:#ffffff;font-size:18px;display:inline-block;background:#191919;border-radius:20px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;font-weight:normal;font-style:normal;line-height:22px;width:auto;text-align:center;padding:10px 35px;border-color:#191919">Rivedi i dettagli del tuo ordine</a></span><!--<![endif]--></td>
                      </tr>
                    </table></td>
                  </tr>
@@ -146,7 +146,7 @@ a[x-apple-data-detectors] {
                     <tr style="border-collapse:collapse">
                       <td align="left" style="padding:0;Margin:0"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:Arial, sans-serif;line-height:21px;color:#333333;font-size:14px">
                         <b>Articolo: {{ $product->product->title }}</b></p><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:Arial, sans-serif;line-height:21px;color:#333333;font-size:14px"><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit">
-                        <strong>Descrizione: Maglia MTB&nbsp;</strong><br><strong>Taglia: {{ $product->size }}</strong></font></font></font></font></p><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:Arial, sans-serif;line-height:21px;color:#333333;font-size:14px"><br></p>
+                        <strong>Descrizione: {{ ucfirst($product->product->type) }}&nbsp;</strong><br><strong>Taglia: {{ strtoupper($product->size) }}</strong></font></font></font></font></p><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:Arial, sans-serif;line-height:21px;color:#333333;font-size:14px"><br></p>
                       </td>
                      </tr>
                      <tr style="border-collapse:collapse">

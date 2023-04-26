@@ -27,11 +27,11 @@ class GetShippingCostProcessor {
         if($order->address_country === 'italy' && $orderTotal >= 89) {
             return 0;
         }
-        if(!isset(self::SHIPPING_COST_PER_COUNTRY[$order->address_country])) {
+        if(!isset(self::SHIPPING_COST_PER_COUNTRY[strtolower($order->address_country)])) {
             return null;
         }
 
-        return self::SHIPPING_COST_PER_COUNTRY[$order->address_country];
+        return self::SHIPPING_COST_PER_COUNTRY[strtolower($order->address_country)];
     }
 
 }

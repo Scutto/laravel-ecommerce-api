@@ -14,7 +14,7 @@ class OrderController extends Controller
     public function getOrderFromSessionId($sessionId)
     {
         try {
-            $order = Order::with(['products', 'products.product.thumbnail'])
+            $order = Order::with(['products', 'products.product.thumbnail', 'coupon'])
                 ->where('session_id', $sessionId)
                 ->first();
 

@@ -37,7 +37,7 @@ class ManageInvoiceForOrderProcessor {
         'germany' => 'Germania',
         'liechtenstein' => 'Liechtenstein',
         'luxembourg' => 'Lussemburgo',
-        'the netherlands' => 'Olanda',
+        'the netherlands' => 'Paesi Bassi',
         'poland' => 'Polonia',
         'czech republic' => 'Repubblica Ceca',
         'slovenia' => 'Slovenia',
@@ -311,12 +311,12 @@ class ManageInvoiceForOrderProcessor {
     private function createUserData(Order $order) {
         $entity = new Entity;
         $fullname = $order->customer_firstname . ' ' . $order->customer_lastname;
-
+        
         return $entity
             ->setName($fullname)
             ->setAddressStreet($order->address_street)
             ->setAddressPostalCode($order->address_zipcode)
             ->setAddressCity($order->address_city)
-            ->setCountry(self::EN_COUNTRY_TO_IT[$order->address_country]);
+            ->setCountry(self::EN_COUNTRY_TO_IT[strtolower($order->address_country)]);
     }
 }

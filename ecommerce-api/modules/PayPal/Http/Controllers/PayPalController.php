@@ -68,8 +68,6 @@ class PayPalController extends Controller
             $order->save();
             $order->refresh();
 
-            Log::info(json_encode($order->coupon));
-
             $shoppingCart->delete();
 
             $classProcessor = resolve(ReduceProductQuantityFromOrderProcessor::class);
@@ -90,7 +88,7 @@ class PayPalController extends Controller
             }
 
             Mail::to($order->customer_email)->send(new NewOrderAlert($order, $toSubtract, $subTotale));
-            Mail::to('gabriele.francescutto@gmail.com')->send(new OwnerOrderAlert($order));
+            Mail::to(config('app.mail_owner'))->send(new OwnerOrderAlert($order));
 
             return response()->json([
                 'order' => $order,
