@@ -114,6 +114,8 @@ class StripeEventListener
                 Mail::to(config('app.mail_owner'))->send(new OwnerOrderAlert($order, $toSubtract));
             } catch(Throwable $t) {
                 Log::info($t->getMessage());
+                Log::info($t->getFile());
+                Log::info($t->getLine());
                 Log::info($event->payload);
             }
         }

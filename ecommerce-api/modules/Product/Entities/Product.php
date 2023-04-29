@@ -99,6 +99,23 @@ class Product extends Model
      *
      * @return \Illuminate\Database\Eloquent\Casts\Attribute
      */
+    protected function textDetails(): Attribute
+    {
+        return Attribute::make(
+            get: function ($value) {
+                if($value === null) {
+                    return null;
+                }
+                return view('details.' . $value)->render();
+            },
+        );
+    }
+
+    /**
+     * Get price in decimal
+     *
+     * @return \Illuminate\Database\Eloquent\Casts\Attribute
+     */
     protected function price(): Attribute
     {
         return Attribute::make(

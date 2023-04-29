@@ -688,8 +688,12 @@ class FashionTwoComponent {
         left: '57%'
       }
     }];
-    this.apiProductService.getNewProducts().subscribe(products => {
-      this.newProductCollection = products;
+    this.apiProductService.products.subscribe(products => {
+      // Shuffle array
+      const shuffled = products.sort(() => 0.5 - Math.random());
+      // Get sub-array of first n elements after shuffled
+      let selected = shuffled.slice(0, 4);
+      this.newProductCollection = selected;
     });
   }
   ngOnInit() {}

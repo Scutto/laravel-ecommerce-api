@@ -739,10 +739,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rxjs */ 76317);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ 25474);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ 10745);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs/operators */ 50635);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ 53158);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 22560);
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ 58987);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ 22560);
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common/http */ 58987);
 
 
 
@@ -791,19 +792,22 @@ class ApiProductService {
    *
    * @return Observable<any>
    */
-  getNewProducts() {
-    return this.http.get(API_ENDPOINT + 'products/get/new').pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_1__.map)(response => {
-      return response.products;
-    }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.catchError)(error => {
-      return (0,rxjs__WEBPACK_IMPORTED_MODULE_3__.throwError)(error);
-    }));
-  }
-  /**
-   * Get all the available products
-   *
-   * @return Observable<any>
-   */
   getProduct(productId) {
+    if (this.products.value.length > 0) {
+      let productFound = this.products.value.find(product => {
+        return product.id == productId;
+      });
+      if (productFound != null) {
+        let relatedProducts = this.products.value.filter(product => {
+          return product.category.id === productFound.category.id;
+        }).slice(0, 6);
+        let objToReturn = {
+          product: productFound,
+          relatedProducts
+        };
+        return (0,rxjs__WEBPACK_IMPORTED_MODULE_4__.of)(objToReturn);
+      }
+    }
     return this.http.get(API_ENDPOINT + 'products/get/' + productId).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_1__.map)(response => {
       return response;
     }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.catchError)(error => {
@@ -812,9 +816,9 @@ class ApiProductService {
   }
 }
 ApiProductService.ɵfac = function ApiProductService_Factory(t) {
-  return new (t || ApiProductService)(_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_5__.HttpClient));
+  return new (t || ApiProductService)(_angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_6__.HttpClient));
 };
-ApiProductService.ɵprov = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineInjectable"]({
+ApiProductService.ɵprov = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdefineInjectable"]({
   token: ApiProductService,
   factory: ApiProductService.ɵfac,
   providedIn: 'root'
@@ -6532,50 +6536,97 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "FooterOneComponent": () => (/* binding */ FooterOneComponent)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 22560);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ 60124);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ 94666);
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ 2508);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 22560);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ 60124);
+/* harmony import */ var _api_services_newsletter_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../api-services/newsletter.service */ 86005);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ 94666);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ 2508);
 
 
 
 
+
+function FooterOneComponent_div_1_form_12_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r4 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "form", 40)(1, "div", 41)(2, "input", 42);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("ngModelChange", function FooterOneComponent_div_1_form_12_Template_input_ngModelChange_2_listener($event) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r4);
+      const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](2);
+      return _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵresetView"](ctx_r3.email = $event);
+    });
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](3, "button", 43);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function FooterOneComponent_div_1_form_12_Template_button_click_3_listener() {
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r4);
+      const ctx_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](2);
+      return _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵresetView"](ctx_r5.onAddNewsletterContact());
+    });
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](4, "ISCRIVITI");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
+  }
+  if (rf & 2) {
+    const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngModel", ctx_r1.email);
+  }
+}
+function FooterOneComponent_div_1_div_13_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div")(1, "label");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](2, "Grazie per esserti iscritto alla nostra newsletter");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
+  }
+}
 function FooterOneComponent_div_1_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 33)(1, "div", 2)(2, "section", 34)(3, "div", 24)(4, "div", 35)(5, "div", 36)(6, "div")(7, "h4");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8, "NON PERDERTI NESSUNA NOVIT\u00C0!");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "p");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](10, "Iscriviti alla nostra newsletter.");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "div", 35)(12, "form", 37)(13, "div", 38);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](14, "input", 39, 40);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "button", 41);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](17, "ISCRIVITI");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()()()()()();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 34)(1, "div", 2)(2, "section", 35)(3, "div", 25)(4, "div", 36)(5, "div", 37)(6, "div")(7, "h4");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](8, "NON PERDERTI NESSUNA NOVIT\u00C0!");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](9, "p");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](10, "Iscriviti alla nostra newsletter.");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()()()();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](11, "div", 36);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](12, FooterOneComponent_div_1_form_12_Template, 5, 1, "form", 38);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](13, FooterOneComponent_div_1_div_13_Template, 3, 0, "div", 39);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()()()()();
+  }
+  if (rf & 2) {
+    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](12);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", !ctx_r0.showThanksForNewsletter);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx_r0.showThanksForNewsletter);
   }
 }
 const _c0 = function () {
   return ["/pages/resi-spedizione"];
 };
 class FooterOneComponent {
-  constructor(router) {
+  constructor(router, apiNewsletterService) {
     this.router = router;
+    this.apiNewsletterService = apiNewsletterService;
     this.class = 'footer-light'; // Default class 
     this.themeLogo = 'web/assets/images/icon/logo.png'; // Default Logo
     this.newsletter = true; // Default True
     this.today = Date.now();
+    this.email = '';
+    this.showThanksForNewsletter = false;
   }
   ngOnInit() {}
+  onAddNewsletterContact() {
+    this.apiNewsletterService.addContact(this.email).subscribe(response => {
+      this.showThanksForNewsletter = true;
+    });
+  }
   onGoToHome() {
     this.router.navigate(['/']);
   }
 }
 FooterOneComponent.ɵfac = function FooterOneComponent_Factory(t) {
-  return new (t || FooterOneComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_1__.Router));
+  return new (t || FooterOneComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__.Router), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_api_services_newsletter_service__WEBPACK_IMPORTED_MODULE_0__.ApiNewsletterService));
 };
-FooterOneComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
+FooterOneComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({
   type: FooterOneComponent,
   selectors: [["app-footer-one"]],
   inputs: {
@@ -6585,80 +6636,80 @@ FooterOneComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_0
   },
   decls: 74,
   vars: 10,
-  consts: [["class", "light-layout", 4, "ngIf"], [1, "section-b-space", "light-layout"], [1, "container"], [1, "row", "footer-theme", "partition-f"], [1, "col-lg-4", "col-md-6"], [1, "footer-title", "footer-mobile-title"], [1, "footer-contant"], [1, "footer-logo"], ["alt", "logo", 1, "footer-logo-size", 3, "src", "click"], [1, "footer-social"], ["target", "_blank", "href", "https://www.facebook.com/profile.php?id=100085959177605"], ["aria-hidden", "true", 1, "fa", "fa-facebook"], ["target", "_blank", "href", "https://www.instagram.com/outgravitywear/"], ["aria-hidden", "true", 1, "fa", "fa-instagram"], [1, "col"], [1, "sub-title"], [1, "footer-title"], ["fragment", "spedizioni", 3, "routerLink"], ["fragment", "resi", 3, "routerLink"], ["fragment", "reso", 3, "routerLink"], ["href", "javascript:void(0)"], [1, "contact-list"], ["href", "mailto: info@out-wear.com"], [1, "sub-footer"], [1, "row"], [1, "col", "text-center", 2, "margin-top", "1%"], [1, "col-xl-6", "col-md-6", "col-sm-12"], [1, "footer-end"], [2, "font-size", "70%"], [1, "payment-card-bottom"], ["src", "web/assets/images/icon/visa.png", "alt", ""], ["src", "web/assets/images/icon/mastercard.png", "alt", ""], ["src", "web/assets/images/icon/paypal.png", "alt", ""], [1, "light-layout"], [1, "small-section", "border-section", "border-top-0"], [1, "col-lg-6"], [1, "subscribe"], ["action", "https://pixelstrap.us19.list-manage.com/subscribe/post?u=5a128856334b598b395f1fc9b&id=082f74cbda", "target", "_blank", "method", "post", 1, "form-inline", "subscribe-form"], [1, "form-group", "mx-sm-3"], ["type", "email", "name", "EMAIL", "id", "mce-EMAIL", "placeholder", "Inserisci la tua mail", 1, "form-control"], ["name", ""], ["type", "submit", 1, "btn", "btn-solid"]],
+  consts: [["class", "light-layout", 4, "ngIf"], [1, "section-b-space", "light-layout"], [1, "container"], [1, "row", "footer-theme", "partition-f"], [1, "col-lg-4", "col-md-6"], [1, "footer-title", "footer-mobile-title"], [1, "footer-contant"], [1, "footer-logo"], ["alt", "logo", 1, "footer-logo-size", 3, "src", "click"], [1, "footer-social"], ["target", "_blank", "href", "https://www.facebook.com/profile.php?id=100085959177605"], ["aria-hidden", "true", 1, "fa", "fa-facebook"], ["target", "_blank", "href", "https://www.instagram.com/outgravitywear/"], ["aria-hidden", "true", 1, "fa", "fa-instagram"], [1, "col"], [1, "sub-title"], [1, "footer-title"], ["fragment", "spedizioni", 3, "routerLink"], ["fragment", "resi", 3, "routerLink"], ["fragment", "reso", 3, "routerLink"], ["href", "https://www.iubenda.com/terms-and-conditions/21774079", "title", "Terms and Conditions ", 1, "iubenda-white", "iubenda-noiframe", "iubenda-embed", "iubenda-noiframe"], ["href", "https://www.iubenda.com/privacy-policy/21774079", "title", "Privacy Policy ", 1, "iubenda-white", "iubenda-noiframe", "iubenda-embed", "iubenda-noiframe"], [1, "contact-list"], ["href", "mailto: info@out-wear.com"], [1, "sub-footer"], [1, "row"], [1, "col", "text-center", 2, "margin-top", "1%"], [1, "col-xl-6", "col-md-6", "col-sm-12"], [1, "footer-end"], [2, "font-size", "70%"], [1, "payment-card-bottom"], ["src", "web/assets/images/icon/visa.png", "alt", ""], ["src", "web/assets/images/icon/mastercard.png", "alt", ""], ["src", "web/assets/images/icon/paypal.png", "alt", ""], [1, "light-layout"], [1, "small-section", "border-section", "border-top-0"], [1, "col-lg-6"], [1, "subscribe"], ["class", "form-inline subscribe-form", "action", "https://pixelstrap.us19.list-manage.com/subscribe/post?u=5a128856334b598b395f1fc9b&id=082f74cbda", "target", "_blank", "method", "post", 4, "ngIf"], [4, "ngIf"], ["action", "https://pixelstrap.us19.list-manage.com/subscribe/post?u=5a128856334b598b395f1fc9b&id=082f74cbda", "target", "_blank", "method", "post", 1, "form-inline", "subscribe-form"], [1, "form-group", "mx-sm-3"], ["type", "email", "name", "EMAIL", "id", "mce-EMAIL", "placeholder", "Inserisci la tua mail", 1, "form-control", 3, "ngModel", "ngModelChange"], ["type", "submit", 1, "btn", "btn-solid", 3, "click"]],
   template: function FooterOneComponent_Template(rf, ctx) {
     if (rf & 1) {
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "footer");
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, FooterOneComponent_div_1_Template, 18, 0, "div", 0);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "section", 1)(3, "div", 2)(4, "div", 3)(5, "div", 4)(6, "div", 5)(7, "h4");
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8, "about");
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "div", 6)(10, "div", 7)(11, "img", 8);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function FooterOneComponent_Template_img_click_11_listener() {
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "footer");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](1, FooterOneComponent_div_1_Template, 14, 2, "div", 0);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](2, "section", 1)(3, "div", 2)(4, "div", 3)(5, "div", 4)(6, "div", 5)(7, "h4");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](8, "about");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](9, "div", 6)(10, "div", 7)(11, "img", 8);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function FooterOneComponent_Template_img_click_11_listener() {
         return ctx.onGoToHome();
       });
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "div", 9)(13, "ul")(14, "li")(15, "a", 10);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](16, "i", 11);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "li")(18, "a", 12);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](19, "i", 13);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()()()()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "div", 14)(21, "div", 15)(22, "div", 16)(23, "h4");
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](24, "INFORMAZIONI UTILI");
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](25, "div", 6)(26, "ul")(27, "li")(28, "a", 17);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](29, "Spedizioni");
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](30, "li")(31, "a", 18);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](32, "Politica Resi");
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](33, "li")(34, "a", 19);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](35, "Effettua un reso");
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](36, "li")(37, "a", 20);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](38, "Termini e condizioni");
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](39, "li")(40, "a", 20);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](41, "Privacy policy e cookies");
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()()()()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](42, "div", 14)(43, "div", 15)(44, "div", 16)(45, "h4");
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](46, "CONTATTI");
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](47, "div", 6)(48, "ul", 21)(49, "li")(50, "a", 22);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](51, "info@out-wear.com");
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()()()()()()()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](52, "div", 23)(53, "div", 2)(54, "div", 24)(55, "div", 25);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](56, " 2023, OUT di Soresina Riccardo - P. Iva: 03092570302 - 33100 Udine (UD), Italia. ");
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](57, "div", 24)(58, "div", 26)(59, "div", 27)(60, "p", 28);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](61, "Website developed by Gabriele Francescutto");
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](62, "div", 26)(63, "div", 29)(64, "ul")(65, "li")(66, "a");
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](67, "img", 30);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](68, "li")(69, "a");
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](70, "img", 31);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](71, "li")(72, "a");
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](73, "img", 32);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()()()()()()()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](12, "div", 9)(13, "ul")(14, "li")(15, "a", 10);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](16, "i", 11);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](17, "li")(18, "a", 12);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](19, "i", 13);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()()()()()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](20, "div", 14)(21, "div", 15)(22, "div", 16)(23, "h4");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](24, "INFORMAZIONI UTILI");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](25, "div", 6)(26, "ul")(27, "li")(28, "a", 17);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](29, "Spedizioni");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](30, "li")(31, "a", 18);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](32, "Politica Resi");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](33, "li")(34, "a", 19);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](35, "Effettua un reso");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](36, "li")(37, "a", 20);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](38, "Termini e Condizioni");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](39, "li")(40, "a", 21);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](41, "Privacy Policy");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()()()()()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](42, "div", 14)(43, "div", 15)(44, "div", 16)(45, "h4");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](46, "CONTATTI");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](47, "div", 6)(48, "ul", 22)(49, "li")(50, "a", 23);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](51, "info@out-wear.com");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()()()()()()()()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](52, "div", 24)(53, "div", 2)(54, "div", 25)(55, "div", 26);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](56, " 2023, OUT di Soresina Riccardo - P. Iva: 03092570302 - 33100 Udine (UD), Italia. ");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](57, "div", 25)(58, "div", 27)(59, "div", 28)(60, "p", 29);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](61, "Website developed by Gabriele Francescutto");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](62, "div", 27)(63, "div", 30)(64, "ul")(65, "li")(66, "a");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](67, "img", 31);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](68, "li")(69, "a");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](70, "img", 32);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](71, "li")(72, "a");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](73, "img", 33);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()()()()()()()()();
     }
     if (rf & 2) {
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassMap"](ctx.class);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.newsletter);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](10);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", ctx.themeLogo, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](17);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](7, _c0));
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](8, _c0));
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](9, _c0));
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵclassMap"](ctx.class);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx.newsletter);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](10);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("src", ctx.themeLogo, _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsanitizeUrl"]);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](17);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](7, _c0));
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](8, _c0));
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](9, _c0));
     }
   },
-  dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_2__.NgIf, _angular_router__WEBPACK_IMPORTED_MODULE_1__.RouterLink, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.NgForm],
+  dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_3__.NgIf, _angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterLink, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_4__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_4__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_4__.NgModel, _angular_forms__WEBPACK_IMPORTED_MODULE_4__.NgForm],
   styles: ["@media only screen and (max-width: 600px) {\n  .footer-logo-size[_ngcontent-%COMP%] {\n    max-width: 35%;\n  }\n}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9hcHAvc2hhcmVkL2Zvb3Rlci9mb290ZXItb25lL2Zvb3Rlci1vbmUuY29tcG9uZW50LnNjc3MiLCJ3ZWJwYWNrOi8vLi8uLi8uLi8uLi9QZXJzb25hbCUyMFByb2plY3RzL291dHdlYXItZnJvbnRlbmQtMy9vdXR3ZWFyLWZyb250ZW5kLTMvc3JjL2FwcC9zaGFyZWQvZm9vdGVyL2Zvb3Rlci1vbmUvZm9vdGVyLW9uZS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJO0lBQ0ksY0FBQTtFQ0NOO0FBQ0YiLCJzb3VyY2VzQ29udGVudCI6WyJAbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDYwMHB4KXtcbiAgICAuZm9vdGVyLWxvZ28tc2l6ZSB7XG4gICAgICAgIG1heC13aWR0aDogMzUlO1xuICAgIH1cbn0iLCJAbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDYwMHB4KSB7XG4gIC5mb290ZXItbG9nby1zaXplIHtcbiAgICBtYXgtd2lkdGg6IDM1JTtcbiAgfVxufSJdLCJzb3VyY2VSb290IjoiIn0= */"]
 });
 
@@ -6862,73 +6913,94 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+function FooterTwoComponent_div_1_form_23_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r4 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "form")(1, "div", 38)(2, "input", 39);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("ngModelChange", function FooterTwoComponent_div_1_form_23_Template_input_ngModelChange_2_listener($event) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r4);
+      const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](2);
+      return _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵresetView"](ctx_r3.email = $event);
+    });
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](3, "button", 40);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function FooterTwoComponent_div_1_form_23_Template_button_click_3_listener() {
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r4);
+      const ctx_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](2);
+      return _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵresetView"](ctx_r5.onAddNewsletterContact());
+    });
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](4, "ISCRIVITI");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()()();
+  }
+  if (rf & 2) {
+    const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngModel", ctx_r1.email);
+  }
+}
+function FooterTwoComponent_div_1_div_24_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div")(1, "label");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](2, "Grazie per esserti iscritto alla nostra newsletter");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
+  }
+}
 const _c0 = function () {
   return ["/pages/resi-spedizione"];
 };
 function FooterTwoComponent_div_1_Template(rf, ctx) {
   if (rf & 1) {
-    const _r2 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 14)(1, "div", 3)(2, "section", 15)(3, "div", 16)(4, "div", 17)(5, "div", 18)(6, "h4");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](7, "about");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](8, "div", 19)(9, "div", 20);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](10, "img", 21);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](11, "div", 22)(12, "ul")(13, "li")(14, "a", 23);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](15, "i", 24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](11, "div", 22)(12, "ul", 23)(13, "li")(14, "a", 24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](15, "i", 25);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](16, "li")(17, "a", 25);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](18, "i", 26);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](16, "li")(17, "a", 26);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](18, "i", 27);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()()()()()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](19, "div", 27)(20, "div", 28)(21, "h2");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](19, "div", 28)(20, "div", 29)(21, "h2");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](22, "newsletter");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](23, "form")(24, "div", 29)(25, "input", 30);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("ngModelChange", function FooterTwoComponent_div_1_Template_input_ngModelChange_25_listener($event) {
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r2);
-      const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
-      return _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵresetView"](ctx_r1.email = $event);
-    });
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](26, "button", 31);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function FooterTwoComponent_div_1_Template_button_click_26_listener() {
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r2);
-      const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
-      return _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵresetView"](ctx_r3.onAddNewsletterContact());
-    });
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](27, "ISCRIVITI");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()()()()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](28, "div", 17)(29, "div", 32)(30, "h4");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](31, "store information");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](23, FooterTwoComponent_div_1_form_23_Template, 5, 1, "form", 30);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](24, FooterTwoComponent_div_1_div_24_Template, 3, 0, "div", 30);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](32, "div", 19)(33, "ul", 33)(34, "li")(35, "a", 34);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](36, "Spedizioni");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](25, "div", 17)(26, "div", 31)(27, "h4");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](28, "store information");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](29, "div", 19)(30, "ul", 32)(31, "li")(32, "a", 33);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](33, "Spedizioni");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](34, "li")(35, "a", 34);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](36, "Politica Resi");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](37, "li")(38, "a", 35);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](39, "Politica Resi");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](39, "Effettua un reso");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](40, "li")(41, "a", 36);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](42, "Effettua un reso");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](42, "Termini e Condizioni");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](43, "li")(44, "a", 10);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](45, "Termini e condizioni");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](46, "li")(47, "a", 10);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](48, "Privacy policy e cookies");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](43, "li")(44, "a", 37);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](45, "Privacy Policy");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()()()()()()()()();
   }
   if (rf & 2) {
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](10);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("src", ctx_r0.themeLogo, _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsanitizeUrl"]);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](15);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngModel", ctx_r0.email);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](10);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](5, _c0));
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](13);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", !ctx_r0.showThanksForNewsletter);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx_r0.showThanksForNewsletter);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](8);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](6, _c0));
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](7, _c0));
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](8, _c0));
   }
 }
 class FooterTwoComponent {
@@ -6939,12 +7011,14 @@ class FooterTwoComponent {
     this.subFooter = false; // Default false 
     this.today = Date.now();
     this.email = '';
+    this.showThanksForNewsletter = false;
   }
   ngOnInit() {}
   onAddNewsletterContact() {
     this.apiNewsletterService.addContact(this.email).subscribe(response => {
       console.log('response');
       console.log(response);
+      this.showThanksForNewsletter = true;
     });
   }
 }
@@ -6962,11 +7036,11 @@ FooterTwoComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1
   },
   decls: 24,
   vars: 2,
-  consts: [[3, "ngClass"], ["class", "dark-layout", 4, "ngIf"], [1, "sub-footer", "darker-subfooter"], [1, "container"], [1, "row"], [1, "col", "text-center", "intestazione"], [1, "col-xl-6", "col-md-6", "col-sm-12"], [1, "footer-end"], [2, "font-size", "70%"], [1, "payment-card-bottom"], ["href", "javascript:void(0)"], ["src", "web/assets/images/icon/visa.png", "alt", ""], ["src", "web/assets/images/icon/mastercard.png", "alt", ""], ["src", "web/assets/images/icon/paypal.png", "alt", ""], [1, "dark-layout"], [1, "section-b-space", "border-b"], [1, "row", "footer-theme2"], [1, "col-lg-3"], [1, "footer-title", "footer-mobile-title"], [1, "footer-contant"], ["id", "footerlogo", 1, "footer-logo"], ["alt", "logo", 1, "footer-logo-size", 3, "src"], [1, "social-white"], ["target", "_blank", "href", "https://www.facebook.com/profile.php?id=100085959177605"], ["aria-hidden", "true", 1, "fa", "fa-facebook"], ["target", "_blank", "href", "https://www.instagram.com/outgravitywear/"], ["aria-hidden", "true", 1, "fa", "fa-instagram"], [1, "col-lg-6", "subscribe-wrapper"], [1, "subscribe-block"], [1, "form-group"], ["type", "text", "name", "emailAddress", "id", "exampleFormControlInput3", "placeholder", "Inserisci la tua mail", 1, "form-control", 3, "ngModel", "ngModelChange"], ["type", "submit", 1, "btn", "btn-solid", 3, "click"], [1, "footer-title"], [1, "contact-details"], ["fragment", "spedizioni", 3, "routerLink"], ["fragment", "resi", 3, "routerLink"], ["fragment", "reso", 3, "routerLink"]],
+  consts: [[3, "ngClass"], ["class", "dark-layout", 4, "ngIf"], [1, "sub-footer", "darker-subfooter"], [1, "container"], [1, "row"], [1, "col", "text-center", "intestazione"], [1, "col-xl-6", "col-md-6", "col-sm-12"], [1, "footer-end"], [2, "font-size", "70%"], [1, "payment-card-bottom"], ["href", "javascript:void(0)"], ["src", "web/assets/images/icon/visa.png", "alt", ""], ["src", "web/assets/images/icon/mastercard.png", "alt", ""], ["src", "web/assets/images/icon/paypal.png", "alt", ""], [1, "dark-layout"], [1, "section-b-space", "border-b"], [1, "row", "footer-theme2"], [1, "col-lg-3"], [1, "footer-title", "footer-mobile-title"], [1, "footer-contant"], ["id", "footerlogo", 1, "footer-logo"], ["alt", "logo", 1, "footer-logo-size", 3, "src"], [1, "social-white"], [2, "margin-left", "10%"], ["target", "_blank", "href", "https://www.facebook.com/profile.php?id=100085959177605"], ["aria-hidden", "true", 1, "fa", "fa-facebook"], ["target", "_blank", "href", "https://www.instagram.com/outgravitywear/"], ["aria-hidden", "true", 1, "fa", "fa-instagram"], [1, "col-lg-6", "subscribe-wrapper"], [1, "subscribe-block"], [4, "ngIf"], [1, "footer-title"], [1, "contact-details"], ["fragment", "spedizioni", 3, "routerLink"], ["fragment", "resi", 3, "routerLink"], ["fragment", "reso", 3, "routerLink"], ["href", "https://www.iubenda.com/terms-and-conditions/21774079", "title", "Terms and Conditions ", 1, "iubenda-white", "iubenda-noiframe", "iubenda-embed", "iubenda-noiframe"], ["href", "https://www.iubenda.com/privacy-policy/21774079", "title", "Privacy Policy ", 1, "iubenda-white", "iubenda-noiframe", "iubenda-embed", "iubenda-noiframe"], [1, "form-group"], ["type", "text", "name", "emailAddress", "id", "exampleFormControlInput3", "placeholder", "Inserisci la tua mail", 1, "form-control", 3, "ngModel", "ngModelChange"], ["type", "submit", 1, "btn", "btn-solid", 3, "click"]],
   template: function FooterTwoComponent_Template(rf, ctx) {
     if (rf & 1) {
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "footer", 0);
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](1, FooterTwoComponent_div_1_Template, 49, 8, "div", 1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](1, FooterTwoComponent_div_1_Template, 46, 9, "div", 1);
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](2, "div", 2)(3, "div", 3)(4, "div", 4)(5, "div", 5);
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](6, " 2023, OUT di Soresina Riccardo - P. Iva: 03092570302 - 33100 Udine (UD), Italia. ");
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();

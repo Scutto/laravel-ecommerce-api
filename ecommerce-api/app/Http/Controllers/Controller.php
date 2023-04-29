@@ -25,11 +25,16 @@ class Controller extends BaseController
                 $credentials
             );
 
+            // $result = $apiInstance->getLists(10, 0);
+
+            // return $result;
+
             try{
                 $result = $apiInstance->getContactInfo($newEmailAddress);
             } catch(Throwable $t) {
                 $createContact = new \SendinBlue\Client\Model\CreateContact([
                     'email' => $newEmailAddress,
+                    'listIds' => [5],
                 ]);
     
                 $result = $apiInstance->createContact($createContact);
