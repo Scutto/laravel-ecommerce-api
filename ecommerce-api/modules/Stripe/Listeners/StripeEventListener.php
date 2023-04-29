@@ -62,7 +62,7 @@ class StripeEventListener
                 $processorShipping = resolve(GetShippingCostProcessor::class);
                 $processorAmount = resolve(GetSubAndTotalAmountForOrderProcessor::class);
 
-                $lastOrderNumber = Order::whereNotNull('order_number')->orderBy('order_number')->first();    
+                $lastOrderNumber = Order::whereNotNull('order_number')->orderBy('order_number', 'desc')->first();
                 if($lastOrderNumber === null) {
                     $orderNumber = 1;
                 } else {
