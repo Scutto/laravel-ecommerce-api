@@ -53,7 +53,7 @@ class Order extends Model
      */
     public function shoppingCart()
     {
-        return $this->hasOne(ShoppingCart::class, 'id', 'session_id');
+        return $this->hasOne(ShoppingCart::class, 'session_id', 'session_id');
     }
 
     /**
