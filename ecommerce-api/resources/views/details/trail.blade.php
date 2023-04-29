@@ -1,0 +1,2 @@
+Pantaloni corti, traspiranti e leggeri. Con questi pantaloni le giornate estive saranno più fresche, grazie al loro tessuto ad asciugatura rapida.
+Questo materiale 4w-strech ti garantisce un ottima elasticità e un ottima resistenza alle abrasioni.

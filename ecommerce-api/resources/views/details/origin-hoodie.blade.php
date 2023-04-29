@@ -1,0 +1,1 @@
+Felpa con cappuccio, calda e confortevole. Con il logo OUT ricamato e la grafica frontale non passerai sicuramente inosservato.

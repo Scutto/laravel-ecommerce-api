@@ -1,0 +1,1 @@
+Adatti a tutte le specialità gravity, questi pantaloni corti ti accompagneranno con comodità in ogni tuo salto, fornendo anche affidabilità a chi cerca un tessuto che dia protezione e sicurezza.
