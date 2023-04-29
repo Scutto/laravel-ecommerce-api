@@ -104,11 +104,13 @@ class StripeEventListener
                 // $resultVerification = $classProcessorInvoice->verifyInvoiceXML($invoiceId);
                 $subTotale = $processorAmount->getOrderSubTotalAmount($order);
                 $toSubtract = null;
-                if($order->coupon->type === 'fixed') {
-                    $toSubtract = $order->coupon->amount_off;
-                } else if($order->coupon->type === 'percentage') {
-                    $$toSubtract = $subTotale * $order->coupon->amount_off;
-                }   
+                if($order->coupon != null) {
+                    if($order->coupon->type === 'fixed') {
+                        $toSubtract = $order->coupon->amount_off;
+                    } else if($order->coupon->type === 'percentage') {
+                        $$toSubtract = $subTotale * $order->coupon->amount_off;
+                    }
+                }
     
                 Mail::to($order->customer_email)->send(new NewOrderAlert($order, $toSubtract, $subTotale));
                 Mail::to(config('app.mail_owner'))->send(new OwnerOrderAlert($order, $toSubtract));
