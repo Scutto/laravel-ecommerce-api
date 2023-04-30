@@ -1,1 +1,1 @@
-Pantaloni lunghi, traspiranti e leggeri. I fori fatti al laser ti forniranno un ottima trapirabilità durante le tue uscite sui trails.
+Pantaloni lunghi, traspiranti e leggeri. I fori fatti al laser ti forniranno un ottima trapirabilità durante le tue uscite sui trail.

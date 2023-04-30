@@ -2,6 +2,8 @@ Nuovo ordine. Dettagli spedizione:
 <ul>
   <li> Order #: {{$order->order_number}}</li>
   <li> Order stato: {{$order->status}}</li>
+  <li> Shipping Cost: {{$order->shipping_cost}}</li>
+  <li> Coupon: {{$order->coupon != null ? $order->coupon->amount_off : 'No coupon'}}</li>
   <li> Totale: {{$order->amount_total}}</li>
   <li> Email: {{$order->customer_email}}</li>
   <li> Nome: {{$order->customer_firstname}}</li>
