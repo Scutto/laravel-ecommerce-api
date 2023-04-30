@@ -168,7 +168,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _elements_elements_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./elements/elements.component */ 44541);
 /* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/environments/environment */ 92340);
 /* harmony import */ var _request_interceptor__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./request.interceptor */ 58029);
+/* harmony import */ var ngx_pixel__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ngx-pixel */ 79303);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/core */ 22560);
+
+
 
 
 
@@ -223,12 +226,15 @@ AppModule.ɵinj = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵd
       useFactory: HttpLoaderFactory,
       deps: [_angular_common_http__WEBPACK_IMPORTED_MODULE_10__.HttpClient]
     }
-  }), _shared_shared_module__WEBPACK_IMPORTED_MODULE_0__.SharedModule, _app_routing_module__WEBPACK_IMPORTED_MODULE_1__.AppRoutingModule]
+  }), _shared_shared_module__WEBPACK_IMPORTED_MODULE_0__.SharedModule, _app_routing_module__WEBPACK_IMPORTED_MODULE_1__.AppRoutingModule, ngx_pixel__WEBPACK_IMPORTED_MODULE_18__.PixelModule.forRoot({
+    enabled: true,
+    pixelId: '154606067123225'
+  })]
 });
 (function () {
   (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵsetNgModuleScope"](AppModule, {
     declarations: [_app_component__WEBPACK_IMPORTED_MODULE_2__.AppComponent, _shop_shop_component__WEBPACK_IMPORTED_MODULE_3__.ShopComponent, _pages_pages_component__WEBPACK_IMPORTED_MODULE_4__.PagesComponent, _elements_elements_component__WEBPACK_IMPORTED_MODULE_5__.ElementsComponent],
-    imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_11__.BrowserModule, _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_12__.BrowserAnimationsModule, _angular_common_http__WEBPACK_IMPORTED_MODULE_10__.HttpClientModule, _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_13__.NgbModule, _ngx_loading_bar_http_client__WEBPACK_IMPORTED_MODULE_14__.LoadingBarHttpClientModule, _ngx_loading_bar_router__WEBPACK_IMPORTED_MODULE_15__.LoadingBarRouterModule, ngx_toastr__WEBPACK_IMPORTED_MODULE_16__.ToastrModule, _ngx_translate_core__WEBPACK_IMPORTED_MODULE_17__.TranslateModule, _shared_shared_module__WEBPACK_IMPORTED_MODULE_0__.SharedModule, _app_routing_module__WEBPACK_IMPORTED_MODULE_1__.AppRoutingModule]
+    imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_11__.BrowserModule, _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_12__.BrowserAnimationsModule, _angular_common_http__WEBPACK_IMPORTED_MODULE_10__.HttpClientModule, _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_13__.NgbModule, _ngx_loading_bar_http_client__WEBPACK_IMPORTED_MODULE_14__.LoadingBarHttpClientModule, _ngx_loading_bar_router__WEBPACK_IMPORTED_MODULE_15__.LoadingBarRouterModule, ngx_toastr__WEBPACK_IMPORTED_MODULE_16__.ToastrModule, _ngx_translate_core__WEBPACK_IMPORTED_MODULE_17__.TranslateModule, _shared_shared_module__WEBPACK_IMPORTED_MODULE_0__.SharedModule, _app_routing_module__WEBPACK_IMPORTED_MODULE_1__.AppRoutingModule, ngx_pixel__WEBPACK_IMPORTED_MODULE_18__.PixelModule]
   });
 })();
 
