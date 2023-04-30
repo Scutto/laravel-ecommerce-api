@@ -79,12 +79,16 @@ class StripeEventListener
 
                 $order->shoppingCart->products->each(
                     function(ShoppingCartProduct $product) use($order) {
-                        $orderProduct = new OrderProduct();
-                        $orderProduct->order_id = $order->id;
-                        $orderProduct->product_id = $product->product->id;
-                        $orderProduct->size = $product->size;
-                        $orderProduct->quantity = $product->quantity;
-                        $orderProduct->save();
+                        OrderProduct::updateOrCreate(
+                            [
+                                'order_id' => $order->id,
+                                'product_id' => $product->product->id
+                            ],
+                            [
+                                'size' => $product->size,
+                                'quantity' => $product->quantity
+                            ]
+                        );
                     }
                 );
                 $order->refresh();
