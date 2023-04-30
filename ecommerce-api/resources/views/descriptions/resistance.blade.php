@@ -3,7 +3,8 @@
     <li>- Inserto elastico per migliorarne il comfort</li>
     <li>- Strap in velcro per una regolazione ottimale</li>
     <li>- Doppie tasche frontali con zip</li>
-    <li>- Ottima vestibilità per una maggiore libertà di movimento - Grafiche con tecnica di sublimazione</li>
+    <li>- Ottima vestibilità per una maggiore libertà di movimento</li>
+    <li>- Grafiche con tecnica di sublimazione</li>
 </ul>
 <br/>
 Unisex Fit

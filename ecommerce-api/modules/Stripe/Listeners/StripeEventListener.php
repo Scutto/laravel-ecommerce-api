@@ -72,7 +72,7 @@ class StripeEventListener
                 $order->amount_total = $event->payload['data']['object']['amount_total'];
                 $order->status = 'payed';
                 $order->order_number = $orderNumber;
-                $order->coupon_stripe_id = $order->shoppingCart->applied_coupon != null ? $order->shoppingCart->applied_coupon->coupon_stripe_id : null;
+                $order->coupon_stripe_id = $order->shoppingCart->appliedCoupon != null ? $order->shoppingCart->appliedCoupon->coupon_stripe_id : null;
                 $order->gateway_payload = json_encode($event->payload);
                 $order->save();
                 $order->refresh();

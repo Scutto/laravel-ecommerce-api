@@ -89,6 +89,9 @@ class Product extends Model
                 if($value === null) {
                     return null;
                 }
+                if(!view()->exists('descriptions.' . $value)) {
+                    return null;
+                }
                 return view('descriptions.' . $value)->render();
             },
         );
@@ -104,6 +107,9 @@ class Product extends Model
         return Attribute::make(
             get: function ($value) {
                 if($value === null) {
+                    return null;
+                }
+                if(!view()->exists('details.' . $value)) {
                     return null;
                 }
                 return view('details.' . $value)->render();

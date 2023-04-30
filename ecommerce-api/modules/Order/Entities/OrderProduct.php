@@ -22,6 +22,8 @@ class OrderProduct extends Model
 
     protected $with = ['product'];
 
+    protected $guarded = [];
+
     /**
      * Defines the relation with Product
      *

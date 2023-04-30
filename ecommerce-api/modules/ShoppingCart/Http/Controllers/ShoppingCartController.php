@@ -11,6 +11,7 @@ use Laravel\Cashier\Cashier;
 use Modules\ShoppingCart\Entities\ShoppingCartProduct;
 use Modules\ShoppingCart\Entities\Coupon;
 use Modules\Order\Entities\Order;
+use Modules\Order\Entities\OrderProduct;
 use Modules\Order\Processors\GetShippingCostProcessor;
 use Modules\Order\Processors\GetSubAndTotalAmountForOrderProcessor;
 use Modules\ShoppingCart\Entities\ShoppingCartCoupon;
@@ -327,20 +328,39 @@ class ShoppingCartController extends Controller
             $order = Order::where('session_id', $sessionId)->firstOrFail();
             $processorShipping = resolve(GetShippingCostProcessor::class);
             $processorAmount = resolve(GetSubAndTotalAmountForOrderProcessor::class);
-            $shippingCost = $processorShipping->getShippingCost($order, $processorAmount->getOrderTotalAmount($order, false));
 
             foreach($shoppingCart->products as $shoppingCartProduct) {
                 $lineItems[] = [
                     'price' => $shoppingCartProduct->product->stripe_product_price_id,
                     'quantity' => $shoppingCartProduct->quantity,
                 ];
+
+                OrderProduct::updateOrCreate(
+                    [
+                        'order_id' => $order->id,
+                        'product_id' => $shoppingCartProduct->product->id
+                    ],
+                    [
+                        'size' => $shoppingCartProduct->size,
+                        'quantity' => $shoppingCartProduct->quantity
+                    ]
+                );
             }
 
             if($shoppingCart->appliedCoupon != null) {
                 $appliedCouponsArray[] = [
                     'coupon' => $shoppingCart->appliedCoupon->coupon->stripe_id,
                 ];
+
+                $order->coupon_stripe_id = $shoppingCart->appliedCoupon->coupon->stripe_id;
+            } else {
+                $order->coupon_stripe_id = null;
             }
+
+            $order->save();
+            $order->refresh();
+
+            $shippingCost = $processorShipping->getShippingCost($order, $processorAmount->getOrderTotalAmount($order, false));
 
             if($order->address_country === 'italy') {
                 $min = 1;
