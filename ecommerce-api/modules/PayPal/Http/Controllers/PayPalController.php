@@ -81,9 +81,9 @@ class PayPalController extends Controller
             $toSubtract = null;
             if($order->coupon != null) {
                 if($order->coupon->type === 'fixed') {
-                    $toSubtract = $order->coupon->amount_off;
+                    $toSubtract = number_format($order->coupon->amount_off, 2);
                 } else if($order->coupon->type === 'percentage') {
-                    $toSubtract = $subTotale * $order->coupon->amount_off;
+                    $toSubtract = number_format($order->coupon->amount_off * 100, 2) . '%';
                 }
             }
 

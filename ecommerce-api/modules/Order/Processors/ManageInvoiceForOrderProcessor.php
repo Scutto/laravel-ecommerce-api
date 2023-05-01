@@ -218,17 +218,8 @@ class ManageInvoiceForOrderProcessor {
             );
         }
 
-        Log::info(json_encode($itemList));
-        Log::info('amount total');
-        Log::info($order->amount_total);
-        Log::info('shipping cost');
-        Log::info($order->shipping_cost);
-
         //adds the products
         $invoice->setItemsList($itemList);
-
-        Log::info('subtract');
-        Log::info($toSubtract);
 
         // Here we set the payments list assuming our invoice has already been paid
         $invoice->setPaymentsList(
@@ -269,10 +260,7 @@ class ManageInvoiceForOrderProcessor {
             return $result->getData()['id'];
         } catch (\Exception $e) {
             Log::error(json_encode($e->getMessage()));
-            var_dump($e->getMessage());
         }
-
-
     }
 
     public function verifyInvoiceXML(string $document_id) {

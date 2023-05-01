@@ -18,6 +18,7 @@
         _iub.csConfiguration = {"askConsentAtCookiePolicyUpdate":true,"floatingPreferencesButtonDisplay":"bottom-right","perPurposeConsent":true,"siteId":3110098,"whitelabel":false,"cookiePolicyId":91785635,"lang":"it", "banner":{ "acceptButtonDisplay":true,"closeButtonDisplay":false,"customizeButtonDisplay":true,"explicitWithdrawal":true,"fontSizeBody":"12px","listPurposes":true,"logo":null,"position":"float-bottom-center","rejectButtonDisplay":true,"showPurposesToggles":true }};
     </script>
     <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async=""></script>
+    <meta name="facebook-domain-verification" content="scfvi70711o9wrrvcarmni34kloOra"/>
 <link rel="stylesheet" href="/web/styles.css"></head>
 
 <body class="ltr dark">

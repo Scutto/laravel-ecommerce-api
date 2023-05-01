@@ -132,7 +132,7 @@ a[x-apple-data-detectors] {
                    <table width="100%" cellspacing="0" cellpadding="0" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                     @foreach ($order->products as $product)
                      <tr style="border-collapse:collapse">
-                      <td align="center" style="padding:0;Margin:0;font-size:0px"><a target="_blank" href="https://out-wear.com" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:none;color:#3CA7F1;font-size:14px"><img class="adapt-img" src="{{$product->product->thumbnail->imageUrl}}" alt width="103" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" height="155"></a></td>
+                      <td align="center" style="padding:0;Margin:0;font-size:0px"><a target="_blank" href="https://out-wear.com" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:none;color:#3CA7F1;font-size:14px"><img class="adapt-img" src="{{ $product->product->thumbnail->imageUrl }}" alt width="103" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" height="155"></a></td>
                      </tr>
                     @endforeach
                    </table></td>
@@ -189,7 +189,7 @@ a[x-apple-data-detectors] {
                          </tr>
                          @if($toSubtract != null)
                           <tr style="border-collapse:collapse">
-                            <td style="padding:0;Margin:0"><strong><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit">Coupon: - {{ number_format($toSubtract, 2) }}</font></font></font></font></font></font></font></font></strong></td>
+                            <td style="padding:0;Margin:0"><strong><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit"><font style="vertical-align:inherit">Coupon: - {{ $toSubtract }}</font></font></font></font></font></font></font></font></strong></td>
                             <td style="padding:0;Margin:0;text-align:right"><br></td>
                           </tr>
                          @endif
