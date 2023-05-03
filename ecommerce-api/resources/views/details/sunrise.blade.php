@@ -1,0 +1,1 @@
+T-Shirt dallo stile old-school che ti verra' voglia di indossare nelle giornate estive

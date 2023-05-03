@@ -457,21 +457,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ 76317);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ 20591);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs */ 25474);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rxjs */ 25474);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ 19337);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ 85152);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ 50635);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/operators */ 53158);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/operators */ 50635);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs/operators */ 53158);
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ 58987);
 /* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! uuid */ 99485);
 /* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(uuid__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/core */ 22560);
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/common/http */ 58987);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/core */ 22560);
 
 
 
 
 
-// import { CartProductModel } from '../models/cart-product.model';
+
 const API_ENDPOINT = 'api/';
 class ApiCartService {
   /**
@@ -521,10 +521,17 @@ class ApiCartService {
    * @return {Observable<any>}
    */
   getCart() {
-    return this.http.get(API_ENDPOINT + 'shopping_cart/get/' + this.sessionId).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_5__.map)(response => {
+    let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_5__.HttpHeaders({
+      'Cache-Control': 'no-cache, no-store, must-revalidate, post-check=0, pre-check=0',
+      'Pragma': 'no-cache',
+      'Expires': '0'
+    });
+    return this.http.get(API_ENDPOINT + 'shopping_cart/get/' + this.sessionId, {
+      headers
+    }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.map)(response => {
       this.cart.next(response.shoppingCart);
-    }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.catchError)(error => {
-      return (0,rxjs__WEBPACK_IMPORTED_MODULE_7__.throwError)(error);
+    }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_7__.catchError)(error => {
+      return (0,rxjs__WEBPACK_IMPORTED_MODULE_8__.throwError)(error);
     }));
   }
   /**
@@ -533,11 +540,18 @@ class ApiCartService {
    * @return {Observable<any>}
    */
   getOrder(sessionId = false) {
+    let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_5__.HttpHeaders({
+      'Cache-Control': 'no-cache, no-store, must-revalidate, post-check=0, pre-check=0',
+      'Pragma': 'no-cache',
+      'Expires': '0'
+    });
     let sessionIdToUse = sessionId != false ? sessionId : this.sessionId;
-    return this.http.get(API_ENDPOINT + 'order/get/' + sessionIdToUse).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_5__.map)(response => {
+    return this.http.get(API_ENDPOINT + 'order/get/' + sessionIdToUse, {
+      headers
+    }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.map)(response => {
       return response.order;
-    }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.catchError)(error => {
-      return (0,rxjs__WEBPACK_IMPORTED_MODULE_7__.throwError)(error);
+    }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_7__.catchError)(error => {
+      return (0,rxjs__WEBPACK_IMPORTED_MODULE_8__.throwError)(error);
     }));
   }
   /**
@@ -548,10 +562,10 @@ class ApiCartService {
   postCheckSessionId() {
     return this.http.post(API_ENDPOINT + 'shopping_cart/post/check_session_id', {
       sessionId: this.sessionId
-    }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_5__.map)(response => {
+    }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.map)(response => {
       return response.valid;
-    }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.catchError)(error => {
-      return (0,rxjs__WEBPACK_IMPORTED_MODULE_7__.throwError)(error.error);
+    }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_7__.catchError)(error => {
+      return (0,rxjs__WEBPACK_IMPORTED_MODULE_8__.throwError)(error.error);
     }));
   }
   /**
@@ -565,11 +579,11 @@ class ApiCartService {
       productId: product.id,
       quantity: quantity,
       size: size
-    }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_5__.map)(response => {
+    }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.map)(response => {
       this.cart.next(response.shoppingCart);
       return response.shoppingCart;
-    }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.catchError)(error => {
-      return (0,rxjs__WEBPACK_IMPORTED_MODULE_7__.throwError)(error.error);
+    }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_7__.catchError)(error => {
+      return (0,rxjs__WEBPACK_IMPORTED_MODULE_8__.throwError)(error.error);
     }));
   }
   /**
@@ -583,11 +597,11 @@ class ApiCartService {
       sessionId: this.sessionId,
       productId: productId,
       size: size
-    }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_5__.map)(response => {
+    }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.map)(response => {
       this.cart.next(response.shoppingCart);
       return response.shoppingCart;
-    }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.catchError)(error => {
-      return (0,rxjs__WEBPACK_IMPORTED_MODULE_7__.throwError)(error.error);
+    }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_7__.catchError)(error => {
+      return (0,rxjs__WEBPACK_IMPORTED_MODULE_8__.throwError)(error.error);
     }));
   }
   /**
@@ -600,13 +614,13 @@ class ApiCartService {
     return this.http.post(API_ENDPOINT + 'shopping_cart/post/set_coupon', {
       sessionId: this.sessionId,
       couponCode: couponCode
-    }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_5__.map)(response => {
+    }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.map)(response => {
       if (response.valid) {
         this.cart.next(response.shoppingCart);
       }
       return response.valid;
-    }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.catchError)(error => {
-      return (0,rxjs__WEBPACK_IMPORTED_MODULE_7__.throwError)(error.error);
+    }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_7__.catchError)(error => {
+      return (0,rxjs__WEBPACK_IMPORTED_MODULE_8__.throwError)(error.error);
     }));
   }
   /**
@@ -618,11 +632,11 @@ class ApiCartService {
   removeCouponCode() {
     return this.http.post(API_ENDPOINT + 'shopping_cart/post/remove_coupon', {
       sessionId: this.sessionId
-    }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_5__.map)(response => {
+    }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.map)(response => {
       this.cart.next(response.shoppingCart);
       return response;
-    }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.catchError)(error => {
-      return (0,rxjs__WEBPACK_IMPORTED_MODULE_7__.throwError)(error.error);
+    }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_7__.catchError)(error => {
+      return (0,rxjs__WEBPACK_IMPORTED_MODULE_8__.throwError)(error.error);
     }));
   }
   /**
@@ -634,11 +648,11 @@ class ApiCartService {
     return this.http.post(API_ENDPOINT + 'shopping_cart/post/update_products', {
       sessionId: this.sessionId,
       cartData: this.cart.value
-    }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_5__.map)(response => {
+    }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.map)(response => {
       this.cart.next(response.shoppingCart);
       return response.shoppingCart;
-    }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.catchError)(error => {
-      return (0,rxjs__WEBPACK_IMPORTED_MODULE_7__.throwError)(error.error);
+    }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_7__.catchError)(error => {
+      return (0,rxjs__WEBPACK_IMPORTED_MODULE_8__.throwError)(error.error);
     }));
   }
   saveOrderShippingData(gateway, formData) {
@@ -646,36 +660,36 @@ class ApiCartService {
       sessionId: this.sessionId,
       formData,
       gateway
-    }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_5__.map)(response => {
+    }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.map)(response => {
       return response.order;
-    }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.catchError)(error => {
-      return (0,rxjs__WEBPACK_IMPORTED_MODULE_7__.throwError)(error);
+    }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_7__.catchError)(error => {
+      return (0,rxjs__WEBPACK_IMPORTED_MODULE_8__.throwError)(error);
     }));
   }
   requestCheckout() {
     return this.http.post(API_ENDPOINT + 'shopping_cart/checkout', {
       sessionId: this.sessionId
-    }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_5__.map)(response => {
+    }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.map)(response => {
       return response.url;
-    }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.catchError)(error => {
-      return (0,rxjs__WEBPACK_IMPORTED_MODULE_7__.throwError)(error);
+    }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_7__.catchError)(error => {
+      return (0,rxjs__WEBPACK_IMPORTED_MODULE_8__.throwError)(error);
     }));
   }
   savePayPalOrderData(data) {
     return this.http.post(API_ENDPOINT + 'paypal/post/order_data', {
       sessionId: this.sessionId,
       data: data
-    }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_5__.map)(response => {
+    }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.map)(response => {
       return response.order;
-    }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.catchError)(error => {
-      return (0,rxjs__WEBPACK_IMPORTED_MODULE_7__.throwError)(error);
+    }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_7__.catchError)(error => {
+      return (0,rxjs__WEBPACK_IMPORTED_MODULE_8__.throwError)(error);
     }));
   }
 }
 ApiCartService.ɵfac = function ApiCartService_Factory(t) {
-  return new (t || ApiCartService)(_angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_9__.HttpClient));
+  return new (t || ApiCartService)(_angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_5__.HttpClient));
 };
-ApiCartService.ɵprov = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵdefineInjectable"]({
+ApiCartService.ɵprov = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵdefineInjectable"]({
   token: ApiCartService,
   factory: ApiCartService.ɵfac,
   providedIn: 'root'
@@ -6555,14 +6569,14 @@ __webpack_require__.r(__webpack_exports__);
 function FooterOneComponent_div_1_form_12_Template(rf, ctx) {
   if (rf & 1) {
     const _r4 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "form", 40)(1, "div", 41)(2, "input", 42);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "form", 41)(1, "div", 42)(2, "input", 43);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("ngModelChange", function FooterOneComponent_div_1_form_12_Template_input_ngModelChange_2_listener($event) {
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r4);
       const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](2);
       return _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵresetView"](ctx_r3.email = $event);
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](3, "button", 43);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](3, "button", 44);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function FooterOneComponent_div_1_form_12_Template_button_click_3_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r4);
       const ctx_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](2);
@@ -6586,15 +6600,15 @@ function FooterOneComponent_div_1_div_13_Template(rf, ctx) {
 }
 function FooterOneComponent_div_1_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 34)(1, "div", 2)(2, "section", 35)(3, "div", 25)(4, "div", 36)(5, "div", 37)(6, "div")(7, "h4");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 35)(1, "div", 2)(2, "section", 36)(3, "div", 26)(4, "div", 37)(5, "div", 38)(6, "div")(7, "h4");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](8, "NON PERDERTI NESSUNA NOVIT\u00C0!");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](9, "p");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](10, "Iscriviti alla nostra newsletter.");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()()()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](11, "div", 36);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](12, FooterOneComponent_div_1_form_12_Template, 5, 1, "form", 38);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](13, FooterOneComponent_div_1_div_13_Template, 3, 0, "div", 39);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](11, "div", 37);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](12, FooterOneComponent_div_1_form_12_Template, 5, 1, "form", 39);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](13, FooterOneComponent_div_1_div_13_Template, 3, 0, "div", 40);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()()()()();
   }
   if (rf & 2) {
@@ -6642,7 +6656,7 @@ FooterOneComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1
   },
   decls: 74,
   vars: 10,
-  consts: [["class", "light-layout", 4, "ngIf"], [1, "section-b-space", "light-layout"], [1, "container"], [1, "row", "footer-theme", "partition-f"], [1, "col-lg-4", "col-md-6"], [1, "footer-title", "footer-mobile-title"], [1, "footer-contant"], [1, "footer-logo"], ["alt", "logo", 1, "footer-logo-size", 3, "src", "click"], [1, "footer-social"], ["target", "_blank", "href", "https://www.facebook.com/profile.php?id=100085959177605"], ["aria-hidden", "true", 1, "fa", "fa-facebook"], ["target", "_blank", "href", "https://www.instagram.com/outgravitywear/"], ["aria-hidden", "true", 1, "fa", "fa-instagram"], [1, "col"], [1, "sub-title"], [1, "footer-title"], ["fragment", "spedizioni", 3, "routerLink"], ["fragment", "resi", 3, "routerLink"], ["fragment", "reso", 3, "routerLink"], ["href", "https://www.iubenda.com/terms-and-conditions/21774079", "title", "Terms and Conditions ", 1, "iubenda-white", "iubenda-noiframe", "iubenda-embed", "iubenda-noiframe"], ["href", "https://www.iubenda.com/privacy-policy/21774079", "title", "Privacy Policy ", 1, "iubenda-white", "iubenda-noiframe", "iubenda-embed", "iubenda-noiframe"], [1, "contact-list"], ["href", "mailto: info@out-wear.com"], [1, "sub-footer"], [1, "row"], [1, "col", "text-center", 2, "margin-top", "1%"], [1, "col-xl-6", "col-md-6", "col-sm-12"], [1, "footer-end"], [2, "font-size", "70%"], [1, "payment-card-bottom"], ["src", "web/assets/images/icon/visa.png", "alt", ""], ["src", "web/assets/images/icon/mastercard.png", "alt", ""], ["src", "web/assets/images/icon/paypal.png", "alt", ""], [1, "light-layout"], [1, "small-section", "border-section", "border-top-0"], [1, "col-lg-6"], [1, "subscribe"], ["class", "form-inline subscribe-form", "action", "https://pixelstrap.us19.list-manage.com/subscribe/post?u=5a128856334b598b395f1fc9b&id=082f74cbda", "target", "_blank", "method", "post", 4, "ngIf"], [4, "ngIf"], ["action", "https://pixelstrap.us19.list-manage.com/subscribe/post?u=5a128856334b598b395f1fc9b&id=082f74cbda", "target", "_blank", "method", "post", 1, "form-inline", "subscribe-form"], [1, "form-group", "mx-sm-3"], ["type", "email", "name", "EMAIL", "id", "mce-EMAIL", "placeholder", "Inserisci la tua mail", 1, "form-control", 3, "ngModel", "ngModelChange"], ["type", "submit", 1, "btn", "btn-solid", 3, "click"]],
+  consts: [["class", "light-layout", 4, "ngIf"], [1, "section-b-space", "light-layout"], [1, "container"], [1, "row", "footer-theme", "partition-f"], [1, "col-lg-4", "col-md-6"], [1, "footer-title", "footer-mobile-title"], [1, "footer-contant"], [1, "footer-logo"], ["alt", "logo", 1, "footer-logo-size", 3, "src", "click"], [1, "footer-social"], ["target", "_blank", "href", "https://www.facebook.com/profile.php?id=100085959177605"], ["aria-hidden", "true", 1, "fa", "fa-facebook"], ["target", "_blank", "href", "https://www.instagram.com/outgravitywear/"], ["aria-hidden", "true", 1, "fa", "fa-instagram"], [1, "col"], [1, "sub-title"], [1, "footer-title"], ["fragment", "spedizioni", 3, "routerLink"], ["fragment", "resi", 3, "routerLink"], ["fragment", "reso", 3, "routerLink"], ["href", "https://www.iubenda.com/terms-and-conditions/21774079", "title", "Terms and Conditions ", 1, "iubenda-white", "iubenda-noiframe", "iubenda-embed", "iubenda-noiframe"], ["href", "https://www.iubenda.com/privacy-policy/21774079", "title", "Privacy Policy ", 1, "iubenda-white", "iubenda-noiframe", "iubenda-embed", "iubenda-noiframe"], [1, "footer-title", "footer-contact-mobile"], [1, "contact-list"], ["target", "_blank", "href", "mailto:info@out-wear.com"], [1, "sub-footer"], [1, "row"], [1, "col", "text-center", 2, "margin-top", "1%"], [1, "col-xl-6", "col-md-6", "col-sm-12"], [1, "footer-end"], [2, "font-size", "70%"], [1, "payment-card-bottom"], ["src", "web/assets/images/icon/visa.png", "alt", ""], ["src", "web/assets/images/icon/mastercard.png", "alt", ""], ["src", "web/assets/images/icon/paypal.png", "alt", ""], [1, "light-layout"], [1, "small-section", "border-section", "border-top-0"], [1, "col-lg-6"], [1, "subscribe"], ["class", "form-inline subscribe-form", "action", "https://pixelstrap.us19.list-manage.com/subscribe/post?u=5a128856334b598b395f1fc9b&id=082f74cbda", "target", "_blank", "method", "post", 4, "ngIf"], [4, "ngIf"], ["action", "https://pixelstrap.us19.list-manage.com/subscribe/post?u=5a128856334b598b395f1fc9b&id=082f74cbda", "target", "_blank", "method", "post", 1, "form-inline", "subscribe-form"], [1, "form-group", "mx-sm-3"], ["type", "email", "name", "EMAIL", "id", "mce-EMAIL", "placeholder", "Inserisci la tua mail", 1, "form-control", 3, "ngModel", "ngModelChange"], ["type", "submit", 1, "btn", "btn-solid", 3, "click"]],
   template: function FooterOneComponent_Template(rf, ctx) {
     if (rf & 1) {
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "footer");
@@ -6679,26 +6693,26 @@ FooterOneComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](39, "li")(40, "a", 21);
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](41, "Privacy Policy");
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()()()()()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](42, "div", 14)(43, "div", 15)(44, "div", 16)(45, "h4");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](42, "div", 14)(43, "div", 15)(44, "div", 22)(45, "h4");
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](46, "CONTATTI");
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](47, "div", 6)(48, "ul", 22)(49, "li")(50, "a", 23);
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](51, "info@out-wear.com");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](47, "div", 6)(48, "ul", 23)(49, "li")(50, "a", 24);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](51, "Contattaci");
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()()()()()()()()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](52, "div", 24)(53, "div", 2)(54, "div", 25)(55, "div", 26);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](52, "div", 25)(53, "div", 2)(54, "div", 26)(55, "div", 27);
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](56, " 2023, OUT di Soresina Riccardo - P. Iva: 03092570302 - 33100 Udine (UD), Italia. ");
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](57, "div", 25)(58, "div", 27)(59, "div", 28)(60, "p", 29);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](57, "div", 26)(58, "div", 28)(59, "div", 29)(60, "p", 30);
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](61, "Website developed by Gabriele Francescutto");
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](62, "div", 27)(63, "div", 30)(64, "ul")(65, "li")(66, "a");
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](67, "img", 31);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](62, "div", 28)(63, "div", 31)(64, "ul")(65, "li")(66, "a");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](67, "img", 32);
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](68, "li")(69, "a");
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](70, "img", 32);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](70, "img", 33);
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](71, "li")(72, "a");
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](73, "img", 33);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](73, "img", 34);
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()()()()()()()()();
     }
     if (rf & 2) {
@@ -6716,7 +6730,7 @@ FooterOneComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1
     }
   },
   dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_3__.NgIf, _angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterLink, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_4__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_4__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_4__.NgModel, _angular_forms__WEBPACK_IMPORTED_MODULE_4__.NgForm],
-  styles: ["@media only screen and (max-width: 600px) {\n  .footer-logo-size[_ngcontent-%COMP%] {\n    max-width: 35%;\n  }\n}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9hcHAvc2hhcmVkL2Zvb3Rlci9mb290ZXItb25lL2Zvb3Rlci1vbmUuY29tcG9uZW50LnNjc3MiLCJ3ZWJwYWNrOi8vLi8uLi8uLi8uLi9QZXJzb25hbCUyMFByb2plY3RzL291dHdlYXItZnJvbnRlbmQtMy9vdXR3ZWFyLWZyb250ZW5kLTMvc3JjL2FwcC9zaGFyZWQvZm9vdGVyL2Zvb3Rlci1vbmUvZm9vdGVyLW9uZS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJO0lBQ0ksY0FBQTtFQ0NOO0FBQ0YiLCJzb3VyY2VzQ29udGVudCI6WyJAbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDYwMHB4KXtcbiAgICAuZm9vdGVyLWxvZ28tc2l6ZSB7XG4gICAgICAgIG1heC13aWR0aDogMzUlO1xuICAgIH1cbn0iLCJAbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDYwMHB4KSB7XG4gIC5mb290ZXItbG9nby1zaXplIHtcbiAgICBtYXgtd2lkdGg6IDM1JTtcbiAgfVxufSJdLCJzb3VyY2VSb290IjoiIn0= */"]
+  styles: ["@media only screen and (max-width: 600px) {\n  .footer-logo-size[_ngcontent-%COMP%] {\n    max-width: 35%;\n  }\n  .footer-contact-mobile[_ngcontent-%COMP%] {\n    margin-top: 6%;\n  }\n}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9hcHAvc2hhcmVkL2Zvb3Rlci9mb290ZXItb25lL2Zvb3Rlci1vbmUuY29tcG9uZW50LnNjc3MiLCJ3ZWJwYWNrOi8vLi8uLi8uLi8uLi9QZXJzb25hbCUyMFByb2plY3RzL291dHdlYXItZnJvbnRlbmQtMy9vdXR3ZWFyLWZyb250ZW5kLTMvc3JjL2FwcC9zaGFyZWQvZm9vdGVyL2Zvb3Rlci1vbmUvZm9vdGVyLW9uZS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJO0lBQ0ksY0FBQTtFQ0NOO0VERUU7SUFDSSxjQUFBO0VDQU47QUFDRiIsInNvdXJjZXNDb250ZW50IjpbIkBtZWRpYSBvbmx5IHNjcmVlbiBhbmQgKG1heC13aWR0aDogNjAwcHgpe1xuICAgIC5mb290ZXItbG9nby1zaXplIHtcbiAgICAgICAgbWF4LXdpZHRoOiAzNSU7XG4gICAgfVxuXG4gICAgLmZvb3Rlci1jb250YWN0LW1vYmlsZXtcbiAgICAgICAgbWFyZ2luLXRvcDogNiU7XG4gICAgfVxufSIsIkBtZWRpYSBvbmx5IHNjcmVlbiBhbmQgKG1heC13aWR0aDogNjAwcHgpIHtcbiAgLmZvb3Rlci1sb2dvLXNpemUge1xuICAgIG1heC13aWR0aDogMzUlO1xuICB9XG4gIC5mb290ZXItY29udGFjdC1tb2JpbGUge1xuICAgIG1hcmdpbi10b3A6IDYlO1xuICB9XG59Il0sInNvdXJjZVJvb3QiOiIifQ== */"]
 });
 
 /***/ }),
@@ -6922,14 +6936,14 @@ __webpack_require__.r(__webpack_exports__);
 function FooterTwoComponent_div_1_form_23_Template(rf, ctx) {
   if (rf & 1) {
     const _r4 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "form")(1, "div", 38)(2, "input", 39);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "form")(1, "div", 39)(2, "input", 40);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("ngModelChange", function FooterTwoComponent_div_1_form_23_Template_input_ngModelChange_2_listener($event) {
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r4);
       const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](2);
       return _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵresetView"](ctx_r3.email = $event);
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](3, "button", 40);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](3, "button", 41);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function FooterTwoComponent_div_1_form_23_Template_button_click_3_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r4);
       const ctx_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](2);
@@ -6991,6 +7005,9 @@ function FooterTwoComponent_div_1_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](43, "li")(44, "a", 37);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](45, "Privacy Policy");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](46, "li")(47, "a", 38);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](48, "Contattaci");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()()()()()()()()();
   }
   if (rf & 2) {
@@ -7042,11 +7059,11 @@ FooterTwoComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1
   },
   decls: 24,
   vars: 2,
-  consts: [[3, "ngClass"], ["class", "dark-layout", 4, "ngIf"], [1, "sub-footer", "darker-subfooter"], [1, "container"], [1, "row"], [1, "col", "text-center", "intestazione"], [1, "col-xl-6", "col-md-6", "col-sm-12"], [1, "footer-end"], [2, "font-size", "70%"], [1, "payment-card-bottom"], ["href", "javascript:void(0)"], ["src", "web/assets/images/icon/visa.png", "alt", ""], ["src", "web/assets/images/icon/mastercard.png", "alt", ""], ["src", "web/assets/images/icon/paypal.png", "alt", ""], [1, "dark-layout"], [1, "section-b-space", "border-b"], [1, "row", "footer-theme2"], [1, "col-lg-3"], [1, "footer-title", "footer-mobile-title"], [1, "footer-contant"], ["id", "footerlogo", 1, "footer-logo"], ["alt", "logo", 1, "footer-logo-size", 3, "src"], [1, "social-white"], [1, "move-social-for-desktop"], ["target", "_blank", "href", "https://www.facebook.com/profile.php?id=100085959177605"], ["aria-hidden", "true", 1, "fa", "fa-facebook"], ["target", "_blank", "href", "https://www.instagram.com/outgravitywear/"], ["aria-hidden", "true", 1, "fa", "fa-instagram"], [1, "col-lg-6", "subscribe-wrapper"], [1, "subscribe-block"], [4, "ngIf"], [1, "footer-title"], [1, "contact-details"], ["fragment", "spedizioni", 3, "routerLink"], ["fragment", "resi", 3, "routerLink"], ["fragment", "reso", 3, "routerLink"], ["href", "https://www.iubenda.com/terms-and-conditions/21774079", "title", "Terms and Conditions ", 1, "iubenda-white", "iubenda-noiframe", "iubenda-embed", "iubenda-noiframe"], ["href", "https://www.iubenda.com/privacy-policy/21774079", "title", "Privacy Policy ", 1, "iubenda-white", "iubenda-noiframe", "iubenda-embed", "iubenda-noiframe"], [1, "form-group"], ["type", "text", "name", "emailAddress", "id", "exampleFormControlInput3", "placeholder", "Inserisci la tua mail", 1, "form-control", 3, "ngModel", "ngModelChange"], ["type", "submit", 1, "btn", "btn-solid", 3, "click"]],
+  consts: [[3, "ngClass"], ["class", "dark-layout", 4, "ngIf"], [1, "sub-footer", "darker-subfooter"], [1, "container"], [1, "row"], [1, "col", "text-center", "intestazione"], [1, "col-xl-6", "col-md-6", "col-sm-12"], [1, "footer-end"], [2, "font-size", "70%"], [1, "payment-card-bottom"], ["href", "javascript:void(0)"], ["src", "web/assets/images/icon/visa.png", "alt", ""], ["src", "web/assets/images/icon/mastercard.png", "alt", ""], ["src", "web/assets/images/icon/paypal.png", "alt", ""], [1, "dark-layout"], [1, "section-b-space", "border-b"], [1, "row", "footer-theme2"], [1, "col-lg-3"], [1, "footer-title", "footer-mobile-title"], [1, "footer-contant"], ["id", "footerlogo", 1, "footer-logo"], ["alt", "logo", 1, "footer-logo-size", 3, "src"], [1, "social-white"], [1, "move-social-for-desktop"], ["target", "_blank", "href", "https://www.facebook.com/profile.php?id=100085959177605"], ["aria-hidden", "true", 1, "fa", "fa-facebook"], ["target", "_blank", "href", "https://www.instagram.com/outgravitywear/"], ["aria-hidden", "true", 1, "fa", "fa-instagram"], [1, "col-lg-6", "subscribe-wrapper"], [1, "subscribe-block"], [4, "ngIf"], [1, "footer-title"], [1, "contact-details"], ["fragment", "spedizioni", 3, "routerLink"], ["fragment", "resi", 3, "routerLink"], ["fragment", "reso", 3, "routerLink"], ["href", "https://www.iubenda.com/terms-and-conditions/21774079", "title", "Terms and Conditions ", 1, "iubenda-white", "iubenda-noiframe", "iubenda-embed", "iubenda-noiframe"], ["href", "https://www.iubenda.com/privacy-policy/21774079", "title", "Privacy Policy ", 1, "iubenda-white", "iubenda-noiframe", "iubenda-embed", "iubenda-noiframe"], ["target", "_blank", "href", "mailto:info@out-wear.com"], [1, "form-group"], ["type", "text", "name", "emailAddress", "id", "exampleFormControlInput3", "placeholder", "Inserisci la tua mail", 1, "form-control", 3, "ngModel", "ngModelChange"], ["type", "submit", 1, "btn", "btn-solid", 3, "click"]],
   template: function FooterTwoComponent_Template(rf, ctx) {
     if (rf & 1) {
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "footer", 0);
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](1, FooterTwoComponent_div_1_Template, 46, 9, "div", 1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](1, FooterTwoComponent_div_1_Template, 49, 9, "div", 1);
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](2, "div", 2)(3, "div", 3)(4, "div", 4)(5, "div", 5);
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](6, " 2023, OUT di Soresina Riccardo - P. Iva: 03092570302 - 33100 Udine (UD), Italia. ");
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();

@@ -1733,7 +1733,7 @@ ResiSpedizioneComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MOD
   selectors: [["app-resi-spedizione"]],
   decls: 46,
   vars: 0,
-  consts: [[1, "faq-section", "section-b-space"], [1, "container"], ["id", "spedizioni", 1, "row"], [1, "col-sm-12"], [2, "padding-left", "2rem", "margin-bottom", "1rem"], [2, "display", "list-item"], ["id", "resi", 1, "row"], ["id", "reso", 1, "row"], ["href", "web/assets/downloadables/modulo_resi.pdf", "target", "_blank", 2, "text-decoration", "underline"], ["href", "mailto: info@out-wear.com", 2, "text-decoration", "underline"]],
+  consts: [[1, "faq-section", "section-b-space"], [1, "container"], ["id", "spedizioni", 1, "row"], [1, "col-sm-12"], [2, "padding-left", "2rem", "margin-bottom", "1rem"], [2, "display", "list-item"], ["id", "resi", 1, "row"], ["id", "reso", 1, "row"], ["href", "web/assets/downloadables/modulo_resi.pdf", "target", "_blank", 2, "text-decoration", "underline"], ["href", "mailto:info@out-wear.com", 2, "text-decoration", "underline"]],
   template: function ResiSpedizioneComponent_Template(rf, ctx) {
     if (rf & 1) {
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "section", 0)(1, "div", 1)(2, "div", 2)(3, "div", 3)(4, "h4");
