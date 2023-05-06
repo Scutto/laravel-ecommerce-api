@@ -53,7 +53,6 @@ class StripeEventListener
 
         if($webHookType === 'checkout.session.completed') {
             //todo: use try&catch and in case of error log the $event->payload object so not to lose it
-            Log::info($event->payload);
             try{
                 $order = Order::with(['shoppingCart', 'products'])->where('gateway', 'stripe')
                     ->where('gateway_id', $event->payload['data']['object']['id'])

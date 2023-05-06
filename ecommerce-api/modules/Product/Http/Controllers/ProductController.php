@@ -6,6 +6,9 @@ use Illuminate\Routing\Controller;
 use Illuminate\Http\JsonResponse;
 use Modules\Product\Entities\Product;
 use Throwable;
+use Esign\ConversionsApi\Facades\ConversionsApi;
+use FacebookAds\Object\ServerSide\UserData;
+use FacebookAds\Object\ServerSide\Event;
 
 class ProductController extends Controller
 {
@@ -22,6 +25,12 @@ class ProductController extends Controller
                 ->whereNotNull('stripe_product_price_id')
                 ->orderByDesc('order_by')
                 ->get();
+
+            ConversionsApi::addEvent(
+                (new Event())->setEventName('ViewContent')
+            );
+
+            ConversionsApi::sendEvents();
 
             return response()->json([
                 'products' => $products,
