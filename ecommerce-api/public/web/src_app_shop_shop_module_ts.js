@@ -1138,6 +1138,7 @@ class CheckoutComponent {
     this.cartSubscription = this.apiCartService.cart.subscribe(cart => {
       if (cart != null) {
         this.cart = cart;
+        this.updateShippingCost();
         this.initPayPalConfig();
       } else {
         this.router.navigate(['/']);
