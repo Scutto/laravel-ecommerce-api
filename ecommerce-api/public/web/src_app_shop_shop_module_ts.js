@@ -1069,7 +1069,7 @@ function CheckoutComponent_form_4_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngIf", !ctx_r0.cart.products.length);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngIf", ctx_r0.cart.applied_coupon == null);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngIf", ctx_r0.cart.applied_coupon == null && ctx_r0.showPayButtons);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](5);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate1"]("\u20AC ", ctx_r0.getSubTotal().toFixed(2), "");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
@@ -1217,7 +1217,8 @@ class CheckoutComponent {
   }
   onSaveOrderData() {
     this.apiCartService.saveOrderShippingData('paypal', this.checkoutForm.value).subscribe(response => {
-      this.order = response;
+      this.order = response.order;
+      this.couponCode = '';
       this.updateOrderData();
       this.updateShippingCost();
       this.showPayButtons = true;

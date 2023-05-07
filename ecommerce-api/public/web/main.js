@@ -92,7 +92,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ngx-translate/core */ 38699);
 /* harmony import */ var _shared_api_services_cart_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./shared/api-services/cart.service */ 64112);
 /* harmony import */ var _shared_api_services_product_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./shared/api-services/product.service */ 92189);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/router */ 60124);
+/* harmony import */ var ngx_pixel__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ngx-pixel */ 79303);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/router */ 60124);
 /* harmony import */ var _shared_components_tap_to_top_tap_to_top_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./shared/components/tap-to-top/tap-to-top.component */ 61916);
 
 
@@ -104,12 +105,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 class AppComponent {
-  constructor(platformId, loader, translate, apiCartService, apiProductService) {
+  constructor(platformId, loader, translate, apiCartService, apiProductService, pixel) {
     this.platformId = platformId;
     this.loader = loader;
     this.apiCartService = apiCartService;
     this.apiProductService = apiProductService;
+    this.pixel = pixel;
     // For Progressbar
     this.loaders = this.loader.progress$.pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_3__.delay)(1000), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_4__.withLatestFrom)(this.loader.progress$), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_5__.map)(v => v[1]));
     if ((0,_angular_common__WEBPACK_IMPORTED_MODULE_6__.isPlatformBrowser)(this.platformId)) {
@@ -120,13 +123,30 @@ class AppComponent {
     this.apiCartService.getCart().subscribe(() => {});
     this.apiProductService.getProducts().subscribe(() => {});
   }
+  onConsentGiven() {
+    console.log('consent given');
+    this.pixel.initialize();
+  }
+  onConsentRejected() {
+    console.log('consent rejected');
+    this.pixel.remove();
+  }
 }
 AppComponent.ɵfac = function AppComponent_Factory(t) {
-  return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_7__.PLATFORM_ID), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_ngx_loading_bar_core__WEBPACK_IMPORTED_MODULE_8__.LoadingBarService), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__.TranslateService), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_shared_api_services_cart_service__WEBPACK_IMPORTED_MODULE_0__.ApiCartService), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_shared_api_services_product_service__WEBPACK_IMPORTED_MODULE_1__.ApiProductService));
+  return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_7__.PLATFORM_ID), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_ngx_loading_bar_core__WEBPACK_IMPORTED_MODULE_8__.LoadingBarService), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__.TranslateService), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_shared_api_services_cart_service__WEBPACK_IMPORTED_MODULE_0__.ApiCartService), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_shared_api_services_product_service__WEBPACK_IMPORTED_MODULE_1__.ApiProductService), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](ngx_pixel__WEBPACK_IMPORTED_MODULE_10__.PixelService));
 };
 AppComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdefineComponent"]({
   type: AppComponent,
   selectors: [["app-root"]],
+  hostBindings: function AppComponent_HostBindings(rf, ctx) {
+    if (rf & 1) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵlistener"]("consent.given", function AppComponent_consent_given_HostBindingHandler($event) {
+        return ctx.onConsentGiven($event);
+      }, false, _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresolveWindow"])("consent.rejected", function AppComponent_consent_rejected_HostBindingHandler($event) {
+        return ctx.onConsentRejected($event);
+      }, false, _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresolveWindow"]);
+    }
+  },
   decls: 3,
   vars: 0,
   template: function AppComponent_Template(rf, ctx) {
@@ -134,7 +154,7 @@ AppComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵ
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelement"](0, "ngx-loading-bar")(1, "router-outlet")(2, "app-tap-to-top");
     }
   },
-  dependencies: [_ngx_loading_bar_core__WEBPACK_IMPORTED_MODULE_8__.LoadingBarComponent, _angular_router__WEBPACK_IMPORTED_MODULE_10__.RouterOutlet, _shared_components_tap_to_top_tap_to_top_component__WEBPACK_IMPORTED_MODULE_2__.TapToTopComponent],
+  dependencies: [_ngx_loading_bar_core__WEBPACK_IMPORTED_MODULE_8__.LoadingBarComponent, _angular_router__WEBPACK_IMPORTED_MODULE_11__.RouterOutlet, _shared_components_tap_to_top_tap_to_top_component__WEBPACK_IMPORTED_MODULE_2__.TapToTopComponent],
   styles: ["\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsInNvdXJjZVJvb3QiOiIifQ== */"]
 });
 
@@ -227,8 +247,8 @@ AppModule.ɵinj = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵd
       deps: [_angular_common_http__WEBPACK_IMPORTED_MODULE_10__.HttpClient]
     }
   }), _shared_shared_module__WEBPACK_IMPORTED_MODULE_0__.SharedModule, _app_routing_module__WEBPACK_IMPORTED_MODULE_1__.AppRoutingModule, ngx_pixel__WEBPACK_IMPORTED_MODULE_18__.PixelModule.forRoot({
-    enabled: true,
-    pixelId: '154606067123225'
+    enabled: false,
+    pixelId: src_environments_environment__WEBPACK_IMPORTED_MODULE_6__.environment.pixelId
   })]
 });
 (function () {
@@ -661,7 +681,8 @@ class ApiCartService {
       formData,
       gateway
     }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.map)(response => {
-      return response.order;
+      this.cart.next(response.shoppingCart);
+      return response;
     }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_7__.catchError)(error => {
       return (0,rxjs__WEBPACK_IMPORTED_MODULE_8__.throwError)(error);
     }));
@@ -6656,7 +6677,7 @@ FooterOneComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1
   },
   decls: 74,
   vars: 10,
-  consts: [["class", "light-layout", 4, "ngIf"], [1, "section-b-space", "light-layout"], [1, "container"], [1, "row", "footer-theme", "partition-f"], [1, "col-lg-4", "col-md-6"], [1, "footer-title", "footer-mobile-title"], [1, "footer-contant"], [1, "footer-logo"], ["alt", "logo", 1, "footer-logo-size", 3, "src", "click"], [1, "footer-social"], ["target", "_blank", "href", "https://www.facebook.com/profile.php?id=100085959177605"], ["aria-hidden", "true", 1, "fa", "fa-facebook"], ["target", "_blank", "href", "https://www.instagram.com/outgravitywear/"], ["aria-hidden", "true", 1, "fa", "fa-instagram"], [1, "col"], [1, "sub-title"], [1, "footer-title"], ["fragment", "spedizioni", 3, "routerLink"], ["fragment", "resi", 3, "routerLink"], ["fragment", "reso", 3, "routerLink"], ["href", "https://www.iubenda.com/terms-and-conditions/21774079", "title", "Terms and Conditions ", 1, "iubenda-white", "iubenda-noiframe", "iubenda-embed", "iubenda-noiframe"], ["href", "https://www.iubenda.com/privacy-policy/21774079", "title", "Privacy Policy ", 1, "iubenda-white", "iubenda-noiframe", "iubenda-embed", "iubenda-noiframe"], [1, "footer-title", "footer-contact-mobile"], [1, "contact-list"], ["target", "_blank", "href", "mailto:info@out-wear.com"], [1, "sub-footer"], [1, "row"], [1, "col", "text-center", 2, "margin-top", "1%"], [1, "col-xl-6", "col-md-6", "col-sm-12"], [1, "footer-end"], [2, "font-size", "70%"], [1, "payment-card-bottom"], ["src", "web/assets/images/icon/visa.png", "alt", ""], ["src", "web/assets/images/icon/mastercard.png", "alt", ""], ["src", "web/assets/images/icon/paypal.png", "alt", ""], [1, "light-layout"], [1, "small-section", "border-section", "border-top-0"], [1, "col-lg-6"], [1, "subscribe"], ["class", "form-inline subscribe-form", "action", "https://pixelstrap.us19.list-manage.com/subscribe/post?u=5a128856334b598b395f1fc9b&id=082f74cbda", "target", "_blank", "method", "post", 4, "ngIf"], [4, "ngIf"], ["action", "https://pixelstrap.us19.list-manage.com/subscribe/post?u=5a128856334b598b395f1fc9b&id=082f74cbda", "target", "_blank", "method", "post", 1, "form-inline", "subscribe-form"], [1, "form-group", "mx-sm-3"], ["type", "email", "name", "EMAIL", "id", "mce-EMAIL", "placeholder", "Inserisci la tua mail", 1, "form-control", 3, "ngModel", "ngModelChange"], ["type", "submit", 1, "btn", "btn-solid", 3, "click"]],
+  consts: [["class", "light-layout", 4, "ngIf"], [1, "section-b-space", "light-layout"], [1, "container"], [1, "row", "footer-theme", "partition-f"], [1, "col-lg-4", "col-md-6"], [1, "footer-title", "footer-mobile-title"], [1, "footer-contant"], [1, "footer-logo"], ["alt", "logo", 1, "footer-logo-size", 3, "src", "click"], [1, "footer-social"], ["target", "_blank", "href", "https://www.facebook.com/profile.php?id=100085959177605"], ["aria-hidden", "true", 1, "fa", "fa-facebook"], ["target", "_blank", "href", "https://www.instagram.com/outgravitywear/"], ["aria-hidden", "true", 1, "fa", "fa-instagram"], [1, "col"], [1, "sub-title"], [1, "footer-title"], ["fragment", "spedizioni", 3, "routerLink"], ["fragment", "resi", 3, "routerLink"], ["fragment", "reso", 3, "routerLink"], ["target", "_blank", "href", "https://www.iubenda.com/termini-e-condizioni/91785635", "title", "Termini e Condizioni ", 1, "iubenda-white", "no-brand", "iubenda-noiframe", "iubenda-embed", "iubenda-noiframe"], ["target", "_blank", "href", "https://www.iubenda.com/privacy-policy/91785635", "title", "Privacy Policy ", 1, "iubenda-white", "no-brand", "iubenda-noiframe", "iubenda-embed", "iubenda-noiframe"], [1, "footer-title", "footer-contact-mobile"], [1, "contact-list"], ["target", "_blank", "href", "mailto:info@out-wear.com"], [1, "sub-footer"], [1, "row"], [1, "col", "text-center", 2, "margin-top", "1%"], [1, "col-xl-6", "col-md-6", "col-sm-12"], [1, "footer-end"], [2, "font-size", "70%"], [1, "payment-card-bottom"], ["src", "web/assets/images/icon/visa.png", "alt", ""], ["src", "web/assets/images/icon/mastercard.png", "alt", ""], ["src", "web/assets/images/icon/paypal.png", "alt", ""], [1, "light-layout"], [1, "small-section", "border-section", "border-top-0"], [1, "col-lg-6"], [1, "subscribe"], ["class", "form-inline subscribe-form", "action", "https://pixelstrap.us19.list-manage.com/subscribe/post?u=5a128856334b598b395f1fc9b&id=082f74cbda", "target", "_blank", "method", "post", 4, "ngIf"], [4, "ngIf"], ["action", "https://pixelstrap.us19.list-manage.com/subscribe/post?u=5a128856334b598b395f1fc9b&id=082f74cbda", "target", "_blank", "method", "post", 1, "form-inline", "subscribe-form"], [1, "form-group", "mx-sm-3"], ["type", "email", "name", "EMAIL", "id", "mce-EMAIL", "placeholder", "Inserisci la tua mail", 1, "form-control", 3, "ngModel", "ngModelChange"], ["type", "submit", 1, "btn", "btn-solid", 3, "click"]],
   template: function FooterOneComponent_Template(rf, ctx) {
     if (rf & 1) {
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "footer");
@@ -7059,7 +7080,7 @@ FooterTwoComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1
   },
   decls: 24,
   vars: 2,
-  consts: [[3, "ngClass"], ["class", "dark-layout", 4, "ngIf"], [1, "sub-footer", "darker-subfooter"], [1, "container"], [1, "row"], [1, "col", "text-center", "intestazione"], [1, "col-xl-6", "col-md-6", "col-sm-12"], [1, "footer-end"], [2, "font-size", "70%"], [1, "payment-card-bottom"], ["href", "javascript:void(0)"], ["src", "web/assets/images/icon/visa.png", "alt", ""], ["src", "web/assets/images/icon/mastercard.png", "alt", ""], ["src", "web/assets/images/icon/paypal.png", "alt", ""], [1, "dark-layout"], [1, "section-b-space", "border-b"], [1, "row", "footer-theme2"], [1, "col-lg-3"], [1, "footer-title", "footer-mobile-title"], [1, "footer-contant"], ["id", "footerlogo", 1, "footer-logo"], ["alt", "logo", 1, "footer-logo-size", 3, "src"], [1, "social-white"], [1, "move-social-for-desktop"], ["target", "_blank", "href", "https://www.facebook.com/profile.php?id=100085959177605"], ["aria-hidden", "true", 1, "fa", "fa-facebook"], ["target", "_blank", "href", "https://www.instagram.com/outgravitywear/"], ["aria-hidden", "true", 1, "fa", "fa-instagram"], [1, "col-lg-6", "subscribe-wrapper"], [1, "subscribe-block"], [4, "ngIf"], [1, "footer-title"], [1, "contact-details"], ["fragment", "spedizioni", 3, "routerLink"], ["fragment", "resi", 3, "routerLink"], ["fragment", "reso", 3, "routerLink"], ["href", "https://www.iubenda.com/terms-and-conditions/21774079", "title", "Terms and Conditions ", 1, "iubenda-white", "iubenda-noiframe", "iubenda-embed", "iubenda-noiframe"], ["href", "https://www.iubenda.com/privacy-policy/21774079", "title", "Privacy Policy ", 1, "iubenda-white", "iubenda-noiframe", "iubenda-embed", "iubenda-noiframe"], ["target", "_blank", "href", "mailto:info@out-wear.com"], [1, "form-group"], ["type", "text", "name", "emailAddress", "id", "exampleFormControlInput3", "placeholder", "Inserisci la tua mail", 1, "form-control", 3, "ngModel", "ngModelChange"], ["type", "submit", 1, "btn", "btn-solid", 3, "click"]],
+  consts: [[3, "ngClass"], ["class", "dark-layout", 4, "ngIf"], [1, "sub-footer", "darker-subfooter"], [1, "container"], [1, "row"], [1, "col", "text-center", "intestazione"], [1, "col-xl-6", "col-md-6", "col-sm-12"], [1, "footer-end"], [2, "font-size", "70%"], [1, "payment-card-bottom"], ["href", "javascript:void(0)"], ["src", "web/assets/images/icon/visa.png", "alt", ""], ["src", "web/assets/images/icon/mastercard.png", "alt", ""], ["src", "web/assets/images/icon/paypal.png", "alt", ""], [1, "dark-layout"], [1, "section-b-space", "border-b"], [1, "row", "footer-theme2"], [1, "col-lg-3"], [1, "footer-title", "footer-mobile-title"], [1, "footer-contant"], ["id", "footerlogo", 1, "footer-logo"], ["alt", "logo", 1, "footer-logo-size", 3, "src"], [1, "social-white"], [1, "move-social-for-desktop"], ["target", "_blank", "href", "https://www.facebook.com/profile.php?id=100085959177605"], ["aria-hidden", "true", 1, "fa", "fa-facebook"], ["target", "_blank", "href", "https://www.instagram.com/outgravitywear/"], ["aria-hidden", "true", 1, "fa", "fa-instagram"], [1, "col-lg-6", "subscribe-wrapper"], [1, "subscribe-block"], [4, "ngIf"], [1, "footer-title"], [1, "contact-details"], ["fragment", "spedizioni", 3, "routerLink"], ["fragment", "resi", 3, "routerLink"], ["fragment", "reso", 3, "routerLink"], ["target", "_blank", "href", "https://www.iubenda.com/termini-e-condizioni/91785635", "title", "Termini e Condizioni ", 1, "iubenda-white", "no-brand", "iubenda-noiframe", "iubenda-embed", "iubenda-noiframe"], ["target", "_blank", "href", "https://www.iubenda.com/privacy-policy/91785635", "title", "Privacy Policy ", 1, "iubenda-white", "no-brand", "iubenda-noiframe", "iubenda-embed", "iubenda-noiframe"], ["target", "_blank", "href", "mailto:info@out-wear.com"], [1, "form-group"], ["type", "text", "name", "emailAddress", "id", "exampleFormControlInput3", "placeholder", "Inserisci la tua mail", 1, "form-control", 3, "ngModel", "ngModelChange"], ["type", "submit", 1, "btn", "btn-solid", 3, "click"]],
   template: function FooterTwoComponent_Template(rf, ctx) {
     if (rf & 1) {
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "footer", 0);
@@ -8374,7 +8395,8 @@ const environment = {
   // apiUrl: 'http://127.0.0.1:8000',
   apiUrl: 'https://www.out-wear.com',
   stripe_token: 'STRIPE_TOKEN',
-  paypal_token: 'PAYPAL_TOKEN'
+  paypal_token: 'PAYPAL_TOKEN',
+  pixelId: '154606067123225'
 };
 /*
  * For easier debugging in development mode, you can import the following file

@@ -15,6 +15,8 @@ use Modules\Order\Entities\OrderProduct;
 use Modules\Order\Processors\GetShippingCostProcessor;
 use Modules\Order\Processors\GetSubAndTotalAmountForOrderProcessor;
 use Modules\ShoppingCart\Entities\ShoppingCartCoupon;
+use Esign\ConversionsApi\Facades\ConversionsApi;
+use FacebookAds\Object\ServerSide\Event;
 
 class ShoppingCartController extends Controller
 {
@@ -76,6 +78,12 @@ class ShoppingCartController extends Controller
             $shoppingCart = ShoppingCart::with(['products', 'appliedCoupon'])
                 ->where('session_id', $inputs['sessionId'])
                 ->first();
+
+            ConversionsApi::addEvent(
+                (new Event())->setEventName('AddToCart')
+            );
+
+            ConversionsApi::sendEvents();
 
             return response()->json([
                 'shoppingCart' => $shoppingCart,
@@ -175,6 +183,7 @@ class ShoppingCartController extends Controller
             $sessionId = $request->get('sessionId');
 
             $shoppingCart = ShoppingCart::where('session_id', $sessionId)->first();
+            $order = Order::where('session_id', $sessionId)->first();
 
             $couponCheck = Coupon::where('stripe_id', $couponCode)->first();
             if($couponCheck == null) {
@@ -182,6 +191,30 @@ class ShoppingCartController extends Controller
                     'valid' => false,
                 ]);
             } else {
+                if($couponCheck->start_at != null && $couponCheck->start_at > today()) {
+                    return response()->json([
+                        'valid' => false,
+                    ]);
+                }
+
+                if($couponCheck->end_at != null && $couponCheck->end_at < today()) {
+                    return response()->json([
+                        'valid' => false,
+                    ]);
+                }
+
+                if($couponCheck->unique && $order != null) {
+                    $alreadyUsedCoupon = Order::where('coupon_stripe_id', strtoupper($couponCode))
+                        ->where('customer_email', $order->customer_email)
+                        ->first();
+
+                    if($alreadyUsedCoupon != null) {
+                        return response()->json([
+                            'valid' => false,
+                        ]);
+                    }
+                }
+
                 ShoppingCartCoupon::updateOrCreate(
                     [
                         'shopping_cart_id' => $shoppingCart->id,
@@ -216,8 +249,13 @@ class ShoppingCartController extends Controller
         try {
             $sessionId = $request->get('sessionId');
             $shoppingCart = ShoppingCart::with(['products', 'appliedCoupon'])->where('session_id', $sessionId)->firstOrFail();
+            $order = Order::where('session_id', $sessionId)->first();
             $shoppingCart->appliedCoupon->delete();
             $shoppingCart->refresh();
+            if($order != null) {
+                $order->coupon_stripe_id = null;
+                $order->save();
+            }
             
             return response()->json([
                 'shoppingCart' => $shoppingCart,
@@ -264,8 +302,15 @@ class ShoppingCartController extends Controller
             $order->save();
             $order->refresh();
 
+            $shoppingCart = ShoppingCart::with(['products', 'appliedCoupon'])->where('session_id', $sessionId)->firstOrFail();
+            if($shoppingCart->appliedCoupon != null) {
+                $shoppingCart->appliedCoupon->delete();
+                $shoppingCart->refresh();
+            }
+
             return response()->json([
-                'order' => $order
+                'order' => $order,
+                'shoppingCart' => $shoppingCart,
             ]);
         } catch (Throwable $e) {
             return response([

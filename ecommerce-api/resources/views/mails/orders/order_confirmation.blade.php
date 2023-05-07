@@ -277,7 +277,7 @@ a[x-apple-data-detectors] {
                       <td align="center" style="padding:0;Margin:0;padding-bottom:10px"><h3 style="Margin:0;line-height:24px;mso-line-height-rule:exactly;font-family:Arial, sans-serif;font-size:20px;font-style:normal;font-weight:bold;color:#242424">Spedizione/Politica Resi</h3></td>
                      </tr>
                      <tr style="border-collapse:collapse">
-                      <td align="center" style="padding:0;Margin:0"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:Arial, sans-serif;line-height:21px;color:#242424;font-size:14px">La tua soddisfazione è importante per noi.<br>Consulta questa <a href="https://out-wear.com/pages/resi-spedizione">pagina</a></p></td>
+                      <td align="center" style="padding:0;Margin:0"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:Arial, sans-serif;line-height:21px;color:#242424;font-size:14px">La tua soddisfazione è importante per noi.<br>Consulta questa <a href="https://out-wear.com/#/pages/resi-spedizione">pagina</a></p></td>
                      </tr>
                    </table></td>
                  </tr>

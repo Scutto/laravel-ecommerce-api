@@ -23,7 +23,6 @@ class Order extends Model
     protected $hidden = ['created_at', 'updated_at'];
 
     protected $encryptable = [
-        'customer_email',
         'customer_firstname',
         'customer_lastname',
         'customer_phone',

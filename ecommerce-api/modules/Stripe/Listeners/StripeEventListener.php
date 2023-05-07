@@ -14,6 +14,8 @@ use Modules\Order\Processors\GetShippingCostProcessor;
 use Modules\Order\Processors\GetSubAndTotalAmountForOrderProcessor;
 use Modules\Order\Processors\ManageInvoiceForOrderProcessor;
 use Modules\Order\Processors\ReduceProductQuantityFromOrderProcessor;
+use Esign\ConversionsApi\Facades\ConversionsApi;
+use FacebookAds\Object\ServerSide\Event;
 use Throwable;
 
 class StripeEventListener
@@ -117,6 +119,12 @@ class StripeEventListener
     
                 Mail::to($order->customer_email)->send(new NewOrderAlert($order, $toSubtract, $subTotale));
                 Mail::to(config('app.mail_owner'))->send(new OwnerOrderAlert($order, $toSubtract));
+
+                ConversionsApi::addEvent(
+                    (new Event())->setEventName('Purchase')
+                );
+    
+                ConversionsApi::sendEvents();
             } catch(Throwable $t) {
                 Log::info($t->getMessage());
                 Log::info($t->getFile());

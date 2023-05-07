@@ -7,7 +7,6 @@ use Illuminate\Http\JsonResponse;
 use Modules\Product\Entities\Product;
 use Throwable;
 use Esign\ConversionsApi\Facades\ConversionsApi;
-use FacebookAds\Object\ServerSide\UserData;
 use FacebookAds\Object\ServerSide\Event;
 
 class ProductController extends Controller
