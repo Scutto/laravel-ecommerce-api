@@ -1,1 +1,1 @@
-T-Shirt dallo stile old-school che ti verra' voglia di indossare nelle giornate estive
+T-shirt 100% cotone dallo stile old school
