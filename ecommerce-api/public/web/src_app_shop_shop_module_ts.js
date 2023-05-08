@@ -1273,7 +1273,7 @@ class CheckoutComponent {
     this.payPalConfig = {
       fundingSource: 'PAYPAL',
       currency: 'EUR',
-      clientId: 'AcQzL89yJEwuDuVH4K5DD0agEM-QLpiOE1CaKbIkYNhsNYQyUCtxz58zLrQohkiK0TGNThVYfvPvuOyg',
+      clientId: 'AQPDiJiXfBWQHSIKUBndqDmB3tRaT9LKJTt8jyliYPmrGExlgd6ptgY0Rt0Banz-af2B4i0z1X6fdxr0',
       createOrderOnClient: data => ({
         intent: 'CAPTURE',
         purchase_units: [{

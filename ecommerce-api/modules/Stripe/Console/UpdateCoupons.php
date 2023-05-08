@@ -41,8 +41,6 @@ class UpdateCoupons extends Command
     {
         $coupons = Cashier::stripe()->coupons->all();
         foreach($coupons as $coupon) {
-            $newCoupon = new Coupon();
-            $newCoupon->stripe_id = $coupon['id'];
             if($coupon['amount_off'] !== null) {
                 $type = 'fixed';
                 $amountOff = $coupon['amount_off'];
@@ -50,9 +48,16 @@ class UpdateCoupons extends Command
                 $type = 'percentage';
                 $amountOff = $coupon['percent_off'];
             }
-            $newCoupon->amount_off = $amountOff;
-            $newCoupon->type = $type;
-            $newCoupon->save();
+
+            Coupon::updateOrCreate(
+                [
+                    'stripe_id' => $coupon['id'],
+                ],
+                [
+                    'type' => $type,
+                    'amount_off' => $amountOff
+                ]
+            );
         }
     }
 }
