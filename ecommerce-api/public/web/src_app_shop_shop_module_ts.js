@@ -1273,7 +1273,7 @@ class CheckoutComponent {
     this.payPalConfig = {
       fundingSource: 'PAYPAL',
       currency: 'EUR',
-      clientId: 'AQPDiJiXfBWQHSIKUBndqDmB3tRaT9LKJTt8jyliYPmrGExlgd6ptgY0Rt0Banz-af2B4i0z1X6fdxr0',
+      clientId: 'AaGW-Qax3x8mSaOrviCdNJvAC4gxQen4-oAEE46icKwj72MFuWfJT6oIOad0K7iXdhqk4_n4gb5Te_zD',
       createOrderOnClient: data => ({
         intent: 'CAPTURE',
         purchase_units: [{
@@ -3109,7 +3109,11 @@ class ProductNoSidebarComponent {
   // Get Product Size
   Size() {
     this.uniqSize = [];
-    this.product.sizes.forEach(size => {
+    const sortingArr = ['xs', 's', 'm', 'l', 'xl', 'xxl'];
+    let sortedSizes = this.product.sizes.sort(function (a, b) {
+      return sortingArr.indexOf(a.size) - sortingArr.indexOf(b.size);
+    });
+    sortedSizes.forEach(size => {
       this.uniqSize.push(size);
     });
   }
