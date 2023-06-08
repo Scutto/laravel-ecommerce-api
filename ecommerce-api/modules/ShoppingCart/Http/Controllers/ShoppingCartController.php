@@ -383,10 +383,10 @@ class ShoppingCartController extends Controller
                 OrderProduct::updateOrCreate(
                     [
                         'order_id' => $order->id,
-                        'product_id' => $shoppingCartProduct->product->id
+                        'product_id' => $shoppingCartProduct->product->id,
+                        'size' => $shoppingCartProduct->size,
                     ],
                     [
-                        'size' => $shoppingCartProduct->size,
                         'quantity' => $shoppingCartProduct->quantity
                     ]
                 );

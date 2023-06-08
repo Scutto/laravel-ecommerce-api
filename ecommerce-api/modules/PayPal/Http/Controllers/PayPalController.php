@@ -56,10 +56,10 @@ class PayPalController extends Controller
                     OrderProduct::updateOrCreate(
                         [
                             'order_id' => $order->id,
-                            'product_id' => $product->product->id
+                            'product_id' => $product->product->id,
+                            'size' => $product->size,
                         ],
                         [
-                            'size' => $product->size,
                             'quantity' => $product->quantity
                         ]
                     );
