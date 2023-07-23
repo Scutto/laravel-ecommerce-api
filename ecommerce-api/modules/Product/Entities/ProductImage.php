@@ -41,6 +41,9 @@ class ProductImage extends Model
         if($this->type == 'size_chart') {
             return asset('storage/products/size_charts/'. $this->file);
         }
+        if($this->type == 'color_variant') {
+            return asset('storage/products/color_variants/'. $this->file);
+        }
 
         return asset('storage/products/images/' . $this->file);
     }

@@ -22359,9 +22359,6 @@ ngx-loading-bar {
 .product-right .product-buttons a:last-child {
   margin-left: 10px;
 }
-.product-right .product-description h6 span, .product-right .product-description .h6 span {
-  float: right;
-}
 .product-right .product-description .qty-box {
   display: flex;
   align-items: center;
@@ -35155,5 +35152,20 @@ div.product-description > ul li {
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[6].rules[1].use[0]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[6].rules[1].use[1]!./src/styles.scss?ngGlobalStyle ***!
   \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /* You can add global styles to this file, and also import other style files */
+.square_color_size {
+  width: 30px !important;
+  height: 30px !important;
+}
+
+@media only screen and (max-width: 600px) {
+  .square_color_size {
+    width: 20px !important;
+    height: 20px !important;
+  }
+}
+.square_color_size_detail_product {
+  width: 33px !important;
+  height: 33px !important;
+}
 
 /*# sourceMappingURL=styles.css.map*/

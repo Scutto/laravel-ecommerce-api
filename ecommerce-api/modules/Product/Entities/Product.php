@@ -67,6 +67,11 @@ class Product extends Model
         return $this->hasOne(ProductImage::class)->where('product_images.type', 'thumbnail');
     }
 
+    public function colorVariant()
+    {
+        return $this->hasOne(ProductImage::class)->where('product_images.type', 'color_variant');
+    }
+
     /**
      * Defines the relation with details images
      *
@@ -75,6 +80,11 @@ class Product extends Model
     public function details()
     {
         return $this->hasMany(ProductImage::class)->where('product_images.type', 'details');
+    }
+
+    public function variants()
+    {
+        return $this->hasMany(Product::class, 'parent_id', 'id');
     }
 
     /**
