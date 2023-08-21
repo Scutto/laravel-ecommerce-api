@@ -20,6 +20,10 @@ Nuovo ordine. Dettagli spedizione:
 Prodotti:
 <ul>
 @foreach($order->products as $product)
-  <li> Nome: {{$product->product->title}} - Quantita: {{ $product->quantity }} - Taglia: {{ $product->size }}</li>
+  @if($product->product->colorVariant != null)
+    <li> Nome: {{$product->product->title}} - Quantita: {{ $product->quantity }} - Taglia: {{ $product->size }} - Colore: {{ $product->product->colorVariant->file }}</li>
+  @else
+    <li> Nome: {{$product->product->title}} - Quantita: {{ $product->quantity }} - Taglia: {{ $product->size }}</li>
+  @endif
 @endforeach
 </ul>
