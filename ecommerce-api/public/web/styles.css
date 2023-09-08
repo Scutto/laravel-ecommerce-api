@@ -31789,7 +31789,8 @@ header .layout3-menu .main-navbar .nav-menu > li.mega-menu {
     margin-bottom: 5px;
   }
   .footer-light .subscribe p {
-    display: none;
+    font-size: small;
+    margin-bottom: 2%;
   }
   .footer-light .subscribe-form {
     justify-content: center;

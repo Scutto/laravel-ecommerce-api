@@ -775,7 +775,7 @@ function CheckoutComponent_form_4_ng_container_55_Template(rf, ctx) {
       const ctx_r48 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵnextContext"](2);
       return _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵresetView"](ctx_r48.onSaveOrderData());
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](2, " Salva ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](2, " Conferma ");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementContainerEnd"]();
   }
@@ -955,7 +955,7 @@ function CheckoutComponent_form_4_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](5, "Dettagli Spedizione");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](6, "small");
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](7, "Ricordati di salvare i dati prima di procedere al pagamento.");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](7, "Ricordati di confermare i dati della spedizione prima di procedere al pagamento.");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](8, "div", 8)(9, "div", 9)(10, "div", 10);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](11, "Nome");

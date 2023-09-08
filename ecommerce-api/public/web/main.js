@@ -6663,7 +6663,7 @@ function FooterOneComponent_div_1_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](8, "NON PERDERTI NESSUNA NOVIT\u00C0!");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](9, "p");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](10, "Iscriviti alla nostra newsletter.");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](10, "Iscriviti alla nostra Newsletter e riceverai subito un codice sconto del 10%.");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()()()();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](11, "div", 37);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](12, FooterOneComponent_div_1_form_12_Template, 5, 1, "form", 39);
@@ -6995,14 +6995,14 @@ __webpack_require__.r(__webpack_exports__);
 function FooterTwoComponent_div_1_form_23_Template(rf, ctx) {
   if (rf & 1) {
     const _r4 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "form")(1, "div", 39)(2, "input", 40);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "form")(1, "div", 40)(2, "input", 41);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("ngModelChange", function FooterTwoComponent_div_1_form_23_Template_input_ngModelChange_2_listener($event) {
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r4);
       const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](2);
       return _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵresetView"](ctx_r3.email = $event);
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](3, "button", 41);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](3, "button", 42);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function FooterTwoComponent_div_1_form_23_Template_button_click_3_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r4);
       const ctx_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](2);
@@ -7017,7 +7017,7 @@ function FooterTwoComponent_div_1_form_23_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngModel", ctx_r1.email);
   }
 }
-function FooterTwoComponent_div_1_div_24_Template(rf, ctx) {
+function FooterTwoComponent_div_1_div_26_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div")(1, "label");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](2, "Grazie per esserti iscritto alla nostra newsletter");
@@ -7045,28 +7045,31 @@ function FooterTwoComponent_div_1_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](22, "newsletter");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](23, FooterTwoComponent_div_1_form_23_Template, 5, 1, "form", 30);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](24, FooterTwoComponent_div_1_div_24_Template, 3, 0, "div", 30);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](24, "label", 31);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](25, "Iscriviti alla nostra Newsletter e riceverai subito un codice sconto del 10%.");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](26, FooterTwoComponent_div_1_div_26_Template, 3, 0, "div", 30);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](25, "div", 17)(26, "div", 31)(27, "h4");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](28, "store information");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](27, "div", 17)(28, "div", 32)(29, "h4");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](30, "store information");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](29, "div", 19)(30, "ul", 32)(31, "li")(32, "a", 33);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](33, "Spedizioni");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](31, "div", 19)(32, "ul", 33)(33, "li")(34, "a", 34);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](35, "Spedizioni");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](34, "li")(35, "a", 34);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](36, "Politica Resi");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](36, "li")(37, "a", 35);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](38, "Politica Resi");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](37, "li")(38, "a", 35);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](39, "Effettua un reso");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](39, "li")(40, "a", 36);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](41, "Effettua un reso");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](40, "li")(41, "a", 36);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](42, "Termini e Condizioni");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](42, "li")(43, "a", 37);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](44, "Termini e Condizioni");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](43, "li")(44, "a", 37);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](45, "Privacy Policy");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](45, "li")(46, "a", 38);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](47, "Privacy Policy");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](46, "li")(47, "a", 38);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](48, "Contattaci");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](48, "li")(49, "a", 39);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](50, "Contattaci");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()()()()()()()()();
   }
   if (rf & 2) {
@@ -7075,7 +7078,7 @@ function FooterTwoComponent_div_1_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("src", ctx_r0.themeLogo, _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsanitizeUrl"]);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](13);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", !ctx_r0.showThanksForNewsletter);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx_r0.showThanksForNewsletter);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](8);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](6, _c0));
@@ -7118,11 +7121,11 @@ FooterTwoComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1
   },
   decls: 24,
   vars: 2,
-  consts: [[3, "ngClass"], ["class", "dark-layout", 4, "ngIf"], [1, "sub-footer", "darker-subfooter"], [1, "container"], [1, "row"], [1, "col", "text-center", "intestazione"], [1, "col-xl-6", "col-md-6", "col-sm-12"], [1, "footer-end"], [2, "font-size", "70%"], [1, "payment-card-bottom"], ["href", "javascript:void(0)"], ["src", "web/assets/images/icon/visa.png", "alt", ""], ["src", "web/assets/images/icon/mastercard.png", "alt", ""], ["src", "web/assets/images/icon/paypal.png", "alt", ""], [1, "dark-layout"], [1, "section-b-space", "border-b"], [1, "row", "footer-theme2"], [1, "col-lg-3"], [1, "footer-title", "footer-mobile-title"], [1, "footer-contant"], ["id", "footerlogo", 1, "footer-logo"], ["alt", "logo", 1, "footer-logo-size", 3, "src"], [1, "social-white"], [1, "move-social-for-desktop"], ["target", "_blank", "href", "https://www.facebook.com/profile.php?id=100085959177605"], ["aria-hidden", "true", 1, "fa", "fa-facebook"], ["target", "_blank", "href", "https://www.instagram.com/outgravitywear/"], ["aria-hidden", "true", 1, "fa", "fa-instagram"], [1, "col-lg-6", "subscribe-wrapper"], [1, "subscribe-block"], [4, "ngIf"], [1, "footer-title"], [1, "contact-details"], ["fragment", "spedizioni", 3, "routerLink"], ["fragment", "resi", 3, "routerLink"], ["fragment", "reso", 3, "routerLink"], ["target", "_blank", "href", "https://www.iubenda.com/termini-e-condizioni/91785635", "title", "Termini e Condizioni ", 1, "iubenda-white", "no-brand", "iubenda-noiframe", "iubenda-embed", "iubenda-noiframe"], ["target", "_blank", "href", "https://www.iubenda.com/privacy-policy/91785635", "title", "Privacy Policy ", 1, "iubenda-white", "no-brand", "iubenda-noiframe", "iubenda-embed", "iubenda-noiframe"], ["target", "_blank", "href", "mailto:info@out-wear.com"], [1, "form-group"], ["type", "text", "name", "emailAddress", "id", "exampleFormControlInput3", "placeholder", "Inserisci la tua mail", 1, "form-control", 3, "ngModel", "ngModelChange"], ["type", "submit", 1, "btn", "btn-solid", 3, "click"]],
+  consts: [[3, "ngClass"], ["class", "dark-layout", 4, "ngIf"], [1, "sub-footer", "darker-subfooter"], [1, "container"], [1, "row"], [1, "col", "text-center", "intestazione"], [1, "col-xl-6", "col-md-6", "col-sm-12"], [1, "footer-end"], [2, "font-size", "70%"], [1, "payment-card-bottom"], ["href", "javascript:void(0)"], ["src", "web/assets/images/icon/visa.png", "alt", ""], ["src", "web/assets/images/icon/mastercard.png", "alt", ""], ["src", "web/assets/images/icon/paypal.png", "alt", ""], [1, "dark-layout"], [1, "section-b-space", "border-b"], [1, "row", "footer-theme2"], [1, "col-lg-3"], [1, "footer-title", "footer-mobile-title"], [1, "footer-contant"], ["id", "footerlogo", 1, "footer-logo"], ["alt", "logo", 1, "footer-logo-size", 3, "src"], [1, "social-white"], [1, "move-social-for-desktop"], ["target", "_blank", "href", "https://www.facebook.com/profile.php?id=100085959177605"], ["aria-hidden", "true", 1, "fa", "fa-facebook"], ["target", "_blank", "href", "https://www.instagram.com/outgravitywear/"], ["aria-hidden", "true", 1, "fa", "fa-instagram"], [1, "col-lg-6", "subscribe-wrapper"], [1, "subscribe-block"], [4, "ngIf"], [1, "mt-3"], [1, "footer-title"], [1, "contact-details"], ["fragment", "spedizioni", 3, "routerLink"], ["fragment", "resi", 3, "routerLink"], ["fragment", "reso", 3, "routerLink"], ["target", "_blank", "href", "https://www.iubenda.com/termini-e-condizioni/91785635", "title", "Termini e Condizioni ", 1, "iubenda-white", "no-brand", "iubenda-noiframe", "iubenda-embed", "iubenda-noiframe"], ["target", "_blank", "href", "https://www.iubenda.com/privacy-policy/91785635", "title", "Privacy Policy ", 1, "iubenda-white", "no-brand", "iubenda-noiframe", "iubenda-embed", "iubenda-noiframe"], ["target", "_blank", "href", "mailto:info@out-wear.com"], [1, "form-group"], ["type", "text", "name", "emailAddress", "id", "exampleFormControlInput3", "placeholder", "Inserisci la tua mail", 1, "form-control", 3, "ngModel", "ngModelChange"], ["type", "submit", 1, "btn", "btn-solid", 3, "click"]],
   template: function FooterTwoComponent_Template(rf, ctx) {
     if (rf & 1) {
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "footer", 0);
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](1, FooterTwoComponent_div_1_Template, 49, 9, "div", 1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](1, FooterTwoComponent_div_1_Template, 51, 9, "div", 1);
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](2, "div", 2)(3, "div", 3)(4, "div", 4)(5, "div", 5);
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](6, " 2023, OUT di Soresina Riccardo - P. Iva: 03092570302 - 33100 Udine (UD), Italia. ");
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
