@@ -1,0 +1,1 @@
+<small>Il modello è alto 175 cm e indossa una taglia M</small>

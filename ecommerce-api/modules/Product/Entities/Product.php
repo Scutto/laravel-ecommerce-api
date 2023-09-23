@@ -112,6 +112,26 @@ class Product extends Model
      *
      * @return \Illuminate\Database\Eloquent\Casts\Attribute
      */
+    protected function modelDescription(): Attribute
+    {
+        return Attribute::make(
+            get: function ($value) {
+                if($value === null) {
+                    return null;
+                }
+                if(!view()->exists('model_descriptions.' . $value)) {
+                    return null;
+                }
+                return view('model_descriptions.' . $value)->render();
+            },
+        );
+    }
+
+    /**
+     * Get price in decimal
+     *
+     * @return \Illuminate\Database\Eloquent\Casts\Attribute
+     */
     protected function textDetails(): Attribute
     {
         return Attribute::make(

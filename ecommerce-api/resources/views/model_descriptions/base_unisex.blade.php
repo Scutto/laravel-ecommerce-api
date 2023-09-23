@@ -1,0 +1,1 @@
+<small>Il modello è alto 175 cm e indossa una taglia M<br/>La modella è alta 165 cm e indossa una taglia S</small>
