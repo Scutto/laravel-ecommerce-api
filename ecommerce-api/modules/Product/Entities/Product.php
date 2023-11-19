@@ -162,4 +162,22 @@ class Product extends Model
             },
         );
     }
+
+    /**
+     * Get old_price in decimal
+     *
+     * @return \Illuminate\Database\Eloquent\Casts\Attribute
+     */
+    protected function oldPrice(): Attribute
+    {
+        return Attribute::make(
+            get: function ($value) {
+                if($value == null) return null;
+
+                $decimal = substr($value, -2);
+                
+                return substr($value, 0, strlen($value) - 2) . '.' . $decimal;
+            },
+        );
+    }
 }
