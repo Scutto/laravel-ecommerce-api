@@ -7329,23 +7329,21 @@ HeaderOneComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_2
     topbar: "topbar",
     sticky: "sticky"
   },
-  decls: 16,
-  vars: 5,
-  consts: [[1, "sticky", 3, "ngClass"], [1, "mobile-fix-option"], [1, "container"], [1, "row"], [1, "col-sm-12"], [1, "main-menu"], [1, "menu-left", 2, "width", "60%"], [1, "brand-logo"], ["routerLink", "/home/fashion", "id", "headerlogo"], ["alt", "logo", 1, "img-fluid", "image", 2, "max-width", "55%", 3, "src"], ["alt", "logo", 1, "black_friday", 3, "src"], [1, "menu-right", "pull-right"]],
+  decls: 15,
+  vars: 4,
+  consts: [[1, "sticky", 3, "ngClass"], [1, "mobile-fix-option"], [1, "container"], [1, "row"], [1, "col-sm-12"], [1, "main-menu"], [1, "menu-left", 2, "width", "60%"], [1, "brand-logo"], ["routerLink", "/home/fashion", "id", "headerlogo"], ["alt", "logo", 1, "img-fluid", "image", 2, "max-width", "55%", 3, "src"], [1, "menu-right", "pull-right"]],
   template: function HeaderOneComponent_Template(rf, ctx) {
     if (rf & 1) {
       _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "header", 0);
       _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](1, "div", 1);
       _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](2, "div", 2)(3, "div", 3)(4, "div", 4)(5, "div", 5)(6, "div", 6)(7, "div", 7)(8, "a", 8);
       _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](9, "img", 9);
-      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](10, "img", 10);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](10, "div", 10)(11, "div");
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](12, "app-menu");
       _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](11, "div", 11)(12, "div");
-      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](13, "app-menu");
-      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](14, "div");
-      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](15, "app-settings");
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](13, "div");
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](14, "app-settings");
       _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()()()()()()();
     }
     if (rf & 2) {
@@ -7353,8 +7351,6 @@ HeaderOneComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_2
       _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngClass", ctx.class);
       _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](9);
       _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("src", ctx.themeLogo, _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵsanitizeUrl"]);
-      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
-      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("src", "web/assets/images/banners/black_friday_top_banner_2.png", _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵsanitizeUrl"]);
     }
   },
   dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_3__.NgClass, _angular_router__WEBPACK_IMPORTED_MODULE_4__.RouterLink, _components_menu_menu_component__WEBPACK_IMPORTED_MODULE_0__.MenuComponent, _components_settings_settings_component__WEBPACK_IMPORTED_MODULE_1__.SettingsComponent],
