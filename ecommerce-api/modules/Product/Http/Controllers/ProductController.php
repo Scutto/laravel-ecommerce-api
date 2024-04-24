@@ -27,6 +27,7 @@ class ProductController extends Controller
                 'sizeChart',
                 'colorVariant',
                 'variants',
+                'variants.sizes',
                 'variants.colorVariant',
             ])->whereNotNull('stripe_product_id')
                 ->whereNotNull('stripe_product_price_id')
@@ -62,7 +63,7 @@ class ProductController extends Controller
     public function getNewProductsList(): JsonResponse
     {
         try {
-            $products = Product::with(['category', 'thumbnail', 'details', 'sizes', 'sizeChart', 'variants', 'variants.colorVariant', 'colorVariant'])
+            $products = Product::with(['category', 'thumbnail', 'details', 'sizes', 'sizeChart', 'variants', 'variants.sizes', 'variants.colorVariant', 'colorVariant'])
                 ->whereNotNull('stripe_product_id')
                 ->whereNotNull('stripe_product_price_id')
                 ->whereNull('parent_id')
@@ -91,14 +92,14 @@ class ProductController extends Controller
     public function getProductDetails(string $productId): JsonResponse
     {
         try {
-            $product = Product::with(['category', 'thumbnail', 'details', 'sizes', 'sizeChart', 'variants', 'variants.colorVariant', 'colorVariant'])
+            $product = Product::with(['category', 'thumbnail', 'details', 'sizes', 'sizeChart', 'variants', 'variants.sizes', 'variants.colorVariant', 'colorVariant'])
                 ->where('id', $productId)
                 ->whereNotNull('stripe_product_id')
                 ->whereNotNull('stripe_product_price_id')
                 ->firstOrFail();
 
             if($product->parent_id != null) {
-                $product = Product::with(['category', 'thumbnail', 'details', 'sizes', 'sizeChart', 'variants', 'variants.colorVariant', 'colorVariant'])
+                $product = Product::with(['category', 'thumbnail', 'details', 'sizes', 'sizeChart', 'variants', 'variants.sizes', 'variants.colorVariant', 'colorVariant'])
                 ->where('id', $product->parent_id)
                 ->whereNotNull('stripe_product_id')
                 ->whereNotNull('stripe_product_price_id')
@@ -106,7 +107,7 @@ class ProductController extends Controller
                 ->firstOrFail();
             }
 
-            $relatedProducts = Product::with(['category', 'thumbnail', 'details', 'sizes', 'sizeChart', 'variants', 'variants.colorVariant', 'colorVariant'])
+            $relatedProducts = Product::with(['category', 'thumbnail', 'details', 'sizes', 'sizeChart', 'variants', 'variants.sizes', 'variants.colorVariant', 'colorVariant'])
                 ->where('category_id', $product->category_id)
                 ->where('id', '!=', $product->id)
                 ->whereNotNull('stripe_product_id')

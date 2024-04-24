@@ -3186,10 +3186,8 @@ class ProductNoSidebarComponent {
   ngOnInit() {
     this.product = this.route.snapshot.data['productData']['product'];
     this.relatedProducts = this.route.snapshot.data['productData']['relatedProducts'];
-    this.Size();
+    this.Size(this.product);
     this.pickUpVariants();
-    console.log('this.product');
-    console.log(this.product);
     this.route.paramMap.subscribe(data => {
       this.apiProductService.getProduct(data.params['id']).subscribe(productData => {
         this.product = productData.product;
@@ -3197,7 +3195,7 @@ class ProductNoSidebarComponent {
         this.selectedSize = null;
         this.selectedVariant = null;
         this.counter = 1;
-        this.Size();
+        this.Size(this.product);
         this.pickUpVariants();
       });
     });
@@ -3218,12 +3216,15 @@ class ProductNoSidebarComponent {
   }
   selectVariant(variant) {
     this.selectedVariant = variant;
+    this.selectedSize = null;
+    this.counter = 1;
+    this.Size(this.selectedVariant);
   }
   // Get Product Size
-  Size() {
+  Size(product) {
     this.uniqSize = [];
     const sortingArr = ['xs', 's', 'm', 'l', 'xl', 'xxl'];
-    let sortedSizes = this.product.sizes.sort(function (a, b) {
+    let sortedSizes = product.sizes.sort(function (a, b) {
       return sortingArr.indexOf(a.size) - sortingArr.indexOf(b.size);
     });
     sortedSizes.forEach(size => {
@@ -3257,11 +3258,15 @@ class ProductNoSidebarComponent {
   }
   // Increament
   increment() {
+    let productToUse = this.product;
+    if (this.selectedVariant != null) {
+      productToUse = this.selectedVariant;
+    }
     if (this.selectedSize != null) {
-      let selectedSizeData = this.product.sizes.find(size => size.size === this.selectedSize);
+      let selectedSizeData = productToUse.sizes.find(size => size.size === this.selectedSize);
       if (selectedSizeData != null) {
         if (this.cart != null) {
-          let productInCart = this.cart.products.find(product => product.product.id === this.product.id && product.size === this.selectedSize);
+          let productInCart = this.cart.products.find(product => product.product.id === productToUse.id && product.size === this.selectedSize);
           if (productInCart != null) {
             if (this.counter + productInCart.quantity < selectedSizeData.quantity) {
               this.counter++;
