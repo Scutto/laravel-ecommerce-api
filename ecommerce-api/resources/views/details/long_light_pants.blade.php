@@ -1,0 +1,1 @@
+Pantaloni lunghi, leggeri ed elastici. I fori al laser ti forniranno un’ottima traspirabilità durante le tue uscite sui trails.
