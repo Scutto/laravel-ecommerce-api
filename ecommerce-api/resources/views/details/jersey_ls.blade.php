@@ -1,0 +1,1 @@
+Jersey con maniche lunghe. <br/>Costruzione ergonomica e vestibilità progettata per muoversi con te, grazie al doppio tessuto di cui è composta.
