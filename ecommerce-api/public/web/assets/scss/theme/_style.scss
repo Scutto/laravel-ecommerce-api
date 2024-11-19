@@ -7422,8 +7422,6 @@ ngx-loading-bar {
         margin-bottom: 10px;
         ul {
             li {
-                height: 40px;
-                width: 40px;
                 margin-right: 10px;
                 cursor: pointer;
                 border: 1px solid $grey-about;
@@ -7435,6 +7433,14 @@ ngx-loading-bar {
                     align-items: center;
                     justify-content: center;
                     height: 100%;
+                }
+                &.normal {
+                    height: 40px;
+                    width: 40px;
+                }
+                &.single {
+                    height: 40px;
+                    width: 100px;
                 }
                 &.active {
                     background-color: $grey-about;

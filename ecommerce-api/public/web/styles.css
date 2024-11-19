@@ -22376,8 +22376,6 @@ ngx-loading-bar {
   margin-bottom: 10px;
 }
 .product-right .size-box ul li {
-  height: 40px;
-  width: 40px;
   margin-right: 10px;
   cursor: pointer;
   border: 1px solid #f7f7f7;
@@ -22390,6 +22388,14 @@ ngx-loading-bar {
   align-items: center;
   justify-content: center;
   height: 100%;
+}
+.product-right .size-box ul li.normal {
+  height: 40px;
+  width: 40px;
+}
+.product-right .size-box ul li.single {
+  height: 40px;
+  width: 100px;
 }
 .product-right .size-box ul li.active {
   background-color: #f7f7f7;
